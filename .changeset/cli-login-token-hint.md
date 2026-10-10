@@ -2,4 +2,4 @@
 "emdash": patch
 ---
 
-Fixes the hint `emdash login` prints when a site does not offer browser sign-in from the CLI, such as a site using Cloudflare Access for authentication. The hint now shows a command that works with an API token, instead of an `emdash --token` command the CLI rejects, and when login got past Cloudflare Access with `--header` flags or cloudflared, it says how to pass the same access with each command.
+Fixes the command `emdash login` suggests after "Device Flow is not available for this instance.", such as on a site that uses Cloudflare Access for sign-in. The suggested `emdash --token` command failed with "Unknown command"; the hint now shows `emdash schema list --url <url> --token <token>`, and when login got past Cloudflare Access with `--header` flags, `EMDASH_HEADERS` or cloudflared, it also says how to pass that access with each command.
