@@ -26,7 +26,10 @@ Standard blocks (lossless round-trip):
 | `- item` / `* item`          | bullet list (nesting via 2-space indent)   |
 | `1. item`                    | numbered list (nesting via 2-space indent) |
 | ` ``` ```lang``` `           | code block with language                   |
+| `~~~` fence                  | code block, like a backtick fence          |
 | `![alt](url)`                | image block                                |
+
+Lines inside a paragraph join with a space. To keep a line break, end the line with two spaces or a backslash. On read, the CLI writes a line break inside a paragraph as a trailing backslash, so writing the content back keeps it.
 
 Inline marks:
 
@@ -34,6 +37,7 @@ Inline marks:
 | ------------- | --------------- |
 | `**bold**`    | `strong`        |
 | `_italic_`    | `em`            |
+| `*italic*`    | `em`            |
 | `` `code` ``  | `code`          |
 | `~~strike~~`  | `strikethrough` |
 | `[text](url)` | link annotation |
