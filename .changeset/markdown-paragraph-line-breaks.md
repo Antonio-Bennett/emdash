@@ -2,4 +2,4 @@
 "emdash": patch
 ---
 
-Fixes Markdown sent to rich text fields through `emdash content create`, `emdash content update`, the MCP content tools or `EmDashClient` turning every line break into a new paragraph and leaving `*italic*` as plain asterisks. Lines wrapped inside a paragraph now join with a space, a line that ends in two spaces or a backslash keeps its line break, and `*italic*` becomes italic like `_italic_`.
+Fixes wrapped paragraphs in Markdown written through the CLI, the MCP content tools or `EmDashClient` being split into one paragraph per line, and `*italic*` staying as plain asterisks. Wrapped lines now join into one paragraph, `*italic*` becomes italic, and a line break inside a paragraph reads back as a backslash at the end of the line, so writing the content back keeps it.

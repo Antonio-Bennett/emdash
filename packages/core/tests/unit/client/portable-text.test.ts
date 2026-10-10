@@ -13,6 +13,10 @@ beforeEach(() => {
 	resetKeyCounter();
 });
 
+function spansOf(block: PortableTextBlock) {
+	return (block.children ?? []).map((span) => [span.text, span.marks]);
+}
+
 // ---------------------------------------------------------------------------
 // PT -> Markdown
 // ---------------------------------------------------------------------------
@@ -389,10 +393,6 @@ describe("markdownToPortableText", () => {
 	});
 
 	describe("paragraphs and emphasis", () => {
-		function spansOf(block: PortableTextBlock) {
-			return (block.children ?? []).map((span) => [span.text, span.marks]);
-		}
-
 		it("joins wrapped lines into one paragraph", () => {
 			const blocks = markdownToPortableText("First line\n  second line\nthird line\n");
 			expect(blocks.map(spansOf)).toEqual([[["First line second line third line", []]]]);
@@ -426,6 +426,40 @@ describe("markdownToPortableText", () => {
 			expect(blocks.map(spansOf)).toEqual([[["It was finished in 2024. Then it shipped.", []]]]);
 		});
 
+		it("keeps every item of a numbered list whose items wrap", () => {
+			const blocks = markdownToPortableText(
+				"1. Install the CLI and log in\n   with your token.\n2. Create the collection.\n3. Import the content.\n",
+			);
+			const items = blocks.filter((block) => block.listItem === "number");
+			expect(items.map((block) => spansOf(block)[0]![0])).toEqual([
+				"Install the CLI and log in",
+				"Create the collection.",
+				"Import the content.",
+			]);
+		});
+
+		it.each([
+			["table rows", "| a | b |\n|---|---|\n| 1 | 2 |"],
+			["a thematic break", "***"],
+			["a setext underline", "---"],
+		])("keeps one block per line for %s", (_label, lines) => {
+			const markdown = `Paragraph\n${lines}\nAfter`;
+			expect(markdownToPortableText(`${markdown}\n`).map(spansOf)).toEqual(
+				markdown.split("\n").map((line) => [[line, []]]),
+			);
+		});
+
+		it("reads a ~~~ fence as a code block", () => {
+			const blocks = markdownToPortableText("Paragraph\n~~~\ncode  x\n  indented\n~~~\n");
+			expect(blocks.map((block) => block._type)).toEqual(["block", "code"]);
+			expect(blocks[1]!.code).toBe("code  x\n  indented");
+		});
+
+		it("leaves underscores inside words on separate lines unformatted", () => {
+			const blocks = markdownToPortableText("Rename file_name\nbefore you set user_id.\n");
+			expect(blocks.map(spansOf)).toEqual([[["Rename file_name before you set user_id.", []]]]);
+		});
+
 		it.each([
 			[
 				"Some *italic* text",
@@ -444,6 +478,14 @@ describe("markdownToPortableText", () => {
 			],
 			["*across\nlines*", [["across lines", ["em"]]]],
 			["2 * 3 * 4", [["2 * 3 * 4", []]]],
+			[
+				"*a **b** c*",
+				[
+					["*a ", []],
+					["b", ["strong"]],
+					[" c*", []],
+				],
+			],
 		])("reads single asterisks in %j", (markdown, spans) => {
 			expect(markdownToPortableText(`${markdown}\n`).map(spansOf)).toEqual([spans]);
 		});
@@ -566,6 +608,74 @@ describe("PT <-> Markdown round-trip", () => {
 		const boldSpan = roundTripped[0].children.find((c) => (c.marks ?? []).includes("strong"));
 		expect(boldSpan).toBeDefined();
 		expect(boldSpan!.text).toBe("bold");
+	});
+
+	describe("line breaks inside a paragraph", () => {
+		function paragraph(text: string, listItem?: string): PortableTextBlock {
+			return {
+				_type: "block",
+				style: "normal",
+				listItem,
+				markDefs: [],
+				children: [{ _type: "span", text, marks: [] }],
+			};
+		}
+
+		function roundTripTexts(blocks: PortableTextBlock[]) {
+			return markdownToPortableText(portableTextToMarkdown(blocks)).map(
+				(block) => block.children[0]!.text,
+			);
+		}
+
+		it.each([["Line one\nline two"], ["It was finished in\n2024. Then it shipped."]])(
+			"preserves the line break in %j",
+			(text) => {
+				expect(roundTripTexts([paragraph(text)])).toEqual([text]);
+			},
+		);
+
+		it.each([
+			["un", "believ", "able"],
+			["Re", "read this", " now"],
+			["Go ", "read this", "now"],
+		])("preserves emphasis that touches a word: %j", (before, emphasized, after) => {
+			const md = portableTextToMarkdown([
+				{
+					_type: "block",
+					style: "normal",
+					markDefs: [],
+					children: [
+						{ _type: "span", text: before, marks: [] },
+						{ _type: "span", text: emphasized, marks: ["em"] },
+						{ _type: "span", text: after, marks: [] },
+					],
+				},
+			]);
+			expect(spansOf(markdownToPortableText(md)[0]!)).toEqual([
+				[before, []],
+				[emphasized, ["em"]],
+				[after, []],
+			]);
+		});
+
+		it.each([
+			["a bullet item", [], "Line one\n- line two", ["Line one", "line two"]],
+			[
+				"a numbered item after a list",
+				[paragraph("Item", "number")],
+				"Line one\n2. line two",
+				["Item", "Line one", "line two"],
+			],
+			["a heading as the first line", [], "# Line one\nline two", ["Line one", "line two"]],
+			[
+				"a numbered item after a bullet item inside it",
+				[],
+				"Line one\n- item\n\nline three\n2. line four",
+				["Line one", "item", "line three", "line four"],
+			],
+		])("splits where a line starts %s", (_label, before, text, texts) => {
+			expect(roundTripTexts([...before, paragraph(text)])).toEqual(texts);
+		});
 	});
 });
 

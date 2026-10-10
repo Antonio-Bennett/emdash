@@ -66,7 +66,7 @@ export function portableTextToMarkdown(blocks: PortableTextBlock[]): string {
 				lines.push("");
 			}
 
-			lines.push(renderStandardBlock(block));
+			lines.push(renderStandardBlock(block, prevWasList));
 			prevWasList = isList;
 		} else if (block._type === "code") {
 			if (i > 0) lines.push("");
@@ -93,7 +93,7 @@ export function portableTextToMarkdown(blocks: PortableTextBlock[]): string {
 	return lines.join("\n") + "\n";
 }
 
-function renderStandardBlock(block: PortableTextBlock): string {
+function renderStandardBlock(block: PortableTextBlock, afterListItem: boolean): string {
 	const text = renderSpans(block.children ?? [], block.markDefs ?? []);
 
 	// List items
@@ -116,7 +116,29 @@ function renderStandardBlock(block: PortableTextBlock): string {
 		return `> ${text}`;
 	}
 
-	return text;
+	return renderParagraphLineBreaks(text, afterListItem);
+}
+
+/**
+ * Writes a line break as a backslash hard break wherever markdownToPortableText
+ * would otherwise join the next line with a space, so editor line breaks survive
+ * a read and write back. A line that starts another block keeps a bare newline.
+ */
+function renderParagraphLineBreaks(text: string, afterListItem: boolean): string {
+	let markdown = "";
+	let inParagraph = false;
+	for (const [index, line] of text.split("\n").entries()) {
+		if (inParagraph && continuesParagraph(line, afterListItem)) {
+			markdown += `\\\n${line}`;
+			continue;
+		}
+		markdown += index === 0 ? line : `\n${line}`;
+		inParagraph = continuesParagraph(line, true);
+		if (!inParagraph && line.trim() !== "") {
+			afterListItem = UNORDERED_LIST_PATTERN.test(line) || ORDERED_LIST_PATTERN.test(line);
+		}
+	}
+	return markdown;
 }
 
 function renderSpans(spans: PortableTextSpan[], markDefs: MarkDef[]): string {
@@ -169,11 +191,16 @@ const HEADING_PATTERN = /^(#{1,6})\s+(.+)$/;
 const UNORDERED_LIST_PATTERN = /^(\s*)[-*+]\s+(.+)$/;
 const ORDERED_LIST_PATTERN = /^(\s*)\d+\.\s+(.+)$/;
 const IMAGE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/;
+const CODE_FENCE_PATTERN = /^(```|~~~)/;
 // In CommonMark only an ordered list that starts at 1 can interrupt a paragraph.
 const PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN = /^\s*1\.\s+\S/;
+// Table rows, thematic breaks and setext underlines stay one block per line.
+const UNJOINABLE_LINE_PATTERN = /^\s*\||^ {0,3}(?:-+|=+|(?:\*[ \t]*){3,}|(?:_[ \t]*){3,})[ \t]*$/;
 const HARD_BREAK_PATTERN = /(?: {2,}|\\)$/;
 const INLINE_MARKDOWN_PATTERN =
-	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|(\*([^\s*](?:.*?[^\s*])?)\*)/gs;
+	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|(\*([^\s*](?:[^*]*?[^\s*])?)\*)/gs;
+const WORD_CHARACTER_PATTERN = /[\p{L}\p{N}]/u;
+const WHITESPACE_PATTERN = /\s/;
 
 /**
  * Convert Markdown to Portable Text blocks.
@@ -200,11 +227,13 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 		}
 
 		// Code fence
-		if (line.startsWith("```")) {
+		const fenceMatch = line.match(CODE_FENCE_PATTERN);
+		if (fenceMatch) {
+			const fence = fenceMatch[1];
 			const lang = line.slice(3).trim();
 			const codeLines: string[] = [];
 			i++;
-			while (i < lines.length && !lines[i].startsWith("```")) {
+			while (i < lines.length && !lines[i].startsWith(fence)) {
 				codeLines.push(lines[i]);
 				i++;
 			}
@@ -271,9 +300,14 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 		}
 
 		// Paragraph
+		const afterListItem = blocks.at(-1)?.listItem != null;
 		let text = line;
 		i++;
-		while (i < lines.length && continuesParagraph(lines[i])) {
+		while (
+			i < lines.length &&
+			!UNJOINABLE_LINE_PATTERN.test(line) &&
+			continuesParagraph(lines[i], afterListItem)
+		) {
 			text = joinParagraphLines(text, lines[i]);
 			i++;
 		}
@@ -283,16 +317,23 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 	return blocks;
 }
 
-function continuesParagraph(line: string): boolean {
+/**
+ * After a list item any number starts the next item, so a wrapped item's
+ * continuation line does not swallow the items that follow it.
+ */
+function continuesParagraph(line: string, afterListItem: boolean): boolean {
 	return (
 		line.trim() !== "" &&
 		!OPAQUE_FENCE_PATTERN.test(line) &&
-		!line.startsWith("```") &&
+		!CODE_FENCE_PATTERN.test(line) &&
 		!HEADING_PATTERN.test(line) &&
 		!line.startsWith("> ") &&
 		!UNORDERED_LIST_PATTERN.test(line) &&
-		!PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN.test(line) &&
-		!IMAGE_PATTERN.test(line)
+		!(afterListItem ? ORDERED_LIST_PATTERN : PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN).test(
+			line,
+		) &&
+		!IMAGE_PATTERN.test(line) &&
+		!UNJOINABLE_LINE_PATTERN.test(line)
 	);
 }
 
@@ -340,6 +381,11 @@ function parseInline(text: string): ParsedInline {
 	let match: RegExpExecArray | null;
 
 	while ((match = regex.exec(text)) !== null) {
+		if (match[4] != null && joinsSnakeCaseNames(text, match.index, match[0].length)) {
+			regex.lastIndex = match.index + 1;
+			continue;
+		}
+
 		if (match.index > lastIndex) {
 			spans.push({
 				_type: "span",
@@ -382,6 +428,18 @@ function parseInline(text: string): ParsedInline {
 	}
 
 	return { spans, markDefs };
+}
+
+/**
+ * An underscore pair that sits inside a word at both ends and spans a space
+ * joins two snake_case names, as in `file_name and user_id`, not an emphasis.
+ */
+function joinsSnakeCaseNames(text: string, index: number, length: number): boolean {
+	return (
+		WORD_CHARACTER_PATTERN.test(text[index - 1] ?? "") &&
+		WORD_CHARACTER_PATTERN.test(text[index + length] ?? "") &&
+		WHITESPACE_PATTERN.test(text.slice(index, index + length))
+	);
 }
 
 // ---------------------------------------------------------------------------
