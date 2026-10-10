@@ -478,6 +478,11 @@ describe("markdownToPortableText", () => {
 			],
 			["*across\nlines*", [["across lines", ["em"]]]],
 			["2 * 3 * 4", [["2 * 3 * 4", []]]],
+			["glob **/*.ts", [["glob **/*.ts", []]]],
+			["5**2 = 25 and 3*4", [["5**2 = 25 and 3*4", []]]],
+			["\\*args and \\*\\*kwargs", [["\\*args and \\*\\*kwargs", []]]],
+			["rename *.txt to \\*.md", [["rename *.txt to \\*.md", []]]],
+			["2*3**2 = 18", [["2*3**2 = 18", []]]],
 			[
 				"*a **b** c*",
 				[
@@ -611,13 +616,13 @@ describe("PT <-> Markdown round-trip", () => {
 	});
 
 	describe("line breaks inside a paragraph", () => {
-		function paragraph(text: string, listItem?: string): PortableTextBlock {
+		function paragraph(text: string, fields: Partial<PortableTextBlock> = {}): PortableTextBlock {
 			return {
 				_type: "block",
 				style: "normal",
-				listItem,
 				markDefs: [],
 				children: [{ _type: "span", text, marks: [] }],
+				...fields,
 			};
 		}
 
@@ -633,6 +638,34 @@ describe("PT <-> Markdown round-trip", () => {
 				expect(roundTripTexts([paragraph(text)])).toEqual([text]);
 			},
 		);
+
+		it("preserves emphasis across the line break", () => {
+			const md = portableTextToMarkdown([
+				{
+					_type: "block",
+					style: "normal",
+					markDefs: [],
+					children: [
+						{ _type: "span", text: "a ", marks: [] },
+						{ _type: "span", text: "b\nc", marks: ["em"] },
+						{ _type: "span", text: " d", marks: [] },
+					],
+				},
+			]);
+			expect(spansOf(markdownToPortableText(md)[0]!)).toEqual([
+				["a ", []],
+				["b\nc", ["em"]],
+				[" d", []],
+			]);
+		});
+
+		it.each([
+			["a blockquote", { style: "blockquote" }],
+			["a heading", { style: "h2" }],
+			["a list item", { listItem: "bullet", level: 1 }],
+		])("keeps the line breaks after the first line of %s", (_label, fields) => {
+			expect(roundTripTexts([paragraph("a\nb\nc", fields)])).toEqual(["a", "b\nc"]);
+		});
 
 		it.each([
 			["un", "believ", "able"],
@@ -659,22 +692,29 @@ describe("PT <-> Markdown round-trip", () => {
 		});
 
 		it.each([
-			["a bullet item", [], "Line one\n- line two", ["Line one", "line two"]],
+			["a bullet item", [paragraph("Line one\n- line two")], ["Line one", "line two"]],
 			[
 				"a numbered item after a list",
-				[paragraph("Item", "number")],
-				"Line one\n2. line two",
+				[paragraph("Item", { listItem: "number" }), paragraph("Line one\n2. line two")],
 				["Item", "Line one", "line two"],
 			],
-			["a heading as the first line", [], "# Line one\nline two", ["Line one", "line two"]],
+			[
+				"a heading as the first line",
+				[paragraph("# Line one\nline two")],
+				["Line one", "line two"],
+			],
 			[
 				"a numbered item after a bullet item inside it",
-				[],
-				"Line one\n- item\n\nline three\n2. line four",
+				[paragraph("Line one\n- item\n\nline three\n2. line four")],
 				["Line one", "item", "line three", "line four"],
 			],
-		])("splits where a line starts %s", (_label, before, text, texts) => {
-			expect(roundTripTexts([...before, paragraph(text)])).toEqual(texts);
+			[
+				"a numbered item after the first line of a list item",
+				[paragraph("Item\nline two\n2. line three", { listItem: "bullet", level: 1 })],
+				["Item", "line two", "line three"],
+			],
+		])("splits where a line starts %s", (_label, blocks, texts) => {
+			expect(roundTripTexts(blocks)).toEqual(texts);
 		});
 	});
 });

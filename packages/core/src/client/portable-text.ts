@@ -100,23 +100,35 @@ function renderStandardBlock(block: PortableTextBlock, afterListItem: boolean): 
 	if (block.listItem) {
 		const indent = "  ".repeat(Math.max(0, (block.level ?? 1) - 1));
 		const marker = block.listItem === "number" ? "1." : "-";
-		return `${indent}${marker} ${text}`;
+		return `${indent}${marker} ${renderLinesAfterFirst(text, true)}`;
 	}
 
 	// Headings
 	if (block.style && block.style.startsWith("h")) {
 		const level = parseInt(block.style.substring(1), 10);
 		if (level >= 1 && level <= 6) {
-			return `${"#".repeat(level)} ${text}`;
+			return `${"#".repeat(level)} ${renderLinesAfterFirst(text, false)}`;
 		}
 	}
 
 	// Blockquote
 	if (block.style === "blockquote") {
-		return `> ${text}`;
+		return `> ${renderLinesAfterFirst(text, false)}`;
 	}
 
 	return renderParagraphLineBreaks(text, afterListItem);
+}
+
+/**
+ * markdownToPortableText reads only the first line into a list item, heading or
+ * blockquote, and the lines after it as a paragraph.
+ */
+function renderLinesAfterFirst(text: string, isListItem: boolean): string {
+	const lineBreak = text.indexOf("\n");
+	if (lineBreak === -1) return text;
+	return (
+		text.slice(0, lineBreak + 1) + renderParagraphLineBreaks(text.slice(lineBreak + 1), isListItem)
+	);
 }
 
 /**
@@ -197,8 +209,9 @@ const PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN = /^\s*1\.\s+\S/;
 // Table rows, thematic breaks and setext underlines stay one block per line.
 const UNJOINABLE_LINE_PATTERN = /^\s*\||^ {0,3}(?:-+|=+|(?:\*[ \t]*){3,}|(?:_[ \t]*){3,})[ \t]*$/;
 const HARD_BREAK_PATTERN = /(?: {2,}|\\)$/;
+// A single star next to another star or a backslash stays literal, as in `**/*.ts` or `\*args`.
 const INLINE_MARKDOWN_PATTERN =
-	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|(\*([^\s*](?:[^*]*?[^\s*])?)\*)/gs;
+	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|((?<![\\*])\*([^\s*](?:[^*]*?[^\s*\\])?)\*(?!\*))/gs;
 const WORD_CHARACTER_PATTERN = /[\p{L}\p{N}]/u;
 const WHITESPACE_PATTERN = /\s/;
 
