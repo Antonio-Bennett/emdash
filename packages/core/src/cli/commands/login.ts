@@ -256,7 +256,10 @@ export const loginCommand = defineCommand({
 				// No device flow available (external auth mode)
 				consola.info("Device Flow is not available for this instance.");
 				consola.info("Generate an API token in Settings > API Tokens");
-				consola.info(`Then run: ${pc.cyan(`emdash --token <token> --url ${baseUrl}`)}`);
+				consola.info(
+					`Then pass it to each command, for example: ${pc.cyan(`emdash schema list --url ${baseUrl} --token <token>`)}`,
+				);
+				consola.info("Or set EMDASH_URL and EMDASH_TOKEN instead of passing the flags.");
 				return;
 			}
 
