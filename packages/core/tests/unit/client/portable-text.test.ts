@@ -387,6 +387,67 @@ describe("markdownToPortableText", () => {
 		expect(strikeSpan).toBeDefined();
 		expect(strikeSpan!.text).toBe("deleted");
 	});
+
+	describe("paragraphs and emphasis", () => {
+		function spansOf(block: PortableTextBlock) {
+			return (block.children ?? []).map((span) => [span.text, span.marks]);
+		}
+
+		it("joins wrapped lines into one paragraph", () => {
+			const blocks = markdownToPortableText("First line\n  second line\nthird line\n");
+			expect(blocks.map(spansOf)).toEqual([[["First line second line third line", []]]]);
+		});
+
+		it.each([
+			["two trailing spaces", "First line  \nsecond line\n"],
+			["a trailing backslash", "First line\\\nsecond line\n"],
+		])("keeps a hard line break marked by %s", (_label, markdown) => {
+			expect(markdownToPortableText(markdown).map(spansOf)).toEqual([
+				[["First line\nsecond line", []]],
+			]);
+		});
+
+		it.each([
+			["a heading", "## Next"],
+			["a blockquote", "> Next"],
+			["a bullet item", "- Next"],
+			["a numbered item starting at 1", "1. Next"],
+			["a code fence", "```\nNext\n```"],
+			["an image", "![Next](/next.jpg)"],
+			["an opaque block", '<!--ec:block {"_type":"widget"} -->'],
+		])("ends a paragraph at %s", (_label, next) => {
+			const blocks = markdownToPortableText(`Paragraph\n${next}\n`);
+			expect(blocks).toHaveLength(2);
+			expect(spansOf(blocks[0]!)).toEqual([["Paragraph", []]]);
+		});
+
+		it("keeps a wrapped line that starts with another number in the paragraph", () => {
+			const blocks = markdownToPortableText("It was finished in\n2024. Then it shipped.\n");
+			expect(blocks.map(spansOf)).toEqual([[["It was finished in 2024. Then it shipped.", []]]]);
+		});
+
+		it.each([
+			[
+				"Some *italic* text",
+				[
+					["Some ", []],
+					["italic", ["em"]],
+					[" text", []],
+				],
+			],
+			[
+				"*Note:* at the start",
+				[
+					["Note:", ["em"]],
+					[" at the start", []],
+				],
+			],
+			["*across\nlines*", [["across lines", ["em"]]]],
+			["2 * 3 * 4", [["2 * 3 * 4", []]]],
+		])("reads single asterisks in %j", (markdown, spans) => {
+			expect(markdownToPortableText(`${markdown}\n`).map(spansOf)).toEqual([spans]);
+		});
+	});
 });
 
 // ---------------------------------------------------------------------------

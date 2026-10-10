@@ -169,8 +169,11 @@ const HEADING_PATTERN = /^(#{1,6})\s+(.+)$/;
 const UNORDERED_LIST_PATTERN = /^(\s*)[-*+]\s+(.+)$/;
 const ORDERED_LIST_PATTERN = /^(\s*)\d+\.\s+(.+)$/;
 const IMAGE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/;
+// In CommonMark only an ordered list that starts at 1 can interrupt a paragraph.
+const PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN = /^\s*1\.\s+\S/;
+const HARD_BREAK_PATTERN = /(?: {2,}|\\)$/;
 const INLINE_MARKDOWN_PATTERN =
-	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)/g;
+	/(\*\*(.+?)\*\*)|(_(.+?)_)|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|(\*([^\s*](?:.*?[^\s*])?)\*)/gs;
 
 /**
  * Convert Markdown to Portable Text blocks.
@@ -268,11 +271,39 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 		}
 
 		// Paragraph
-		blocks.push(makeBlock(line));
+		let text = line;
 		i++;
+		while (i < lines.length && continuesParagraph(lines[i])) {
+			text = joinParagraphLines(text, lines[i]);
+			i++;
+		}
+		blocks.push(makeBlock(text));
 	}
 
 	return blocks;
+}
+
+function continuesParagraph(line: string): boolean {
+	return (
+		line.trim() !== "" &&
+		!OPAQUE_FENCE_PATTERN.test(line) &&
+		!line.startsWith("```") &&
+		!HEADING_PATTERN.test(line) &&
+		!line.startsWith("> ") &&
+		!UNORDERED_LIST_PATTERN.test(line) &&
+		!PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN.test(line) &&
+		!IMAGE_PATTERN.test(line)
+	);
+}
+
+/**
+ * In CommonMark a line ending in two spaces or a backslash is a hard break; any
+ * other line break inside a paragraph is soft and reads as a space.
+ */
+function joinParagraphLines(text: string, next: string): string {
+	const hardBreak = HARD_BREAK_PATTERN.test(text);
+	const head = text.endsWith("\\") ? text.slice(0, -1) : text;
+	return head.trimEnd() + (hardBreak ? "\n" : " ") + next.trimStart();
 }
 
 // ---------------------------------------------------------------------------
@@ -335,6 +366,8 @@ function parseInline(text: string): ParsedInline {
 				text: match[11],
 				marks: ["strike-through"],
 			});
+		} else if (match[13] != null) {
+			spans.push({ _type: "span", _key: generateKey(), text: match[13], marks: ["em"] });
 		}
 
 		lastIndex = match.index + match[0].length;
