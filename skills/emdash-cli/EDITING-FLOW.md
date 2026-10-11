@@ -29,7 +29,9 @@ Standard blocks (lossless round-trip):
 | `~~~` fence                  | code block, like a backtick fence          |
 | `![alt](url)`                | image block                                |
 
-Lines inside a paragraph join with a space. To keep a line break, end the line with two spaces or a backslash. On read, the CLI writes a line break inside a paragraph as a trailing backslash, so writing the content back keeps it.
+Lines inside a paragraph join with a space, so separate paragraphs with a blank line. To keep a line break, end the line with two spaces or a backslash. A backslash before a punctuation character, as in `\*` or `\#`, keeps that character as text.
+
+On read, the CLI ends each line inside a paragraph with a backslash and escapes characters that would otherwise read as Markdown, such as `*`, `_` or a `#` at the start of a line, so writing a paragraph back keeps its text and line breaks. A list item, heading or quote holds one line: the lines after the first come back as a paragraph below it.
 
 Inline marks:
 
