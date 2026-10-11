@@ -396,7 +396,7 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 		}
 
 		// Paragraph
-		const afterListItem = blocks.at(-1)?.listItem != null;
+		const afterListItem = blocks.at(-1)?.listItem != null && lines[i - 1]?.trim() !== "";
 		let text = line;
 		i++;
 		while (

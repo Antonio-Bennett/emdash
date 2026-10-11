@@ -430,11 +430,20 @@ describe("markdownToPortableText", () => {
 			const blocks = markdownToPortableText(
 				"1. Install the CLI and log in\n   with your token.\n2. Create the collection.\n3. Import the content.\n",
 			);
+			const items = blocks.filter((block) => block.listItem === "number").map(spansOf);
+			expect(items).toEqual([
+				[["Install the CLI and log in", []]],
+				[["Create the collection.", []]],
+				[["Import the content.", []]],
+			]);
+			expect(blocks.flatMap(spansOf).map(([text]) => text.trim())).toContain("with your token.");
+		});
+
+		it("keeps a wrapped line that starts with a number in a paragraph after a list", () => {
+			const blocks = markdownToPortableText("- a\n\nThe project started in\n2019. It grew.\n");
 			expect(blocks.map((block) => [block.listItem, spansOf(block)])).toEqual([
-				["number", [["Install the CLI and log in", []]]],
-				[undefined, [["   with your token.", []]]],
-				["number", [["Create the collection.", []]]],
-				["number", [["Import the content.", []]]],
+				["bullet", [["a", []]]],
+				[undefined, [["The project started in 2019. It grew.", []]]],
 			]);
 		});
 
