@@ -401,6 +401,7 @@ describe("markdownToPortableText", () => {
 		it.each([
 			["two trailing spaces", "First line  \nsecond line\n"],
 			["a trailing backslash", "First line\\\nsecond line\n"],
+			["a line holding only a backslash", "First line\n\\\nsecond line\n"],
 		])("keeps a hard line break marked by %s", (_label, markdown) => {
 			expect(markdownToPortableText(markdown).map(spansOf)).toEqual([
 				[["First line\nsecond line", []]],

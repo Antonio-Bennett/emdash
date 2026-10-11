@@ -341,7 +341,7 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 				language: lang || undefined,
 				code: codeLines.join("\n"),
 			});
-			i++; // skip closing ```
+			i++; // skip the closing fence
 			continue;
 		}
 
@@ -399,17 +399,17 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 
 		// Paragraph
 		const afterListItem = blocks.at(-1)?.listItem != null && lines[i - 1]?.trim() !== "";
-		let text = line;
+		const paragraph = [line];
 		i++;
 		while (
 			i < lines.length &&
 			!UNJOINABLE_LINE_PATTERN.test(line) &&
 			continuesParagraph(lines[i], afterListItem)
 		) {
-			text = joinParagraphLines(text, lines[i]);
+			joinParagraphLine(paragraph, lines[i]);
 			i++;
 		}
-		blocks.push(makeBlock(text));
+		blocks.push(makeBlock(paragraph.join("")));
 	}
 
 	return blocks;
@@ -436,14 +436,18 @@ function continuesParagraph(line: string, afterListItem: boolean): boolean {
 }
 
 /**
+ * Appends the next line to a paragraph whose last entry is the line before it.
  * In CommonMark a line ending in two spaces or a backslash is a hard break; any
  * other line break inside a paragraph is soft and reads as a space.
  */
-function joinParagraphLines(text: string, next: string): string {
-	const backslashBreak = BACKSLASH_HARD_BREAK_PATTERN.test(text);
-	const hardBreak = backslashBreak || SPACES_HARD_BREAK_PATTERN.test(text);
-	const head = (backslashBreak ? text.slice(0, -1) : text).replace(TRAILING_SPACES_PATTERN, "");
-	return head + (hardBreak ? "\n" : " ") + next.trimStart();
+function joinParagraphLine(paragraph: string[], next: string): void {
+	const line = paragraph.pop() ?? "";
+	const backslashBreak = BACKSLASH_HARD_BREAK_PATTERN.test(line);
+	const hardBreak = backslashBreak || SPACES_HARD_BREAK_PATTERN.test(line);
+	const head = (backslashBreak ? line.slice(0, -1) : line).replace(TRAILING_SPACES_PATTERN, "");
+	// A line holding only the hard break also drops the space before it.
+	if (head === "") paragraph.push((paragraph.pop() ?? "").replace(TRAILING_SPACES_PATTERN, ""));
+	paragraph.push(head + (hardBreak ? "\n" : " "), next.trimStart());
 }
 
 // ---------------------------------------------------------------------------
