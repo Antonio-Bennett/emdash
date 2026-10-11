@@ -762,6 +762,7 @@ describe("PT <-> Markdown round-trip", () => {
 				["Item", "more", "Line one\n2. x"],
 			],
 			["a paragraph that ends in line breaks", [block(["a\n\n"])], ["a"]],
+			["lines that hold only a block marker", [block(["# \n- \n1. \nx"])], ["#\n-\n1.\nx"]],
 		])("reads back the line breaks in %s", (_label, blocks, texts) => {
 			expect(roundTrip(blocks).map((b) => b.children[0]!.text)).toEqual(texts);
 		});

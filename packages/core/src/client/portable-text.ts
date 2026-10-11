@@ -138,18 +138,20 @@ function renderLinesAfterFirst(text: string): string {
 function renderParagraph(text: string): string {
 	const lines = text.split("\n");
 	while (lines.length > 1 && lines.at(-1)?.trim() === "") lines.pop();
-	return lines.map(escapeBlockStart).join("\\\n");
+	return lines.map((line, index) => escapeBlockStart(line, index < lines.length - 1)).join("\\\n");
 }
 
 /**
  * Escapes the start of a line that markdownToPortableText would read as the start
- * of another block, such as `# `, `> `, `- `, `2. `, a table row or `---`.
+ * of another block, such as `# `, `> `, `- `, `2. `, a table row or `---`. The check
+ * reads the line with its hard break, because `# \` is a heading where `# ` is not.
  */
-function escapeBlockStart(line: string): string {
+function escapeBlockStart(line: string, beforeHardBreak: boolean): string {
+	const written = beforeHardBreak ? `${line}\\` : line;
 	// With afterListItem set any `<number>. ` counts as a list item, so the escape
 	// holds wherever the line ends up.
-	if (line.trim() === "" || continuesParagraph(line, true)) return line;
-	if (ORDERED_LIST_PATTERN.test(line)) return line.replace(ORDERED_LIST_NUMBER_PATTERN, "$1\\.");
+	if (line.trim() === "" || continuesParagraph(written, true)) return line;
+	if (ORDERED_LIST_PATTERN.test(written)) return line.replace(ORDERED_LIST_NUMBER_PATTERN, "$1\\.");
 	return line.replace(LEADING_WHITESPACE_PATTERN, "$1\\");
 }
 
