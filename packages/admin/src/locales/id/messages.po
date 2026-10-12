@@ -1364,7 +1364,8 @@ msgstr "Tambahkan tag meta noindex"
 msgid "Add Passkey"
 msgstr "Tambahkan Kunci Sandi"
 
-#: packages/admin/src/components/ContentEditor.tsx:2840
+#: packages/admin/src/components/ContentEditor.tsx:2841
+#: packages/admin/src/components/ContentEditor.tsx:2841
 msgid "Add reference"
 msgstr "Tambahkan referensi"
 
@@ -1708,24 +1709,24 @@ msgstr "Kunci digital terenkripsi yang Anda buka menggunakan sidik jari, wajah, 
 #: packages/admin/src/components/TaxonomySidebar.tsx:687
 #: packages/admin/src/components/TaxonomySidebar.tsx:783
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:114
-#: packages/admin/src/router.tsx:581
-#: packages/admin/src/router.tsx:596
-#: packages/admin/src/router.tsx:610
-#: packages/admin/src/router.tsx:624
-#: packages/admin/src/router.tsx:846
-#: packages/admin/src/router.tsx:1253
-#: packages/admin/src/router.tsx:1356
-#: packages/admin/src/router.tsx:1390
-#: packages/admin/src/router.tsx:1414
-#: packages/admin/src/router.tsx:1439
-#: packages/admin/src/router.tsx:1495
-#: packages/admin/src/router.tsx:1514
-#: packages/admin/src/router.tsx:1547
-#: packages/admin/src/router.tsx:1568
-#: packages/admin/src/router.tsx:2317
-#: packages/admin/src/router.tsx:2333
-#: packages/admin/src/router.tsx:2358
-#: packages/admin/src/router.tsx:2960
+#: packages/admin/src/router.tsx:582
+#: packages/admin/src/router.tsx:597
+#: packages/admin/src/router.tsx:611
+#: packages/admin/src/router.tsx:625
+#: packages/admin/src/router.tsx:848
+#: packages/admin/src/router.tsx:1248
+#: packages/admin/src/router.tsx:1351
+#: packages/admin/src/router.tsx:1385
+#: packages/admin/src/router.tsx:1409
+#: packages/admin/src/router.tsx:1434
+#: packages/admin/src/router.tsx:1490
+#: packages/admin/src/router.tsx:1509
+#: packages/admin/src/router.tsx:1542
+#: packages/admin/src/router.tsx:1563
+#: packages/admin/src/router.tsx:2312
+#: packages/admin/src/router.tsx:2328
+#: packages/admin/src/router.tsx:2353
+#: packages/admin/src/router.tsx:2955
 #: packages/admin/src/routes/byline-schema.tsx:103
 #: packages/admin/src/routes/byline-schema.tsx:123
 #: packages/admin/src/routes/byline-schema.tsx:139
@@ -5493,10 +5494,10 @@ msgstr "Gagal membuat widget"
 msgid "Failed to create widget area"
 msgstr "Gagal membuat area widget"
 
-#: packages/admin/src/router.tsx:580
-#: packages/admin/src/router.tsx:609
-#: packages/admin/src/router.tsx:692
-#: packages/admin/src/router.tsx:1567
+#: packages/admin/src/router.tsx:581
+#: packages/admin/src/router.tsx:610
+#: packages/admin/src/router.tsx:693
+#: packages/admin/src/router.tsx:1562
 msgid "Failed to delete"
 msgstr "Gagal menghapus"
 
@@ -5886,8 +5887,8 @@ msgstr "Gagal mengambil status pembaruan"
 #: packages/admin/src/lib/api/current-user.ts:22
 #: packages/admin/src/lib/api/users.ts:91
 #: packages/admin/src/lib/api/users.ts:96
-#: packages/admin/src/router.tsx:1127
-#: packages/admin/src/router.tsx:2263
+#: packages/admin/src/router.tsx:1126
+#: packages/admin/src/router.tsx:2258
 msgid "Failed to fetch user"
 msgstr "Gagal mengambil pengguna"
 
@@ -6097,8 +6098,8 @@ msgstr "Gagal menyiapkan impor"
 msgid "Failed to probe URL"
 msgstr "Gagal menyelidiki URL"
 
-#: packages/admin/src/router.tsx:648
-#: packages/admin/src/router.tsx:1389
+#: packages/admin/src/router.tsx:649
+#: packages/admin/src/router.tsx:1384
 msgid "Failed to publish"
 msgstr "Gagal memublikasikan"
 
@@ -6187,9 +6188,9 @@ msgstr "Gagal mencabut token API"
 msgid "Failed to rewrite URLs"
 msgstr "Gagal menulis ulang URL"
 
-#: packages/admin/src/router.tsx:841
-#: packages/admin/src/router.tsx:1250
-#: packages/admin/src/router.tsx:2959
+#: packages/admin/src/router.tsx:843
+#: packages/admin/src/router.tsx:1245
+#: packages/admin/src/router.tsx:2954
 msgid "Failed to save"
 msgstr "Gagal menyimpan"
 
@@ -7943,8 +7944,8 @@ msgstr "Memuat koleksi..."
 msgid "Loading comments..."
 msgstr "Memuat komentar..."
 
-#: packages/admin/src/router.tsx:3212
-#: packages/admin/src/router.tsx:3224
+#: packages/admin/src/router.tsx:3207
+#: packages/admin/src/router.tsx:3219
 msgid "Loading configuration..."
 msgstr "Memuat konfigurasi..."
 
@@ -11616,6 +11617,7 @@ msgid "SCSS"
 msgstr "SCSS"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:106
+#: packages/admin/src/components/Settings.tsx:165
 #: packages/admin/src/components/Settings.tsx:165
 #: packages/admin/src/components/Widgets.tsx:152
 msgid "Search"
