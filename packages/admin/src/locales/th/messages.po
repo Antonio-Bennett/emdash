@@ -5068,7 +5068,7 @@ msgstr ""
 msgid "Enter a URL (https://…) or a relative path (/…)"
 msgstr "ป้อน URL (https://…) หรือพาธสัมพัทธ์ (/…)"
 
-#: packages/admin/src/components/ContentEditor.tsx:2994
+#: packages/admin/src/components/ContentEditor.tsx:2996
 msgid "Enter a valid URL (e.g. https://example.com)"
 msgstr "ป้อน URL ที่ถูกต้อง (เช่น https://example.com)"
 
@@ -7477,7 +7477,7 @@ msgstr "HANDLE ไม่ถูกต้อง"
 msgid "Invalid invite link"
 msgstr "ลิงก์คำเชิญไม่ถูกต้อง"
 
-#: packages/admin/src/components/ContentEditor.tsx:3065
+#: packages/admin/src/components/ContentEditor.tsx:3072
 msgid "Invalid JSON"
 msgstr "JSON ไม่ถูกต้อง"
 
@@ -10698,7 +10698,7 @@ msgstr ""
 
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:84
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:115
-#: packages/admin/src/components/ContentEditor.tsx:3226
+#: packages/admin/src/components/ContentEditor.tsx:3233
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:473
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:357
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:813
@@ -10735,7 +10735,7 @@ msgstr "นำ {0} ออกจากรายการที่เลือก"
 msgid "Remove {entry}"
 msgstr "นำออก {entry}"
 
-#: packages/admin/src/components/ContentEditor.tsx:3224
+#: packages/admin/src/components/ContentEditor.tsx:3231
 msgid "Remove {label}"
 msgstr "นำออก {label}"
 
@@ -10870,8 +10870,8 @@ msgstr "กลุ่มฟิลด์ที่ทำซ้ำได้"
 msgid "visualEditing.replaceImage"
 msgstr ""
 
-#: packages/admin/src/components/ContentEditor.tsx:3216
-#: packages/admin/src/components/ContentEditor.tsx:3253
+#: packages/admin/src/components/ContentEditor.tsx:3223
+#: packages/admin/src/components/ContentEditor.tsx:3260
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:449
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:506
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:298
@@ -10887,7 +10887,7 @@ msgstr ""
 msgid "Replace"
 msgstr "แทนที่"
 
-#: packages/admin/src/components/ContentEditor.tsx:3252
+#: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
 msgid "Replace {label}"
 msgstr "แทนที่ {label}"
@@ -11901,8 +11901,8 @@ msgid "Select"
 msgstr "เลือก"
 
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:140
-#: packages/admin/src/components/ContentEditor.tsx:3236
-#: packages/admin/src/components/ContentEditor.tsx:3252
+#: packages/admin/src/components/ContentEditor.tsx:3243
+#: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
 msgid "Select {label}"
 msgstr "เลือก {label}"
@@ -11981,7 +11981,7 @@ msgstr "เลือก Favicon"
 msgid "Select Favicon"
 msgstr "เลือก Favicon"
 
-#: packages/admin/src/components/ContentEditor.tsx:3240
+#: packages/admin/src/components/ContentEditor.tsx:3247
 #: packages/admin/src/components/MediaPickerModal.tsx:232
 msgid "Select file"
 msgstr "เลือกไฟล์"
@@ -13515,7 +13515,7 @@ msgstr "ฟิลด์นี้ไม่รับไฟล์ {mimeType}"
 msgid "This field expects a list. The stored value stays unchanged until you replace it with an empty list, which deletes it. Copy anything you need from it first."
 msgstr "ฟิลด์นี้ต้องการรายการแบบลิสต์ ค่าที่จัดเก็บไว้จะไม่เปลี่ยนจนกว่าคุณจะแทนที่ด้วยลิสต์ว่าง ซึ่งจะลบค่านั้น คัดลอกสิ่งที่ต้องการออกมาก่อน"
 
-#: packages/admin/src/components/ContentEditor.tsx:3256
+#: packages/admin/src/components/ContentEditor.tsx:3263
 #: packages/admin/src/components/ImageFieldRenderer.tsx:603
 msgid "This field is required"
 msgstr "ฟิลด์นี้ต้องระบุ"
@@ -14265,7 +14265,7 @@ msgstr "จนถึง {0}"
 msgid "Untitled"
 msgstr "ไม่มีชื่อ"
 
-#: packages/admin/src/components/ContentEditor.tsx:3158
+#: packages/admin/src/components/ContentEditor.tsx:3165
 msgid "Untitled file"
 msgstr "ไฟล์ไม่มีชื่อ"
 
