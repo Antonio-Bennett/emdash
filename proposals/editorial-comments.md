@@ -165,33 +165,33 @@ One migration (the next free number at implementation time) creates two tables. 
 
 `_emdash_editorial_threads`:
 
-| Column         | Type | Notes                                                         |
-| -------------- | ---- | ------------------------------------------------------------- |
-| `id`           | text | Primary key, ULID                                             |
-| `collection`   | text | Not null                                                      |
-| `entry_id`     | text | Not null; the per-locale entry row ID                         |
-| `anchor`       | text | Not null; JSON `EditorialAnchor`                              |
-| `anchor_state` | text | Not null, default `'attached'`; `'attached'` or `'orphaned'`  |
-| `status`       | text | Not null, default `'open'`; `'open'` or `'resolved'`          |
-| `created_by`   | text | References `users.id`, `ON DELETE SET NULL`                   |
-| `resolved_by`  | text | References `users.id`, `ON DELETE SET NULL`                   |
-| `resolved_at`  | text | Null while open                                               |
-| `created_at`   | text | Not null                                                      |
+| Column         | Type | Notes                                                          |
+| -------------- | ---- | -------------------------------------------------------------- |
+| `id`           | text | Primary key, ULID                                              |
+| `collection`   | text | Not null                                                       |
+| `entry_id`     | text | Not null; the per-locale entry row ID                          |
+| `anchor`       | text | Not null; JSON `EditorialAnchor`                               |
+| `anchor_state` | text | Not null, default `'attached'`; `'attached'` or `'orphaned'`   |
+| `status`       | text | Not null, default `'open'`; `'open'` or `'resolved'`           |
+| `created_by`   | text | References `users.id`, `ON DELETE SET NULL`                    |
+| `resolved_by`  | text | References `users.id`, `ON DELETE SET NULL`                    |
+| `resolved_at`  | text | Null while open                                                |
+| `created_at`   | text | Not null                                                       |
 | `updated_at`   | text | Not null; advances on any change to the thread or its comments |
 
 Indexes: `idx_editorial_threads_entry` on `(collection, entry_id, status)`, `idx_editorial_threads_created_by`, and `idx_editorial_threads_resolved_by`.
 
 `_emdash_editorial_comments`:
 
-| Column       | Type | Notes                                                                   |
-| ------------ | ---- | ----------------------------------------------------------------------- |
-| `id`         | text | Primary key, ULID                                                       |
+| Column       | Type | Notes                                                                    |
+| ------------ | ---- | ------------------------------------------------------------------------ |
+| `id`         | text | Primary key, ULID                                                        |
 | `thread_id`  | text | Not null; references `_emdash_editorial_threads.id`, `ON DELETE CASCADE` |
-| `author_id`  | text | References `users.id`, `ON DELETE SET NULL`                             |
-| `body`       | text | Not null; empty after deletion                                          |
-| `created_at` | text | Not null                                                                |
-| `edited_at`  | text | Null until edited                                                       |
-| `deleted_at` | text | Null until deleted                                                      |
+| `author_id`  | text | References `users.id`, `ON DELETE SET NULL`                              |
+| `body`       | text | Not null; empty after deletion                                           |
+| `created_at` | text | Not null                                                                 |
+| `edited_at`  | text | Null until edited                                                        |
+| `deleted_at` | text | Null until deleted                                                       |
 
 Indexes: `idx_editorial_comments_thread` on `(thread_id, created_at)` and `idx_editorial_comments_author_id`.
 
@@ -205,10 +205,10 @@ A body is plain text of 1 to 10,000 characters. A mention is the token `<@USER_I
 
 Add two permissions to `packages/auth/src/rbac.ts`:
 
-| Permission          | Minimum role | Grants                                                                 |
-| ------------------- | ------------ | ---------------------------------------------------------------------- |
-| `editorial:comment` | Contributor  | Read threads, start threads, reply, edit and delete own comments       |
-| `editorial:manage`  | Editor       | Resolve and reopen any thread, delete any comment, delete any thread   |
+| Permission          | Minimum role | Grants                                                               |
+| ------------------- | ------------ | -------------------------------------------------------------------- |
+| `editorial:comment` | Contributor  | Read threads, start threads, reply, edit and delete own comments     |
+| `editorial:manage`  | Editor       | Resolve and reopen any thread, delete any comment, delete any thread |
 
 Every route also requires `content:read_drafts`, because threads discuss unpublished content. A user can resolve or reopen a thread when they hold `editorial:manage`, created the thread, or own the entry and hold `content:edit_own`. Only a comment's author can edit it. A thread can be deleted by a holder of `editorial:manage`, or by its creator while it has no comments from other users.
 
@@ -218,17 +218,17 @@ All routes live under `/_emdash/api/content/{collection}/{id}/`, so token reques
 
 Each route starts with `export const prerender = false`, validates bodies with `parseBody`, and verifies that the thread belongs to the collection and entry in the path. Handlers live in `packages/core/src/api/handlers/editorial-comments.ts`.
 
-| Method and path                               | Purpose                                                                           |
-| --------------------------------------------- | --------------------------------------------------------------------------------- |
-| `GET …/threads?status=open\|resolved\|all`     | List threads with their comments; `{ items, nextCursor? }`, default 50, max 100   |
-| `POST …/threads`                              | Create a thread and its first comment from `{ version, anchor, body }`            |
-| `PATCH …/threads/{threadId}`                  | Set `{ status }`                                                                  |
-| `DELETE …/threads/{threadId}`                 | Delete a thread and its comments                                                  |
-| `POST …/threads/{threadId}/comments`          | Reply with `{ body }`; a reply to a resolved thread reopens it                    |
-| `PATCH …/threads/{threadId}/comments/{id}`    | Edit `{ body }`                                                                   |
-| `DELETE …/threads/{threadId}/comments/{id}`   | Clear the body and set `deleted_at`; deleting a thread's only comment deletes the thread |
-| `PATCH …/threads/anchors`                     | Update `{ version, anchors: [{ threadId, anchor, anchorState }] }` in one request |
-| `GET …/threads/mentionable?q=`                | Up to 10 users holding `editorial:comment`: `id`, display name, avatar URL        |
+| Method and path                             | Purpose                                                                                  |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `GET …/threads?status=open\|resolved\|all`  | List threads with their comments; `{ items, nextCursor? }`, default 50, max 100          |
+| `POST …/threads`                            | Create a thread and its first comment from `{ version, anchor, body }`                   |
+| `PATCH …/threads/{threadId}`                | Set `{ status }`                                                                         |
+| `DELETE …/threads/{threadId}`               | Delete a thread and its comments                                                         |
+| `POST …/threads/{threadId}/comments`        | Reply with `{ body }`; a reply to a resolved thread reopens it                           |
+| `PATCH …/threads/{threadId}/comments/{id}`  | Edit `{ body }`                                                                          |
+| `DELETE …/threads/{threadId}/comments/{id}` | Clear the body and set `deleted_at`; deleting a thread's only comment deletes the thread |
+| `PATCH …/threads/anchors`                   | Update `{ version, anchors: [{ threadId, anchor, anchorState }] }` in one request        |
+| `GET …/threads/mentionable?q=`              | Up to 10 users holding `editorial:comment`: `id`, display name, avatar URL               |
 
 `GET …/threads` returns threads and comments from one query. Deleted comments are returned with an empty body so clients can show a placeholder in thread order. Author fields resolve to `null` for deleted users.
 
