@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr ""
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {Nahrává se # soubor} few {Nahrávají se # soubory} other {Nahrává se # souborů}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {# soubor nebyl přidán, protože je seznam nahrávání plný.} few {# soubory nebyly přidány, protože je seznam nahrávání plný.} other {# souborů nebylo přidáno, protože je seznam nahrávání plný.}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {# taxonomie vytvořena} few {# taxonomie vytvořeny} many {# taxonomie vytvořeno} other {# taxonomií vytvořeno}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {# nahrávání selhalo} few {# nahrávání selhala} other {# nahrávání selhalo}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr ""
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {Přidat # soubor} few {Přidat # soubory} other {Přidat # souborů}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {Přidat # obrázek} few {Přidat # obrázky} other {Přidat # obrázků}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr ""
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {# soubor nebyl přidán.} few {# soubory nebyly přidány.} other {# souborů nebylo přidáno.}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "Všechny stavy"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "Všechny typy"
@@ -1919,7 +1919,7 @@ msgstr ""
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "Audio"
 
@@ -2403,7 +2403,7 @@ msgstr "Může zobrazit obsah"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr ""
 msgid "Choose bylines"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "Vyberte soubory k nahrání"
 
@@ -2866,8 +2866,8 @@ msgstr ""
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr ""
 msgid "Could not load dashboard data"
 msgstr "Nepodařilo se načíst data přehledu"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "Nepodařilo se načíst obrázek z URL"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "Média se nepodařilo načíst."
 
@@ -3396,7 +3396,7 @@ msgstr ""
 msgid "Could not load this entry's details."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "Tuto složku se nepodařilo načíst."
 
@@ -4444,7 +4444,7 @@ msgstr ""
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -4736,7 +4736,7 @@ msgstr "Upravit {title}"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "Upravit soubor"
 
@@ -5368,7 +5368,7 @@ msgstr "Nepodařilo se komunikovat s pluginem"
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "Nepodařilo se potvrdit nahrání"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "Nepodařilo se vytvořit pole"
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr ""
 
@@ -5535,15 +5535,15 @@ msgstr "Nepodařilo se smazat obsah"
 msgid "Failed to delete field"
 msgstr "Nepodařilo se smazat pole"
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "Nepodařilo se smazat u poskytovatele"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "Nepodařilo se smazat média"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr ""
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "Nepodařilo se načíst manifest"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "Nepodařilo se načíst média"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "Nepodařilo se načíst položku médií"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "Nepodařilo se načíst poskytovatele médií"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr ""
 
@@ -5802,7 +5802,7 @@ msgstr "Nepodařilo se načíst nastavení pluginu"
 msgid "Failed to fetch plugins"
 msgstr "Nepodařilo se načíst pluginy"
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "Nepodařilo se načíst média poskytovatele"
 
@@ -5925,7 +5925,7 @@ msgstr "Nepodařilo se získat možnosti ověření"
 msgid "Failed to get registration options"
 msgstr "Nepodařilo se získat možnosti registrace"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "Nepodařilo se získat URL pro nahrání"
 
@@ -5997,7 +5997,7 @@ msgstr ""
 msgid "Failed to load exports"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "Nepodařilo se načíst obrázek"
 
@@ -6128,7 +6128,7 @@ msgstr "Nepodařilo se odebrat doménu"
 msgid "Failed to remove passkey"
 msgstr "Nepodařilo se odebrat přístupový klíč"
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr ""
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "Nepodařilo se přeřadit widgety"
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr ""
 
@@ -6318,7 +6318,7 @@ msgstr "Nepodařilo se aktualizovat doménu"
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "Nepodařilo se aktualizovat média"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "Nepodařilo se nahrát soubor"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "Nepodařilo se nahrát média"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "Nepodařilo se nahrát k poskytovateli"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "Filtrovat podle stavu"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "Filtrovat podle typu"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "Dokončit probíhající úpravy."
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "První stránka"
 
@@ -6589,7 +6589,7 @@ msgstr "Bod ohniska"
 msgid "Focal point. Use arrow keys to move it."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "Složka"
 
@@ -6606,7 +6606,7 @@ msgstr "Název složky musí mít 1 až 200 znaků"
 msgid "Folder no longer exists"
 msgstr "Složka již neexistuje"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "Složka již neexistuje. Přesměrováno do hlavní knihovny."
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "Složka není k dispozici"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "Složky"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "Složky se nepodařilo načíst."
 
@@ -6679,7 +6679,7 @@ msgstr ""
 msgid "From the post owner"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "Z URL"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "Zobrazení mřížky"
 
@@ -7002,7 +7002,7 @@ msgstr ""
 msgid "https://example.com/blog/my-post"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "Obrázek zobrazený při sdílení této stránky na sociálních sítí
 msgid "Image upload failed. Try again."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "URL obrázku"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "Obrázky"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "Poslední přihlášení"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "Poslední stránka"
 
@@ -7759,8 +7759,8 @@ msgstr "Vlevo"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "Knihovna"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "Zobrazení seznamu"
 
@@ -7906,7 +7906,7 @@ msgstr "Načíst další"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "Načíst více složek"
 
@@ -7963,7 +7963,7 @@ msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "Načítání složek"
 
@@ -7975,7 +7975,7 @@ msgstr ""
 msgid "Loading imports…"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "Načítání médií"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "Hlavní knihovna"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "Odkazy na média jsou nyní relativní"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "Stránkování médií"
 
@@ -8370,7 +8370,7 @@ msgstr "Stránkování médií"
 msgid "Media Read"
 msgstr "Čtení médií"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "Výsledky médií"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr ""
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "Soubor {filename} byl přesunut na pozici {0}."
 
@@ -8935,7 +8935,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "Další stránka"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "Od tohoto poskytovatele nejsou k dispozici žádná média."
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "Nenalezena žádná média"
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "Stránka nenalezena"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "Číslo stránky"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "Velikost stránky"
 
@@ -9960,7 +9960,7 @@ msgstr "Zadejte platný e-mail"
 msgid "Please enter a valid email address"
 msgstr "Zadejte platnou e-mailovou adresu"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "Zadejte platnou URL"
 
@@ -10217,7 +10217,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "Předchozí stránka"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "Odebrat tento obrázek z dokumentu?"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "{0} bylo odstraněno z výběru."
 
@@ -11127,10 +11127,10 @@ msgstr ""
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "Hledat podle názvu souboru..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "Vyhledávací formulář"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "Hledat média"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "Hledat..."
 
@@ -11900,7 +11900,7 @@ msgstr "Kde se soubor používá."
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "Vybrat"
@@ -12058,7 +12058,7 @@ msgstr "Vybrána položka {selectedItemTitle}"
 msgid "Selected image"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "Vybraná média"
 
@@ -12289,7 +12289,7 @@ msgstr "Zobrazit token"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "Zobrazeno {pageShowingRange} z {0}"
 
@@ -13138,7 +13138,7 @@ msgstr "Pozvaný uživatel získá tuto roli po dokončení registrace."
 msgid "The last export failed"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "Poslední požadavek na zobrazení obsahu selhal. Zobrazuje se předchozí stránka."
 
@@ -13509,7 +13509,7 @@ msgstr ""
 msgid "This field does not accept {0} files."
 msgstr "Do tohoto pole nelze vložit {0} souborů."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "Toto pole nepřijímá soubory typu {mimeType}."
 
@@ -13556,7 +13556,7 @@ msgstr ""
 msgid "This folder is empty"
 msgstr "Tato složka je prázdná"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "Tato složka je prázdná."
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "Zkusit jiný kód"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "Zkuste jiný název souboru nebo zrušte hledání."
 
@@ -14369,11 +14369,11 @@ msgstr ""
 msgid "Upload"
 msgstr "Nahrát"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "Začněte nahráním souboru"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "Nahrát soubor exportu"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "Začněte nahráním obrázku"
 
@@ -14404,7 +14404,7 @@ msgstr "Nahrát soubor exportu"
 msgid "Upload failed"
 msgstr "Nahrávání selhalo"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "Nahrát soubory"
 
@@ -14558,7 +14558,7 @@ msgstr ""
 msgid "Use a security key"
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr "Použijte adresu URL končící rozpoznatelnou příponou obrázku, například .jpg nebo .png."
 
@@ -14578,7 +14578,7 @@ msgstr ""
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "Použít URL"
 
@@ -14739,7 +14739,7 @@ msgstr ""
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "Video"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "Režim zobrazení"
 

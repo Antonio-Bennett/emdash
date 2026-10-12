@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr ""
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {#টি ফাইল আপলোড হচ্ছে} other {#টি ফাইল আপলোড হচ্ছে}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {আপলোড তালিকা পূর্ণ থাকায় #টি ফাইল যোগ করা হয়নি।} other {আপলোড তালিকা পূর্ণ থাকায় #টি ফাইল যোগ করা হয়নি।}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {#টি ট্যাক্সোনমি তৈরি করা হয়েছে} other {#টি ট্যাক্সোনমি তৈরি করা হয়েছে}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {#টি আপলোড ব্যর্থ হয়েছে} other {#টি আপলোড ব্যর্থ হয়েছে}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr ""
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {#টি ফাইল যোগ করুন} other {#টি ফাইল যোগ করুন}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {#টি ছবি যোগ করুন} other {#টি ছবি যোগ করুন}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "{0}টির মধ্যে {ready}টি প্রস্তুত"
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr "{records, plural, one {#টি রেকর্ড লেখা হয়েছে} other {#টি রেকর্ড লেখা হয়েছে}}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {#টি ফাইল যোগ করা হয়নি।} other {#টি ফাইল যোগ করা হয়নি।}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "সব স্ট্যাটাস"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "সব ধরন"
@@ -1919,7 +1919,7 @@ msgstr ""
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "অডিও"
 
@@ -2403,7 +2403,7 @@ msgstr "কনটেন্ট দেখতে পারেন"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr "অন্য একটি অপশন বেছে নিন"
 msgid "Choose bylines"
 msgstr "বাইলাইন বেছে নিন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "আপলোড করার জন্য ফাইল বেছে নিন"
 
@@ -2866,8 +2866,8 @@ msgstr "{siteName}-এ সাইন ইন করতে এই লিঙ্ক�
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr ""
 msgid "Could not load dashboard data"
 msgstr "ড্যাশবোর্ডের ডেটা লোড করা যায়নি"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "URL থেকে ছবি লোড করা যায়নি"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "মিডিয়া লোড করা যায়নি।"
 
@@ -3396,7 +3396,7 @@ msgstr ""
 msgid "Could not load this entry's details."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "এই ফোল্ডার লোড করা যায়নি।"
 
@@ -4444,7 +4444,7 @@ msgstr "ডকুমেন্ট"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "ডকুমেন্ট"
 
@@ -4736,7 +4736,7 @@ msgstr "{title} সম্পাদনা করুন"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "অ্যাসেট সম্পাদনা করুন"
 
@@ -5368,7 +5368,7 @@ msgstr "প্লাগইনের সাথে যোগাযোগ করত
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "আপলোড নিশ্চিত করতে ব্যর্থ হয়েছে"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "ফিল্ড তৈরি করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr "মিডিয়া ফোল্ডার তৈরি করতে ব্যর্থ হয়েছে"
 
@@ -5535,15 +5535,15 @@ msgstr "কনটেন্ট মুছতে ব্যর্থ হয়েছ
 msgid "Failed to delete field"
 msgstr "ফিল্ড মুছতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "প্রোভাইডার থেকে মুছতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "মিডিয়া মুছতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr "মিডিয়া ফোল্ডার মুছতে ব্যর্থ হয়েছে"
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "ম্যানিফেস্ট আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "মিডিয়া আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr "মিডিয়া ফোল্ডার আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr "মিডিয়া ফোল্ডারগুলো আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "মিডিয়া আইটেম আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "মিডিয়া প্রোভাইডার আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr "মিডিয়া ব্যবহারের বিবরণ আনতে ব্যর্থ হয়েছে"
 
@@ -5802,7 +5802,7 @@ msgstr "প্লাগইন সেটিংস আনতে ব্যর্থ
 msgid "Failed to fetch plugins"
 msgstr "প্লাগইনগুলো আনতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "প্রোভাইডারের মিডিয়া আনতে ব্যর্থ হয়েছে"
 
@@ -5925,7 +5925,7 @@ msgstr "প্রমাণীকরণের বিকল্পগুলো প�
 msgid "Failed to get registration options"
 msgstr "নিবন্ধনের বিকল্পগুলো পেতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "আপলোড URL পেতে ব্যর্থ হয়েছে"
 
@@ -5997,7 +5997,7 @@ msgstr "এক্সপোর্ট ম্যানিফেস্ট লোড 
 msgid "Failed to load exports"
 msgstr "এক্সপোর্টগুলো লোড করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "ছবি লোড করতে ব্যর্থ হয়েছে"
 
@@ -6128,7 +6128,7 @@ msgstr "ডোমেইন সরাতে ব্যর্থ হয়েছে
 msgid "Failed to remove passkey"
 msgstr "পাসকি সরাতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr "মিডিয়া ফোল্ডারের নাম পরিবর্তন করতে ব্যর্থ হয়েছে"
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "উইজেটের ক্রম পরিবর্তন করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr "মিডিয়া ছবি প্রতিস্থাপন করতে ব্যর্থ হয়েছে"
 
@@ -6318,7 +6318,7 @@ msgstr "ডোমেইন আপডেট করতে ব্যর্থ হ�
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "মিডিয়া আপডেট করতে ব্যর্থ হয়েছে"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr "একটি প্যাকেজ ফাইল আপলোড করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "ফাইল আপলোড করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "মিডিয়া আপলোড করতে ব্যর্থ হয়েছে"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "প্রোভাইডারে আপলোড করতে ব্যর্থ হয়েছে"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "স্ট্যাটাস অনুযায়ী ফিল্টার করুন"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "টাইপ অনুযায়ী ফিল্টার করুন"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "চলমান সব সম্পাদনা শেষ করুন।"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "প্রথম পেজ"
 
@@ -6589,7 +6589,7 @@ msgstr "ফোকাল পয়েন্ট"
 msgid "Focal point. Use arrow keys to move it."
 msgstr "ফোকাল পয়েন্ট। এটি সরাতে অ্যারো কী ব্যবহার করুন।"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "ফোল্ডার"
 
@@ -6606,7 +6606,7 @@ msgstr "ফোল্ডারের নাম 1 থেকে 200 অক্ষর
 msgid "Folder no longer exists"
 msgstr "ফোল্ডারটি আর নেই"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "ফোল্ডারটি আর নেই। মূল লাইব্রেরিতে ফিরিয়ে নেওয়া হয়েছে।"
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "ফোল্ডার উপলব্ধ নয়"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "ফোল্ডার"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "ফোল্ডার লোড করা যায়নি।"
 
@@ -6679,7 +6679,7 @@ msgstr "প্যাকেজ থেকে: “{packageValue}”"
 msgid "From the post owner"
 msgstr "পোস্টের মালিকের কাছ থেকে"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "URL থেকে"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "গ্রিড ভিউ"
 
@@ -7002,7 +7002,7 @@ msgstr "https://example.com অথবা /page"
 msgid "https://example.com/blog/my-post"
 msgstr "https://example.com/blog/my-post"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "সোশ্যাল মিডিয়ায় এই পেজটি
 msgid "Image upload failed. Try again."
 msgstr "ছবি আপলোড ব্যর্থ হয়েছে। আবার চেষ্টা করুন।"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "ছবির URL"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "ছবি"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "সর্বশেষ লগইন"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "শেষ পেজ"
 
@@ -7759,8 +7759,8 @@ msgstr "বাম"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "লাইব্রেরি"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "তালিকা ভিউ"
 
@@ -7906,7 +7906,7 @@ msgstr "আরও লোড করুন"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "আরও ফোল্ডার লোড করুন"
 
@@ -7963,7 +7963,7 @@ msgstr "এক্সপোর্ট লোড হচ্ছে…"
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "ফোল্ডার লোড হচ্ছে"
 
@@ -7975,7 +7975,7 @@ msgstr "ফোল্ডার লোড হচ্ছে..."
 msgid "Loading imports…"
 msgstr "ইমপোর্ট লোড হচ্ছে…"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "মিডিয়া লোড হচ্ছে"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr "Lua"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "মূল লাইব্রেরি"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "মিডিয়া লিঙ্কগুলো আপেক্ষিক (relative) করা হয়েছে"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "মিডিয়া পেজিনেশন"
 
@@ -8370,7 +8370,7 @@ msgstr "মিডিয়া পেজিনেশন"
 msgid "Media Read"
 msgstr "মিডিয়া পড়া"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "মিডিয়ার ফলাফল"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr "{0} উপরে সরান"
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "{filename} অবস্থান {0}-এ সরানো হয়েছে।"
 
@@ -8935,7 +8935,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "পরবর্তী পেজ"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "এই প্রোভাইডার থেকে কোনো মিডিয়া উপলব্ধ নেই।"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "কোনো মিডিয়া পাওয়া যায়নি"
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "পেজ পাওয়া যায়নি"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "পেজ নম্বর"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "পেজের আকার"
 
@@ -9960,7 +9960,7 @@ msgstr "অনুগ্রহ করে একটি সঠিক ইমেই�
 msgid "Please enter a valid email address"
 msgstr "অনুগ্রহ করে একটি সঠিক ইমেইল ঠিকানা দিন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "অনুগ্রহ করে একটি সঠিক URL দিন"
 
@@ -10217,7 +10217,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "পূর্ববর্তী পেজ"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "ডকুমেন্ট থেকে এই ছবিটি সরাবেন?"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "নির্বাচন থেকে {0} সরানো হয়েছে।"
 
@@ -11127,10 +11127,10 @@ msgstr "অবসরপ্রাপ্ত"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr "ব্লক অনুসন্ধান করুন"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "ফাইলের নাম দিয়ে অনুসন্ধান করুন..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "অনুসন্ধান ফর্ম"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "মিডিয়া অনুসন্ধান করুন"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr "কিছু কালেকশনের জন্য অনুসন্ধান বন্ধ হয়ে যাবে"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "অনুসন্ধান করুন..."
 
@@ -11900,7 +11900,7 @@ msgstr "এই ফাইলটি কোথায় ব্যবহৃত হ�
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "নির্বাচন করুন"
@@ -12058,7 +12058,7 @@ msgstr "নির্বাচিত {selectedItemTitle}"
 msgid "Selected image"
 msgstr "নির্বাচিত ছবি"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "নির্বাচিত মিডিয়া"
 
@@ -12289,7 +12289,7 @@ msgstr "টোকেন দেখান"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "{0}-এর মধ্যে {pageShowingRange} দেখানো হচ্ছে"
 
@@ -13138,7 +13138,7 @@ msgstr "নিবন্ধন সম্পূর্ণ করার পর আ�
 msgid "The last export failed"
 msgstr "সর্বশেষ এক্সপোর্ট ব্যর্থ হয়েছে"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "সর্বশেষ মিডিয়া অনুরোধ ব্যর্থ হয়েছে। আগের পেজ দেখানো হচ্ছে।"
 
@@ -13509,7 +13509,7 @@ msgstr "এই ফিল্ডে অসমর্থিত Portable Text মা�
 msgid "This field does not accept {0} files."
 msgstr "এই ফিল্ড {0} ফাইল গ্রহণ করে না।"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "এই ফিল্ড {mimeType} ফাইল গ্রহণ করে না।"
 
@@ -13556,7 +13556,7 @@ msgstr "এই ফাইলটি কোনো EmDash সাইট প্যা�
 msgid "This folder is empty"
 msgstr "এই ফোল্ডারটি খালি"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "এই ফোল্ডারটি খালি।"
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "অন্য একটি কোড চেষ্টা করুন"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "অন্য কোনো ফাইলের নাম চেষ্টা করুন অথবা আপনার অনুসন্ধান মুছে দিন।"
 
@@ -14369,11 +14369,11 @@ msgstr ""
 msgid "Upload"
 msgstr "আপলোড করুন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "শুরু করতে একটি ফাইল আপলোড করুন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "একটি এক্সপোর্ট ফাইল আপলোড করুন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "শুরু করতে একটি ছবি আপলোড করুন"
 
@@ -14404,7 +14404,7 @@ msgstr "এক্সপোর্ট ফাইল আপলোড করুন"
 msgid "Upload failed"
 msgstr "আপলোড ব্যর্থ হয়েছে"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "ফাইল আপলোড করুন"
 
@@ -14558,7 +14558,7 @@ msgstr ""
 msgid "Use a security key"
 msgstr "একটি সিকিউরিটি কী ব্যবহার করুন"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr "স্বীকৃত ছবির এক্সটেনশন, যেমন .jpg বা .png দিয়ে শেষ হওয়া একটি URL ব্যবহার করুন।"
 
@@ -14578,7 +14578,7 @@ msgstr "ছোট হাতের অক্ষর, সংখ্যা এবং 
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "URL ব্যবহার করুন"
 
@@ -14739,7 +14739,7 @@ msgstr "সংস্করণ {0} (সক্রিয়)"
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "ভিডিও"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "দেখার মোড"
 

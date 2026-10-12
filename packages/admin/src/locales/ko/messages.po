@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr ""
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {파일 #개 업로드 중} other {파일 #개 업로드 중}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {업로드 목록이 가득 차 파일 #개를 추가하지 못했습니다.} other {업로드 목록이 가득 차 파일 #개를 추가하지 못했습니다.}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {#개 분류 생성됨} other {#개 분류 생성됨}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {업로드 #건 실패} other {업로드 #건 실패}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr "{0, plural, one {+#개 더} other {+#개 더}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {파일 #개 추가} other {파일 #개 추가}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {이미지 #개 추가} other {이미지 #개 추가}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "{0}개 중 {ready}개 준비 완료"
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr "{records, plural, one {#개 레코드 기록됨} other {#개 레코드 기록됨}}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {파일 #개를 추가하지 못했습니다.} other {파일 #개를 추가하지 못했습니다.}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "모든 상태"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "모든 유형"
@@ -1919,7 +1919,7 @@ msgstr "사용자 연결"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "오디오"
 
@@ -2403,7 +2403,7 @@ msgstr "콘텐츠 조회 가능"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr "다른 방법 선택"
 msgid "Choose bylines"
 msgstr "저자 정보 선택"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "업로드할 파일 선택"
 
@@ -2866,8 +2866,8 @@ msgstr "{siteName}에 로그인하려면 이 링크를 클릭하세요:"
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr "{pluralLower} 목록을 불러오지 못했습니다."
 msgid "Could not load dashboard data"
 msgstr "대시보드 데이터를 불러오지 못했습니다"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "URL에서 이미지를 로드할 수 없습니다."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "미디어를 로드하지 못했습니다."
 
@@ -3396,7 +3396,7 @@ msgstr ""
 msgid "Could not load this entry's details."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "이 폴더를 로드하지 못했습니다."
 
@@ -4444,7 +4444,7 @@ msgstr "문서"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "문서"
 
@@ -4736,7 +4736,7 @@ msgstr "{title} 편집"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "미디어 편집"
 
@@ -5368,7 +5368,7 @@ msgstr "플러그인과 통신하지 못했습니다."
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "업로드 완료 확인에 실패했습니다"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "필드를 생성하지 못했습니다."
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr "미디어 폴더 생성에 실패했습니다"
 
@@ -5535,15 +5535,15 @@ msgstr "콘텐츠를 삭제하지 못했습니다."
 msgid "Failed to delete field"
 msgstr "필드를 삭제하지 못했습니다."
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "미디어 제공자에서 삭제하는 데 실패했습니다"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "미디어 삭제에 실패했습니다"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr "미디어 폴더 삭제에 실패했습니다"
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "매니페스트를 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "미디어 목록을 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr "미디어 폴더를 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr "미디어 폴더 목록을 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "미디어 항목을 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "미디어 제공자 목록을 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr "미디어 사용 현황 상세 정보를 가져오지 못했습니다"
 
@@ -5802,7 +5802,7 @@ msgstr "플러그인 설정을 가져오지 못했습니다."
 msgid "Failed to fetch plugins"
 msgstr "플러그인 목록을 가져오지 못했습니다."
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "미디어 제공자의 미디어를 가져오지 못했습니다"
 
@@ -5925,7 +5925,7 @@ msgstr "인증 옵션을 가져오지 못했습니다"
 msgid "Failed to get registration options"
 msgstr "등록 옵션을 가져오지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "업로드 URL을 가져오지 못했습니다"
 
@@ -5997,7 +5997,7 @@ msgstr "내보내기 매니페스트를 불러오지 못했습니다"
 msgid "Failed to load exports"
 msgstr "내보내기 목록을 불러오지 못했습니다"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "이미지를 로드하지 못했습니다"
 
@@ -6128,7 +6128,7 @@ msgstr "도메인을 제거하지 못했습니다."
 msgid "Failed to remove passkey"
 msgstr "패스키를 제거하지 못했습니다."
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr "미디어 폴더 이름 변경에 실패했습니다"
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "위젯 순서를 변경하지 못했습니다."
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr "미디어 이미지 교체에 실패했습니다"
 
@@ -6318,7 +6318,7 @@ msgstr "도메인을 업데이트하지 못했습니다."
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "미디어 업데이트에 실패했습니다"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr "패키지 파일을 업로드하지 못했습니다"
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "파일 업로드에 실패했습니다"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "미디어 업로드에 실패했습니다"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "미디어 제공자에 업로드하는 데 실패했습니다"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "상태로 필터링"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "유형으로 필터링"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "현재 진행 중인 편집을 모두 완료하세요."
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "첫 페이지"
 
@@ -6589,7 +6589,7 @@ msgstr "초점"
 msgid "Focal point. Use arrow keys to move it."
 msgstr "초점. 방향키로 이동하세요."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "폴더"
 
@@ -6606,7 +6606,7 @@ msgstr "폴더 이름은 1~200자로 입력하세요"
 msgid "Folder no longer exists"
 msgstr "폴더가 더 이상 존재하지 않습니다"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "폴더가 더 이상 존재하지 않아 메인 라이브러리로 돌아왔습니다."
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "폴더를 사용할 수 없습니다"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "폴더"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "폴더를 로드할 수 없습니다."
 
@@ -6679,7 +6679,7 @@ msgstr "패키지의 값 사용: “{packageValue}”"
 msgid "From the post owner"
 msgstr "게시물 작성자의 정보 사용"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "URL로 선택"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "그리드 보기"
 
@@ -7002,7 +7002,7 @@ msgstr "https://example.com 또는 /page"
 msgid "https://example.com/blog/my-post"
 msgstr "https://example.com/blog/my-post"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "이 페이지가 소셜 미디어에 공유되면 표시되는 이미지
 msgid "Image upload failed. Try again."
 msgstr "이미지 업로드에 실패했습니다. 다시 시도하세요."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "이미지 URL"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "이미지"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "마지막 로그인"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "마지막 페이지"
 
@@ -7759,8 +7759,8 @@ msgstr "왼쪽"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "라이브러리"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "목록 보기"
 
@@ -7906,7 +7906,7 @@ msgstr "더 보기"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "폴더 더 보기"
 
@@ -7963,7 +7963,7 @@ msgstr "내보내기 목록 불러오는 중…"
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "폴더 로드 중"
 
@@ -7975,7 +7975,7 @@ msgstr "폴더 로드 중..."
 msgid "Loading imports…"
 msgstr "가져오기 목록 불러오는 중…"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "미디어 로드 중"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr "Lua"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "메인 라이브러리"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "미디어 링크가 상대 경로로 변경되었습니다"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "미디어 페이지 탐색"
 
@@ -8370,7 +8370,7 @@ msgstr "미디어 페이지 탐색"
 msgid "Media Read"
 msgstr "미디어 읽기"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "미디어 결과"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr "{0} 위로 이동"
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "{filename} 순서를 {0}번째로 이동했습니다."
 
@@ -8935,7 +8935,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "다음 페이지"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "이 미디어 제공자에서 사용할 수 있는 미디어가 없습니다."
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "미디어를 찾을 수 없습니다."
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "페이지를 찾을 수 없습니다"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "페이지 번호"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "페이지당 항목 수"
 
@@ -9960,7 +9960,7 @@ msgstr "유효한 이메일을 입력해주세요"
 msgid "Please enter a valid email address"
 msgstr "유효한 이메일 주소를 입력하세요."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "유효한 URL을 입력하세요."
 
@@ -10217,7 +10217,7 @@ msgstr ""
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "이전 페이지"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "문서에서 이 이미지를 삭제하시겠습니까?"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "선택 목록에서 {0} 항목을 제거했습니다."
 
@@ -11127,10 +11127,10 @@ msgstr "사용 중단됨"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr "블록 검색"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "파일 이름으로 검색..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "검색 폼"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "미디어 검색"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr "일부 컬렉션의 검색이 비활성화됩니다"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "검색..."
 
@@ -11900,7 +11900,7 @@ msgstr "이 파일이 사용된 위치를 확인하세요."
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "선택"
@@ -12058,7 +12058,7 @@ msgstr "{selectedItemTitle} 선택됨"
 msgid "Selected image"
 msgstr "선택한 이미지"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "선택한 미디어"
 
@@ -12289,7 +12289,7 @@ msgstr "토큰 표시"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "전체 {0}개 중 {pageShowingRange} 표시"
 
@@ -13138,7 +13138,7 @@ msgstr "초대된 사용자는 등록을 완료하면 이 역할이 부여됩니
 msgid "The last export failed"
 msgstr "마지막 내보내기에 실패했습니다"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "최근 미디어 요청에 실패했습니다. 이전에 표시한 페이지를 보여 드립니다."
 
@@ -13509,7 +13509,7 @@ msgstr "이 필드에는 지원되지 않는 Portable Text 마크가 포함되�
 msgid "This field does not accept {0} files."
 msgstr "이 필드에는 {0} 유형의 파일을 사용할 수 없습니다."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "이 필드에는 {mimeType} 유형의 파일을 사용할 수 없습니다."
 
@@ -13556,7 +13556,7 @@ msgstr "이 파일은 EmDash 사이트 패키지가 아닙니다. manifest.json�
 msgid "This folder is empty"
 msgstr "이 폴더는 비어 있습니다"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "이 폴더는 비어 있습니다."
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "다른 코드 입력"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "다른 파일 이름으로 검색하거나 검색을 초기화하세요."
 
@@ -14369,11 +14369,11 @@ msgstr ""
 msgid "Upload"
 msgstr "업로드"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "시작하려면 파일을 업로드하세요"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "내보내기 파일 업로드"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "시작하려면 이미지를 업로드하세요."
 
@@ -14404,7 +14404,7 @@ msgstr "내보내기 파일 업로드"
 msgid "Upload failed"
 msgstr "업로드 실패"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "파일 업로드"
 
@@ -14558,7 +14558,7 @@ msgstr ""
 msgid "Use a security key"
 msgstr "보안 키 사용"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr ".jpg 또는 .png처럼 인식할 수 있는 이미지 확장자로 끝나는 URL을 사용하세요."
 
@@ -14578,7 +14578,7 @@ msgstr "영문 소문자로 시작하고 영문 소문자, 숫자, 하이픈만 
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "URL 사용"
 
@@ -14739,7 +14739,7 @@ msgstr "버전 {0}(활성)"
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "동영상"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "보기 모드"
 

@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr "{0, plural, one {# รายการ} other {# รายการ}}"
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {กำลังอัปโหลด # ไฟล์} other {กำลังอัปโหลด # ไฟล์}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {ไม่ได้เพิ่ม # ไฟล์ เนื่องจากรายการอัปโหลดเต็มแล้ว} other {ไม่ได้เพิ่ม # ไฟล์ เนื่องจากรายการอัปโหลดเต็มแล้ว}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {สร้างอนุกรมวิธาน # รายการแล้ว} other {สร้างอนุกรมวิธาน # รายการแล้ว}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {อัปโหลดไม่สำเร็จ # รายการ} other {อัปโหลดไม่สำเร็จ # รายการ}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr "{0, plural, one {+อีก #} other {+อีก #}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {เพิ่ม # ไฟล์} other {เพิ่ม # ไฟล์}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {เพิ่ม # รูปภาพ} other {เพิ่ม # รูปภาพ}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "พร้อมแล้ว {ready} จาก {0}"
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr "{records, plural, one {เขียนแล้ว # ระเบียน} other {เขียนแล้ว # ระเบียน}}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {ไม่ได้เพิ่ม # ไฟล์} other {ไม่ได้เพิ่ม # ไฟล์}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "ทุกสถานะ"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "ทุกประเภท"
@@ -1919,7 +1919,7 @@ msgstr "การระบุแหล่งที่มา"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "เสียง"
 
@@ -2403,7 +2403,7 @@ msgstr "สามารถดูเนื้อหาได้"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr "เลือกตัวเลือกอื่น"
 msgid "Choose bylines"
 msgstr "เลือกชื่อผู้เขียน"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "เลือกไฟล์ที่จะอัปโหลด"
 
@@ -2866,8 +2866,8 @@ msgstr "คลิกลิงก์นี้เพื่อเข้าสู่
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr "โหลด {pluralLower} ไม่สำเร็จ"
 msgid "Could not load dashboard data"
 msgstr "โหลดข้อมูลแดชบอร์ดไม่สำเร็จ"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "ไม่สามารถโหลดรูปภาพจาก URL ได้"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "โหลดมีเดียไม่สำเร็จ"
 
@@ -3396,7 +3396,7 @@ msgstr "โหลดปฏิทินไม่สำเร็จ"
 msgid "Could not load this entry's details."
 msgstr "โหลดรายละเอียดของรายการนี้ไม่สำเร็จ"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "โหลดโฟลเดอร์นี้ไม่สำเร็จ"
 
@@ -4444,7 +4444,7 @@ msgstr "เอกสาร"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "เอกสาร"
 
@@ -4736,7 +4736,7 @@ msgstr "แก้ไข {title}"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "แก้ไขแอสเซ็ต"
 
@@ -5368,7 +5368,7 @@ msgstr "สื่อสารกับปลั๊กอินไม่สำเ
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "ยืนยันการอัปโหลดไม่สำเร็จ"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "สร้างฟิลด์ไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr "สร้างโฟลเดอร์มีเดียไม่สำเร็จ"
 
@@ -5535,15 +5535,15 @@ msgstr "ลบเนื้อหาไม่สำเร็จ"
 msgid "Failed to delete field"
 msgstr "ลบฟิลด์ไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "ลบจากผู้ให้บริการไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "ลบมีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr "ลบโฟลเดอร์มีเดียไม่สำเร็จ"
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "ดึงข้อมูล manifest ไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "ดึงข้อมูลมีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr "ดึงข้อมูลโฟลเดอร์มีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr "ดึงรายการโฟลเดอร์มีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "ดึงข้อมูลรายการมีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "ดึงรายการผู้ให้บริการมีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr "ดึงข้อมูลรายละเอียดการใช้งานมีเดียไม่สำเร็จ"
 
@@ -5802,7 +5802,7 @@ msgstr "ดึงข้อมูลการตั้งค่าปลั๊ก
 msgid "Failed to fetch plugins"
 msgstr "ดึงรายการปลั๊กอินไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "ดึงข้อมูลมีเดียจากผู้ให้บริการไม่สำเร็จ"
 
@@ -5925,7 +5925,7 @@ msgstr "รับตัวเลือกการตรวจสอบสิท
 msgid "Failed to get registration options"
 msgstr "รับตัวเลือกการลงทะเบียนไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "รับ URL สำหรับอัปโหลดไม่สำเร็จ"
 
@@ -5997,7 +5997,7 @@ msgstr "โหลดรายการไฟล์ส่งออกไม่ส
 msgid "Failed to load exports"
 msgstr "โหลดการส่งออกไม่สำเร็จ"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "โหลดรูปภาพไม่สำเร็จ"
 
@@ -6128,7 +6128,7 @@ msgstr "นำโดเมนออกไม่สำเร็จ"
 msgid "Failed to remove passkey"
 msgstr "นำ Passkey ออกไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr "เปลี่ยนชื่อโฟลเดอร์มีเดียไม่สำเร็จ"
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "จัดเรียงวิดเจ็ตใหม่ไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr "แทนที่รูปภาพมีเดียไม่สำเร็จ"
 
@@ -6318,7 +6318,7 @@ msgstr "อัปเดตโดเมนไม่สำเร็จ"
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "อัปเดตมีเดียไม่สำเร็จ"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr "อัปโหลดไฟล์แพ็กเกจไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "อัปโหลดไฟล์ไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "อัปโหลดมีเดียไม่สำเร็จ"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "อัปโหลดไปยังผู้ให้บริการไม่สำเร็จ"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "กรองตามสถานะ"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "กรองตามประเภท"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "ทำการแก้ไขที่ค้างอยู่ให้เสร็จ"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "หน้าแรก"
 
@@ -6589,7 +6589,7 @@ msgstr "จุดโฟกัส"
 msgid "Focal point. Use arrow keys to move it."
 msgstr "จุดโฟกัส ใช้ปุ่มลูกศรเพื่อเลื่อน"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "โฟลเดอร์"
 
@@ -6606,7 +6606,7 @@ msgstr "ชื่อโฟลเดอร์ต้องมีความยา
 msgid "Folder no longer exists"
 msgstr "ไม่มีโฟลเดอร์นี้แล้ว"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "ไม่มีโฟลเดอร์นี้แล้ว กลับไปยังไลบรารีหลัก"
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "โฟลเดอร์ไม่พร้อมใช้งาน"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "โฟลเดอร์"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "โหลดโฟลเดอร์ไม่สำเร็จ"
 
@@ -6679,7 +6679,7 @@ msgstr "จากแพ็กเกจ: “{packageValue}”"
 msgid "From the post owner"
 msgstr "จากเจ้าของโพสต์"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "จาก URL"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "มุมมองตาราง"
 
@@ -7002,7 +7002,7 @@ msgstr "https://example.com หรือ /page"
 msgid "https://example.com/blog/my-post"
 msgstr "https://example.com/blog/my-post"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "รูปภาพที่แสดงเมื่อแชร์หน
 msgid "Image upload failed. Try again."
 msgstr "อัปโหลดรูปภาพไม่สำเร็จ ลองอีกครั้ง"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "URL ของรูปภาพ"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "รูปภาพ"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "เข้าสู่ระบบล่าสุด"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "หน้าสุดท้าย"
 
@@ -7759,8 +7759,8 @@ msgstr "ซ้าย"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "ไลบรารี"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "มุมมองรายการ"
 
@@ -7906,7 +7906,7 @@ msgstr "โหลดเพิ่มเติม"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "โหลดโฟลเดอร์เพิ่มเติม"
 
@@ -7963,7 +7963,7 @@ msgstr "กำลังโหลดการส่งออก…"
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "กำลังโหลดโฟลเดอร์"
 
@@ -7975,7 +7975,7 @@ msgstr "กำลังโหลดโฟลเดอร์..."
 msgid "Loading imports…"
 msgstr "กำลังโหลดการนำเข้า…"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "กำลังโหลดมีเดีย"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr "Lua"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "คลังหลัก"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "ลิงก์มีเดียถูกเปลี่ยนเป็นแบบสัมพัทธ์"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "การแบ่งหน้ามีเดีย"
 
@@ -8370,7 +8370,7 @@ msgstr "การแบ่งหน้ามีเดีย"
 msgid "Media Read"
 msgstr "อ่านมีเดีย"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "ผลลัพธ์มีเดีย"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr "ย้าย {0} ขึ้น"
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "ย้าย {filename} ไปยังตำแหน่ง {0} แล้ว"
 
@@ -8935,7 +8935,7 @@ msgstr "เดือนถัดไป"
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "หน้าถัดไป"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "ไม่มีมีเดียจากผู้ให้บริการรายนี้"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "ไม่พบมีเดีย"
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "ไม่พบหน้า"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "หมายเลขหน้า"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "จำนวนรายการต่อหน้า"
 
@@ -9960,7 +9960,7 @@ msgstr "โปรดป้อนอีเมลที่ถูกต้อง"
 msgid "Please enter a valid email address"
 msgstr "โปรดป้อนที่อยู่อีเมลที่ถูกต้อง"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "โปรดป้อน URL ที่ถูกต้อง"
 
@@ -10217,7 +10217,7 @@ msgstr "เดือนก่อนหน้า"
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "หน้าก่อนหน้า"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "นำรูปภาพนี้ออกจากเอกสารหรือไม่"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "นำ {0} ออกจากรายการที่เลือกแล้ว"
 
@@ -11127,10 +11127,10 @@ msgstr "เลิกใช้แล้ว"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr "ค้นหาบล็อก"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "ค้นหาตามชื่อไฟล์..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "แบบฟอร์มค้นหา"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "ค้นหามีเดีย"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr "การค้นหาจะถูกปิดสำหรับบางคอลเลกชัน"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "ค้นหา..."
 
@@ -11900,7 +11900,7 @@ msgstr "ดูว่าไฟล์นี้ถูกใช้ที่ใด"
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "เลือก"
@@ -12058,7 +12058,7 @@ msgstr "เลือก {selectedItemTitle} แล้ว"
 msgid "Selected image"
 msgstr "รูปภาพที่เลือก"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "สื่อที่เลือก"
 
@@ -12289,7 +12289,7 @@ msgstr "แสดงโทเค็น"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "แสดง {pageShowingRange} จาก {0}"
 
@@ -13138,7 +13138,7 @@ msgstr "ผู้ใช้ที่ได้รับเชิญจะมีบ
 msgid "The last export failed"
 msgstr "การส่งออกครั้งล่าสุดล้มเหลว"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "คำขอมีเดียล่าสุดล้มเหลว กำลังแสดงหน้าก่อนหน้า"
 
@@ -13509,7 +13509,7 @@ msgstr "ฟิลด์นี้มีมาร์ก Portable Text ที่ไ
 msgid "This field does not accept {0} files."
 msgstr "ฟิลด์นี้ไม่รับไฟล์ {0}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "ฟิลด์นี้ไม่รับไฟล์ {mimeType}"
 
@@ -13556,7 +13556,7 @@ msgstr "ไฟล์นี้ไม่ใช่แพ็กเกจเว็บ
 msgid "This folder is empty"
 msgstr "โฟลเดอร์นี้ว่างเปล่า"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "โฟลเดอร์นี้ว่างเปล่า"
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "ลองรหัสอื่น"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "ลองชื่อไฟล์อื่น หรือล้างการค้นหาของคุณ"
 
@@ -14369,11 +14369,11 @@ msgstr ""
 msgid "Upload"
 msgstr "อัปโหลด"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "อัปโหลดไฟล์เพื่อเริ่มต้น"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "อัปโหลดไฟล์ส่งออก"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "อัปโหลดรูปภาพเพื่อเริ่มต้น"
 
@@ -14404,7 +14404,7 @@ msgstr "อัปโหลดไฟล์ส่งออก"
 msgid "Upload failed"
 msgstr "อัปโหลดไม่สำเร็จ"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "อัปโหลดไฟล์"
 
@@ -14558,7 +14558,7 @@ msgstr ""
 msgid "Use a security key"
 msgstr "ใช้คีย์ความปลอดภัย"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr "ใช้ URL ที่ลงท้ายด้วยนามสกุลรูปภาพที่รู้จัก เช่น .jpg หรือ .png"
 
@@ -14578,7 +14578,7 @@ msgstr "ใช้ตัวอักษรพิมพ์เล็ก ตัว�
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "ใช้ URL"
 
@@ -14739,7 +14739,7 @@ msgstr "เวอร์ชัน {0} (ใช้งานอยู่)"
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "วิดีโอ"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr "ดูบนเว็บไซต์จริง"
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "โหมดการแสดงผล"
 

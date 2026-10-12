@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr "{0, plural, one {# 筆內容} other {# 筆內容}}"
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {正在上傳 # 個檔案} other {正在上傳 # 個檔案}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {上傳清單已滿，未加入 # 個檔案。} other {上傳清單已滿，未加入 # 個檔案。}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {已建立 # 個分類法} other {已建立 # 個分類法}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {# 個檔案上傳失敗} other {# 個檔案上傳失敗}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr "{0, plural, one {還有 +# 個} other {還有 +# 個}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {加入 # 個檔案} other {加入 # 個檔案}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {加入 # 張圖片} other {加入 # 張圖片}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "已有 {ready} / {0} 篇就緒"
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr "{records, plural, one {已寫入 # 筆記錄} other {已寫入 # 筆記錄}}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {未加入 # 個檔案。} other {未加入 # 個檔案。}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "所有狀態"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "所有類型"
@@ -1919,7 +1919,7 @@ msgstr "署名歸屬"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "音訊"
 
@@ -2403,7 +2403,7 @@ msgstr "可以檢視內容"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr "選擇其他選項"
 msgid "Choose bylines"
 msgstr "選擇署名"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "選擇要上傳的檔案"
 
@@ -2866,8 +2866,8 @@ msgstr "請點擊這個連結以登入 {siteName}："
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr "無法載入 {pluralLower}。"
 msgid "Could not load dashboard data"
 msgstr "無法載入控制台資料"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "無法從 URL 載入圖片"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "無法載入媒體。"
 
@@ -3396,7 +3396,7 @@ msgstr "無法載入行事曆"
 msgid "Could not load this entry's details."
 msgstr "無法載入這筆內容的詳細資料。"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "無法載入這個資料夾。"
 
@@ -4444,7 +4444,7 @@ msgstr "文件"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "文件"
 
@@ -4736,7 +4736,7 @@ msgstr "編輯 {title}"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "編輯媒體檔案"
 
@@ -5368,7 +5368,7 @@ msgstr "無法與外掛通訊"
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "無法確認上傳"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "無法建立欄位"
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr "無法建立媒體資料夾"
 
@@ -5535,15 +5535,15 @@ msgstr "無法刪除內容"
 msgid "Failed to delete field"
 msgstr "無法刪除欄位"
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "無法從服務提供者刪除"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "無法刪除媒體"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr "無法刪除媒體資料夾"
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "無法擷取資訊清單"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "擷取媒體失敗"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr "無法取得媒體資料夾"
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr "無法取得媒體資料夾"
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "擷取媒體項目失敗"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "無法擷取媒體服務提供者"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr "無法取得媒體使用詳情"
 
@@ -5802,7 +5802,7 @@ msgstr "無法擷取外掛設定"
 msgid "Failed to fetch plugins"
 msgstr "無法擷取外掛"
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "無法擷取服務提供者媒體"
 
@@ -5925,7 +5925,7 @@ msgstr "無法取得驗證選項"
 msgid "Failed to get registration options"
 msgstr "無法取得註冊選項"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "無法取得上傳網址"
 
@@ -5997,7 +5997,7 @@ msgstr "無法載入匯出資訊清單"
 msgid "Failed to load exports"
 msgstr "無法載入匯出記錄"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "無法載入圖片"
 
@@ -6128,7 +6128,7 @@ msgstr "移除網域失敗"
 msgid "Failed to remove passkey"
 msgstr "移除通行密鑰失敗"
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr "無法重新命名媒體資料夾"
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "無法重新排序小工具"
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr "無法取代媒體圖片"
 
@@ -6318,7 +6318,7 @@ msgstr "無法更新網域"
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "更新媒體失敗"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr "無法上傳套件檔案"
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "上傳檔案失敗"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "上傳媒體失敗"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "無法上傳至服務提供者"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "依狀態篩選"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "依類型篩選"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "完成目前正在進行的編輯。"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "第一頁"
 
@@ -6589,7 +6589,7 @@ msgstr "焦點"
 msgid "Focal point. Use arrow keys to move it."
 msgstr "焦點。使用方向鍵移動焦點。"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "資料夾"
 
@@ -6606,7 +6606,7 @@ msgstr "資料夾名稱必須介於 1 到 200 個字元之間"
 msgid "Folder no longer exists"
 msgstr "資料夾已不存在"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "資料夾已不存在。已返回主要媒體庫。"
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "無法使用資料夾"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "資料夾"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "無法載入資料夾。"
 
@@ -6679,7 +6679,7 @@ msgstr "使用套件中的值：「{packageValue}」"
 msgid "From the post owner"
 msgstr "來自文章擁有者"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "從網址"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "格狀檢視"
 
@@ -7002,7 +7002,7 @@ msgstr "https://example.com 或 /page"
 msgid "https://example.com/blog/my-post"
 msgstr "https://example.com/blog/my-post"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "在社群媒體分享此頁面時顯示的圖片"
 msgid "Image upload failed. Try again."
 msgstr "圖片上傳失敗。請再試一次。"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "圖片網址"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "圖片"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "上次登入時間"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "最後一頁"
 
@@ -7759,8 +7759,8 @@ msgstr "靠左"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "媒體庫"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "清單檢視"
 
@@ -7906,7 +7906,7 @@ msgstr "載入更多"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "載入更多資料夾"
 
@@ -7963,7 +7963,7 @@ msgstr "正在載入匯出記錄…"
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "正在載入資料夾"
 
@@ -7975,7 +7975,7 @@ msgstr "正在載入資料夾..."
 msgid "Loading imports…"
 msgstr "正在載入匯入記錄…"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "正在載入媒體"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr "Lua"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "主要媒體庫"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "媒體連結已改為相對網址"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "媒體分頁導覽"
 
@@ -8370,7 +8370,7 @@ msgstr "媒體分頁導覽"
 msgid "Media Read"
 msgstr "讀取媒體"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "媒體結果"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr "上移 {0}"
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "已將 {filename} 移到第 {0} 個位置。"
 
@@ -8935,7 +8935,7 @@ msgstr "下個月"
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "下一頁"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "此服務提供者沒有可用的媒體。"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "找不到媒體"
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "找不到頁面"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "頁碼"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "每頁項目數"
 
@@ -9960,7 +9960,7 @@ msgstr "請輸入有效的電子郵件地址"
 msgid "Please enter a valid email address"
 msgstr "請輸入有效的電子郵件地址"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "請輸入有效的網址"
 
@@ -10217,7 +10217,7 @@ msgstr "上個月"
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "上一頁"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "要從文件中移除這張圖片嗎？"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "已從選取項目中移除 {0}。"
 
@@ -11127,10 +11127,10 @@ msgstr "已淘汰"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr "搜尋區塊"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "依檔名搜尋..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "搜尋表單"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "搜尋媒體"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr "部分集合的搜尋功能將會關閉"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "搜尋..."
 
@@ -11900,7 +11900,7 @@ msgstr "查看哪些地方使用了這個檔案。"
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "選取"
@@ -12058,7 +12058,7 @@ msgstr "已選取 {selectedItemTitle}"
 msgid "Selected image"
 msgstr "已選取的圖片"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "已選取的媒體"
 
@@ -12289,7 +12289,7 @@ msgstr "顯示權杖"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "顯示 {pageShowingRange}，共 {0} 筆"
 
@@ -13138,7 +13138,7 @@ msgstr "受邀使用者完成註冊後會獲得此角色。"
 msgid "The last export failed"
 msgstr "上次匯出失敗"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "最新的媒體請求失敗。目前顯示上一頁。"
 
@@ -13509,7 +13509,7 @@ msgstr "這個欄位包含不支援的 Portable Text 標記：<0>{markList}</0>�
 msgid "This field does not accept {0} files."
 msgstr "這個欄位不接受 {0} 檔案。"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "這個欄位不接受 {mimeType} 檔案。"
 
@@ -13556,7 +13556,7 @@ msgstr "這個檔案不是 EmDash 網站套件：檔案開頭必須是 manifest.
 msgid "This folder is empty"
 msgstr "這個資料夾是空的"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "這個資料夾是空的。"
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "嘗試其他代碼"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "請嘗試其他檔案名稱，或清除搜尋。"
 
@@ -14369,11 +14369,11 @@ msgstr "上傳"
 msgid "Upload"
 msgstr "上傳"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "上傳檔案即可開始使用"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "上傳匯出檔案"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "上傳圖片即可開始使用"
 
@@ -14404,7 +14404,7 @@ msgstr "上傳匯出檔案"
 msgid "Upload failed"
 msgstr "上傳失敗"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "上傳檔案"
 
@@ -14558,7 +14558,7 @@ msgstr "仍要使用 {fallbackUrl}"
 msgid "Use a security key"
 msgstr "使用安全金鑰"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr "請使用以可辨識的圖片副檔名結尾的網址，例如 .jpg 或 .png。"
 
@@ -14578,7 +14578,7 @@ msgstr "請使用小寫字母、數字與連字號，並以字母開頭。"
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "使用網址"
 
@@ -14739,7 +14739,7 @@ msgstr "版本 {0} (使用中)"
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "影片"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr "查看已發佈的內容"
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "檢視模式"
 

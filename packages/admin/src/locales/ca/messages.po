@@ -117,12 +117,12 @@ msgid "{0, plural, one {# entry} other {# entries}}"
 msgstr "{0, plural, one {# entrada} other {# entrades}}"
 
 #. placeholder {0}: uploadQueue.jobs.filter( (job) => job.status === "queued" || job.status === "uploading", ).length
-#: packages/admin/src/components/MediaPickerModal.tsx:1617
+#: packages/admin/src/components/MediaPickerModal.tsx:1618
 msgid "{0, plural, one {# file uploading} other {# files uploading}}"
 msgstr "{0, plural, one {# fitxer s'està pujant} other {# fitxers s'estan pujant}}"
 
 #. placeholder {0}: uploadQueue.overflowCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1298
+#: packages/admin/src/components/MediaPickerModal.tsx:1299
 msgid "{0, plural, one {# file was not added because the upload list is full.} other {# files were not added because the upload list is full.}}"
 msgstr "{0, plural, one {No s'ha afegit # fitxer perquè la llista de pujades és plena.} other {No s'han afegit # fitxers perquè la llista de pujades és plena.}}"
 
@@ -237,7 +237,7 @@ msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {# taxonomia creada} other {# taxonomies creades}}"
 
 #. placeholder {0}: uploadQueue.failedCount
-#: packages/admin/src/components/MediaPickerModal.tsx:1624
+#: packages/admin/src/components/MediaPickerModal.tsx:1625
 msgid "{0, plural, one {# upload failed} other {# uploads failed}}"
 msgstr "{0, plural, one {# pujada ha fallat} other {# pujades han fallat}}"
 
@@ -247,17 +247,17 @@ msgid "{0, plural, one {+# more} other {+# more}}"
 msgstr "{0, plural, one {+# més} other {+# més}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:864
+#: packages/admin/src/components/MediaPickerModal.tsx:866
 msgid "{0, plural, one {Add # file} other {Add # files}}"
 msgstr "{0, plural, one {Afegeix # fitxer} other {Afegeix # fitxers}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:867
+#: packages/admin/src/components/MediaPickerModal.tsx:869
 msgid "{0, plural, one {Add # image} other {Add # images}}"
 msgstr "{0, plural, one {Afegeix # imatge} other {Afegeix # imatges}}"
 
 #. placeholder {0}: selectedItems.length
-#: packages/admin/src/components/MediaPickerModal.tsx:866
+#: packages/admin/src/components/MediaPickerModal.tsx:868
 msgid "{0, plural, one {Add # video} other {Add # videos}}"
 msgstr ""
 
@@ -738,7 +738,7 @@ msgstr "{ready} de {0} a punt"
 msgid "{records, plural, one {# record written} other {# records written}}"
 msgstr "{records, plural, one {# registre escrit} other {# registres escrits}}"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:932
+#: packages/admin/src/components/MediaPickerModal.tsx:933
 msgid "{rejectedCount, plural, one {# file was not added.} other {# files were not added.}}"
 msgstr "{rejectedCount, plural, one {No s'ha afegit # fitxer.} other {No s'han afegit # fitxers.}}"
 
@@ -1569,7 +1569,7 @@ msgid "All statuses"
 msgstr "Tots els estats"
 
 #: packages/admin/src/components/MediaLibrary.tsx:920
-#: packages/admin/src/components/MediaPickerModal.tsx:387
+#: packages/admin/src/components/MediaPickerModal.tsx:389
 #: packages/admin/src/components/Redirects.tsx:402
 msgid "All types"
 msgstr "Tots els tipus"
@@ -1919,7 +1919,7 @@ msgstr "Atribució"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:69
 #: packages/admin/src/components/MediaLibrary.tsx:923
-#: packages/admin/src/components/MediaPickerModal.tsx:391
+#: packages/admin/src/components/MediaPickerModal.tsx:393
 msgid "Audio"
 msgstr "Àudio"
 
@@ -2403,7 +2403,7 @@ msgstr "Pot veure el contingut"
 #: packages/admin/src/components/FieldEditor.tsx:1379
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
-#: packages/admin/src/components/MediaPickerModal.tsx:1598
+#: packages/admin/src/components/MediaPickerModal.tsx:1599
 #: packages/admin/src/components/MenuEditor.tsx:464
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
@@ -2739,7 +2739,7 @@ msgstr "Tria una altra opció"
 msgid "Choose bylines"
 msgstr "Tria signatures"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1102
+#: packages/admin/src/components/MediaPickerModal.tsx:1103
 msgid "Choose files to upload"
 msgstr "Tria fitxers per pujar"
 
@@ -2866,8 +2866,8 @@ msgstr "Fes clic en aquest enllaç per iniciar la sessió a {siteName}:"
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:462
 #: packages/admin/src/components/MediaDetailPanel.tsx:1126
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
-#: packages/admin/src/components/MediaPickerModal.tsx:1009
-#: packages/admin/src/components/MediaPickerModal.tsx:1016
+#: packages/admin/src/components/MediaPickerModal.tsx:1010
+#: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
 #: packages/admin/src/components/MenuEditor.tsx:433
 #: packages/admin/src/components/MenuEditor.tsx:439
@@ -3380,11 +3380,11 @@ msgstr "No s'han pogut carregar {pluralLower}."
 msgid "Could not load dashboard data"
 msgstr "No s'han pogut carregar les dades del tauler"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:668
+#: packages/admin/src/components/MediaPickerModal.tsx:670
 msgid "Could not load image from URL"
 msgstr "No s'ha pogut carregar la imatge des de l'URL"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1398
+#: packages/admin/src/components/MediaPickerModal.tsx:1399
 msgid "Could not load media."
 msgstr "No s'ha pogut carregar el multimèdia."
 
@@ -3396,7 +3396,7 @@ msgstr "No s'ha pogut carregar el calendari"
 msgid "Could not load this entry's details."
 msgstr "No s'han pogut carregar els detalls d'aquesta entrada."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1210
+#: packages/admin/src/components/MediaPickerModal.tsx:1211
 msgid "Could not load this folder."
 msgstr "No s'ha pogut carregar aquesta carpeta."
 
@@ -4444,7 +4444,7 @@ msgstr "Document"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:66
 #: packages/admin/src/components/MediaLibrary.tsx:924
-#: packages/admin/src/components/MediaPickerModal.tsx:392
+#: packages/admin/src/components/MediaPickerModal.tsx:394
 msgid "Documents"
 msgstr "Documents"
 
@@ -4736,7 +4736,7 @@ msgstr "Edita {title}"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
-#: packages/admin/src/components/MediaPickerModal.tsx:1594
+#: packages/admin/src/components/MediaPickerModal.tsx:1595
 msgid "Edit asset"
 msgstr "Edita el recurs"
 
@@ -5368,7 +5368,7 @@ msgstr "No s'ha pogut comunicar amb el connector"
 msgid "Failed to compare revisions"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:379
+#: packages/admin/src/lib/api/media.ts:380
 msgid "Failed to confirm upload"
 msgstr "No s'ha pogut confirmar la pujada"
 
@@ -5436,7 +5436,7 @@ msgstr ""
 msgid "Failed to create field"
 msgstr "No s'ha pogut crear el camp"
 
-#: packages/admin/src/lib/api/media.ts:252
+#: packages/admin/src/lib/api/media.ts:253
 msgid "Failed to create media folder"
 msgstr "No s'ha pogut crear la carpeta multimèdia"
 
@@ -5535,15 +5535,15 @@ msgstr "No s'ha pogut eliminar el contingut"
 msgid "Failed to delete field"
 msgstr "No s'ha pogut eliminar el camp"
 
-#: packages/admin/src/lib/api/media.ts:763
+#: packages/admin/src/lib/api/media.ts:764
 msgid "Failed to delete from provider"
 msgstr "No s'ha pogut eliminar del proveïdor"
 
-#: packages/admin/src/lib/api/media.ts:623
+#: packages/admin/src/lib/api/media.ts:624
 msgid "Failed to delete media"
 msgstr "No s'ha pogut eliminar el fitxer multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:274
+#: packages/admin/src/lib/api/media.ts:275
 msgid "Failed to delete media folder"
 msgstr "No s'ha pogut eliminar la carpeta multimèdia"
 
@@ -5744,27 +5744,27 @@ msgstr ""
 msgid "Failed to fetch manifest"
 msgstr "No s'ha pogut obtenir el manifest"
 
-#: packages/admin/src/lib/api/media.ts:174
+#: packages/admin/src/lib/api/media.ts:175
 msgid "Failed to fetch media"
 msgstr "No s'han pogut obtenir els fitxers multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:239
+#: packages/admin/src/lib/api/media.ts:240
 msgid "Failed to fetch media folder"
 msgstr "No s'ha pogut obtenir la carpeta multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:231
+#: packages/admin/src/lib/api/media.ts:232
 msgid "Failed to fetch media folders"
 msgstr "No s'han pogut obtenir les carpetes multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:192
+#: packages/admin/src/lib/api/media.ts:193
 msgid "Failed to fetch media item"
 msgstr "No s'ha pogut obtenir l'element multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:696
+#: packages/admin/src/lib/api/media.ts:697
 msgid "Failed to fetch media providers"
 msgstr "No s'han pogut obtenir els proveïdors multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:215
+#: packages/admin/src/lib/api/media.ts:216
 msgid "Failed to fetch media usage details"
 msgstr "No s'han pogut obtenir els detalls d'ús del multimèdia"
 
@@ -5802,7 +5802,7 @@ msgstr "No s'ha pogut obtenir la configuració del connector"
 msgid "Failed to fetch plugins"
 msgstr "No s'han pogut obtenir els connectors"
 
-#: packages/admin/src/lib/api/media.ts:726
+#: packages/admin/src/lib/api/media.ts:727
 msgid "Failed to fetch provider media"
 msgstr "No s'han pogut obtenir els fitxers multimèdia del proveïdor"
 
@@ -5925,7 +5925,7 @@ msgstr "No s'han pogut obtenir les opcions d'autenticació"
 msgid "Failed to get registration options"
 msgstr "No s'han pogut obtenir les opcions de registre"
 
-#: packages/admin/src/lib/api/media.ts:351
+#: packages/admin/src/lib/api/media.ts:352
 msgid "Failed to get upload URL"
 msgstr "No s'ha pogut obtenir l'URL de pujada"
 
@@ -5997,7 +5997,7 @@ msgstr "No s'ha pogut carregar el manifest d'exportació"
 msgid "Failed to load exports"
 msgstr "No s'han pogut carregar les exportacions"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:652
+#: packages/admin/src/components/MediaPickerModal.tsx:654
 msgid "Failed to load image"
 msgstr "No s'ha pogut carregar la imatge"
 
@@ -6128,7 +6128,7 @@ msgstr "No s'ha pogut eliminar el domini"
 msgid "Failed to remove passkey"
 msgstr "No s'ha pogut eliminar la clau d'accés"
 
-#: packages/admin/src/lib/api/media.ts:265
+#: packages/admin/src/lib/api/media.ts:266
 msgid "Failed to rename media folder"
 msgstr "No s'ha pogut canviar el nom de la carpeta multimèdia"
 
@@ -6162,7 +6162,7 @@ msgstr ""
 msgid "Failed to reorder widgets"
 msgstr "No s'han pogut reordenar els ginys"
 
-#: packages/admin/src/lib/api/media.ts:611
+#: packages/admin/src/lib/api/media.ts:612
 msgid "Failed to replace media image"
 msgstr "No s'ha pogut substituir la imatge multimèdia"
 
@@ -6318,7 +6318,7 @@ msgstr "No s'ha pogut actualitzar el domini"
 msgid "Failed to update field"
 msgstr ""
 
-#: packages/admin/src/lib/api/media.ts:647
+#: packages/admin/src/lib/api/media.ts:648
 msgid "Failed to update media"
 msgstr "No s'ha pogut actualitzar el fitxer multimèdia"
 
@@ -6380,15 +6380,15 @@ msgstr ""
 msgid "Failed to upload a package file"
 msgstr "No s'ha pogut pujar un fitxer del paquet"
 
-#: packages/admin/src/lib/api/media.ts:404
+#: packages/admin/src/lib/api/media.ts:405
 msgid "Failed to upload file"
 msgstr "No s'ha pogut pujar el fitxer"
 
-#: packages/admin/src/lib/api/media.ts:552
+#: packages/admin/src/lib/api/media.ts:553
 msgid "Failed to upload media"
 msgstr "No s'han pogut pujar els fitxers multimèdia"
 
-#: packages/admin/src/lib/api/media.ts:751
+#: packages/admin/src/lib/api/media.ts:752
 msgid "Failed to upload to provider"
 msgstr "No s'ha pogut pujar al proveïdor"
 
@@ -6542,7 +6542,7 @@ msgid "Filter by status"
 msgstr "Filtra per estat"
 
 #: packages/admin/src/components/MediaLibrary.tsx:926
-#: packages/admin/src/components/MediaPickerModal.tsx:1284
+#: packages/admin/src/components/MediaPickerModal.tsx:1285
 #: packages/admin/src/components/Redirects.tsx:403
 msgid "Filter by type"
 msgstr "Filtra per tipus"
@@ -6560,7 +6560,7 @@ msgid "Finish any current edits."
 msgstr "Acaba les edicions en curs."
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:109
-#: packages/admin/src/components/MediaPickerModal.tsx:1554
+#: packages/admin/src/components/MediaPickerModal.tsx:1555
 msgid "First page"
 msgstr "Primera pàgina"
 
@@ -6589,7 +6589,7 @@ msgstr "Punt focal"
 msgid "Focal point. Use arrow keys to move it."
 msgstr "Punt focal. Fes servir les tecles de fletxa per moure'l."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1204
+#: packages/admin/src/components/MediaPickerModal.tsx:1205
 msgid "Folder"
 msgstr "Carpeta"
 
@@ -6606,7 +6606,7 @@ msgstr "El nom de la carpeta ha de tenir entre 1 i 200 caràcters"
 msgid "Folder no longer exists"
 msgstr "La carpeta ja no existeix"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:487
+#: packages/admin/src/components/MediaPickerModal.tsx:489
 msgid "Folder no longer exists. Returned to the main library."
 msgstr "La carpeta ja no existeix. S'ha tornat a la biblioteca principal."
 
@@ -6623,14 +6623,14 @@ msgid "Folder unavailable"
 msgstr "Carpeta no disponible"
 
 #: packages/admin/src/components/MediaLibrary.tsx:953
-#: packages/admin/src/components/MediaPickerModal.tsx:1322
+#: packages/admin/src/components/MediaPickerModal.tsx:1323
 msgid "Folders"
 msgstr "Carpetes"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1545
 #: packages/admin/src/components/MediaLibrary.tsx:963
 #: packages/admin/src/components/MediaLibrary.tsx:1467
-#: packages/admin/src/components/MediaPickerModal.tsx:1327
+#: packages/admin/src/components/MediaPickerModal.tsx:1328
 msgid "Folders could not be loaded."
 msgstr "No s'han pogut carregar les carpetes."
 
@@ -6679,7 +6679,7 @@ msgstr "Del paquet: “{packageValue}”"
 msgid "From the post owner"
 msgstr "Del propietari de l'entrada"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:369
+#: packages/admin/src/components/MediaPickerModal.tsx:371
 msgid "From URL"
 msgstr "Des d'URL"
 
@@ -6770,7 +6770,7 @@ msgid "GraphQL"
 msgstr "GraphQL"
 
 #: packages/admin/src/components/MediaLibrary.tsx:881
-#: packages/admin/src/components/MediaPickerModal.tsx:1240
+#: packages/admin/src/components/MediaPickerModal.tsx:1241
 msgid "Grid view"
 msgstr "Vista de graella"
 
@@ -7002,7 +7002,7 @@ msgstr "https://exemple.com o /pagina"
 msgid "https://example.com/blog/my-post"
 msgstr "https://exemple.com/blog/meu-post"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1129
+#: packages/admin/src/components/MediaPickerModal.tsx:1130
 msgid "https://example.com/image.jpg"
 msgstr "https://exemple.com/imatge.jpg"
 
@@ -7121,15 +7121,15 @@ msgstr "Imatge que es mostra quan es comparteix aquesta pàgina a les xarxes soc
 msgid "Image upload failed. Try again."
 msgstr "La pujada de la imatge ha fallat. Torna-ho a provar."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1118
-#: packages/admin/src/components/MediaPickerModal.tsx:1128
+#: packages/admin/src/components/MediaPickerModal.tsx:1119
+#: packages/admin/src/components/MediaPickerModal.tsx:1129
 msgid "Image URL"
 msgstr "URL de la imatge"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:64
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:256
 #: packages/admin/src/components/MediaLibrary.tsx:921
-#: packages/admin/src/components/MediaPickerModal.tsx:389
+#: packages/admin/src/components/MediaPickerModal.tsx:391
 msgid "Images"
 msgstr "Imatges"
 
@@ -7710,7 +7710,7 @@ msgid "Last Login"
 msgstr "Últim inici de sessió"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:112
-#: packages/admin/src/components/MediaPickerModal.tsx:1557
+#: packages/admin/src/components/MediaPickerModal.tsx:1558
 msgid "Last page"
 msgstr "Última pàgina"
 
@@ -7759,8 +7759,8 @@ msgstr "Esquerra"
 #: packages/admin/src/components/MediaLibrary.tsx:414
 #: packages/admin/src/components/MediaLibrary.tsx:687
 #: packages/admin/src/components/MediaLibrary.tsx:1255
-#: packages/admin/src/components/MediaPickerModal.tsx:364
-#: packages/admin/src/components/MediaPickerModal.tsx:381
+#: packages/admin/src/components/MediaPickerModal.tsx:366
+#: packages/admin/src/components/MediaPickerModal.tsx:383
 msgid "Library"
 msgstr "Biblioteca"
 
@@ -7869,7 +7869,7 @@ msgid "List"
 msgstr ""
 
 #: packages/admin/src/components/MediaLibrary.tsx:890
-#: packages/admin/src/components/MediaPickerModal.tsx:1250
+#: packages/admin/src/components/MediaPickerModal.tsx:1251
 msgid "List view"
 msgstr "Vista de llista"
 
@@ -7906,7 +7906,7 @@ msgstr "Carrega'n més"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1564
 #: packages/admin/src/components/MediaLibrary.tsx:993
 #: packages/admin/src/components/MediaLibrary.tsx:1185
-#: packages/admin/src/components/MediaPickerModal.tsx:1376
+#: packages/admin/src/components/MediaPickerModal.tsx:1377
 msgid "Load more folders"
 msgstr "Carrega més carpetes"
 
@@ -7963,7 +7963,7 @@ msgstr "S'estan carregant les exportacions…"
 
 #: packages/admin/src/components/MediaLibrary.tsx:937
 #: packages/admin/src/components/MediaLibrary.tsx:1153
-#: packages/admin/src/components/MediaPickerModal.tsx:1345
+#: packages/admin/src/components/MediaPickerModal.tsx:1346
 msgid "Loading folders"
 msgstr "S'estan carregant les carpetes"
 
@@ -7975,7 +7975,7 @@ msgstr "S'estan carregant les carpetes..."
 msgid "Loading imports…"
 msgstr "S'estan carregant les importacions…"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1393
+#: packages/admin/src/components/MediaPickerModal.tsx:1394
 msgid "Loading media"
 msgstr "S'està carregant el multimèdia"
 
@@ -8163,7 +8163,7 @@ msgid "Lua"
 msgstr "Lua"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:575
-#: packages/admin/src/components/MediaPickerModal.tsx:1198
+#: packages/admin/src/components/MediaPickerModal.tsx:1199
 msgid "Main library"
 msgstr "Biblioteca principal"
 
@@ -8362,7 +8362,7 @@ msgid "Media links were made relative"
 msgstr "Els enllaços de multimèdia s'han fet relatius"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1241
-#: packages/admin/src/components/MediaPickerModal.tsx:1553
+#: packages/admin/src/components/MediaPickerModal.tsx:1554
 msgid "Media pagination"
 msgstr "Paginació del multimèdia"
 
@@ -8370,7 +8370,7 @@ msgstr "Paginació del multimèdia"
 msgid "Media Read"
 msgstr "Lectura de fitxers multimèdia"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1384
+#: packages/admin/src/components/MediaPickerModal.tsx:1385
 msgid "Media results"
 msgstr "Resultats de multimèdia"
 
@@ -8713,7 +8713,7 @@ msgid "Move up {0}"
 msgstr "Mou amunt {0}"
 
 #. placeholder {0}: to + 1
-#: packages/admin/src/components/MediaPickerModal.tsx:699
+#: packages/admin/src/components/MediaPickerModal.tsx:701
 msgid "Moved {filename} to position {0}."
 msgstr "S'ha mogut {filename} a la posició {0}."
 
@@ -8935,7 +8935,7 @@ msgstr "Mes següent"
 #: packages/admin/src/components/comments/CommentInbox.tsx:396
 #: packages/admin/src/components/ContentList.tsx:874
 #: packages/admin/src/components/ListPaginationFooter.tsx:111
-#: packages/admin/src/components/MediaPickerModal.tsx:1556
+#: packages/admin/src/components/MediaPickerModal.tsx:1557
 msgid "Next page"
 msgstr "Pàgina següent"
 
@@ -9228,7 +9228,7 @@ msgid "No media available from this provider."
 msgstr "No hi ha cap fitxer multimèdia disponible d'aquest proveïdor."
 
 #: packages/admin/src/components/MediaLibrary.tsx:1073
-#: packages/admin/src/components/MediaPickerModal.tsx:1414
+#: packages/admin/src/components/MediaPickerModal.tsx:1415
 msgid "No media found"
 msgstr "No s'ha trobat cap fitxer multimèdia"
 
@@ -9712,12 +9712,12 @@ msgid "Page Not Found"
 msgstr "No s'ha trobat la pàgina"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:113
-#: packages/admin/src/components/MediaPickerModal.tsx:1558
+#: packages/admin/src/components/MediaPickerModal.tsx:1559
 msgid "Page number"
 msgstr "Número de pàgina"
 
 #: packages/admin/src/components/ListPaginationFooter.tsx:114
-#: packages/admin/src/components/MediaPickerModal.tsx:1559
+#: packages/admin/src/components/MediaPickerModal.tsx:1560
 msgid "Page size"
 msgstr "Mida de pàgina"
 
@@ -9960,7 +9960,7 @@ msgstr "Introdueix un correu electrònic vàlid"
 msgid "Please enter a valid email address"
 msgstr "Introdueix una adreça electrònica vàlida"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:636
+#: packages/admin/src/components/MediaPickerModal.tsx:638
 msgid "Please enter a valid URL"
 msgstr "Introdueix un URL vàlid"
 
@@ -10217,7 +10217,7 @@ msgstr "Mes anterior"
 #: packages/admin/src/components/comments/CommentInbox.tsx:377
 #: packages/admin/src/components/ContentList.tsx:862
 #: packages/admin/src/components/ListPaginationFooter.tsx:110
-#: packages/admin/src/components/MediaPickerModal.tsx:1555
+#: packages/admin/src/components/MediaPickerModal.tsx:1556
 msgid "Previous page"
 msgstr "Pàgina anterior"
 
@@ -10809,7 +10809,7 @@ msgid "Remove this image from the document?"
 msgstr "Vols treure aquesta imatge del document?"
 
 #. placeholder {0}: selected.item.filename
-#: packages/admin/src/components/MediaPickerModal.tsx:704
+#: packages/admin/src/components/MediaPickerModal.tsx:706
 msgid "Removed {0} from selection."
 msgstr "S'ha tret {0} de la selecció."
 
@@ -11127,10 +11127,10 @@ msgstr "Retirat"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1551
 #: packages/admin/src/components/MediaLibrary.tsx:957
 #: packages/admin/src/components/MediaLibrary.tsx:1470
-#: packages/admin/src/components/MediaPickerModal.tsx:1216
-#: packages/admin/src/components/MediaPickerModal.tsx:1312
-#: packages/admin/src/components/MediaPickerModal.tsx:1334
-#: packages/admin/src/components/MediaPickerModal.tsx:1407
+#: packages/admin/src/components/MediaPickerModal.tsx:1217
+#: packages/admin/src/components/MediaPickerModal.tsx:1313
+#: packages/admin/src/components/MediaPickerModal.tsx:1335
+#: packages/admin/src/components/MediaPickerModal.tsx:1408
 #: packages/admin/src/components/PluginFieldErrorBoundary.tsx:44
 #: packages/admin/src/components/SandboxedContentEditorPanel.tsx:273
 #: packages/admin/src/components/Sections.tsx:281
@@ -11650,7 +11650,7 @@ msgid "Search blocks"
 msgstr "Cerca blocs"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search by filename..."
 msgstr "Cerca per nom de fitxer..."
 
@@ -11720,7 +11720,7 @@ msgid "Search form"
 msgstr "Formulari de cerca"
 
 #: packages/admin/src/components/MediaLibrary.tsx:903
-#: packages/admin/src/components/MediaPickerModal.tsx:1265
+#: packages/admin/src/components/MediaPickerModal.tsx:1266
 msgid "Search media"
 msgstr "Cerca fitxers multimèdia"
 
@@ -11789,7 +11789,7 @@ msgid "Search will be turned off for some collections"
 msgstr "Es desactivarà la cerca en algunes col·leccions"
 
 #: packages/admin/src/components/MediaLibrary.tsx:902
-#: packages/admin/src/components/MediaPickerModal.tsx:1263
+#: packages/admin/src/components/MediaPickerModal.tsx:1264
 msgid "Search..."
 msgstr "Cerca..."
 
@@ -11900,7 +11900,7 @@ msgstr "Mira on s'utilitza aquest fitxer."
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
 #: packages/admin/src/components/FieldEditor.tsx:1295
-#: packages/admin/src/components/MediaPickerModal.tsx:868
+#: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
 msgstr "Selecciona"
@@ -12058,7 +12058,7 @@ msgstr "Seleccionat {selectedItemTitle}"
 msgid "Selected image"
 msgstr "Imatge seleccionada"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:945
+#: packages/admin/src/components/MediaPickerModal.tsx:946
 msgid "Selected media"
 msgstr "Multimèdia seleccionat"
 
@@ -12289,7 +12289,7 @@ msgstr "Mostra el token"
 #. placeholder {0}: count ?? 0
 #. placeholder {0}: totalCount ?? 0
 #: packages/admin/src/components/ListPaginationFooter.tsx:119
-#: packages/admin/src/components/MediaPickerModal.tsx:1564
+#: packages/admin/src/components/MediaPickerModal.tsx:1565
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "Es mostren {pageShowingRange} de {0}"
 
@@ -13138,7 +13138,7 @@ msgstr "L'usuari convidat tindrà aquest rol un cop completi el registre."
 msgid "The last export failed"
 msgstr "L'última exportació ha fallat"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1306
+#: packages/admin/src/components/MediaPickerModal.tsx:1307
 msgid "The latest media request failed. Showing the previous page."
 msgstr "L'última sol·licitud de multimèdia ha fallat. Es mostra la pàgina anterior."
 
@@ -13509,7 +13509,7 @@ msgstr "Aquest camp conté marques de Portable Text no admeses: <0>{markList}</0
 msgid "This field does not accept {0} files."
 msgstr "Aquest camp no accepta fitxers {0}."
 
-#: packages/admin/src/components/MediaPickerModal.tsx:649
+#: packages/admin/src/components/MediaPickerModal.tsx:651
 msgid "This field does not accept {mimeType} files."
 msgstr "Aquest camp no accepta fitxers {mimeType}."
 
@@ -13556,7 +13556,7 @@ msgstr "Aquest fitxer no és un paquet de lloc EmDash: ha de començar per manif
 msgid "This folder is empty"
 msgstr "Aquesta carpeta és buida"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1419
+#: packages/admin/src/components/MediaPickerModal.tsx:1420
 msgid "This folder is empty."
 msgstr "Aquesta carpeta és buida."
 
@@ -14050,7 +14050,7 @@ msgid "Try another code"
 msgstr "Prova un altre codi"
 
 #: packages/admin/src/components/MediaLibrary.tsx:1052
-#: packages/admin/src/components/MediaPickerModal.tsx:1417
+#: packages/admin/src/components/MediaPickerModal.tsx:1418
 msgid "Try another filename or clear your search."
 msgstr "Prova un altre nom de fitxer o neteja la cerca."
 
@@ -14369,11 +14369,11 @@ msgstr "visualEditing.uploadImage"
 msgid "Upload"
 msgstr "Puja"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1421
+#: packages/admin/src/components/MediaPickerModal.tsx:1422
 msgid "Upload a file to get started"
 msgstr "Puja un fitxer per començar"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1423
+#: packages/admin/src/components/MediaPickerModal.tsx:1424
 msgid "Upload a video to get started"
 msgstr ""
 
@@ -14381,7 +14381,7 @@ msgstr ""
 msgid "Upload an export file"
 msgstr "Puja un fitxer d'exportació"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1424
+#: packages/admin/src/components/MediaPickerModal.tsx:1425
 msgid "Upload an image to get started"
 msgstr "Puja una imatge per començar"
 
@@ -14404,7 +14404,7 @@ msgstr "Puja el fitxer d'exportació"
 msgid "Upload failed"
 msgstr "La pujada ha fallat"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1083
+#: packages/admin/src/components/MediaPickerModal.tsx:1084
 msgid "Upload files"
 msgstr "Puja fitxers"
 
@@ -14558,7 +14558,7 @@ msgstr "Fes servir {fallbackUrl} igualment"
 msgid "Use a security key"
 msgstr "Fes servir una clau de seguretat"
 
-#: packages/admin/src/components/MediaPickerModal.tsx:645
+#: packages/admin/src/components/MediaPickerModal.tsx:647
 msgid "Use a URL ending in a recognized image extension, such as .jpg or .png."
 msgstr "Fes servir una URL que acabi en una extensió d'imatge reconeguda, com ara .jpg o .png."
 
@@ -14578,7 +14578,7 @@ msgstr "Fes servir lletres minúscules, nombres i guions, començant per una lle
 msgid "Use lowercase letters, numbers, and hyphens."
 msgstr ""
 
-#: packages/admin/src/components/MediaPickerModal.tsx:1148
+#: packages/admin/src/components/MediaPickerModal.tsx:1149
 msgid "Use URL"
 msgstr "Fes servir la URL"
 
@@ -14739,7 +14739,7 @@ msgstr "Versió {0} (activa)"
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
-#: packages/admin/src/components/MediaPickerModal.tsx:390
+#: packages/admin/src/components/MediaPickerModal.tsx:392
 #: packages/admin/src/components/PortableTextEditor.tsx:3673
 msgid "Video"
 msgstr "Vídeo"
@@ -14762,7 +14762,7 @@ msgid "View live"
 msgstr "Mostra en directe"
 
 #: packages/admin/src/components/MediaLibrary.tsx:868
-#: packages/admin/src/components/MediaPickerModal.tsx:1223
+#: packages/admin/src/components/MediaPickerModal.tsx:1224
 msgid "View mode"
 msgstr "Mode de visualització"
 
