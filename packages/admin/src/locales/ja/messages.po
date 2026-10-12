@@ -2530,7 +2530,6 @@ msgstr "中央"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:76
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:107
 #: packages/admin/src/components/FieldEditor.tsx:765
-#: packages/admin/src/components/SeoImageField.tsx:58
 msgid "Change"
 msgstr "変更"
 
@@ -7077,6 +7076,7 @@ msgstr "画像{0}"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:324
 #: packages/admin/src/components/ImageFieldRenderer.tsx:339
+#: packages/admin/src/components/SeoImageField.tsx:128
 msgid "Image actions"
 msgstr ""
 
@@ -7095,6 +7095,7 @@ msgstr ""
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:67
 #: packages/admin/src/components/ImageFieldRenderer.tsx:476
 #: packages/admin/src/components/ImageFieldRenderer.tsx:531
+#: packages/admin/src/components/SeoImageField.tsx:107
 msgid "Image not found"
 msgstr "画像が見つかりません"
 
@@ -7111,7 +7112,7 @@ msgstr "画像設定"
 msgid "Image Settings"
 msgstr "画像設定"
 
-#: packages/admin/src/components/SeoImageField.tsx:44
+#: packages/admin/src/components/SeoImageField.tsx:97
 msgid "Image shown when this page is shared on social media"
 msgstr "ソーシャルメディアでこのページを共有する際に表示される画像"
 
@@ -9458,8 +9459,7 @@ msgstr "OAuth接続の承認にはHTTPSが必要です。認証情報を手動�
 msgid "Off"
 msgstr "無効"
 
-#: packages/admin/src/components/SeoImageField.tsx:47
-#: packages/admin/src/components/SeoImageField.tsx:75
+#: packages/admin/src/components/SeoImageField.tsx:49
 msgid "OG Image"
 msgstr "OG画像"
 
@@ -10736,6 +10736,8 @@ msgid "Remove {entry}"
 msgstr "{entry}を削除"
 
 #: packages/admin/src/components/ContentEditor.tsx:3231
+#: packages/admin/src/components/SeoImageField.tsx:163
+#: packages/admin/src/components/SeoImageField.tsx:164
 msgid "Remove {label}"
 msgstr "{label}を削除"
 
@@ -10761,7 +10763,6 @@ msgstr ""
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
-#: packages/admin/src/components/SeoImageField.tsx:66
 msgid "Remove image"
 msgstr "画像を削除"
 
@@ -10884,11 +10885,15 @@ msgstr ""
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
 #: packages/admin/src/components/PortableTextEditor.tsx:5759
 #: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/SeoImageField.tsx:151
+#: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
 msgstr "置き換え"
 
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
+#: packages/admin/src/components/SeoImageField.tsx:148
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Replace {label}"
 msgstr ""
 
@@ -11904,6 +11909,7 @@ msgstr "選択"
 #: packages/admin/src/components/ContentEditor.tsx:3243
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Select {label}"
 msgstr "{label}を選択"
 
@@ -12011,10 +12017,6 @@ msgstr "ロゴを選択"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:131
 msgid "Select media"
 msgstr "メディアを選択"
-
-#: packages/admin/src/components/SeoImageField.tsx:85
-msgid "Select OG image"
-msgstr "OG画像を選択"
 
 #: packages/admin/src/components/editor/TableControls.tsx:24
 msgid "Select row"
@@ -14980,7 +14982,7 @@ msgstr "検索結果のタイトルにとって重要な理由"
 msgid "Why is this important for search visibility?"
 msgstr "検索での表示にとって重要な理由"
 
-#: packages/admin/src/components/SeoImageField.tsx:45
+#: packages/admin/src/components/SeoImageField.tsx:98
 msgid "Why is this important for social sharing?"
 msgstr "ソーシャル共有にとって重要な理由"
 

@@ -2530,7 +2530,6 @@ msgstr "মাঝখানে"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:76
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:107
 #: packages/admin/src/components/FieldEditor.tsx:765
-#: packages/admin/src/components/SeoImageField.tsx:58
 msgid "Change"
 msgstr "পরিবর্তন করুন"
 
@@ -7077,6 +7076,7 @@ msgstr "ছবি {0}"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:324
 #: packages/admin/src/components/ImageFieldRenderer.tsx:339
+#: packages/admin/src/components/SeoImageField.tsx:128
 msgid "Image actions"
 msgstr "ছবির অ্যাকশন"
 
@@ -7095,6 +7095,7 @@ msgstr "ছবির লিঙ্ক"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:67
 #: packages/admin/src/components/ImageFieldRenderer.tsx:476
 #: packages/admin/src/components/ImageFieldRenderer.tsx:531
+#: packages/admin/src/components/SeoImageField.tsx:107
 msgid "Image not found"
 msgstr "ছবি পাওয়া যায়নি"
 
@@ -7111,7 +7112,7 @@ msgstr "ছবির সেটিংস"
 msgid "Image Settings"
 msgstr "ছবির সেটিংস"
 
-#: packages/admin/src/components/SeoImageField.tsx:44
+#: packages/admin/src/components/SeoImageField.tsx:97
 msgid "Image shown when this page is shared on social media"
 msgstr "সোশ্যাল মিডিয়ায় এই পেজটি শেয়ার করা হলে যে ছবি দেখানো হয়"
 
@@ -9458,8 +9459,7 @@ msgstr "OAuth অনুমোদনের জন্য HTTPS প্রয়ো�
 msgid "Off"
 msgstr "বন্ধ"
 
-#: packages/admin/src/components/SeoImageField.tsx:47
-#: packages/admin/src/components/SeoImageField.tsx:75
+#: packages/admin/src/components/SeoImageField.tsx:49
 msgid "OG Image"
 msgstr "OG ছবি"
 
@@ -10736,6 +10736,8 @@ msgid "Remove {entry}"
 msgstr "{entry} সরান"
 
 #: packages/admin/src/components/ContentEditor.tsx:3231
+#: packages/admin/src/components/SeoImageField.tsx:163
+#: packages/admin/src/components/SeoImageField.tsx:164
 msgid "Remove {label}"
 msgstr "{label} সরান"
 
@@ -10761,7 +10763,6 @@ msgstr "পোস্ট থেকে সরান"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
-#: packages/admin/src/components/SeoImageField.tsx:66
 msgid "Remove image"
 msgstr "ছবি সরান"
 
@@ -10884,11 +10885,15 @@ msgstr ""
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
 #: packages/admin/src/components/PortableTextEditor.tsx:5759
 #: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/SeoImageField.tsx:151
+#: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
 msgstr "প্রতিস্থাপন করুন"
 
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
+#: packages/admin/src/components/SeoImageField.tsx:148
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Replace {label}"
 msgstr "{label} প্রতিস্থাপন করুন"
 
@@ -11904,6 +11909,7 @@ msgstr "নির্বাচন করুন"
 #: packages/admin/src/components/ContentEditor.tsx:3243
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Select {label}"
 msgstr "{label} নির্বাচন করুন"
 
@@ -12011,10 +12017,6 @@ msgstr "লোগো নির্বাচন করুন"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:131
 msgid "Select media"
 msgstr "মিডিয়া নির্বাচন করুন"
-
-#: packages/admin/src/components/SeoImageField.tsx:85
-msgid "Select OG image"
-msgstr "OG ছবি নির্বাচন করুন"
 
 #: packages/admin/src/components/editor/TableControls.tsx:24
 msgid "Select row"
@@ -14980,7 +14982,7 @@ msgstr "সার্চ ফলাফলের শিরোনামের জন
 msgid "Why is this important for search visibility?"
 msgstr "সার্চে দৃশ্যমানতার জন্য এটি কেন গুরুত্বপূর্ণ?"
 
-#: packages/admin/src/components/SeoImageField.tsx:45
+#: packages/admin/src/components/SeoImageField.tsx:98
 msgid "Why is this important for social sharing?"
 msgstr "সোশ্যাল শেয়ারিংয়ের জন্য এটি কেন গুরুত্বপূর্ণ?"
 

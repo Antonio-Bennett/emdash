@@ -2530,7 +2530,6 @@ msgstr "Centro"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:76
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:107
 #: packages/admin/src/components/FieldEditor.tsx:765
-#: packages/admin/src/components/SeoImageField.tsx:58
 msgid "Change"
 msgstr "Alterar"
 
@@ -7077,6 +7076,7 @@ msgstr "Imagem {0}"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:324
 #: packages/admin/src/components/ImageFieldRenderer.tsx:339
+#: packages/admin/src/components/SeoImageField.tsx:128
 msgid "Image actions"
 msgstr "Ações da imagem"
 
@@ -7095,6 +7095,7 @@ msgstr ""
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:67
 #: packages/admin/src/components/ImageFieldRenderer.tsx:476
 #: packages/admin/src/components/ImageFieldRenderer.tsx:531
+#: packages/admin/src/components/SeoImageField.tsx:107
 msgid "Image not found"
 msgstr "Imagem não encontrada"
 
@@ -7111,7 +7112,7 @@ msgstr "Configurações de imagem"
 msgid "Image Settings"
 msgstr "Configurações de imagem"
 
-#: packages/admin/src/components/SeoImageField.tsx:44
+#: packages/admin/src/components/SeoImageField.tsx:97
 msgid "Image shown when this page is shared on social media"
 msgstr "Imagem exibida quando esta página é compartilhada nas redes sociais"
 
@@ -9458,8 +9459,7 @@ msgstr "A autorização OAuth requer HTTPS. Use credenciais manuais."
 msgid "Off"
 msgstr "Desativado"
 
-#: packages/admin/src/components/SeoImageField.tsx:47
-#: packages/admin/src/components/SeoImageField.tsx:75
+#: packages/admin/src/components/SeoImageField.tsx:49
 msgid "OG Image"
 msgstr "Imagem OG"
 
@@ -10736,6 +10736,8 @@ msgid "Remove {entry}"
 msgstr "Remover {entry}"
 
 #: packages/admin/src/components/ContentEditor.tsx:3231
+#: packages/admin/src/components/SeoImageField.tsx:163
+#: packages/admin/src/components/SeoImageField.tsx:164
 msgid "Remove {label}"
 msgstr "Remover {label}"
 
@@ -10761,7 +10763,6 @@ msgstr "Remover do post"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
-#: packages/admin/src/components/SeoImageField.tsx:66
 msgid "Remove image"
 msgstr "Remover imagem"
 
@@ -10884,11 +10885,15 @@ msgstr ""
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
 #: packages/admin/src/components/PortableTextEditor.tsx:5759
 #: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/SeoImageField.tsx:151
+#: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
 msgstr "Substituir"
 
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
+#: packages/admin/src/components/SeoImageField.tsx:148
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Replace {label}"
 msgstr "Substituir {label}"
 
@@ -11904,6 +11909,7 @@ msgstr "Selecionar"
 #: packages/admin/src/components/ContentEditor.tsx:3243
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Select {label}"
 msgstr "Selecionar {label}"
 
@@ -12011,10 +12017,6 @@ msgstr "Selecionar logo"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:131
 msgid "Select media"
 msgstr "Selecionar mídia"
-
-#: packages/admin/src/components/SeoImageField.tsx:85
-msgid "Select OG image"
-msgstr "Selecionar imagem OG"
 
 #: packages/admin/src/components/editor/TableControls.tsx:24
 msgid "Select row"
@@ -14980,7 +14982,7 @@ msgstr "Por que isso é importante para os títulos dos resultados de pesquisa?"
 msgid "Why is this important for search visibility?"
 msgstr "Por que isso é importante para a visibilidade nas pesquisas?"
 
-#: packages/admin/src/components/SeoImageField.tsx:45
+#: packages/admin/src/components/SeoImageField.tsx:98
 msgid "Why is this important for social sharing?"
 msgstr "Por que isso é importante para o compartilhamento social?"
 

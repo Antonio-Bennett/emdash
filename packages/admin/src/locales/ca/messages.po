@@ -2530,7 +2530,6 @@ msgstr "Centre"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:76
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:107
 #: packages/admin/src/components/FieldEditor.tsx:765
-#: packages/admin/src/components/SeoImageField.tsx:58
 msgid "Change"
 msgstr "Canvia"
 
@@ -7077,6 +7076,7 @@ msgstr "Imatge {0}"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:324
 #: packages/admin/src/components/ImageFieldRenderer.tsx:339
+#: packages/admin/src/components/SeoImageField.tsx:128
 msgid "Image actions"
 msgstr "Accions de la imatge"
 
@@ -7095,6 +7095,7 @@ msgstr "Enllaç de la imatge"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:67
 #: packages/admin/src/components/ImageFieldRenderer.tsx:476
 #: packages/admin/src/components/ImageFieldRenderer.tsx:531
+#: packages/admin/src/components/SeoImageField.tsx:107
 msgid "Image not found"
 msgstr "No s'ha trobat la imatge"
 
@@ -7111,7 +7112,7 @@ msgstr "Configuració de la imatge"
 msgid "Image Settings"
 msgstr "Configuració de la imatge"
 
-#: packages/admin/src/components/SeoImageField.tsx:44
+#: packages/admin/src/components/SeoImageField.tsx:97
 msgid "Image shown when this page is shared on social media"
 msgstr "Imatge que es mostra quan es comparteix aquesta pàgina a les xarxes socials"
 
@@ -9458,8 +9459,7 @@ msgstr "L'autorització OAuth requereix HTTPS. Fes servir credencials manuals."
 msgid "Off"
 msgstr "Desactivat"
 
-#: packages/admin/src/components/SeoImageField.tsx:47
-#: packages/admin/src/components/SeoImageField.tsx:75
+#: packages/admin/src/components/SeoImageField.tsx:49
 msgid "OG Image"
 msgstr "Imatge OG"
 
@@ -10736,6 +10736,8 @@ msgid "Remove {entry}"
 msgstr "Treu {entry}"
 
 #: packages/admin/src/components/ContentEditor.tsx:3231
+#: packages/admin/src/components/SeoImageField.tsx:163
+#: packages/admin/src/components/SeoImageField.tsx:164
 msgid "Remove {label}"
 msgstr "Treu {label}"
 
@@ -10761,7 +10763,6 @@ msgstr "Treu de l'entrada"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
-#: packages/admin/src/components/SeoImageField.tsx:66
 msgid "Remove image"
 msgstr "Treu la imatge"
 
@@ -10884,11 +10885,15 @@ msgstr "visualEditing.replaceImage"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
 #: packages/admin/src/components/PortableTextEditor.tsx:5759
 #: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/SeoImageField.tsx:151
+#: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
 msgstr "Substitueix"
 
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
+#: packages/admin/src/components/SeoImageField.tsx:148
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Replace {label}"
 msgstr "Substitueix {label}"
 
@@ -11904,6 +11909,7 @@ msgstr "Selecciona"
 #: packages/admin/src/components/ContentEditor.tsx:3243
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Select {label}"
 msgstr "Selecciona {label}"
 
@@ -12011,10 +12017,6 @@ msgstr "Selecciona el logotip"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:131
 msgid "Select media"
 msgstr "Selecciona un fitxer multimèdia"
-
-#: packages/admin/src/components/SeoImageField.tsx:85
-msgid "Select OG image"
-msgstr "Selecciona la imatge OG"
 
 #: packages/admin/src/components/editor/TableControls.tsx:24
 msgid "Select row"
@@ -14980,7 +14982,7 @@ msgstr "Per què és important per als títols dels resultats de cerca?"
 msgid "Why is this important for search visibility?"
 msgstr "Per què és important per a la visibilitat a la cerca?"
 
-#: packages/admin/src/components/SeoImageField.tsx:45
+#: packages/admin/src/components/SeoImageField.tsx:98
 msgid "Why is this important for social sharing?"
 msgstr "Per què és important per a compartir a xarxes socials?"
 

@@ -2531,7 +2531,6 @@ msgstr "מרכז"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:76
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:107
 #: packages/admin/src/components/FieldEditor.tsx:765
-#: packages/admin/src/components/SeoImageField.tsx:58
 msgid "Change"
 msgstr "שינוי"
 
@@ -7078,6 +7077,7 @@ msgstr "תמונה {0}"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:324
 #: packages/admin/src/components/ImageFieldRenderer.tsx:339
+#: packages/admin/src/components/SeoImageField.tsx:128
 msgid "Image actions"
 msgstr "פעולות תמונה"
 
@@ -7096,6 +7096,7 @@ msgstr "קישור התמונה"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:67
 #: packages/admin/src/components/ImageFieldRenderer.tsx:476
 #: packages/admin/src/components/ImageFieldRenderer.tsx:531
+#: packages/admin/src/components/SeoImageField.tsx:107
 msgid "Image not found"
 msgstr "התמונה לא נמצאה"
 
@@ -7112,7 +7113,7 @@ msgstr "הגדרות תמונה"
 msgid "Image Settings"
 msgstr "הגדרות תמונה"
 
-#: packages/admin/src/components/SeoImageField.tsx:44
+#: packages/admin/src/components/SeoImageField.tsx:97
 msgid "Image shown when this page is shared on social media"
 msgstr "תמונה המוצגת כשעמוד זה משותף במדיה חברתית"
 
@@ -9459,8 +9460,7 @@ msgstr "הרשאת OAuth דורשת HTTPS. השתמשו באישורים ידנ�
 msgid "Off"
 msgstr "כבוי"
 
-#: packages/admin/src/components/SeoImageField.tsx:47
-#: packages/admin/src/components/SeoImageField.tsx:75
+#: packages/admin/src/components/SeoImageField.tsx:49
 msgid "OG Image"
 msgstr "תמונת OG"
 
@@ -10737,6 +10737,8 @@ msgid "Remove {entry}"
 msgstr "הסרת {entry}"
 
 #: packages/admin/src/components/ContentEditor.tsx:3231
+#: packages/admin/src/components/SeoImageField.tsx:163
+#: packages/admin/src/components/SeoImageField.tsx:164
 msgid "Remove {label}"
 msgstr "הסרת {label}"
 
@@ -10762,7 +10764,6 @@ msgstr "הסרה מהפוסט"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
-#: packages/admin/src/components/SeoImageField.tsx:66
 msgid "Remove image"
 msgstr "הסרת תמונה"
 
@@ -10885,11 +10886,15 @@ msgstr "החלפה"
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
 #: packages/admin/src/components/PortableTextEditor.tsx:5759
 #: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/SeoImageField.tsx:151
+#: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
 msgstr "החלפה"
 
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:583
+#: packages/admin/src/components/SeoImageField.tsx:148
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Replace {label}"
 msgstr "החלפת {label}"
 
@@ -11905,6 +11910,7 @@ msgstr "בחירה"
 #: packages/admin/src/components/ContentEditor.tsx:3243
 #: packages/admin/src/components/ContentEditor.tsx:3259
 #: packages/admin/src/components/ImageFieldRenderer.tsx:584
+#: packages/admin/src/components/SeoImageField.tsx:183
 msgid "Select {label}"
 msgstr "בחירת {label}"
 
@@ -12012,10 +12018,6 @@ msgstr "בחירת לוגו"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:131
 msgid "Select media"
 msgstr "בחירת מדיה"
-
-#: packages/admin/src/components/SeoImageField.tsx:85
-msgid "Select OG image"
-msgstr "בחירת תמונת OG"
 
 #: packages/admin/src/components/editor/TableControls.tsx:24
 msgid "Select row"
@@ -14981,7 +14983,7 @@ msgstr "מדוע זה חשוב לכותרות תוצאות חיפוש?"
 msgid "Why is this important for search visibility?"
 msgstr "מדוע זה חשוב לנראות בחיפוש?"
 
-#: packages/admin/src/components/SeoImageField.tsx:45
+#: packages/admin/src/components/SeoImageField.tsx:98
 msgid "Why is this important for social sharing?"
 msgstr "מדוע זה חשוב לשיתוף חברתי?"
 
