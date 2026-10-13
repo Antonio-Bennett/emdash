@@ -59,6 +59,132 @@ async function enableEditMode(page: import("@playwright/test").Page): Promise<vo
 	]);
 }
 
+/** Answers the editor's saves without storing them, so the seeded post stays as it was. */
+async function stubSaves(page: import("@playwright/test").Page): Promise<void> {
+	await page.route("**/_emdash/api/content/**", (route) =>
+		route.request().method() === "PUT"
+			? route.fulfill({ status: 200, contentType: "application/json", body: '{"data":{}}' })
+			: route.continue(),
+	);
+}
+
+type InlineEditorDom = HTMLElement & {
+	editor: {
+		state: {
+			doc: {
+				descendants: (
+					visit: (
+						node: { type: { name: string }; textContent: string; nodeSize: number },
+						pos: number,
+					) => boolean,
+				) => void;
+			};
+			selection: { from: number };
+		};
+		commands: {
+			focus: () => boolean;
+			setTextSelection: (position: number | { from: number; to: number }) => boolean;
+			splitBlock: () => boolean;
+			insertContent: (value: string) => boolean;
+			setLink: (attributes: { href: string }) => boolean;
+		};
+	};
+};
+
+/**
+ * Selects the first word of the first paragraph, or with `newLine` puts the
+ * caret on a new empty line after that paragraph, through the editor's API.
+ */
+async function placeSelection(
+	page: import("@playwright/test").Page,
+	mode: "firstWord" | "newLine",
+): Promise<void> {
+	await page.evaluate((selection) => {
+		const { editor } = document.querySelector(".emdash-inline-editor") as InlineEditorDom;
+		let paragraph: { pos: number; size: number; word: number } | undefined;
+		editor.state.doc.descendants((node, pos) => {
+			if (!paragraph && node.type.name === "paragraph" && node.textContent) {
+				paragraph = { pos, size: node.nodeSize, word: node.textContent.indexOf(" ") };
+			}
+			return !paragraph;
+		});
+		if (!paragraph) throw new Error("No paragraph to select in");
+		editor.commands.focus();
+		if (selection === "firstWord") {
+			editor.commands.setTextSelection({
+				from: paragraph.pos + 1,
+				to: paragraph.pos + 1 + paragraph.word,
+			});
+		} else {
+			editor.commands.setTextSelection(paragraph.pos + paragraph.size - 1);
+			editor.commands.splitBlock();
+		}
+	}, mode);
+	// TipTap focuses the editor a frame later, and keys pressed before then go elsewhere.
+	await expect(page.locator(".emdash-inline-editor")).toBeFocused();
+}
+
+/** Waits for an element's own animations, such as its entrance, to finish. */
+async function animationsFinished(locator: import("@playwright/test").Locator): Promise<void> {
+	await locator.evaluate((element) =>
+		Promise.allSettled(element.getAnimations().map((animation) => animation.finished)),
+	);
+}
+
+/**
+ * How far the point the first element matching `selector` grows from moves
+ * while it appears. Scaled around its transform origin, that point stays
+ * put; scaled around anywhere else, the element slides as it grows.
+ */
+async function measureEntranceDrift(
+	page: import("@playwright/test").Page,
+	selector: string,
+	appear: () => Promise<void>,
+): Promise<number> {
+	type Sampling = { frames: Array<{ x: number; y: number }>; done: boolean };
+	await page.evaluate((target) => {
+		const sampling: Sampling = { frames: [], done: false };
+		(window as unknown as { __entrance: Sampling }).__entrance = sampling;
+		const sample = () => {
+			if (sampling.done) return;
+			const element = document.querySelector(target);
+			const style = element && getComputedStyle(element);
+			if (element && style?.visibility === "visible") {
+				// Starts the entrance over, so the first sample is its first frame however late this one is.
+				if (sampling.frames.length === 0) {
+					for (const animation of element.getAnimations()) animation.currentTime = 0;
+				}
+				const rect = element.getBoundingClientRect();
+				const scale = rect.width / Number.parseFloat(style.width);
+				const [originX = 0, originY = 0] = style.transformOrigin
+					.split(" ")
+					.map((value) => Number.parseFloat(value));
+				sampling.frames.push({ x: rect.left + scale * originX, y: rect.top + scale * originY });
+			}
+			requestAnimationFrame(sample);
+		};
+		requestAnimationFrame(sample);
+	}, selector);
+	await appear();
+	const element = page.locator(selector).first();
+	await expect(element).toBeVisible();
+	await animationsFinished(element);
+	// The sampler's next frame runs first, so the last sample is the settled element.
+	const frames = await page.evaluate(
+		() =>
+			new Promise<Sampling["frames"]>((resolve) => {
+				requestAnimationFrame(() => {
+					const sampling = (window as unknown as { __entrance: Sampling }).__entrance;
+					sampling.done = true;
+					resolve(sampling.frames);
+				});
+			}),
+	);
+	expect(frames.length).toBeGreaterThan(0);
+	const last = frames.at(-1)!;
+	return Math.max(...frames.map((frame) => Math.hypot(frame.x - last.x, frame.y - last.y)));
+}
+
 test.describe("Image Rendering (Static)", () => {
 	test("renders image block with correct src URL", async ({ page }) => {
 		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
@@ -150,6 +276,197 @@ test.describe("Inline Editor", () => {
 
 		// Should have the Image command — use role to avoid matching the description text
 		await expect(slashMenu.getByRole("button", { name: IMAGE_BUTTON_PATTERN })).toBeVisible();
+	});
+
+	test("lines the selection toolbar's menus up with the toolbar's edges", async ({ page }) => {
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		// Holds the toolbar at the start of its entrance, so Turn into opens while it rises.
+		await page.evaluate(() => {
+			const animate = Element.prototype.animate;
+			Element.prototype.animate = function (
+				this: Element,
+				...args: Parameters<Element["animate"]>
+			) {
+				const animation = animate.apply(this, args);
+				if (this.matches('[role="toolbar"][aria-label="Format selection"]')) {
+					Element.prototype.animate = animate;
+					animation.pause();
+					(window as unknown as { __toolbarHeld: boolean }).__toolbarHeld = true;
+				}
+				return animation;
+			};
+		});
+		await placeSelection(page, "firstWord");
+		await expect
+			.poll(() =>
+				page.evaluate(() => (window as unknown as { __toolbarHeld?: boolean }).__toolbarHeld),
+			)
+			.toBe(true);
+		const toolbar = page.getByRole("toolbar", { name: "Format selection" });
+		const menu = page.getByRole("menu");
+
+		await toolbar.getByRole("button", { name: "Turn into" }).click();
+		await expect(menu).toBeVisible();
+		await animationsFinished(menu);
+		const opened = (await menu.boundingBox())!;
+		await toolbar.evaluate((element) => {
+			for (const animation of element.getAnimations()) animation.finish();
+		});
+		const bar = (await toolbar.boundingBox())!;
+		const turnInto = (await menu.boundingBox())!;
+		expect(Math.abs(turnInto.x - opened.x)).toBeLessThan(1);
+		expect(Math.abs(turnInto.x - bar.x)).toBeLessThan(1);
+
+		await page.keyboard.press("Escape");
+		await expect(menu).toBeHidden();
+		await toolbar.getByRole("button", { name: "More formatting" }).click();
+		await expect(menu).toBeVisible();
+		await animationsFinished(menu);
+		const more = (await menu.boundingBox())!;
+		expect(Math.abs(more.x + more.width - (bar.x + bar.width))).toBeLessThan(1);
+	});
+
+	test("lines the toolbars up with the selection's right edge on a right-to-left page", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		await page.evaluate(() => {
+			document.documentElement.dir = "rtl";
+		});
+		await placeSelection(page, "newLine");
+		// A line long enough that the toolbar fits inside it whichever edge it lines up with.
+		await page.evaluate(() => {
+			const { editor } = document.querySelector(".emdash-inline-editor") as InlineEditorDom;
+			editor.commands.insertContent(
+				"Some words that make a line long enough to hold the whole toolbar",
+			);
+			const end = editor.state.selection.from;
+			editor.commands.setTextSelection({ from: end - "toolbar".length, to: end });
+		});
+		const toolbar = page.getByRole("toolbar", { name: "Format selection" });
+		await expect(toolbar).toBeVisible();
+		await animationsFinished(toolbar);
+		const selectionRight = await page.evaluate(
+			() => window.getSelection()!.getRangeAt(0).getBoundingClientRect().right,
+		);
+		const bar = (await toolbar.boundingBox())!;
+		expect(Math.abs(bar.x + bar.width - selectionRight)).toBeLessThan(1);
+
+		// Links the selected word, then moves the caret into it from outside, so the
+		// link bar first shows in the same update that gives it the link's address.
+		const linkStart = await page.evaluate(() => {
+			const { editor } = document.querySelector(".emdash-inline-editor") as InlineEditorDom;
+			const { from } = editor.state.selection;
+			editor.commands.setLink({ href: "https://example.com/rtl" });
+			editor.commands.setTextSelection(from - 5);
+			return from;
+		});
+		await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(resolve)));
+		await page.evaluate((start) => {
+			const { editor } = document.querySelector(".emdash-inline-editor") as InlineEditorDom;
+			editor.commands.setTextSelection(start + 2);
+		}, linkStart);
+		const linkBar = page.getByRole("toolbar", { name: "Link options" });
+		await expect(linkBar).toBeVisible();
+		await animationsFinished(linkBar);
+		const link = page.locator('.emdash-inline-editor a[href="https://example.com/rtl"]');
+		// The bar is placed again at its rendered width in a later task.
+		await expect
+			.poll(async () => {
+				const [linkBarBox, linkBox] = await Promise.all([
+					linkBar.boundingBox(),
+					link.boundingBox(),
+				]);
+				return Math.abs(linkBarBox!.x + linkBarBox!.width - (linkBox!.x + linkBox!.width));
+			})
+			.toBeLessThan(1);
+	});
+
+	test("keeps the link bar under the start of its link", async ({ page }) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		await placeSelection(page, "firstWord");
+		const toolbar = page.getByRole("toolbar", { name: "Format selection" });
+		await toolbar.getByRole("button", { name: "Add link" }).click();
+		await toolbar.getByRole("textbox", { name: "Link URL" }).fill("https://example.com");
+		await page.keyboard.press("Enter");
+		const link = page.locator('.emdash-inline-editor a[href="https://example.com"]');
+		await expect(link).toBeVisible();
+		await expect(page.locator(".emdash-inline-editor")).toBeFocused();
+
+		const linkBar = page.getByRole("toolbar", { name: "Link options" });
+		const offsets: number[] = [];
+		for (const key of ["ArrowLeft", "ArrowLeft", "ArrowLeft"]) {
+			await page.keyboard.press(key);
+			await expect(linkBar).toBeVisible();
+			await animationsFinished(linkBar);
+			const [bar, linked] = await Promise.all([linkBar.boundingBox(), link.boundingBox()]);
+			offsets.push(bar!.x - linked!.x);
+		}
+		for (const offset of offsets) expect(Math.abs(offset)).toBeLessThan(1);
+	});
+
+	test("shows a tooltip or menu reopened while it fades out", async ({ page }) => {
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		await placeSelection(page, "firstWord");
+		const toolbar = page.getByRole("toolbar", { name: "Format selection" });
+		await expect(toolbar).toBeVisible();
+
+		const italic = toolbar.getByRole("button", { name: "Italic" });
+		const tooltip = page.locator(".emdash-inline-ui-tooltip");
+		await italic.hover();
+		await expect(tooltip).toBeVisible();
+		const button = (await italic.boundingBox())!;
+		await page.mouse.move(button.x + button.width / 2, button.y + button.height + 40);
+		await page.mouse.move(button.x + button.width / 2, button.y + button.height / 2);
+		await expect(tooltip).toBeVisible();
+		await expect(tooltip).toHaveAttribute("data-status", "open");
+
+		const turnInto = toolbar.getByRole("button", { name: "Turn into" });
+		const menu = page.getByRole("menu");
+		await turnInto.click();
+		await expect(menu).toBeVisible();
+		// Closes the menu, then opens it again a task later, while it fades out.
+		await turnInto.evaluate(async (trigger: HTMLElement) => {
+			trigger.click();
+			await new Promise((resolve) => setTimeout(resolve, 0));
+			trigger.click();
+		});
+		await expect(menu).toBeVisible();
+		await expect(menu).toHaveAttribute("data-status", "open");
+	});
+
+	test("opens the slash menu, toolbar menus, and tooltips in place", async ({ page }) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		const maxDrift = 1;
+
+		await placeSelection(page, "newLine");
+		const slashDrift = await measureEntranceDrift(page, ".emdash-slash-menu", () =>
+			page.keyboard.type("/"),
+		);
+		expect(slashDrift).toBeLessThan(maxDrift);
+		await page.keyboard.press("Escape");
+
+		await placeSelection(page, "firstWord");
+		const toolbar = page.getByRole("toolbar", { name: "Format selection" });
+		await expect(toolbar).toBeVisible();
+		const menuDrift = await measureEntranceDrift(page, '[role="menu"]', () =>
+			toolbar.getByRole("button", { name: "Turn into" }).click(),
+		);
+		expect(menuDrift).toBeLessThan(maxDrift);
+		await page.keyboard.press("Escape");
+
+		const tooltipDrift = await measureEntranceDrift(page, ".emdash-inline-ui-tooltip", () =>
+			toolbar.getByRole("button", { name: "Italic" }).hover(),
+		);
+		expect(tooltipDrift).toBeLessThan(maxDrift);
 	});
 
 	test.fixme("slash menu does not scroll page to top", async ({ page }) => {
