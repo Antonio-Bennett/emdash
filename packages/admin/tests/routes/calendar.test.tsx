@@ -164,6 +164,31 @@ describe("CalendarPage", () => {
 		});
 	});
 
+	it("carries the shown period between the month and week views", async () => {
+		router.search = { month: "2020-03", view: "month" };
+		serveCalendar(() => Response.json({ data: { items: [] } }));
+		const screen = await renderPage();
+		const follow = async () => {
+			router.search = navigatedSearch(router.navigate.mock.lastCall).search;
+			await screen.rerender(<CalendarPage />);
+		};
+
+		await screen.getByRole("tab", { name: "Week" }).click();
+		await follow();
+		await expect
+			.element(screen.getByRole("heading", { name: /^Mar 1\s*–\s*7, 2020$/ }))
+			.toBeVisible();
+
+		await screen.getByRole("button", { name: "Next week" }).click();
+		await follow();
+		expect(router.search).toMatchObject({ view: "week", week: "2020-03-08", month: undefined });
+
+		await screen.getByRole("tab", { name: "Month" }).click();
+		await follow();
+		expect(router.search).toMatchObject({ view: "month", month: "2020-03", week: undefined });
+		await expect.element(screen.getByRole("heading", { name: "March 2020" })).toBeVisible();
+	});
+
 	it("keeps the month beside the panel on a wide screen", async () => {
 		await page.viewport(1440, 900);
 		router.search = { month: "2020-03", view: "month", entry: "posts:launch:published" };

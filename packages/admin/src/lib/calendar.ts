@@ -251,6 +251,31 @@ export function toCalendarItems(
 		);
 }
 
+/**
+ * Groups a day's items, in time order, into stacks: each stack holds the
+ * items that start less than `span` minutes after its first, so stacks
+ * drawn at their first item's time never overlap.
+ */
+export function timeStacks<T>(
+	items: readonly T[],
+	minutes: (item: T) => number,
+	span: number,
+): T[][] {
+	const stacks: T[][] = [];
+	let stackStart = Number.NEGATIVE_INFINITY;
+	for (const item of items) {
+		const start = minutes(item);
+		const last = stacks.at(-1);
+		if (last && start - stackStart < span) {
+			last.push(item);
+		} else {
+			stacks.push([item]);
+			stackStart = start;
+		}
+	}
+	return stacks;
+}
+
 export function groupByDay(items: readonly CalendarItem[]): Map<string, CalendarItem[]> {
 	const days = new Map<string, CalendarItem[]>();
 	for (const item of items) {
@@ -357,6 +382,10 @@ export interface CalendarDisplay {
 	formatViewerTime(time: number): string;
 	formatDateTime(time: number): string;
 	monthTitle(month: string): string;
+	/** A week's span, such as "Oct 11 – 17, 2026". */
+	weekTitle(first: string, last: string): string;
+	/** An hour of the day for the week view's gutter, such as "9 AM". */
+	hourLabel(hour: number): string;
 	weekday(day: string): string;
 	weekdayShort(day: string): string;
 	monthDay(day: string): string;
@@ -481,6 +510,15 @@ export function createCalendarDisplay(options: CalendarDisplayOptions): Calendar
 		calendar: "gregory",
 	});
 
+	const weekRange = new Intl.DateTimeFormat(locale, {
+		month: "short",
+		day: "numeric",
+		year: "numeric",
+		timeZone: "UTC",
+		calendar: "gregory",
+	});
+	const hour = new Intl.DateTimeFormat(locale, { hour: "numeric", timeZone: "UTC" });
+
 	const collections = new Map<string, CalendarCollection>(
 		options.collections.map((collection, index) => [
 			collection.slug,
@@ -509,6 +547,8 @@ export function createCalendarDisplay(options: CalendarDisplayOptions): Calendar
 				: viewerDayTime.format(value),
 		formatDateTime: (value) => dateTime.format(value),
 		monthTitle: (month) => monthTitle.format(dayKeyToUTC(`${month}-01`)),
+		weekTitle: (first, last) => weekRange.formatRange(dayKeyToUTC(first), dayKeyToUTC(last)),
+		hourLabel: (value) => hour.format(Date.UTC(2000, 0, 1, value)),
 		weekday: dayFormatter(locale, { weekday: "long" }),
 		weekdayShort: dayFormatter(locale, { weekday: "short" }),
 		monthDay: dayFormatter(locale, { month: "long", day: "numeric" }),

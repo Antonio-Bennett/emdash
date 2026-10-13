@@ -12,6 +12,7 @@ import {
 	minutesInZone,
 	monthGridDays,
 	parseCalendarSearch,
+	timeStacks,
 	toCalendarItems,
 	weekDays,
 	zonedInstant,
@@ -43,6 +44,13 @@ describe("weekDays", () => {
 			"2027-01-03",
 		]);
 		expect(weekDays("2026-10-11", 0)[0]).toBe("2026-10-11");
+	});
+});
+
+describe("timeStacks", () => {
+	it("stacks items that start within the span of a stack's first item", () => {
+		const stacks = timeStacks([0, 10, 29, 30, 45, 120], (minute) => minute, 30);
+		expect(stacks).toEqual([[0, 10, 29], [30, 45], [120]]);
 	});
 });
 

@@ -70,7 +70,7 @@ function nowIndex(items: readonly CalendarItem[], now: number): number {
 	return index === -1 ? items.length : index;
 }
 
-function CalendarFilteredNotice({
+export function CalendarFilteredNotice({
 	cutOff,
 	onClearFilters,
 }: {
@@ -314,7 +314,7 @@ interface CalendarMorePopoverProps {
 	onSelect?: CalendarSelectHandler;
 }
 
-function CalendarMorePopover({
+export function CalendarMorePopover({
 	day,
 	items,
 	hidden,
