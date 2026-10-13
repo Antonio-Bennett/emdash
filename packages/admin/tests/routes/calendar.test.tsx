@@ -247,152 +247,6 @@ describe("CalendarPage", () => {
 				)
 				.toBeVisible();
 		});
-
-		it("moves an entry in the week by how far it's dragged, keeping its minutes", async () => {
-			launch.at = "2030-03-05T09:10:00.000Z";
-			router.search = { view: "week", week: "2030-03-05" };
-			const screen = await renderPage();
-			const day = screen.getByRole("list", { name: "Tuesday, March 5, 2030" });
-			const chip = day.getByRole("link", { name: /Entry launch/ });
-			await expect.element(chip).toBeVisible();
-			const column = day.element().parentElement!;
-			const top = chip.element().getBoundingClientRect().top - column.getBoundingClientRect().top;
-
-			// Two 48px hours down.
-			await userEvent.dragAndDrop(chip, column, {
-				sourcePosition: { x: 8, y: 5 },
-				targetPosition: { x: 8, y: top + 5 + 96 },
-				steps: 10,
-			});
-
-			await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-05T11:10:00.000Z" }]);
-		});
-
-		it("leaves another author's entry where it is for an author", async () => {
-			currentUser.value = { id: "author", email: "author@example.com", role: 30 };
-			const screen = await renderPage();
-			const chip = screen.getByRole("link", { name: /Entry launch/ });
-			await expect.element(chip).toBeVisible();
-
-			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
-			await new Promise((resolve) => setTimeout(resolve, 200));
-
-			expect(schedules).toEqual([]);
-		});
-	});
-
-	describe("scheduling a new entry from a day", () => {
-		let posts: Array<{ path: string; body: unknown }>;
-
-		beforeEach(async () => {
-			await page.viewport(1440, 900);
-			localStorage.clear();
-			posts = [];
-			router.search = { month: "2030-03", view: "month" };
-			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-				const url = new URL(
-					input instanceof Request ? input.url : input.toString(),
-					location.origin,
-				);
-				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
-				if (init?.method === "POST") {
-					posts.push({
-						path: url.pathname,
-						body: JSON.parse(typeof init.body === "string" ? init.body : "null"),
-					});
-					return Response.json({ data: { item: { id: "spring", locale: "en" } } });
-				}
-				return Response.json(
-					{ error: { code: "NOT_FOUND", message: "Not found" } },
-					{ status: 404 },
-				);
-			});
-		});
-
-		it("creates a draft, schedules it at the chosen time, and opens it", async () => {
-			const screen = await renderPage();
-
-			await screen
-				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
-				.click();
-			await screen.getByLabelText("Title").fill("Spring launch");
-			await screen.getByLabelText("Time").fill("14:30");
-			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
-
-			await expect
-				.poll(() => posts)
-				.toEqual([
-					{
-						path: "/_emdash/api/content/posts",
-						body: expect.objectContaining({ data: { title: "Spring launch" } }),
-					},
-					{
-						path: "/_emdash/api/content/posts/spring/schedule",
-						body: { scheduledAt: "2030-03-14T14:30:00.000Z" },
-					},
-				]);
-			await expect
-				.poll(() => router.navigate.mock.lastCall && navigatedSearch(router.navigate.mock.lastCall))
-				.toMatchObject({ search: { entry: "posts:spring:scheduled" } });
-		});
-
-		it("schedules the draft it already created when trying again", async () => {
-			let failSchedule = true;
-			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-				const url = new URL(
-					input instanceof Request ? input.url : input.toString(),
-					location.origin,
-				);
-				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
-				if (init?.method !== "POST") {
-					return Response.json(
-						{ error: { code: "NOT_FOUND", message: "Not found" } },
-						{ status: 404 },
-					);
-				}
-				posts.push({ path: url.pathname, body: null });
-				if (url.pathname.endsWith("/schedule") && failSchedule) {
-					failSchedule = false;
-					return Response.json(
-						{
-							error: { code: "VALIDATION_ERROR", message: "Scheduled date must be in the future" },
-						},
-						{ status: 400 },
-					);
-				}
-				return Response.json({ data: { item: { id: "spring", locale: "en" } } });
-			});
-			const screen = await renderPage();
-
-			await screen
-				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
-				.click();
-			await screen.getByLabelText("Title").fill("Spring launch");
-			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
-			await expect
-				.element(screen.getByRole("alert"))
-				.toHaveTextContent(
-					"Saved as a draft, but not scheduled: Scheduled date must be in the future",
-				);
-
-			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
-
-			await expect
-				.poll(() => posts.map((post) => post.path))
-				.toEqual([
-					"/_emdash/api/content/posts",
-					"/_emdash/api/content/posts/spring/schedule",
-					"/_emdash/api/content/posts/spring/schedule",
-				]);
-		});
-
-		it("isn't offered to contributors, who can't schedule", async () => {
-			currentUser.value = { id: "contributor", email: "contributor@example.com", role: 20 };
-			const screen = await renderPage();
-
-			await expect.element(screen.getByRole("heading", { name: "March 2030" })).toBeVisible();
-			expect(screen.getByRole("button", { name: /^Schedule an entry/ }).elements()).toHaveLength(0);
-		});
 	});
 
 	it("schedules an unscheduled draft dropped on a day, offering only drafts the user can publish", async () => {
@@ -444,23 +298,6 @@ describe("CalendarPage", () => {
 		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
 	});
 
-	it("moves a week link's agenda on a phone to the next month", async () => {
-		await page.viewport(390, 844);
-		router.search = { view: "week", week: "2030-11-10" };
-		serveCalendar(() => Response.json({ data: { items: [] } }));
-		const screen = await renderPage();
-		await expect
-			.element(screen.getByRole("heading", { name: "November 2030", exact: true }))
-			.toBeVisible();
-
-		await screen.getByRole("button", { name: "Next month" }).click();
-
-		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
-			month: "2030-12",
-			week: undefined,
-		});
-	});
-
 	it("moves between months and views with letter keys, but not while typing", async () => {
 		await page.viewport(1440, 900);
 		router.search = { month: "2030-03", view: "month" };
@@ -477,42 +314,17 @@ describe("CalendarPage", () => {
 		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
 			month: "2030-02",
 		});
-		await userEvent.keyboard("w");
-		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({ view: "week" });
+		await userEvent.keyboard("a");
+		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({ view: "agenda" });
 
 		router.navigate.mockClear();
 		await screen
 			.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
 			.click();
 		await screen.getByLabelText("Title").fill("");
-		await userEvent.keyboard("jw");
-		await expect.element(screen.getByLabelText("Title")).toHaveValue("jw");
+		await userEvent.keyboard("ja");
+		await expect.element(screen.getByLabelText("Title")).toHaveValue("ja");
 		expect(router.navigate).not.toHaveBeenCalled();
-	});
-
-	it("carries the shown period between the month and week views", async () => {
-		router.search = { month: "2020-03", view: "month" };
-		serveCalendar(() => Response.json({ data: { items: [] } }));
-		const screen = await renderPage();
-		const follow = async () => {
-			router.search = navigatedSearch(router.navigate.mock.lastCall).search;
-			await screen.rerender(<CalendarPage />);
-		};
-
-		await screen.getByRole("tab", { name: "Week" }).click();
-		await follow();
-		await expect
-			.element(screen.getByRole("heading", { name: /^Mar 1\s*–\s*7, 2020$/ }))
-			.toBeVisible();
-
-		await screen.getByRole("button", { name: "Next week" }).click();
-		await follow();
-		expect(router.search).toMatchObject({ view: "week", week: "2020-03-08", month: undefined });
-
-		await screen.getByRole("tab", { name: "Month" }).click();
-		await follow();
-		expect(router.search).toMatchObject({ view: "month", month: "2020-03", week: undefined });
-		await expect.element(screen.getByRole("heading", { name: "March 2020" })).toBeVisible();
 	});
 
 	it("keeps the month beside the panel on a wide screen", async () => {

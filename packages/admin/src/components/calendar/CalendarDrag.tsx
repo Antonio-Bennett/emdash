@@ -24,11 +24,7 @@ import {
 } from "../../lib/calendar.js";
 import { CalendarEntryChipPreview } from "./CalendarEntry.js";
 
-/** One hour's height in the week view, in pixels. */
-export const HOUR_HEIGHT = 48;
-/** Dragging in the week view moves an entry in steps of this many minutes. */
-const SNAP_MINUTES = 15;
-/** A draft dropped on a month day goes live at the start of the working day. */
+/** A draft dropped on a day goes live at the start of the working day. */
 const DRAFT_DAY_MINUTES = 9 * 60;
 
 /** An unscheduled draft that can be dropped on the calendar. */
@@ -39,18 +35,10 @@ export interface CalendarDraft {
 	title: string;
 }
 
-type Dragged =
-	| {
-			item: CalendarItem;
-			/** Minutes past midnight the entry's chip is drawn at, in the week view. */
-			placedAt?: number;
-	  }
-	| { draft: CalendarDraft };
+type Dragged = { item: CalendarItem } | { draft: CalendarDraft };
 
 interface DropTarget {
 	day: string;
-	/** Week columns place the entry at the height it is dropped at. */
-	column?: React.RefObject<HTMLElement | null>;
 }
 
 interface DragState {
@@ -62,9 +50,7 @@ interface DragState {
 
 function readDragged(active: Active): Dragged | undefined {
 	const data = active.data.current;
-	if (data?.item) {
-		return { item: data.item as CalendarItem, placedAt: data.placedAt as number | undefined };
-	}
+	if (data?.item) return { item: data.item as CalendarItem };
 	if (data?.draft) return { draft: data.draft as CalendarDraft };
 	return undefined;
 }
@@ -101,10 +87,7 @@ interface CalendarDragProviderProps {
 	children: React.ReactNode;
 }
 
-/**
- * Lets scheduled entries and unscheduled drafts be dropped on a day in the
- * month, or at a time in the week.
- */
+/** Lets scheduled entries and unscheduled drafts be dropped on a day in the month. */
 export function CalendarDragProvider({
 	display,
 	now,
@@ -125,27 +108,10 @@ export function CalendarDragProvider({
 		const dragged = readDragged(event.active);
 		const target = readTarget(event.over);
 		if (!dragged || !target) return undefined;
-		const item = "item" in dragged ? dragged.item : undefined;
-		const itemMinutes = item ? minutesInZone(item.time, display.timeZone) : DRAFT_DAY_MINUTES;
-		const column = target.column?.current;
-		const dropped = event.active.rect.current.translated;
-		let minutes = itemMinutes;
-		if (column && dropped) {
-			// Both rects are measured now, so scrolling the grid during the drag is accounted for.
-			const pointed = ((dropped.top - column.getBoundingClientRect().top) / HOUR_HEIGHT) * 60;
-			const snap = (value: number) => Math.round(value / SNAP_MINUTES) * SNAP_MINUTES;
-			// An entry moves by whole steps from its own time, measured from where its chip is drawn;
-			// a draft lands on a step.
-			const drawnAt = "item" in dragged ? (dragged.placedAt ?? itemMinutes) : 0;
-			const from = item ? itemMinutes : 0;
-			const step = snap(pointed - drawnAt);
-			// The earliest and latest steps that stay on the day.
-			const first = -Math.floor(from / SNAP_MINUTES) * SNAP_MINUTES;
-			const last = Math.floor((24 * 60 - 1 - from) / SNAP_MINUTES) * SNAP_MINUTES;
-			minutes = from + Math.min(Math.max(step, first), last);
-		}
-		if (item && target.day === item.day && minutes === itemMinutes) return item.time;
-		return zonedInstant(target.day, minutes, display.timeZone);
+		if (!("item" in dragged)) return zonedInstant(target.day, DRAFT_DAY_MINUTES, display.timeZone);
+		const { item } = dragged;
+		if (target.day === item.day) return item.time;
+		return zonedInstant(target.day, minutesInZone(item.time, display.timeZone), display.timeZone);
 	};
 
 	const titleOf = (active: Active) => {
@@ -233,23 +199,15 @@ export function CalendarDragProvider({
 	);
 }
 
-/** Makes a month cell or week column a place to drop entries; days before today aren't. */
-export function useCalendarDrop(day: string, today: string, byTime: boolean) {
-	const column = React.useRef<HTMLElement | null>(null);
-	const target: DropTarget = byTime ? { day, column } : { day };
+/** Makes a month cell a place to drop entries; days before today aren't. */
+export function useCalendarDrop(day: string, today: string) {
+	const target: DropTarget = { day };
 	const { setNodeRef, isOver, active } = useDroppable({
-		id: `${byTime ? "week" : "month"}:${day}`,
+		id: `day:${day}`,
 		data: target,
 		disabled: day < today,
 	});
-	const ref = React.useCallback(
-		(element: HTMLElement | null) => {
-			column.current = element;
-			setNodeRef(element);
-		},
-		[setNodeRef],
-	);
-	return { ref, highlighted: isOver && active !== null };
+	return { ref: setNodeRef, highlighted: isOver && active !== null };
 }
 
 /** Lets a draft row be dragged onto the calendar. */

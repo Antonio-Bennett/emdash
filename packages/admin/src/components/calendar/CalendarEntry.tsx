@@ -345,10 +345,8 @@ interface CalendarEntryChipProps {
 	now: number;
 	selected?: boolean;
 	onSelect?: CalendarSelectHandler;
-	/** The entry can be dragged to another day or time. */
+	/** The entry can be dragged to another day. */
 	movable?: boolean;
-	/** In the week view, the minutes past midnight the chip is drawn at. */
-	placedAt?: number;
 }
 
 /**
@@ -386,7 +384,7 @@ export function useClickAfterDragGuard(isDragging: boolean) {
 function MovableEntryChip(props: CalendarEntryChipProps) {
 	const { setNodeRef, listeners, isDragging } = useDraggable({
 		id: props.item.key,
-		data: { item: props.item, placedAt: props.placedAt },
+		data: { item: props.item },
 	});
 	const onClickCapture = useClickAfterDragGuard(isDragging);
 

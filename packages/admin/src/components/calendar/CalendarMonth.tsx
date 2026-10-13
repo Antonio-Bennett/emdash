@@ -76,7 +76,7 @@ function nowIndex(items: readonly CalendarItem[], now: number): number {
 	return index === -1 ? items.length : index;
 }
 
-export function CalendarFilteredNotice({
+function CalendarFilteredNotice({
 	cutOff,
 	onClearFilters,
 }: {
@@ -246,7 +246,7 @@ function CalendarMonthCell({
 	create,
 }: CalendarMonthCellProps) {
 	const { t } = useLingui();
-	const drop = useCalendarDrop(day, today, false);
+	const drop = useCalendarDrop(day, today);
 	const isToday = day === today;
 	const label = day.endsWith("-01") ? display.monthDayShort(day) : display.dayNumber(day);
 	const visible = items.length > chips ? items.slice(0, chips - 1) : items;
@@ -336,8 +336,6 @@ interface CalendarMorePopoverProps {
 	items: readonly CalendarItem[];
 	/** How many of the day's entries the cell leaves out. */
 	hidden: number;
-	/** Shows just "+N", for narrow rows. */
-	short?: boolean;
 	display: CalendarDisplay;
 	now: number;
 	nowAt?: number;
@@ -345,11 +343,10 @@ interface CalendarMorePopoverProps {
 	onSelect?: CalendarSelectHandler;
 }
 
-export function CalendarMorePopover({
+function CalendarMorePopover({
 	day,
 	items,
 	hidden,
-	short,
 	display,
 	now,
 	nowAt,
@@ -376,9 +373,7 @@ export function CalendarMorePopover({
 					/>
 				}
 			>
-				{short
-					? plural(hidden, { one: "+#", other: "+#" })
-					: plural(hidden, { one: "+# more", other: "+# more" })}
+				{plural(hidden, { one: "+# more", other: "+# more" })}
 			</Popover.Trigger>
 			<Popover.Content className="w-80 max-w-[calc(100vw-2rem)] p-2" align="start">
 				<Popover.Title className="px-2 pt-1 pb-2 text-sm font-semibold">{date}</Popover.Title>

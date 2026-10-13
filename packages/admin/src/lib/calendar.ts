@@ -17,16 +17,12 @@ export const CALENDAR_STATES: readonly CalendarState[] = [
 	"update",
 	"overdue",
 ];
-export type CalendarView = "month" | "week" | "agenda";
-
-const CALENDAR_VIEWS: readonly CalendarView[] = ["month", "week", "agenda"];
+export type CalendarView = "month" | "agenda";
 
 /** Search params; list values are comma-separated. */
 export interface CalendarSearch {
 	view?: CalendarView;
 	month?: string;
-	/** Any day in the week the week view shows. */
-	week?: string;
 	collections?: string;
 	locales?: string;
 	states?: string;
@@ -76,7 +72,6 @@ const MIN_YEAR = 1000;
 const MAX_YEAR = 9999;
 const MAX_TIME = Date.UTC(MAX_YEAR, 11, 31, 23, 59, 59, 999);
 const MONTH_PATTERN = /^(\d{4})-(\d{2})$/;
-const DAY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const ENTRY_KEY_PATTERN = /^[a-z][a-z0-9_]*:[^:\s]{1,128}:(published|scheduled)$/;
 const MAX_LIST_VALUES = 50;
 const MAX_LIST_VALUE_LENGTH = 64;
@@ -105,11 +100,6 @@ export function isMonthKey(value: unknown): value is string {
 	return year >= MIN_YEAR && year <= MAX_YEAR && month >= 1 && month <= 12;
 }
 
-export function isDayKey(value: unknown): value is string {
-	if (typeof value !== "string" || !DAY_PATTERN.test(value)) return false;
-	return isMonthKey(value.slice(0, 7)) && utcDayKey(dayKeyToUTC(value)) === value;
-}
-
 /**
  * Whether a range cut off at the entry cap stopped before the month's end.
  * `loadedThrough` is the day of the last loaded entry, which may itself be
@@ -136,12 +126,6 @@ export function monthGridDays(month: string, weekStartsOn: number): string[] {
 	const length = new Date(Date.UTC(year, index, 0)).getUTCDate();
 	const weeks = Math.ceil((offset + length) / 7);
 	return Array.from({ length: weeks * 7 }, (_, day) => utcDayKey(first + (day - offset) * DAY_MS));
-}
-
-/** The seven days of the week containing `day`, from the locale's first weekday. */
-export function weekDays(day: string, weekStartsOn: number): string[] {
-	const offset = (new Date(dayKeyToUTC(day)).getUTCDay() - weekStartsOn + 7) % 7;
-	return Array.from({ length: 7 }, (_, index) => shiftDay(day, index - offset));
 }
 
 /** The instants that can fall on the given days in any time zone. */
@@ -269,31 +253,6 @@ export function toCalendarItems(
 		);
 }
 
-/**
- * Groups a day's items, in time order, into stacks: each stack holds the
- * items that start less than `span` minutes after its first, so stacks
- * drawn at their first item's time never overlap.
- */
-export function timeStacks<T>(
-	items: readonly T[],
-	minutes: (item: T) => number,
-	span: number,
-): T[][] {
-	const stacks: T[][] = [];
-	let stackStart = Number.NEGATIVE_INFINITY;
-	for (const item of items) {
-		const start = minutes(item);
-		const last = stacks.at(-1);
-		if (last && start - stackStart < span) {
-			last.push(item);
-		} else {
-			stacks.push([item]);
-			stackStart = start;
-		}
-	}
-	return stacks;
-}
-
 export function groupByDay(items: readonly CalendarItem[]): Map<string, CalendarItem[]> {
 	const days = new Map<string, CalendarItem[]>();
 	for (const item of items) {
@@ -357,9 +316,8 @@ export function isEntryKey(value: unknown): value is string {
 
 export function parseCalendarSearch(search: Record<string, unknown>): CalendarSearch {
 	return {
-		view: CALENDAR_VIEWS.find((view) => view === search.view),
+		view: search.view === "month" || search.view === "agenda" ? search.view : undefined,
 		month: isMonthKey(search.month) ? search.month : undefined,
-		week: isDayKey(search.week) ? search.week : undefined,
 		collections: toListParam(readList(search.collections)),
 		locales: toListParam(readList(search.locales)),
 		states: toListParam(readList(search.states).filter(isCalendarState)),
@@ -400,10 +358,6 @@ export interface CalendarDisplay {
 	formatViewerTime(time: number): string;
 	formatDateTime(time: number): string;
 	monthTitle(month: string): string;
-	/** A week's span, such as "Oct 11 – 17, 2026". */
-	weekTitle(first: string, last: string): string;
-	/** An hour of the day for the week view's gutter, such as "9 AM". */
-	hourLabel(hour: number): string;
 	weekday(day: string): string;
 	weekdayShort(day: string): string;
 	monthDay(day: string): string;
@@ -528,15 +482,6 @@ export function createCalendarDisplay(options: CalendarDisplayOptions): Calendar
 		calendar: "gregory",
 	});
 
-	const weekRange = new Intl.DateTimeFormat(locale, {
-		month: "short",
-		day: "numeric",
-		year: "numeric",
-		timeZone: "UTC",
-		calendar: "gregory",
-	});
-	const hour = new Intl.DateTimeFormat(locale, { hour: "numeric", timeZone: "UTC" });
-
 	const collections = new Map<string, CalendarCollection>(
 		options.collections.map((collection, index) => [
 			collection.slug,
@@ -565,8 +510,6 @@ export function createCalendarDisplay(options: CalendarDisplayOptions): Calendar
 				: viewerDayTime.format(value),
 		formatDateTime: (value) => dateTime.format(value),
 		monthTitle: (month) => monthTitle.format(dayKeyToUTC(`${month}-01`)),
-		weekTitle: (first, last) => weekRange.formatRange(dayKeyToUTC(first), dayKeyToUTC(last)),
-		hourLabel: (value) => hour.format(Date.UTC(2000, 0, 1, value)),
 		weekday: dayFormatter(locale, { weekday: "long" }),
 		weekdayShort: dayFormatter(locale, { weekday: "short" }),
 		monthDay: dayFormatter(locale, { month: "long", day: "numeric" }),

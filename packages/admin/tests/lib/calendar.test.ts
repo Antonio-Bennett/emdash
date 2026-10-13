@@ -12,9 +12,7 @@ import {
 	minutesInZone,
 	monthGridDays,
 	parseCalendarSearch,
-	timeStacks,
 	toCalendarItems,
-	weekDays,
 	zonedInstant,
 } from "../../src/lib/calendar";
 
@@ -29,28 +27,6 @@ describe("monthGridDays", () => {
 		expect(saturdayFirst[0]).toBe("2026-09-26");
 		expect(saturdayFirst.at(-1)).toBe("2026-11-06");
 		expect(saturdayFirst).toHaveLength(42);
-	});
-});
-
-describe("weekDays", () => {
-	it("runs from the locale's first weekday, across month and year ends", () => {
-		expect(weekDays("2026-12-31", 1)).toEqual([
-			"2026-12-28",
-			"2026-12-29",
-			"2026-12-30",
-			"2026-12-31",
-			"2027-01-01",
-			"2027-01-02",
-			"2027-01-03",
-		]);
-		expect(weekDays("2026-10-11", 0)[0]).toBe("2026-10-11");
-	});
-});
-
-describe("timeStacks", () => {
-	it("stacks items that start within the span of a stack's first item", () => {
-		const stacks = timeStacks([0, 10, 29, 30, 45, 120], (minute) => minute, 30);
-		expect(stacks).toEqual([[0, 10, 29], [30, 45], [120]]);
 	});
 });
 
@@ -206,16 +182,6 @@ describe("parseCalendarSearch", () => {
 				view: undefined,
 				month: undefined,
 			});
-		}
-	});
-
-	it("keeps a week view's day only when it is a real date", () => {
-		expect(parseCalendarSearch({ view: "week", week: "2028-02-29" })).toMatchObject({
-			view: "week",
-			week: "2028-02-29",
-		});
-		for (const week of ["2026-02-29", "2026-13-01", "2026-10-1", "0999-12-31", 20261013]) {
-			expect(parseCalendarSearch({ week }).week).toBeUndefined();
 		}
 	});
 

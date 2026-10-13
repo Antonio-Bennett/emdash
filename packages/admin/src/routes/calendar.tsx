@@ -20,7 +20,6 @@ import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
 import type { CalendarCreate } from "../components/calendar/CalendarQuickCreate.js";
 import { CalendarToolbar } from "../components/calendar/CalendarToolbar.js";
-import { CalendarWeek } from "../components/calendar/CalendarWeek.js";
 import { getMutationError } from "../components/DialogError.js";
 import { visibleCollectionEntries } from "../components/Sidebar.js";
 import {
@@ -43,11 +42,9 @@ import {
 	isMonthKey,
 	monthGridDays,
 	readList,
-	shiftDay,
 	shiftMonth,
 	toCalendarItems,
 	toListParam,
-	weekDays,
 	type CalendarFilterValues,
 	type CalendarItem,
 	type CalendarSearch,
@@ -204,27 +201,12 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	);
 
 	const today = dayKeyInZone(now, display.timeZone);
-	const currentMonth = today.slice(0, 7);
+	const month = search.month ?? today.slice(0, 7);
+	const view: CalendarView = search.view ?? (compact ? "agenda" : "month");
 	const dateLocale = useDateLocale();
 	const weekStartsOn = dateLocale.options?.weekStartsOn ?? 0;
-	const requestedView = search.view ?? (compact ? "agenda" : "month");
-	// Phones have no room for seven columns of times, so a week link opens the agenda.
-	const view: CalendarView = compact && requestedView === "week" ? "agenda" : requestedView;
-	// A week view without its own day opens on the shown month's first week, or this week.
-	const weekAnchor =
-		search.week ?? (search.month && search.month !== currentMonth ? `${search.month}-01` : today);
-	const weekGrid = React.useMemo(
-		() => weekDays(weekAnchor, weekStartsOn),
-		[weekAnchor, weekStartsOn],
-	);
-	// A week belongs to the month of its middle day.
-	const weekMonth = weekGrid[3]?.slice(0, 7) ?? currentMonth;
-	const month = search.week ? weekMonth : (search.month ?? currentMonth);
 	const gridDays = React.useMemo(() => monthGridDays(month, weekStartsOn), [month, weekStartsOn]);
-	const range = React.useMemo(
-		() => fetchRange(view === "week" ? weekGrid : gridDays),
-		[view, weekGrid, gridDays],
-	);
+	const range = React.useMemo(() => fetchRange(gridDays), [gridDays]);
 
 	// Values that match no current option (a deleted collection in a shared link) are ignored.
 	const filters: CalendarFilterValues = React.useMemo(
@@ -309,25 +291,10 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 			replace: true,
 		});
 	}, [entryMissing, navigate]);
-	// A week link can show the agenda on a phone, so a month change drops the week.
 	const goToMonth = (next: string | undefined) => {
-		if (next === undefined || isMonthKey(next)) updateSearch({ month: next, week: undefined });
+		if (next === undefined || isMonthKey(next)) updateSearch({ month: next });
 	};
-	/** Shows the week containing `day`, or this week. */
-	const goToWeek = (day: string | undefined) => {
-		const shown = day && weekDays(day, weekStartsOn);
-		updateSearch({
-			week: shown && !shown.includes(today) ? shown[0] : undefined,
-			month: undefined,
-		});
-	};
-	const changeView = (next: CalendarView) => {
-		updateSearch(
-			search.week
-				? { view: next, week: undefined, month: weekMonth === currentMonth ? undefined : weekMonth }
-				: { view: next },
-		);
-	};
+	const changeView = (next: CalendarView) => updateSearch({ view: next });
 	const setFilters = (patch: Partial<CalendarFilterValues>) => {
 		updateSearch({
 			...(patch.collections && { collections: toListParam(patch.collections) }),
@@ -341,37 +308,14 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		setFilters({ collections: [], locales: [], states: [] });
 		filterTriggerRef.current?.focus();
 	};
-	const prefetch = (targetDays: readonly string[]) => {
-		const targetRange = fetchRange(targetDays);
+	const prefetchMonth = (target: string) => {
+		if (!isMonthKey(target)) return;
+		const targetRange = fetchRange(monthGridDays(target, weekStartsOn));
 		void queryClient.prefetchQuery({
 			...calendarQueryOptions(targetRange.from, targetRange.to),
 			staleTime: REFRESH_MS,
 		});
 	};
-	const prefetchMonth = (target: string) => {
-		if (isMonthKey(target)) prefetch(monthGridDays(target, weekStartsOn));
-	};
-	const weekStart = weekGrid[0] ?? today;
-	const period =
-		view === "week"
-			? {
-					title: display.weekTitle(weekStart, weekGrid[6] ?? weekStart),
-					zoneTime: dayKeyToUTC(weekGrid[3] ?? weekStart) + 12 * 3_600_000,
-					previous: () => goToWeek(shiftDay(weekStart, -7)),
-					next: () => goToWeek(shiftDay(weekStart, 7)),
-					today: () => goToWeek(undefined),
-					previewPrevious: () => prefetch(weekDays(shiftDay(weekStart, -7), weekStartsOn)),
-					previewNext: () => prefetch(weekDays(shiftDay(weekStart, 7), weekStartsOn)),
-				}
-			: {
-					title: display.monthTitle(month),
-					zoneTime: dayKeyToUTC(`${month}-15`) + 12 * 3_600_000,
-					previous: () => goToMonth(shiftMonth(month, -1)),
-					next: () => goToMonth(shiftMonth(month, 1)),
-					today: () => goToMonth(undefined),
-					previewPrevious: () => prefetchMonth(shiftMonth(month, -1)),
-					previewNext: () => prefetchMonth(shiftMonth(month, 1)),
-				};
 
 	const toastManager = useKumoToastManager();
 	const canMove = React.useCallback(
@@ -524,13 +468,14 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	const maxEntries = new Intl.NumberFormat(i18n.locale).format(CALENDAR_MAX_ENTRIES);
 	const cutOffDay = loadedThrough && display.monthDay(loadedThrough);
 
-	const views: CalendarView[] = compact ? ["month", "agenda"] : ["month", "week", "agenda"];
+	const showPrevious = () => goToMonth(shiftMonth(month, -1));
+	const showNext = () => goToMonth(shiftMonth(month, 1));
+	const showToday = () => goToMonth(undefined);
 	useShortcuts({
-		t: period.today,
-		j: period.next,
-		k: period.previous,
+		t: showToday,
+		j: showNext,
+		k: showPrevious,
 		m: () => changeView("month"),
-		w: compact ? undefined : () => changeView("week"),
 		a: () => changeView("agenda"),
 	});
 
@@ -546,25 +491,30 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 				<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
 					<h1 className="sr-only">{t`Calendar`}</h1>
 					<CalendarToolbar
-						title={period.title}
+						title={display.monthTitle(month)}
 						display={display}
-						zoneTime={period.zoneTime}
+						zoneTime={dayKeyToUTC(`${month}-15`) + 12 * 3_600_000}
 						loading={calendar.isPending && calendar.isFetching}
 						view={view}
-						views={views}
 						onViewChange={changeView}
-						onPrevious={period.previous}
-						onNext={period.next}
-						onToday={period.today}
-						onPreviewPrevious={period.previewPrevious}
-						onPreviewNext={period.previewNext}
+						onPrevious={showPrevious}
+						onNext={showNext}
+						onToday={showToday}
+						onPreviewPrevious={() => prefetchMonth(shiftMonth(month, -1))}
+						onPreviewNext={() => prefetchMonth(shiftMonth(month, 1))}
 						tools={
 							<>
 								{docked && canSchedule && (
 									<Button
 										variant="secondary"
-										className="shrink-0 text-sm"
-										icon={<FileDashed aria-hidden="true" className="size-4" />}
+										className={cn("shrink-0 text-sm", draftsOpen && "bg-kumo-tint")}
+										icon={
+											<FileDashed
+												aria-hidden="true"
+												weight={draftsOpen ? "fill" : "regular"}
+												className="size-4"
+											/>
+										}
 										aria-pressed={draftsOpen}
 										onClick={() => setDraftsOpen(!draftsOpen)}
 									>
@@ -609,22 +559,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					)}
 
 					{!(error && !calendar.data) &&
-						(view === "week" ? (
-							<CalendarWeek
-								days={weekGrid}
-								items={days}
-								today={today}
-								now={now}
-								display={display}
-								loading={!calendar.data}
-								loadedThrough={loadedThrough}
-								selectedKey={selectedKey}
-								onSelect={openEntry}
-								canMove={canMove}
-								create={create}
-								onClearFilters={filtered ? clearFilters : undefined}
-							/>
-						) : view === "month" ? (
+						(view === "month" ? (
 							<CalendarMonth
 								month={month}
 								gridDays={gridDays}
@@ -695,12 +630,8 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					returnFocus={returnFocusRef}
 					onClose={closeEntry}
 					onRescheduled={(_item, scheduledAt) => {
-						const day = dayKeyInZone(Date.parse(scheduledAt), display.timeZone);
-						if (view === "week") {
-							if (!weekGrid.includes(day)) goToWeek(day);
-						} else if (day.slice(0, 7) !== month) {
-							goToMonth(day.slice(0, 7));
-						}
+						const target = dayKeyInZone(Date.parse(scheduledAt), display.timeZone).slice(0, 7);
+						if (target !== month) goToMonth(target);
 					}}
 				/>
 			)}
