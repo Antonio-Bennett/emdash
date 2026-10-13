@@ -7,13 +7,14 @@
 
 import { Banner, Button, useKumoToastManager } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
-import { WarningCircle } from "@phosphor-icons/react";
+import { FileDashed, WarningCircle } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useRouter, useSearch } from "@tanstack/react-router";
 import * as React from "react";
 
 import { CalendarAgenda } from "../components/calendar/CalendarAgenda.js";
-import { CalendarDragProvider } from "../components/calendar/CalendarDrag.js";
+import { CalendarDrafts } from "../components/calendar/CalendarDrafts.js";
+import { CalendarDragProvider, type CalendarDraft } from "../components/calendar/CalendarDrag.js";
 import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js";
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
@@ -28,7 +29,7 @@ import {
 	calendarQueryOptions,
 } from "../lib/api/calendar.js";
 import { ApiResponseError, fetchManifest, type AdminManifest } from "../lib/api/client.js";
-import { scheduleContent } from "../lib/api/content.js";
+import { scheduleContent, unscheduleContent } from "../lib/api/content.js";
 import { useCurrentUser } from "../lib/api/current-user.js";
 import {
 	canPublishEntry,
@@ -335,6 +336,11 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		(item: CalendarItem) => item.kind === "scheduled" && canPublishEntry(user, item.authorId),
 		[user],
 	);
+	const refreshContent = (collection: string) => {
+		void queryClient.invalidateQueries({ queryKey: ["calendar"] });
+		void queryClient.invalidateQueries({ queryKey: ["content", collection] });
+		void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
+	};
 	const move = useMutation({
 		mutationFn: ({
 			item,
@@ -386,11 +392,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 							],
 			});
 		},
-		onSettled: (_changed, _error, { item }) => {
-			void queryClient.invalidateQueries({ queryKey: ["calendar"] });
-			void queryClient.invalidateQueries({ queryKey: ["content", item.collection] });
-			void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
-		},
+		onSettled: (_changed, _error, { item }) => refreshContent(item.collection),
 	});
 	// Scheduling a new entry takes publishing your own.
 	const createOptions = canPublishEntry(user, user?.id)
@@ -415,6 +417,48 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					},
 				}
 			: undefined;
+	// Unscheduled drafts sit beside the calendar, so they need the docked layout.
+	const [draftsOpen, setDraftsOpen] = React.useState(false);
+	const canSchedule = canPublishEntry(user, user?.id);
+	const showDrafts = docked && canSchedule && draftsOpen;
+	const draftCollections = visibleCollectionEntries(manifest.collections).map(
+		([slug, collection]) => ({ slug, titleField: collection.titleField }),
+	);
+	const scheduleDraft = useMutation({
+		mutationFn: ({ draft, scheduledAt }: { draft: CalendarDraft; scheduledAt: string }) =>
+			scheduleContent(draft.collection, draft.id, scheduledAt, { locale: draft.locale }),
+		onSuccess: (_changed, { draft, scheduledAt }) => {
+			const title = draft.title;
+			const when = display.formatDateTime(Date.parse(scheduledAt));
+			toastManager.add({
+				title: t`Scheduled`,
+				description: t`${title} goes live ${when}.`,
+				actions: [
+					{
+						children: t`Undo`,
+						onClick: () =>
+							void unscheduleContent(draft.collection, draft.id, { locale: draft.locale })
+								.catch((undoError: unknown) =>
+									toastManager.add({
+										title: t`Could not remove the schedule`,
+										description: getMutationError(undoError),
+										type: "error",
+									}),
+								)
+								.finally(() => refreshContent(draft.collection)),
+					},
+				],
+			});
+		},
+		onError: (scheduleError) => {
+			toastManager.add({
+				title: t`Could not schedule`,
+				description: getMutationError(scheduleError),
+				type: "error",
+			});
+		},
+		onSettled: (_changed, _error, { draft }) => refreshContent(draft.collection),
+	});
 	const rejectPastDrop = () => {
 		toastManager.add({
 			title: t`That time has passed`,
@@ -437,64 +481,78 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 
 	return (
 		<div ref={containerRef} className="flex h-full min-w-0">
-			<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
-				<h1 className="sr-only">{t`Calendar`}</h1>
-				<CalendarToolbar
-					title={period.title}
-					display={display}
-					zoneTime={period.zoneTime}
-					loading={calendar.isPending && calendar.isFetching}
-					view={view}
-					views={views}
-					onViewChange={changeView}
-					onPrevious={period.previous}
-					onNext={period.next}
-					onToday={period.today}
-					onPreviewPrevious={period.previewPrevious}
-					onPreviewNext={period.previewNext}
-					tools={
-						<CalendarFilters
-							display={display}
-							collections={collections}
-							locales={locales}
-							value={filters}
-							onChange={setFilters}
-							triggerRef={filterTriggerRef}
+			<CalendarDragProvider
+				display={display}
+				now={now}
+				onMove={(item, scheduledAt) => move.mutate({ item, scheduledAt })}
+				onScheduleDraft={(draft, scheduledAt) => scheduleDraft.mutate({ draft, scheduledAt })}
+				onPastDrop={rejectPastDrop}
+			>
+				<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
+					<h1 className="sr-only">{t`Calendar`}</h1>
+					<CalendarToolbar
+						title={period.title}
+						display={display}
+						zoneTime={period.zoneTime}
+						loading={calendar.isPending && calendar.isFetching}
+						view={view}
+						views={views}
+						onViewChange={changeView}
+						onPrevious={period.previous}
+						onNext={period.next}
+						onToday={period.today}
+						onPreviewPrevious={period.previewPrevious}
+						onPreviewNext={period.previewNext}
+						tools={
+							<>
+								{docked && canSchedule && (
+									<Button
+										variant="secondary"
+										className="shrink-0 text-sm"
+										icon={<FileDashed aria-hidden="true" className="size-4" />}
+										aria-pressed={draftsOpen}
+										onClick={() => setDraftsOpen(!draftsOpen)}
+									>
+										{t`Drafts`}
+									</Button>
+								)}
+								<CalendarFilters
+									display={display}
+									collections={collections}
+									locales={locales}
+									value={filters}
+									onChange={setFilters}
+									triggerRef={filterTriggerRef}
+								/>
+							</>
+						}
+					/>
+
+					{error && (
+						<Banner
+							variant="error"
+							icon={<WarningCircle aria-hidden="true" />}
+							title={t`Could not load the calendar`}
+							description={errorMessage}
+							action={
+								<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
+									{t`Retry`}
+								</Button>
+							}
 						/>
-					}
-				/>
+					)}
+					{calendar.data?.truncated && (
+						<Banner
+							variant="alert"
+							title={t`This range has more than ${maxEntries} entries`}
+							description={
+								cutOffDay
+									? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
+									: t`The calendar shows the first ${maxEntries}.`
+							}
+						/>
+					)}
 
-				{error && (
-					<Banner
-						variant="error"
-						icon={<WarningCircle aria-hidden="true" />}
-						title={t`Could not load the calendar`}
-						description={errorMessage}
-						action={
-							<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
-								{t`Retry`}
-							</Button>
-						}
-					/>
-				)}
-				{calendar.data?.truncated && (
-					<Banner
-						variant="alert"
-						title={t`This range has more than ${maxEntries} entries`}
-						description={
-							cutOffDay
-								? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
-								: t`The calendar shows the first ${maxEntries}.`
-						}
-					/>
-				)}
-
-				<CalendarDragProvider
-					display={display}
-					now={now}
-					onMove={(item, scheduledAt) => move.mutate({ item, scheduledAt })}
-					onPastDrop={rejectPastDrop}
-				>
 					{!(error && !calendar.data) &&
 						(view === "week" ? (
 							<CalendarWeek
@@ -547,18 +605,28 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 								/>
 							</div>
 						))}
-				</CalendarDragProvider>
-			</div>
+				</div>
 
-			{docked && (
-				<div
-					ref={setDock}
-					className={cn(
-						"h-full shrink-0 overflow-hidden border-kumo-line transition-[width] duration-200 ease-out motion-reduce:transition-none",
-						selectedItem ? "w-96 border-s" : "w-0",
-					)}
-				/>
-			)}
+				{docked && (
+					<div
+						ref={setDock}
+						className={cn(
+							"relative h-full shrink-0 overflow-hidden border-kumo-line transition-[width] duration-200 ease-out motion-reduce:transition-none",
+							selectedItem || showDrafts ? "w-96 border-s" : "w-0",
+						)}
+					>
+						{showDrafts && (
+							<CalendarDrafts
+								collections={draftCollections}
+								display={display}
+								now={now}
+								user={user}
+								onClose={() => setDraftsOpen(false)}
+							/>
+						)}
+					</div>
+				)}
+			</CalendarDragProvider>
 			{(!docked || dock) && (
 				<CalendarEntryPanel
 					item={selectedItem}
@@ -572,8 +640,12 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					returnFocus={returnFocusRef}
 					onClose={closeEntry}
 					onRescheduled={(_item, scheduledAt) => {
-						const target = dayKeyInZone(Date.parse(scheduledAt), display.timeZone).slice(0, 7);
-						if (target !== month) goToMonth(target);
+						const day = dayKeyInZone(Date.parse(scheduledAt), display.timeZone);
+						if (view === "week") {
+							if (!weekGrid.includes(day)) goToWeek(day);
+						} else if (day.slice(0, 7) !== month) {
+							goToMonth(day.slice(0, 7));
+						}
 					}}
 				/>
 			)}

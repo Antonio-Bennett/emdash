@@ -71,12 +71,15 @@ function serveCalendar(respond: (request: number) => Response) {
 	);
 }
 
+/** Renders the page at the window's height, as the admin shell does. */
 function renderPage(wrapper?: React.ComponentType<React.PropsWithChildren>) {
 	const Inner = wrapper ?? React.Fragment;
 	return render(<CalendarPage />, {
 		wrapper: ({ children }) => (
 			<Toast.Provider>
-				<Inner>{children}</Inner>
+				<Inner>
+					<div style={{ height: "100vh" }}>{children}</div>
+				</Inner>
 			</Toast.Provider>
 		),
 	});
@@ -285,6 +288,51 @@ describe("CalendarPage", () => {
 			await expect.element(screen.getByRole("heading", { name: "March 2030" })).toBeVisible();
 			expect(screen.getByRole("button", { name: /^Schedule an entry/ }).elements()).toHaveLength(0);
 		});
+	});
+
+	it("schedules an unscheduled draft dropped on a day, offering only drafts the user can publish", async () => {
+		await page.viewport(1440, 900);
+		currentUser.value = { id: "author", email: "author@example.com", role: 30 };
+		router.search = { month: "2030-03", view: "month" };
+		const draft = (id: string, authorId: string) => ({
+			id,
+			type: "posts",
+			slug: id,
+			status: "draft",
+			locale: "en",
+			data: { title: `Draft ${id}` },
+			authorId,
+			scheduledAt: null,
+			updatedAt: "2030-02-01T00:00:00.000Z",
+		});
+		const schedules: unknown[] = [];
+		globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+			const url = new URL(input instanceof Request ? input.url : input.toString(), location.origin);
+			if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
+			if (url.pathname.endsWith("/content/posts") && url.searchParams.get("status") === "draft") {
+				return Response.json({
+					data: { items: [draft("mine", "author"), draft("theirs", "editor")] },
+				});
+			}
+			if (url.pathname.endsWith("/content/pages")) return Response.json({ data: { items: [] } });
+			if (url.pathname.endsWith("/content/posts/mine/schedule")) {
+				schedules.push(JSON.parse(typeof init?.body === "string" ? init.body : "null"));
+				return Response.json({ data: { item: { id: "mine" } } });
+			}
+			return Response.json({ error: { code: "NOT_FOUND", message: "Not found" } }, { status: 404 });
+		});
+		const screen = await renderPage();
+
+		await screen.getByRole("button", { name: "Drafts" }).click();
+		const mine = screen.getByRole("link", { name: /Draft mine/ });
+		await expect.element(mine).toBeVisible();
+		expect(screen.getByRole("link", { name: /Draft theirs/ }).elements()).toHaveLength(0);
+
+		await userEvent.dragAndDrop(mine, screen.getByRole("cell").filter({ hasText: /^12$/ }), {
+			steps: 10,
+		});
+
+		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
 	});
 
 	it("carries the shown period between the month and week views", async () => {

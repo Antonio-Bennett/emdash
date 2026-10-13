@@ -309,7 +309,8 @@ function ChipContent({
 }) {
 	const { t } = useLingui();
 	const state = t(CALENDAR_STATE_LABELS[item.state]);
-	const time = display.formatTime(item.time);
+	// A dragged draft has no time until it is over the calendar.
+	const time = Number.isFinite(item.time) ? display.formatTime(item.time) : "";
 	const overdue = item.state === "overdue";
 	const lateness = overdue ? formatShortDuration(now - item.time, display.locale) : "";
 
@@ -357,12 +358,11 @@ export function CalendarEntryChip(props: CalendarEntryChipProps) {
 	return props.movable ? <MovableEntryChip {...props} /> : <EntryChipLink {...props} />;
 }
 
-function MovableEntryChip(props: CalendarEntryChipProps) {
-	const { setNodeRef, listeners, isDragging } = useDraggable({
-		id: props.item.key,
-		data: { item: props.item },
-	});
-	// A drag that ends over the entry itself would otherwise click it open.
+/**
+ * A click handler that swallows the click a drag can end with, which would
+ * otherwise open the dragged link.
+ */
+export function useClickAfterDragGuard(isDragging: boolean) {
 	const dragged = React.useRef(false);
 	React.useEffect(() => {
 		if (isDragging) {
@@ -374,20 +374,25 @@ function MovableEntryChip(props: CalendarEntryChipProps) {
 		});
 		return () => clearTimeout(timer);
 	}, [isDragging]);
+	return (event: React.MouseEvent) => {
+		if (!dragged.current) return;
+		event.preventDefault();
+		event.stopPropagation();
+	};
+}
+
+function MovableEntryChip(props: CalendarEntryChipProps) {
+	const { setNodeRef, listeners, isDragging } = useDraggable({
+		id: props.item.key,
+		data: { item: props.item },
+	});
+	const onClickCapture = useClickAfterDragGuard(isDragging);
 
 	return (
 		<EntryChipLink
 			{...props}
 			linkRef={setNodeRef}
-			linkProps={{
-				...listeners,
-				draggable: false,
-				onClickCapture: (event: React.MouseEvent) => {
-					if (!dragged.current) return;
-					event.preventDefault();
-					event.stopPropagation();
-				},
-			}}
+			linkProps={{ ...listeners, draggable: false, onClickCapture }}
 			dragging={isDragging}
 		/>
 	);
@@ -454,7 +459,7 @@ export function CalendarEntryChipPreview({
 			className={cn(
 				chipClassName(item, display),
 				// The landing time matters most while dragging, so the title gives way to it.
-				"flex-nowrap cursor-grabbing shadow-lg ring-1 ring-kumo-line",
+				"max-w-56 flex-nowrap cursor-grabbing shadow-lg ring-1 ring-kumo-line",
 				!allowed && "cursor-not-allowed opacity-60",
 			)}
 		>
