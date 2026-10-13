@@ -106,10 +106,11 @@ function useNow(): number {
 
 /**
  * Shortcuts don't fire while typing, inside menus and lists that use letter
- * keys themselves, or behind the phone's entry sheet.
+ * keys themselves, inside popovers that a month change would close, or
+ * behind the phone's entry sheet.
  */
 const SHORTCUT_IGNORE =
-	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox], [aria-modal=true]";
+	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox], .kumo-popover-popup, [aria-modal=true]";
 
 const LATIN_LETTER = /^[a-z]$/i;
 const LETTER_KEY_CODE = /^Key([A-Z])$/;
@@ -327,6 +328,21 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		void queryClient.invalidateQueries({ queryKey: ["content", collection] });
 		void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
 	};
+	const placeEntry = (
+		queryKey: ReturnType<typeof calendarQueryOptions>["queryKey"],
+		key: string,
+		at: string,
+	) =>
+		queryClient.setQueryData(queryKey, (data) =>
+			data
+				? {
+						...data,
+						items: data.items.map((entry) =>
+							calendarEntryKey(entry) === key ? { ...entry, at } : entry,
+						),
+					}
+				: data,
+		);
 	const move = useMutation({
 		mutationFn: ({
 			item,
@@ -339,21 +355,15 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		onMutate: async ({ item, scheduledAt }) => {
 			const { queryKey } = calendarQueryOptions(range.from, range.to);
 			await queryClient.cancelQueries({ queryKey: ["calendar"] });
-			const previous = queryClient.getQueryData(queryKey);
-			queryClient.setQueryData(queryKey, (data) =>
-				data
-					? {
-							...data,
-							items: data.items.map((entry) =>
-								calendarEntryKey(entry) === item.key ? { ...entry, at: scheduledAt } : entry,
-							),
-						}
-					: data,
-			);
-			return { queryKey, previous };
+			const previousAt = queryClient
+				.getQueryData(queryKey)
+				?.items.find((entry) => calendarEntryKey(entry) === item.key)?.at;
+			placeEntry(queryKey, item.key, scheduledAt);
+			return { queryKey, previousAt };
 		},
-		onError: (moveError, _variables, context) => {
-			if (context) queryClient.setQueryData(context.queryKey, context.previous);
+		onError: (moveError, { item }, context) => {
+			// Other moves may still be on their way, so only this entry goes back.
+			if (context?.previousAt) placeEntry(context.queryKey, item.key, context.previousAt);
 			toastManager.add({
 				title: t`Could not reschedule`,
 				description: getMutationError(moveError),
@@ -388,9 +398,18 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		? visibleCollectionEntries(manifest.collections).flatMap(([slug, collection]) => {
 				const titleField =
 					collection.titleField ?? ["title", "name"].find((field) => field in collection.fields);
-				return collection.quickCreate === false || !titleField
-					? []
-					: [{ slug, label: collection.labelSingular || collection.label, titleField }];
+				if (collection.quickCreate === false || !titleField) return [];
+				// The new entry has only a title, so the rest must be optional, and a
+				// routable entry needs a title the server can make its slug from.
+				const complete = Object.entries(collection.fields).every(
+					([name, field]) =>
+						name === titleField || !field.required || field.defaultValue !== undefined,
+				);
+				const sluggable =
+					collection.routable === false || titleField === "title" || titleField === "name";
+				return complete && sluggable
+					? [{ slug, label: collection.labelSingular || collection.label, titleField }]
+					: [];
 			})
 		: [];
 	const create: CalendarCreate | undefined =
@@ -453,7 +472,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	const rejectPastDrop = () => {
 		toastManager.add({
 			title: t`That time has passed`,
-			description: t`Drop the entry on a later day or time.`,
+			description: t`Drop the entry on a later day.`,
 			type: "error",
 		});
 	};
@@ -606,13 +625,16 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 						)}
 					>
 						{showDrafts && (
-							<CalendarDrafts
-								collections={draftCollections}
-								display={display}
-								now={now}
-								user={user}
-								onClose={() => setDraftsOpen(false)}
-							/>
+							// The open entry covers the drafts.
+							<div inert={Boolean(selectedItem) || undefined} className="contents">
+								<CalendarDrafts
+									collections={draftCollections}
+									display={display}
+									now={now}
+									user={user}
+									onClose={() => setDraftsOpen(false)}
+								/>
+							</div>
 						)}
 					</div>
 				)}

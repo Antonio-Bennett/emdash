@@ -7,7 +7,7 @@ Adds drag-and-drop rescheduling to the admin calendar and fits the month view to
 
 - The month grid fills the window with one-line entries and shows as many per day as fit, folding the rest into "+N more".
 - People who can publish a scheduled entry can drag it to another day, keeping its time. The confirmation offers Undo. On touch screens, press and hold an entry to drag it.
-- Authors and above get a + on each day from today onward that creates a draft with a title, collection, and time, schedules it, and opens it.
+- Authors and above get a + on each day from today onward that creates a draft with a title, collection, and time, schedules it, and opens it. It lists only collections where a title is enough to create and schedule an entry.
 - The Drafts button lists unscheduled drafts you can publish. Drop one on a day to schedule it for 9:00 in the site's time zone.
 - On wide screens the entry panel sits beside the calendar instead of covering it, and clicking empty space closes it. On phones it is a bottom sheet that swipes down to close.
 - The toolbar is one row, with Today and the month arrows beside the month's name.

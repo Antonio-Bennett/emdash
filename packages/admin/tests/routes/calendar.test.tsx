@@ -1,4 +1,4 @@
-import { Toast } from "@cloudflare/kumo";
+import { Toasty } from "@cloudflare/kumo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import * as React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
@@ -28,16 +28,15 @@ vi.mock("@tanstack/react-router", async () => ({
 	),
 }));
 
+const manifest = vi.hoisted(() => ({ collections: {} as Record<string, unknown> }));
+
 vi.mock("../../src/lib/api/client.js", async () => ({
 	...(await vi.importActual("../../src/lib/api/client.js")),
-	fetchManifest: vi.fn().mockResolvedValue({
+	fetchManifest: vi.fn(async () => ({
 		timezone: "UTC",
-		collections: {
-			posts: { label: "Posts", labelSingular: "Post", fields: { title: { kind: "string" } } },
-			pages: { label: "Pages", labelSingular: "Page", fields: { title: { kind: "string" } } },
-		},
+		collections: manifest.collections,
 		i18n: { defaultLocale: "en", locales: ["en", "fr"] },
-	}),
+	})),
 }));
 
 const EDITOR = { id: "editor", email: "editor@example.com", role: 40 };
@@ -76,11 +75,11 @@ function renderPage(wrapper?: React.ComponentType<React.PropsWithChildren>) {
 	const Inner = wrapper ?? React.Fragment;
 	return render(<CalendarPage />, {
 		wrapper: ({ children }) => (
-			<Toast.Provider>
+			<Toasty>
 				<Inner>
 					<div style={{ height: "100vh" }}>{children}</div>
 				</Inner>
-			</Toast.Provider>
+			</Toasty>
 		),
 	});
 }
@@ -88,6 +87,10 @@ function renderPage(wrapper?: React.ComponentType<React.PropsWithChildren>) {
 describe("CalendarPage", () => {
 	beforeEach(() => {
 		currentUser.value = EDITOR;
+		manifest.collections = {
+			posts: { label: "Posts", labelSingular: "Post", fields: { title: { kind: "string" } } },
+			pages: { label: "Pages", labelSingular: "Page", fields: { title: { kind: "string" } } },
+		};
 		router.search = {};
 		router.navigate.mockReset();
 		router.back.mockReset();
@@ -247,9 +250,251 @@ describe("CalendarPage", () => {
 				)
 				.toBeVisible();
 		});
+
+		it("moves it back when the move is undone", async () => {
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+			await page.getByRole("button", { name: "Undo" }).click();
+
+			await expect
+				.poll(() => schedules)
+				.toEqual([
+					{ scheduledAt: "2030-03-12T09:00:00.000Z" },
+					{ scheduledAt: "2030-03-05T09:00:00.000Z" },
+				]);
+		});
+
+		it("leaves other moves in place when one is refused", async () => {
+			const notes = {
+				...launch,
+				id: "notes",
+				title: "Entry notes",
+				at: "2030-03-06T09:00:00.000Z",
+			};
+			let refuseLaunch: (() => void) | undefined;
+			let loads = 0;
+			globalThis.fetch = vi.fn(async (input: string | URL | Request) => {
+				const url = input instanceof Request ? input.url : input.toString();
+				// Reloads never finish, so only the moves themselves place the entries.
+				if (url.includes("/calendar?")) {
+					if (++loads > 1) return new Promise<Response>(() => {});
+					return Response.json({ data: { items: [launch, notes] } });
+				}
+				if (url.includes("/content/posts/launch/schedule")) {
+					return new Promise<Response>((resolve) => {
+						refuseLaunch = () =>
+							resolve(
+								Response.json(
+									{ error: { code: "CONFLICT", message: "Someone else is editing this entry" } },
+									{ status: 409 },
+								),
+							);
+					});
+				}
+				// The other move is still on its way.
+				return new Promise<Response>(() => {});
+			});
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+			await userEvent.dragAndDrop(
+				screen.getByRole("link", { name: /Entry notes/ }),
+				dayCell(screen, "13"),
+				{ steps: 10 },
+			);
+			await expect.poll(() => refuseLaunch).toBeTypeOf("function");
+			refuseLaunch?.();
+
+			await expect
+				.element(
+					screen
+						.getByRole("list", { name: "Tuesday, March 5, 2030" })
+						.getByRole("link", { name: /Entry launch/ }),
+				)
+				.toBeVisible();
+			await expect
+				.element(
+					screen
+						.getByRole("list", { name: "Wednesday, March 13, 2030" })
+						.getByRole("link", { name: /Entry notes/ }),
+				)
+				.toBeVisible();
+		});
+
+		it("leaves another author's entry where it is for an author", async () => {
+			currentUser.value = { id: "author", email: "author@example.com", role: 30 };
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+			await new Promise((resolve) => setTimeout(resolve, 200));
+
+			expect(schedules).toEqual([]);
+		});
 	});
 
-	it("schedules an unscheduled draft dropped on a day, offering only drafts the user can publish", async () => {
+	describe("scheduling a new entry from a day", () => {
+		let posts: Array<{ path: string; body: unknown }>;
+
+		beforeEach(async () => {
+			await page.viewport(1440, 900);
+			localStorage.clear();
+			posts = [];
+			router.search = { month: "2030-03", view: "month" };
+			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+				const url = new URL(
+					input instanceof Request ? input.url : input.toString(),
+					location.origin,
+				);
+				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
+				if (init?.method === "POST") {
+					posts.push({
+						path: url.pathname,
+						body: JSON.parse(typeof init.body === "string" ? init.body : "null"),
+					});
+					return Response.json({ data: { item: { id: "spring", locale: "en" } } });
+				}
+				return Response.json(
+					{ error: { code: "NOT_FOUND", message: "Not found" } },
+					{ status: 404 },
+				);
+			});
+		});
+
+		it("creates a draft, schedules it at the chosen time, and opens it", async () => {
+			const screen = await renderPage();
+
+			await screen
+				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+				.click();
+			await screen.getByLabelText("Title").fill("Spring launch");
+			await screen.getByLabelText("Time").fill("14:30");
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+
+			await expect
+				.poll(() => posts)
+				.toEqual([
+					{
+						path: "/_emdash/api/content/posts",
+						body: expect.objectContaining({ data: { title: "Spring launch" } }),
+					},
+					{
+						path: "/_emdash/api/content/posts/spring/schedule",
+						body: { scheduledAt: "2030-03-14T14:30:00.000Z" },
+					},
+				]);
+			await expect
+				.poll(() => router.navigate.mock.lastCall && navigatedSearch(router.navigate.mock.lastCall))
+				.toMatchObject({ search: { entry: "posts:spring:scheduled" } });
+		});
+
+		it("schedules the draft it already created when trying again", async () => {
+			let failSchedule = true;
+			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+				const url = new URL(
+					input instanceof Request ? input.url : input.toString(),
+					location.origin,
+				);
+				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
+				if (init?.method !== "POST") {
+					return Response.json(
+						{ error: { code: "NOT_FOUND", message: "Not found" } },
+						{ status: 404 },
+					);
+				}
+				posts.push({ path: url.pathname, body: null });
+				if (url.pathname.endsWith("/schedule") && failSchedule) {
+					failSchedule = false;
+					return Response.json(
+						{
+							error: { code: "VALIDATION_ERROR", message: "Scheduled date must be in the future" },
+						},
+						{ status: 400 },
+					);
+				}
+				return Response.json({ data: { item: { id: "spring", locale: "en" } } });
+			});
+			const screen = await renderPage();
+
+			await screen
+				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+				.click();
+			await screen.getByLabelText("Title").fill("Spring launch");
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+			await expect
+				.element(screen.getByRole("alert"))
+				.toHaveTextContent(
+					"Saved as a draft, but not scheduled: Scheduled date must be in the future",
+				);
+
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+
+			await expect
+				.poll(() => posts.map((post) => post.path))
+				.toEqual([
+					"/_emdash/api/content/posts",
+					"/_emdash/api/content/posts/spring/schedule",
+					"/_emdash/api/content/posts/spring/schedule",
+				]);
+		});
+
+		it("isn't offered to contributors, who can't schedule", async () => {
+			currentUser.value = { id: "contributor", email: "contributor@example.com", role: 20 };
+			const screen = await renderPage();
+
+			await expect.element(screen.getByRole("heading", { name: "March 2030" })).toBeVisible();
+			expect(screen.getByRole("button", { name: /^Schedule an entry/ }).elements()).toHaveLength(0);
+		});
+
+		it("offers only collections a title alone can schedule in", async () => {
+			manifest.collections = {
+				posts: { label: "Posts", labelSingular: "Post", fields: { title: { kind: "string" } } },
+				pages: {
+					label: "Pages",
+					labelSingular: "Page",
+					fields: {
+						title: { kind: "string" },
+						layout: { kind: "string", required: true, defaultValue: "full" },
+					},
+				},
+				projects: {
+					label: "Projects",
+					labelSingular: "Project",
+					fields: { title: { kind: "string" }, cover: { kind: "image", required: true } },
+				},
+				// The server makes slugs only from a title or name field.
+				events: {
+					label: "Events",
+					labelSingular: "Event",
+					titleField: "headline",
+					fields: { headline: { kind: "string" } },
+				},
+			};
+			const screen = await renderPage();
+
+			await screen
+				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+				.click();
+			await screen.getByRole("combobox", { name: "Collection" }).click();
+
+			await expect
+				.poll(() =>
+					page
+						.getByRole("option")
+						.elements()
+						.map((option) => option.textContent),
+				)
+				.toEqual(["Post", "Page"]);
+		});
+	});
+
+	it("schedules an unscheduled draft dropped on a day, offering only drafts the user can publish, and undoes it", async () => {
 		await page.viewport(1440, 900);
 		currentUser.value = { id: "author", email: "author@example.com", role: 30 };
 		router.search = { month: "2030-03", view: "month" };
@@ -277,7 +522,11 @@ describe("CalendarPage", () => {
 			}
 			if (url.pathname.endsWith("/content/pages")) return Response.json({ data: { items: [] } });
 			if (url.pathname.endsWith("/content/posts/mine/schedule")) {
-				schedules.push(JSON.parse(typeof init?.body === "string" ? init.body : "null"));
+				schedules.push(
+					init?.method === "DELETE"
+						? "unscheduled"
+						: JSON.parse(typeof init?.body === "string" ? init.body : "null"),
+				);
 				return Response.json({ data: { item: { id: "mine" } } });
 			}
 			return Response.json({ error: { code: "NOT_FOUND", message: "Not found" } }, { status: 404 });
@@ -296,9 +545,14 @@ describe("CalendarPage", () => {
 		});
 
 		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
+
+		await page.getByRole("button", { name: "Undo" }).click();
+		await expect
+			.poll(() => schedules)
+			.toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }, "unscheduled"]);
 	});
 
-	it("moves between months and views with letter keys, but not while typing", async () => {
+	it("moves between months and views with letter keys, but not while typing or in a popover", async () => {
 		await page.viewport(1440, 900);
 		router.search = { month: "2030-03", view: "month" };
 		serveCalendar(() => Response.json({ data: { items: [] } }));
@@ -323,6 +577,9 @@ describe("CalendarPage", () => {
 			.click();
 		await screen.getByLabelText("Title").fill("");
 		await userEvent.keyboard("ja");
+		await expect.element(screen.getByLabelText("Title")).toHaveValue("ja");
+		screen.getByRole("button", { name: "Cancel" }).element().focus();
+		await userEvent.keyboard("j");
 		await expect.element(screen.getByLabelText("Title")).toHaveValue("ja");
 		expect(router.navigate).not.toHaveBeenCalled();
 	});

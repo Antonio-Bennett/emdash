@@ -91,7 +91,7 @@ export function CalendarQuickCreate({
 						ref={triggerRef}
 						variant="ghost"
 						shape="square"
-						size="xs"
+						size="sm"
 						aria-label={t`Schedule an entry on ${date}`}
 						icon={<Plus aria-hidden="true" />}
 						className={cn("text-kumo-subtle", className)}
@@ -179,8 +179,10 @@ function QuickCreateForm({
 			setError(created ? t`Saved as a draft, but not scheduled: ${message}` : message);
 			setPending(false);
 			// The new draft belongs in the Drafts list now.
-			if (created)
+			if (created) {
 				void queryClient.invalidateQueries({ queryKey: ["content", created.collection] });
+				void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
+			}
 		}
 	};
 

@@ -78,7 +78,7 @@ function previewItem(dragged: Dragged, time: number | undefined): CalendarItem {
 interface CalendarDragProviderProps {
 	display: CalendarDisplay;
 	now: number;
-	/** Called with the new time when an entry is dropped on another day or time. */
+	/** Called with the new time when an entry is dropped on another day. */
 	onMove: (item: CalendarItem, scheduledAt: string) => void;
 	/** Called with the time when a draft is dropped on the calendar. */
 	onScheduleDraft: (draft: CalendarDraft, scheduledAt: string) => void;
