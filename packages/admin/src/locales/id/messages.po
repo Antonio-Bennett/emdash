@@ -212,7 +212,7 @@ msgstr "{0, plural, other {# relasi yang diikuti tipe konten ini}}"
 #. placeholder {1}: state.columns
 #: packages/admin/src/components/editor/TableControls.tsx:190
 #: packages/admin/src/components/editor/TableControls.tsx:223
-#: packages/admin/src/components/PortableTextEditor.tsx:5352
+#: packages/admin/src/components/PortableTextEditor.tsx:5356
 msgid "{0, plural, one {# row} other {# rows}} × {1, plural, one {# column} other {# columns}} selected"
 msgstr "{0, plural, other {# baris}} × {1, plural, other {# kolom}} dipilih"
 
@@ -486,8 +486,8 @@ msgstr "{base} ke: {0}"
 msgid "{changedCount, plural, one {# change from next revision} other {# changes from next revision}}"
 msgstr "{changedCount, plural, other {# perubahan dari revisi berikutnya}}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3301
-#: packages/admin/src/components/PortableTextEditor.tsx:3313
+#: packages/admin/src/components/PortableTextEditor.tsx:3305
+#: packages/admin/src/components/PortableTextEditor.tsx:3317
 msgid "{characters, plural, one {# character} other {# characters}}"
 msgstr "{characters, plural, other {# karakter}}"
 
@@ -724,8 +724,8 @@ msgstr "{position} dari {total}"
 msgid "{previewRows} × {previewColumns} table"
 msgstr "Tabel {previewRows} × {previewColumns}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3303
-#: packages/admin/src/components/PortableTextEditor.tsx:3314
+#: packages/admin/src/components/PortableTextEditor.tsx:3307
+#: packages/admin/src/components/PortableTextEditor.tsx:3318
 msgid "{readingTime, plural, one {# min read} other {# min read}}"
 msgstr "{readingTime, plural, other {# menit baca}}"
 
@@ -754,7 +754,7 @@ msgstr "Tabel {row} × {column}"
 msgid "{rows, plural, one {Row deleted} other {# rows deleted}}"
 msgstr "{rows, plural, other {# baris dihapus}}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3543
+#: packages/admin/src/components/PortableTextEditor.tsx:3547
 msgid "{rows} × {columns} table pasted"
 msgstr "Tabel {rows} × {columns} ditempelkan"
 
@@ -830,8 +830,8 @@ msgstr "{unchangedCount, plural, other {Tampilkan # tidak berubah}}"
 msgid "{widgetType} in {areaName}"
 msgstr "{widgetType} di {areaName}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3299
-#: packages/admin/src/components/PortableTextEditor.tsx:3312
+#: packages/admin/src/components/PortableTextEditor.tsx:3303
+#: packages/admin/src/components/PortableTextEditor.tsx:3316
 msgid "{words, plural, one {# word} other {# words}}"
 msgstr "{words, plural, other {# kata}}"
 
@@ -1210,7 +1210,7 @@ msgstr "Tambahkan"
 #. placeholder {0}: option.byline.displayName
 #: packages/admin/src/components/BylineCreditsEditor.tsx:399
 #: packages/admin/src/components/ContentList.tsx:622
-#: packages/admin/src/components/PortableTextEditor.tsx:2897
+#: packages/admin/src/components/PortableTextEditor.tsx:2901
 #: packages/admin/src/components/TaxonomyManager.tsx:754
 #: packages/admin/src/components/TaxonomyManager.tsx:1329
 msgid "Add {0}"
@@ -1262,7 +1262,7 @@ msgid "Add byline"
 msgstr "Tambahkan byline"
 
 #: packages/admin/src/components/editor/TableControls.tsx:26
-#: packages/admin/src/components/PortableTextEditor.tsx:5365
+#: packages/admin/src/components/PortableTextEditor.tsx:5369
 msgid "Add column after"
 msgstr "Tambahkan kolom setelah"
 
@@ -1324,7 +1324,7 @@ msgstr "Tambahkan Gambar"
 msgid "Add images to gallery"
 msgstr "Tambahkan gambar ke galeri"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2897
+#: packages/admin/src/components/PortableTextEditor.tsx:2901
 msgid "Add item"
 msgstr "Tambahkan item"
 
@@ -1332,9 +1332,9 @@ msgstr "Tambahkan item"
 msgid "Add Item"
 msgstr "Tambahkan Item"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4995
-#: packages/admin/src/components/PortableTextEditor.tsx:5791
-#: packages/admin/src/components/PortableTextEditor.tsx:6226
+#: packages/admin/src/components/PortableTextEditor.tsx:4999
+#: packages/admin/src/components/PortableTextEditor.tsx:5795
+#: packages/admin/src/components/PortableTextEditor.tsx:6236
 msgid "Add link"
 msgstr "Tambahkan tautan"
 
@@ -1378,7 +1378,7 @@ msgid "Add row above"
 msgstr "Tambahkan baris di atas"
 
 #: packages/admin/src/components/editor/TableControls.tsx:25
-#: packages/admin/src/components/PortableTextEditor.tsx:5358
+#: packages/admin/src/components/PortableTextEditor.tsx:5362
 msgid "Add row below"
 msgstr "Tambahkan baris di bawah"
 
@@ -1459,7 +1459,7 @@ msgstr "Navigasi admin"
 msgid "Administrator"
 msgstr "Administrator"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:1985
+#: packages/admin/src/components/PortableTextEditor.tsx:1989
 msgid "Advanced"
 msgstr "Lanjutan"
 
@@ -1498,25 +1498,25 @@ msgid "Agent-callable MCP tools"
 msgstr "Alat MCP yang dapat dipanggil agen"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:165
-#: packages/admin/src/components/PortableTextEditor.tsx:5255
+#: packages/admin/src/components/PortableTextEditor.tsx:5259
 msgid "Align"
 msgstr "Rata"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6400
+#: packages/admin/src/components/PortableTextEditor.tsx:6410
 msgid "Align center"
 msgstr "Rata tengah"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6392
+#: packages/admin/src/components/PortableTextEditor.tsx:6402
 msgid "Align left"
 msgstr "Rata kiri"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6408
+#: packages/admin/src/components/PortableTextEditor.tsx:6418
 msgid "Align right"
 msgstr "Rata kanan"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:483
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:722
-#: packages/admin/src/components/PortableTextEditor.tsx:5772
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:484
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:723
+#: packages/admin/src/components/PortableTextEditor.tsx:5776
 msgid "Alignment"
 msgstr "Perataan"
 
@@ -1637,15 +1637,15 @@ msgid "visualEditing.altText"
 msgstr "Teks alternatif"
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:485
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:514
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:518
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:515
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:519
 #: packages/admin/src/components/MediaLibrary.tsx:1144
-#: packages/admin/src/components/PortableTextEditor.tsx:5703
-#: packages/admin/src/components/PortableTextEditor.tsx:5769
+#: packages/admin/src/components/PortableTextEditor.tsx:5707
+#: packages/admin/src/components/PortableTextEditor.tsx:5773
 msgid "Alt text"
 msgstr "Teks alt"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:742
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:743
 #: packages/admin/src/components/MediaDetailPanel.tsx:1586
 #: packages/admin/src/components/MediaDetailPanel.tsx:1603
 msgid "Alt Text"
@@ -1790,8 +1790,8 @@ msgstr "Muncul pada postingan dan halaman"
 msgid "Application Password"
 msgstr "Kata Sandi Aplikasi"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:607
-#: packages/admin/src/components/PortableTextEditor.tsx:6491
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:608
+#: packages/admin/src/components/PortableTextEditor.tsx:6501
 msgid "Apply"
 msgstr "Terapkan"
 
@@ -1799,8 +1799,8 @@ msgstr "Terapkan"
 msgid "Apply changes"
 msgstr "Terapkan perubahan"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4969
-#: packages/admin/src/components/PortableTextEditor.tsx:5744
+#: packages/admin/src/components/PortableTextEditor.tsx:4973
+#: packages/admin/src/components/PortableTextEditor.tsx:5748
 msgid "Apply link"
 msgstr "Terapkan tautan"
 
@@ -2153,7 +2153,7 @@ msgstr "Cadangan yang disimpan"
 msgid "Bash"
 msgstr "Bash"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:1983
+#: packages/admin/src/components/PortableTextEditor.tsx:1987
 msgid "Basic blocks"
 msgstr "Blok dasar"
 
@@ -2225,8 +2225,8 @@ msgstr "Penghalang"
 msgid "Blocks"
 msgstr "Blok"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4749
-#: packages/admin/src/components/PortableTextEditor.tsx:6260
+#: packages/admin/src/components/PortableTextEditor.tsx:4753
+#: packages/admin/src/components/PortableTextEditor.tsx:6270
 msgid "Bold"
 msgstr "Tebal"
 
@@ -2282,8 +2282,8 @@ msgid "Build provenance verified"
 msgstr "Bukti build terverifikasi"
 
 #: packages/admin/src/components/editor/blockTypes.ts:93
-#: packages/admin/src/components/PortableTextEditor.tsx:2026
-#: packages/admin/src/components/PortableTextEditor.tsx:6317
+#: packages/admin/src/components/PortableTextEditor.tsx:2030
+#: packages/admin/src/components/PortableTextEditor.tsx:6327
 msgid "Bullet List"
 msgstr "Daftar Poin"
 
@@ -2396,8 +2396,8 @@ msgstr "Dapat melihat konten"
 #: packages/admin/src/components/ContentSettingsPanel.tsx:342
 #: packages/admin/src/components/ContentSettingsPanel.tsx:533
 #: packages/admin/src/components/ContentSettingsPanel.tsx:1351
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:604
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:817
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:605
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:818
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:391
 #: packages/admin/src/components/EditorDraftPatchPreview.tsx:78
 #: packages/admin/src/components/FieldEditor.tsx:1379
@@ -2409,9 +2409,9 @@ msgstr "Dapat melihat konten"
 #: packages/admin/src/components/MenuEditor.tsx:753
 #: packages/admin/src/components/MenuList.tsx:184
 #: packages/admin/src/components/PluginManager.tsx:802
-#: packages/admin/src/components/PortableTextEditor.tsx:5715
-#: packages/admin/src/components/PortableTextEditor.tsx:5741
-#: packages/admin/src/components/PortableTextEditor.tsx:6475
+#: packages/admin/src/components/PortableTextEditor.tsx:5719
+#: packages/admin/src/components/PortableTextEditor.tsx:5745
+#: packages/admin/src/components/PortableTextEditor.tsx:6485
 #: packages/admin/src/components/PublishingDateTimeEditor.tsx:369
 #: packages/admin/src/components/Redirects.tsx:185
 #: packages/admin/src/components/RelationDialog.tsx:60
@@ -2478,9 +2478,9 @@ msgid "Capability consent"
 msgstr "Persetujuan kapabilitas"
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:491
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:527
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:750
-#: packages/admin/src/components/editor/ImageNode.tsx:297
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:528
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:751
+#: packages/admin/src/components/editor/ImageNode.tsx:304
 #: packages/admin/src/components/editor/VideoNode.tsx:325
 #: packages/admin/src/components/MediaDetailPanel.tsx:1614
 msgid "Caption"
@@ -2521,9 +2521,9 @@ msgid "Cells merged"
 msgstr "Sel digabung"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:54
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:276
-#: packages/admin/src/components/PortableTextEditor.tsx:5259
-#: packages/admin/src/components/PortableTextEditor.tsx:5377
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:277
+#: packages/admin/src/components/PortableTextEditor.tsx:5263
+#: packages/admin/src/components/PortableTextEditor.tsx:5381
 msgid "Center"
 msgstr "Tengah"
 
@@ -2804,7 +2804,7 @@ msgstr "Pembersihan selesai"
 msgid "Clear filters"
 msgstr "Bersihkan filter"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5269
+#: packages/admin/src/components/PortableTextEditor.tsx:5273
 msgid "Clear formatting"
 msgstr "Bersihkan pemformatan"
 
@@ -2857,8 +2857,8 @@ msgstr "Klik tautan ini untuk masuk ke {siteName}:"
 #: packages/admin/src/components/ContentPickerModal.tsx:225
 #: packages/admin/src/components/ContentPickerModal.tsx:231
 #: packages/admin/src/components/ContentPickerModal.tsx:235
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:624
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:626
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:625
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:627
 #: packages/admin/src/components/FieldEditor.tsx:682
 #: packages/admin/src/components/FieldEditor.tsx:704
 #: packages/admin/src/components/FieldEditor.tsx:710
@@ -2879,9 +2879,9 @@ msgstr "Klik tautan ini untuk masuk ke {siteName}:"
 #: packages/admin/src/components/MenuEditor.tsx:705
 #: packages/admin/src/components/MenuEditor.tsx:709
 #: packages/admin/src/components/MenuList.tsx:145
-#: packages/admin/src/components/PortableTextEditor.tsx:2672
-#: packages/admin/src/components/PortableTextEditor.tsx:2678
+#: packages/admin/src/components/PortableTextEditor.tsx:2676
 #: packages/admin/src/components/PortableTextEditor.tsx:2682
+#: packages/admin/src/components/PortableTextEditor.tsx:2686
 #: packages/admin/src/components/PublishingDateTimeEditor.tsx:349
 #: packages/admin/src/components/Redirects.tsx:117
 #: packages/admin/src/components/Redirects.tsx:123
@@ -2941,8 +2941,8 @@ msgid "Code"
 msgstr "Kode"
 
 #: packages/admin/src/components/editor/blockTypes.ts:117
-#: packages/admin/src/components/PortableTextEditor.tsx:2056
-#: packages/admin/src/components/PortableTextEditor.tsx:6359
+#: packages/admin/src/components/PortableTextEditor.tsx:2060
+#: packages/admin/src/components/PortableTextEditor.tsx:6369
 msgid "Code Block"
 msgstr "Blok Kode"
 
@@ -2996,7 +2996,7 @@ msgid "Collections created:"
 msgstr "Koleksi dibuat:"
 
 #: packages/admin/src/components/editor/TableControls.tsx:26
-#: packages/admin/src/components/PortableTextEditor.tsx:5363
+#: packages/admin/src/components/PortableTextEditor.tsx:5367
 msgid "Column added after"
 msgstr "Kolom ditambahkan setelah"
 
@@ -3012,7 +3012,7 @@ msgstr "Lebar kolom dikurangi"
 msgid "Column width increased"
 msgstr "Lebar kolom ditambahkan"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3543
+#: packages/admin/src/components/PortableTextEditor.tsx:3547
 msgid "Column width resized"
 msgstr "Ukuran lebar kolom diubah"
 
@@ -3263,7 +3263,7 @@ msgid "Continue Import"
 msgstr "Lanjutkan Impor"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:187
-#: packages/admin/src/components/PortableTextEditor.tsx:6334
+#: packages/admin/src/components/PortableTextEditor.tsx:6344
 msgid "Continue numbering"
 msgstr "Lanjutkan penomoran"
 
@@ -3368,7 +3368,7 @@ msgstr "Tidak dapat menyalin secara otomatis. Silakan pilih URL di atas dan sali
 msgid "Could not create {singularLower}"
 msgstr "Tidak dapat membuat {singularLower}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4544
+#: packages/admin/src/components/PortableTextEditor.tsx:4548
 msgid "Could not insert section"
 msgstr "Tidak dapat menyisipkan bagian"
 
@@ -3543,7 +3543,7 @@ msgstr "Buat {singularLower}"
 msgid "Create a block type before adding a blocks field."
 msgstr "Buat tipe blok sebelum menambahkan kolom blok."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2027
+#: packages/admin/src/components/PortableTextEditor.tsx:2031
 msgid "Create a bullet list"
 msgstr "Buat daftar poin"
 
@@ -3556,7 +3556,7 @@ msgstr "Buat {0} baru"
 msgid "Create a new {singularLabel}"
 msgstr "Buat {singularLabel} baru"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2037
+#: packages/admin/src/components/PortableTextEditor.tsx:2041
 msgid "Create a numbered list"
 msgstr "Buat daftar bernomor"
 
@@ -4062,7 +4062,7 @@ msgstr "Hapus map"
 msgid "Delete gallery"
 msgstr "Hapus galeri"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5803
+#: packages/admin/src/components/PortableTextEditor.tsx:5807
 msgid "Delete image"
 msgstr "Hapus gambar"
 
@@ -4215,8 +4215,8 @@ msgstr "Tolak"
 msgid "visualEditing.altTextPlaceholder"
 msgstr "Deskripsikan gambar"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:521
-#: packages/admin/src/components/PortableTextEditor.tsx:5704
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:522
+#: packages/admin/src/components/PortableTextEditor.tsx:5708
 msgid "Describe the image"
 msgstr "Deskripsikan gambar"
 
@@ -4224,11 +4224,11 @@ msgstr "Deskripsikan gambar"
 msgid "Describe the image..."
 msgstr "Deskripsikan gambar..."
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:509
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:510
 msgid "Describe the image's purpose and relevant details for people who cannot see it."
 msgstr "Deskripsikan tujuan dan rincian relevan dari gambar ini untuk orang yang tidak dapat melihatnya."
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:745
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:746
 #: packages/admin/src/components/MediaDetailPanel.tsx:1606
 msgid "Describe this image for accessibility"
 msgstr "Deskripsikan gambar ini untuk aksesibilitas"
@@ -4380,11 +4380,11 @@ msgstr "Abaikan {0} selesai"
 msgid "Dismiss import suggestion"
 msgstr "Abaikan saran impor"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4565
+#: packages/admin/src/components/PortableTextEditor.tsx:4569
 msgid "Dismiss section error"
 msgstr "Abaikan galat bagian"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4532
+#: packages/admin/src/components/PortableTextEditor.tsx:4536
 msgid "Dismiss table paste error"
 msgstr "Abaikan galat tempel tabel"
 
@@ -4404,12 +4404,12 @@ msgstr "Tampilkan daftar kategori"
 msgid "Display name"
 msgstr "Nama tampilan"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:438
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:446
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:439
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:447
 msgid "Display size"
 msgstr "Ukuran tampilan"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:666
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:667
 msgid "Display Size"
 msgstr "Ukuran Tampilan"
 
@@ -4417,7 +4417,7 @@ msgstr "Ukuran Tampilan"
 msgid "Display tag cloud"
 msgstr "Tampilkan awan tag"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:754
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:755
 msgid "Displayed below the image as a visible caption."
 msgstr "Ditampilkan di bawah gambar sebagai keterangan."
 
@@ -4430,7 +4430,7 @@ msgid "Distribute columns evenly"
 msgstr "Distribusikan kolom secara merata"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:46
-#: packages/admin/src/components/PortableTextEditor.tsx:2066
+#: packages/admin/src/components/PortableTextEditor.tsx:2070
 msgid "Divider"
 msgstr "Pemisah"
 
@@ -4592,7 +4592,7 @@ msgstr "Seret dan lepaskan atau klik untuk menelusuri (.xml)"
 msgid "Drag here to add"
 msgstr "Seret ke sini untuk menambah"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3073
+#: packages/admin/src/components/PortableTextEditor.tsx:3077
 msgid "Drag to reorder"
 msgstr "Seret untuk mengurutkan ulang"
 
@@ -4699,7 +4699,7 @@ msgstr "Sunting"
 #. placeholder {0}: collection.label
 #. placeholder {0}: domain.domain
 #: packages/admin/src/components/ContentTypeList.tsx:364
-#: packages/admin/src/components/PortableTextEditor.tsx:2669
+#: packages/admin/src/components/PortableTextEditor.tsx:2673
 #: packages/admin/src/components/RelationFormPanel.tsx:83
 #: packages/admin/src/components/RelationList.tsx:221
 #: packages/admin/src/components/RelationsPanel.tsx:201
@@ -4732,7 +4732,7 @@ msgid "Edit {title}"
 msgstr "Sunting {title}"
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:462
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:308
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:309
 #: packages/admin/src/components/ImageFieldRenderer.tsx:305
 #: packages/admin/src/components/ImageFieldRenderer.tsx:362
 #: packages/admin/src/components/ImageFieldRenderer.tsx:430
@@ -4781,10 +4781,10 @@ msgstr "Sunting gambar"
 msgid "Edit image {0}"
 msgstr "Sunting gambar {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4995
-#: packages/admin/src/components/PortableTextEditor.tsx:5101
-#: packages/admin/src/components/PortableTextEditor.tsx:5791
-#: packages/admin/src/components/PortableTextEditor.tsx:6225
+#: packages/admin/src/components/PortableTextEditor.tsx:4999
+#: packages/admin/src/components/PortableTextEditor.tsx:5105
+#: packages/admin/src/components/PortableTextEditor.tsx:5795
+#: packages/admin/src/components/PortableTextEditor.tsx:6235
 msgid "Edit link"
 msgstr "Sunting tautan"
 
@@ -4931,11 +4931,11 @@ msgid "Embed"
 msgstr "Sematkan"
 
 #. placeholder {0}: block.label
-#: packages/admin/src/components/PortableTextEditor.tsx:3709
+#: packages/admin/src/components/PortableTextEditor.tsx:3713
 msgid "Embed a {0}"
 msgstr "Sematkan {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2110
+#: packages/admin/src/components/PortableTextEditor.tsx:2114
 msgid "Embed a page from another site"
 msgstr "Sematkan halaman dari situs lain"
 
@@ -4947,7 +4947,7 @@ msgstr "Kode sematan"
 msgid "Embedded content"
 msgstr "Konten tersemat"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:1986
+#: packages/admin/src/components/PortableTextEditor.tsx:1990
 msgid "Embeds"
 msgstr "Sematan"
 
@@ -5165,7 +5165,7 @@ msgstr "Galat menyimpan bagian"
 msgid "Error updating widget"
 msgstr "Galat memperbarui widget"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2567
+#: packages/admin/src/components/PortableTextEditor.tsx:2571
 msgid "esc"
 msgstr "esc"
 
@@ -6650,7 +6650,7 @@ msgstr "Untuk impor lengkap termasuk draf dan semua konten, ekspor dari WordPres
 msgid "For the best import experience, install the <0>EmDash Exporter</0> plugin on your WordPress site."
 msgstr "Untuk pengalaman impor terbaik, pasang pengaya <0>EmDash Exporter</0> di situs WordPress Anda."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4947
+#: packages/admin/src/components/PortableTextEditor.tsx:4951
 msgid "Format selection"
 msgstr "Pemilihan format"
 
@@ -6683,7 +6683,7 @@ msgstr "Dari pemilik postingan"
 msgid "From URL"
 msgstr "Dari URL"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:279
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:280
 #: packages/admin/src/components/WordPressImport.tsx:1186
 msgid "Full"
 msgstr "Penuh"
@@ -6698,7 +6698,7 @@ msgstr "Akses admin penuh"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:44
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:235
-#: packages/admin/src/components/PortableTextEditor.tsx:3657
+#: packages/admin/src/components/PortableTextEditor.tsx:3661
 msgid "Gallery"
 msgstr "Galeri"
 
@@ -6828,37 +6828,37 @@ msgstr "Header"
 
 #: packages/admin/src/components/editor/blockTypes.ts:85
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:33
-#: packages/admin/src/components/PortableTextEditor.tsx:2021
+#: packages/admin/src/components/PortableTextEditor.tsx:2025
 msgid "Heading 1"
 msgstr "Judul 1"
 
 #: packages/admin/src/components/editor/blockTypes.ts:86
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:34
-#: packages/admin/src/components/PortableTextEditor.tsx:2022
+#: packages/admin/src/components/PortableTextEditor.tsx:2026
 msgid "Heading 2"
 msgstr "Judul 2"
 
 #: packages/admin/src/components/editor/blockTypes.ts:87
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:35
-#: packages/admin/src/components/PortableTextEditor.tsx:2023
+#: packages/admin/src/components/PortableTextEditor.tsx:2027
 msgid "Heading 3"
 msgstr "Judul 3"
 
 #: packages/admin/src/components/editor/blockTypes.ts:88
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:36
-#: packages/admin/src/components/PortableTextEditor.tsx:2092
+#: packages/admin/src/components/PortableTextEditor.tsx:2096
 msgid "Heading 4"
 msgstr "Judul 4"
 
 #: packages/admin/src/components/editor/blockTypes.ts:89
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:37
-#: packages/admin/src/components/PortableTextEditor.tsx:2093
+#: packages/admin/src/components/PortableTextEditor.tsx:2097
 msgid "Heading 5"
 msgstr "Judul 5"
 
 #: packages/admin/src/components/editor/blockTypes.ts:90
 #: packages/admin/src/components/editor/HeadingDropdownMenu.tsx:38
-#: packages/admin/src/components/PortableTextEditor.tsx:2094
+#: packages/admin/src/components/PortableTextEditor.tsx:2098
 msgid "Heading 6"
 msgstr "Judul 6"
 
@@ -6867,8 +6867,8 @@ msgstr "Judul 6"
 msgid "Headings"
 msgstr "Judul"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:474
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:705
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:475
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:706
 msgid "Height"
 msgstr "Tinggi"
 
@@ -6965,7 +6965,7 @@ msgstr "Bagaimana membuat Kata Sandi Aplikasi"
 #: packages/admin/src/components/editor/BlockMenu.tsx:47
 #: packages/admin/src/components/editor/codeBlockLanguages.ts:38
 #: packages/admin/src/components/editor/HtmlBlockNode.tsx:51
-#: packages/admin/src/components/PortableTextEditor.tsx:2099
+#: packages/admin/src/components/PortableTextEditor.tsx:2103
 msgid "HTML"
 msgstr "HTML"
 
@@ -6993,8 +6993,8 @@ msgstr "https://example.com"
 msgid "https://example.com or /about"
 msgstr "https://example.com atau /about"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:547
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:772
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:548
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:773
 msgid "https://example.com or /page"
 msgstr "https://example.com atau /page"
 
@@ -7044,7 +7044,7 @@ msgid "If you didn't request this, you can safely ignore this email."
 msgstr "Jika Anda tidak meminta ini, Anda dapat mengabaikan surel ini dengan aman."
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:48
-#: packages/admin/src/components/PortableTextEditor.tsx:2109
+#: packages/admin/src/components/PortableTextEditor.tsx:2113
 msgid "Iframe"
 msgstr "Iframe"
 
@@ -7060,7 +7060,7 @@ msgstr "Gambar"
 #: packages/admin/src/components/editor/BlockMenu.tsx:42
 #: packages/admin/src/components/FieldEditor.tsx:444
 #: packages/admin/src/components/FieldEditor.tsx:1297
-#: packages/admin/src/components/PortableTextEditor.tsx:3644
+#: packages/admin/src/components/PortableTextEditor.tsx:3648
 msgid "Image"
 msgstr "Gambar"
 
@@ -7080,7 +7080,7 @@ msgstr "Gambar {0}"
 msgid "Image actions"
 msgstr "Tindakan gambar"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5669
+#: packages/admin/src/components/PortableTextEditor.tsx:5673
 msgid "Image controls"
 msgstr "Kontrol gambar"
 
@@ -7088,7 +7088,7 @@ msgstr "Kontrol gambar"
 msgid "Image from media library"
 msgstr "Gambar dari pustaka media"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6223
+#: packages/admin/src/components/PortableTextEditor.tsx:6233
 msgid "Image link"
 msgstr "Tautan gambar"
 
@@ -7103,12 +7103,12 @@ msgstr "Gambar tidak ditemukan"
 msgid "Image replaced."
 msgstr "Gambar diganti."
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:390
-#: packages/admin/src/components/PortableTextEditor.tsx:5796
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:391
+#: packages/admin/src/components/PortableTextEditor.tsx:5800
 msgid "Image settings"
 msgstr "Pengaturan gambar"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:622
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:623
 msgid "Image Settings"
 msgstr "Pengaturan Gambar"
 
@@ -7327,50 +7327,50 @@ msgstr "Inline"
 msgid "Inline blocks use your site's styles. Your site removes scripts, style tags and style attributes, and empties iframes other than YouTube and Vimeo."
 msgstr "Blok inline menggunakan gaya situs Anda. Situs Anda menghapus skrip, tag gaya, dan atribut gaya, serta mengosongkan iframe selain YouTube dan Vimeo."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4753
-#: packages/admin/src/components/PortableTextEditor.tsx:6292
+#: packages/admin/src/components/PortableTextEditor.tsx:4757
+#: packages/admin/src/components/PortableTextEditor.tsx:6302
 msgid "Inline Code"
 msgstr "Kode Inline"
 
 #. placeholder {0}: block?.label || ""
-#: packages/admin/src/components/PortableTextEditor.tsx:2669
+#: packages/admin/src/components/PortableTextEditor.tsx:2673
 msgid "Insert {0}"
 msgstr "Sisipkan {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2047
+#: packages/admin/src/components/PortableTextEditor.tsx:2051
 msgid "Insert a blockquote"
 msgstr "Sisipkan kutipan blok"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2057
+#: packages/admin/src/components/PortableTextEditor.tsx:2061
 msgid "Insert a code block"
 msgstr "Sisipkan blok kode"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2067
+#: packages/admin/src/components/PortableTextEditor.tsx:2071
 msgid "Insert a horizontal rule"
 msgstr "Sisipkan garis horizontal"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3688
+#: packages/admin/src/components/PortableTextEditor.tsx:3692
 msgid "Insert a reusable section"
 msgstr "Sisipkan bagian yang dapat digunakan kembali"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2085
+#: packages/admin/src/components/PortableTextEditor.tsx:2089
 msgid "Insert a table"
 msgstr "Sisipkan tabel"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3645
+#: packages/admin/src/components/PortableTextEditor.tsx:3649
 msgid "Insert an image"
 msgstr "Sisipkan gambar"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3658
+#: packages/admin/src/components/PortableTextEditor.tsx:3662
 msgid "Insert an image gallery"
 msgstr "Sisipkan galeri gambar"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2463
+#: packages/admin/src/components/PortableTextEditor.tsx:2467
 msgid "Insert block"
 msgstr "Sisipkan blok"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6239
 #: packages/admin/src/components/PortableTextEditor.tsx:6249
+#: packages/admin/src/components/PortableTextEditor.tsx:6259
 msgid "Insert block after current block"
 msgstr "Sisipkan blok setelah blok saat ini"
 
@@ -7378,12 +7378,12 @@ msgstr "Sisipkan blok setelah blok saat ini"
 msgid "Insert block below"
 msgstr "Sisipkan blok di bawah"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6373
+#: packages/admin/src/components/PortableTextEditor.tsx:6383
 msgid "Insert HTML"
 msgstr "Sisipkan HTML"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4659
-#: packages/admin/src/components/PortableTextEditor.tsx:6366
+#: packages/admin/src/components/PortableTextEditor.tsx:4663
+#: packages/admin/src/components/PortableTextEditor.tsx:6376
 msgid "Insert image"
 msgstr "Sisipkan gambar"
 
@@ -7399,7 +7399,7 @@ msgstr "Sisipkan paragraf sesudah"
 msgid "Insert paragraph before"
 msgstr "Sisipkan paragraf sebelum"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2100
+#: packages/admin/src/components/PortableTextEditor.tsx:2104
 msgid "Insert raw HTML"
 msgstr "Sisipkan HTML mentah"
 
@@ -7412,7 +7412,7 @@ msgstr "Sisipkan Bagian"
 msgid "Insert table"
 msgstr "Sisipkan tabel"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4673
+#: packages/admin/src/components/PortableTextEditor.tsx:4677
 msgid "Insert video"
 msgstr "Sisipkan video"
 
@@ -7535,13 +7535,13 @@ msgstr "Disimpan oleh otentikator atau pengelola kredensial yang Anda pilih dala
 msgid "It was started somewhere else, so its plan can no longer be changed. Its progress will appear here."
 msgstr "Dimulai di tempat lain, sehingga paketnya tidak dapat diubah lagi. Kemajuannya akan muncul di sini."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4750
-#: packages/admin/src/components/PortableTextEditor.tsx:6268
+#: packages/admin/src/components/PortableTextEditor.tsx:4754
+#: packages/admin/src/components/PortableTextEditor.tsx:6278
 msgid "Italic"
 msgstr "Miring"
 
 #. placeholder {0}: index + 1
-#: packages/admin/src/components/PortableTextEditor.tsx:3059
+#: packages/admin/src/components/PortableTextEditor.tsx:3063
 #: packages/admin/src/components/RepeaterField.tsx:247
 msgid "Item {0}"
 msgstr "Item {0}"
@@ -7601,8 +7601,8 @@ msgstr "JSON"
 msgid "JSX"
 msgstr "JSX"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:461
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:462
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:463
 msgid "Keep aspect ratio"
 msgstr "Pertahankan rasio aspek"
 
@@ -7689,7 +7689,7 @@ msgstr "Lanskap"
 msgid "Language"
 msgstr "Bahasa"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2021
+#: packages/admin/src/components/PortableTextEditor.tsx:2025
 msgid "Large section heading"
 msgstr "Judul bagian besar"
 
@@ -7749,9 +7749,9 @@ msgid "Leave unassigned"
 msgstr "Biarkan tidak ditetapkan"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:53
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:275
-#: packages/admin/src/components/PortableTextEditor.tsx:5258
-#: packages/admin/src/components/PortableTextEditor.tsx:5376
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:276
+#: packages/admin/src/components/PortableTextEditor.tsx:5262
+#: packages/admin/src/components/PortableTextEditor.tsx:5380
 msgid "Left"
 msgstr "Kiri"
 
@@ -7772,7 +7772,7 @@ msgstr "Lisensi"
 msgid "Limit"
 msgstr "Batas"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6452
+#: packages/admin/src/components/PortableTextEditor.tsx:6462
 msgid "Link"
 msgstr "Tautan"
 
@@ -7780,7 +7780,7 @@ msgstr "Tautan"
 msgid "Link expired"
 msgstr "Tautan kedaluwarsa"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5079
+#: packages/admin/src/components/PortableTextEditor.tsx:5083
 msgid "Link options"
 msgstr "Opsi tautan"
 
@@ -7792,8 +7792,8 @@ msgstr "Tautkan byline ini ke pengguna atau tandai sebagai profil tamu."
 msgid "Link to another content item"
 msgstr "Tautkan ke item konten lain"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:543
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:768
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:544
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:769
 msgid "Link URL"
 msgstr "URL tautan"
 
@@ -7864,7 +7864,7 @@ msgstr "Ditautkan ke"
 msgid "Links to {0}"
 msgstr "Ditautkan ke {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3464
+#: packages/admin/src/components/PortableTextEditor.tsx:3468
 msgid "List"
 msgstr "Daftar"
 
@@ -7953,7 +7953,7 @@ msgstr "Memuat konfigurasi..."
 msgid "Loading content..."
 msgstr "Memuat konten..."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4495
+#: packages/admin/src/components/PortableTextEditor.tsx:4499
 msgid "Loading editor..."
 msgstr "Memuat penyunting..."
 
@@ -8057,7 +8057,7 @@ msgstr "Memuat widget..."
 #: packages/admin/src/components/MediaDetailPanel.tsx:1751
 #: packages/admin/src/components/MediaLibrary.tsx:1248
 #: packages/admin/src/components/MediaUsedIn.tsx:245
-#: packages/admin/src/components/PortableTextEditor.tsx:3186
+#: packages/admin/src/components/PortableTextEditor.tsx:3190
 #: packages/admin/src/components/Redirects.tsx:573
 #: packages/admin/src/components/RegistryBrowse.tsx:179
 #: packages/admin/src/components/SandboxedPluginPage.tsx:110
@@ -8114,8 +8114,8 @@ msgstr "Lokasi"
 msgid "Location unavailable"
 msgstr "Lokasi tidak tersedia"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:693
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:694
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:695
 msgid "Lock aspect ratio"
 msgstr "Kunci rasio aspek"
 
@@ -8305,7 +8305,7 @@ msgstr "Tag maksimum"
 msgid "MDX"
 msgstr "MDX"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:1984
+#: packages/admin/src/components/PortableTextEditor.tsx:1988
 #: packages/admin/src/components/Settings.tsx:72
 #: packages/admin/src/components/settings/transfer/labels.ts:17
 #: packages/admin/src/components/settings/transfer/labels.ts:84
@@ -8403,7 +8403,7 @@ msgstr "Pelacakan penggunaan media perlu perhatian"
 msgid "Media Write"
 msgstr "Tulis Media"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2022
+#: packages/admin/src/components/PortableTextEditor.tsx:2026
 msgid "Medium section heading"
 msgstr "Judul bagian sedang"
 
@@ -8522,7 +8522,7 @@ msgstr "Nilai Min"
 msgid "Minimum blocks"
 msgstr "Blok minimum"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2093
+#: packages/admin/src/components/PortableTextEditor.tsx:2097
 msgid "Minor section heading"
 msgstr "Judul bagian kecil"
 
@@ -8569,7 +8569,7 @@ msgstr "Arsip bulanan/tahunan"
 msgid "More actions for {0}"
 msgstr "Tindakan lainnya untuk {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5225
+#: packages/admin/src/components/PortableTextEditor.tsx:5229
 msgid "More formatting"
 msgstr "Pemformatan lainnya"
 
@@ -8577,11 +8577,11 @@ msgstr "Pemformatan lainnya"
 msgid "More information about {label}"
 msgstr "Informasi lebih lanjut tentang {label}"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:512
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:513
 msgid "More information about Alt text"
 msgstr "Informasi lebih lanjut tentang teks Alt"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:436
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:437
 msgid "More information about Display size"
 msgstr "Informasi lebih lanjut tentang ukuran tampilan"
 
@@ -9067,7 +9067,7 @@ msgstr "Belum ada tipe konten."
 msgid "No custom fields yet"
 msgstr "Belum ada kolom kustom"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5765
+#: packages/admin/src/components/PortableTextEditor.tsx:5769
 msgid "No description yet"
 msgstr "Belum ada deskripsi"
 
@@ -9158,7 +9158,7 @@ msgstr "Tidak ada rilis yang dapat diinstal"
 msgid "No invite token provided"
 msgstr "Tidak ada token undangan diberikan"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2982
+#: packages/admin/src/components/PortableTextEditor.tsx:2986
 #: packages/admin/src/components/RepeaterField.tsx:167
 #: packages/admin/src/components/settings/BackupSettings.tsx:298
 msgid "No items yet"
@@ -9305,7 +9305,7 @@ msgstr "Belum ada relasi"
 msgid "No relations yet."
 msgstr "Belum ada relasi."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2505
+#: packages/admin/src/components/PortableTextEditor.tsx:2509
 #: packages/admin/src/components/RepeaterField.tsx:398
 msgid "No results"
 msgstr "Tidak ada hasil"
@@ -9378,8 +9378,8 @@ msgstr "Tidak ada otentikator Windows Hello ditemukan"
 msgid "Non-guest"
 msgstr "Non-tamu"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:274
-#: packages/admin/src/components/PortableTextEditor.tsx:5375
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:275
+#: packages/admin/src/components/PortableTextEditor.tsx:5379
 msgid "None"
 msgstr "Tidak ada"
 
@@ -9446,8 +9446,8 @@ msgid "Number of posts to show per page on list views"
 msgstr "Jumlah postingan per halaman di tampilan daftar"
 
 #: packages/admin/src/components/editor/blockTypes.ts:101
-#: packages/admin/src/components/PortableTextEditor.tsx:2036
-#: packages/admin/src/components/PortableTextEditor.tsx:6325
+#: packages/admin/src/components/PortableTextEditor.tsx:2040
+#: packages/admin/src/components/PortableTextEditor.tsx:6335
 msgid "Numbered List"
 msgstr "Daftar Bernomor"
 
@@ -9538,12 +9538,12 @@ msgstr "Buka di admin"
 msgid "Open in editor"
 msgstr "Buka di penyunting"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:554
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:575
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:555
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:576
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:779
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:794
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:577
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:780
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:795
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:796
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:318
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:319
 msgid "Open in new tab"
@@ -9586,11 +9586,11 @@ msgstr ""
 "Opsi 3"
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:494
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:530
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:531
 msgid "Optional caption"
 msgstr "Takarir opsional"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:753
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:754
 msgid "Optional caption displayed below the image"
 msgstr "Takarir opsional di bawah gambar"
 
@@ -9602,11 +9602,11 @@ msgstr "Takarir opsional untuk tampilan"
 msgid "Optional description"
 msgstr "Deskripsi opsional"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:538
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:539
 msgid "Optional hover text"
 msgstr "Teks melayang opsional"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:762
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:763
 msgid "Optional tooltip on hover"
 msgstr "Tooltip opsional saat melayang"
 
@@ -9658,8 +9658,8 @@ msgid "Original image cropped."
 msgstr "Gambar asli dipangkas."
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:478
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:418
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:654
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:419
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:655
 msgid "Original:"
 msgstr "Asli:"
 
@@ -9727,7 +9727,7 @@ msgid "Pages"
 msgstr "Halaman"
 
 #: packages/admin/src/components/editor/blockTypes.ts:80
-#: packages/admin/src/components/PortableTextEditor.tsx:2014
+#: packages/admin/src/components/PortableTextEditor.tsx:2018
 msgid "Paragraph"
 msgstr "Paragraf"
 
@@ -10409,9 +10409,9 @@ msgid "Quick create names the relationship after this field and this collection,
 msgstr "Buat cepat menamai relasi setelah kolom dan koleksi ini, mengambil berapa banyak entri yang dipegangnya dari sakelar di atas, dan tidak membatasi berapa banyak entri yang ditautkan kembali ke arah lain. <0>Buat relasi sendiri</0> untuk mengatur slug, nama yang digunakan kedua sisi, dan kedua batas, lalu pilih di atas."
 
 #: packages/admin/src/components/editor/blockTypes.ts:109
-#: packages/admin/src/components/PortableTextEditor.tsx:2046
-#: packages/admin/src/components/PortableTextEditor.tsx:3465
-#: packages/admin/src/components/PortableTextEditor.tsx:6351
+#: packages/admin/src/components/PortableTextEditor.tsx:2050
+#: packages/admin/src/components/PortableTextEditor.tsx:3469
+#: packages/admin/src/components/PortableTextEditor.tsx:6361
 msgid "Quote"
 msgstr "Kutipan"
 
@@ -10584,7 +10584,7 @@ msgstr "Pengalihan"
 msgid "Redirects that loop will be imported turned off"
 msgstr "Pengalihan yang menyebabkan loop akan diimpor dalam keadaan nonaktif"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6514
+#: packages/admin/src/components/PortableTextEditor.tsx:6524
 msgid "Redo"
 msgstr "Ulangi"
 
@@ -10700,13 +10700,13 @@ msgstr "Hapus"
 #: packages/admin/src/components/BlockKitMediaPickerField.tsx:115
 #: packages/admin/src/components/ContentEditor.tsx:3233
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:473
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:357
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:813
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:358
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:814
 #: packages/admin/src/components/ImageFieldRenderer.tsx:317
 #: packages/admin/src/components/ImageFieldRenderer.tsx:371
 #: packages/admin/src/components/ImageFieldRenderer.tsx:442
 #: packages/admin/src/components/media/MediaBrowserItems.tsx:220
-#: packages/admin/src/components/PortableTextEditor.tsx:6487
+#: packages/admin/src/components/PortableTextEditor.tsx:6497
 #: packages/admin/src/components/settings/GeneralSettings.tsx:400
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
@@ -10761,7 +10761,7 @@ msgstr "Hapus Domain?"
 msgid "Remove from post"
 msgstr "Hapus dari postingan"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:593
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:594
 #: packages/admin/src/components/ImageFieldRenderer.tsx:315
 msgid "Remove image"
 msgstr "Hapus gambar"
@@ -10771,19 +10771,19 @@ msgstr "Hapus gambar"
 msgid "Remove image {0}"
 msgstr "Hapus gambar {0}"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:355
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:356
 msgid "Remove image?"
 msgstr "Hapus gambar?"
 
 #. placeholder {0}: index + 1
-#: packages/admin/src/components/PortableTextEditor.tsx:3098
+#: packages/admin/src/components/PortableTextEditor.tsx:3102
 #: packages/admin/src/components/RepeaterField.tsx:283
 msgid "Remove item {0}"
 msgstr "Hapus item {0}"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4973
-#: packages/admin/src/components/PortableTextEditor.tsx:5113
-#: packages/admin/src/components/PortableTextEditor.tsx:5737
+#: packages/admin/src/components/PortableTextEditor.tsx:4977
+#: packages/admin/src/components/PortableTextEditor.tsx:5117
+#: packages/admin/src/components/PortableTextEditor.tsx:5741
 msgid "Remove link"
 msgstr "Hapus tautan"
 
@@ -10804,7 +10804,7 @@ msgstr "Hapus jadwal"
 msgid "Remove sub-field"
 msgstr "Hapus sub-kolom"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:356
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:357
 msgid "Remove this image from the document?"
 msgstr "Hapus gambar ini dari dokumen?"
 
@@ -10821,7 +10821,7 @@ msgstr "Menghapus entri bilah sisi, tautan palet perintah, dan tindakan cepat da
 msgid "Removing starter content"
 msgstr "Menghapus konten awal"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:358
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:359
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:384
 #: packages/admin/src/components/settings/PasskeyItem.tsx:183
 msgid "Removing..."
@@ -10875,16 +10875,16 @@ msgstr "Ganti"
 #: packages/admin/src/components/ContentEditor.tsx:3260
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:449
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:506
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:298
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:372
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:299
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:373
 #: packages/admin/src/components/editor/VideoNode.tsx:403
 #: packages/admin/src/components/ImageFieldRenderer.tsx:291
 #: packages/admin/src/components/ImageFieldRenderer.tsx:352
 #: packages/admin/src/components/ImageFieldRenderer.tsx:415
 #: packages/admin/src/components/ImageFieldRenderer.tsx:589
 #: packages/admin/src/components/ImageFieldRenderer.tsx:592
-#: packages/admin/src/components/PortableTextEditor.tsx:5759
-#: packages/admin/src/components/PortableTextEditor.tsx:5827
+#: packages/admin/src/components/PortableTextEditor.tsx:5763
+#: packages/admin/src/components/PortableTextEditor.tsx:5837
 #: packages/admin/src/components/SeoImageField.tsx:151
 #: packages/admin/src/components/SeoImageField.tsx:184
 msgid "Replace"
@@ -10906,10 +10906,10 @@ msgid "Replace dark mode variant for {label}"
 msgstr "Ganti varian mode gelap untuk {label}"
 
 #: packages/admin/src/components/editor/GalleryDetailPanel.tsx:505
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:371
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:372
 #: packages/admin/src/components/MediaDetailPanel.tsx:1837
 #: packages/admin/src/components/MediaDetailPanel.tsx:1965
-#: packages/admin/src/components/PortableTextEditor.tsx:5826
+#: packages/admin/src/components/PortableTextEditor.tsx:5836
 msgid "Replace image"
 msgstr "Ganti gambar"
 
@@ -10988,7 +10988,7 @@ msgstr "Diperlukan"
 msgid "Required fields:"
 msgstr "Kolom diperlukan:"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:746
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:747
 msgid "Required for accessibility. Describes the image for screen readers."
 msgstr "Diperlukan untuk aksesibilitas. Mendeskripsikan gambar untuk pembaca layar."
 
@@ -11013,7 +11013,7 @@ msgstr "Kirimkan ulang surel"
 msgid "Resend in {resendCooldown}s"
 msgstr "Kirimkan ulang dalam {resendCooldown}d"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:442
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:443
 #: packages/admin/src/components/MediaDetailPanel.tsx:1690
 #: packages/admin/src/components/MediaDetailPanel.tsx:1740
 msgid "Reset"
@@ -11027,7 +11027,7 @@ msgstr "Atur ulang lebar kolom"
 msgid "Reset crop"
 msgstr "Atur ulang pangkas"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:674
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:675
 msgid "Reset to original"
 msgstr "Atur ulang ke asli"
 
@@ -11076,7 +11076,7 @@ msgid "Resolving publisher handle..."
 msgstr "Menyelesaikan nama penerbit..."
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:193
-#: packages/admin/src/components/PortableTextEditor.tsx:6341
+#: packages/admin/src/components/PortableTextEditor.tsx:6351
 msgid "Restart numbering"
 msgstr "Mulai ulang penomoran"
 
@@ -11280,9 +11280,9 @@ msgid "Rich text editor"
 msgstr "Editor teks kaya"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:55
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:277
-#: packages/admin/src/components/PortableTextEditor.tsx:5260
-#: packages/admin/src/components/PortableTextEditor.tsx:5378
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:278
+#: packages/admin/src/components/PortableTextEditor.tsx:5264
+#: packages/admin/src/components/PortableTextEditor.tsx:5382
 msgid "Right"
 msgstr "Kanan"
 
@@ -11336,7 +11336,7 @@ msgid "Row added above"
 msgstr "Baris ditambahkan di atas"
 
 #: packages/admin/src/components/editor/TableControls.tsx:25
-#: packages/admin/src/components/PortableTextEditor.tsx:5356
+#: packages/admin/src/components/PortableTextEditor.tsx:5360
 msgid "Row added below"
 msgstr "Baris ditambahkan di bawah"
 
@@ -11374,7 +11374,7 @@ msgid "Sample content"
 msgstr "Konten sampel"
 
 #: packages/admin/src/components/BylineFormDialog.tsx:549
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:820
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:821
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:402
 #: packages/admin/src/components/MediaDetailPanel.tsx:1888
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
@@ -11390,7 +11390,7 @@ msgstr "Simpan"
 msgid "Save (Enter)"
 msgstr "Simpan (Enter)"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5718
+#: packages/admin/src/components/PortableTextEditor.tsx:5722
 msgid "Save alt text"
 msgstr "Simpan teks alternatif"
 
@@ -11803,7 +11803,7 @@ msgstr "Dapat Dicari"
 msgid "Searching…"
 msgstr "Mencari…"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3687
+#: packages/admin/src/components/PortableTextEditor.tsx:3691
 msgid "Section"
 msgstr "Bagian"
 
@@ -11992,13 +11992,13 @@ msgstr "Pilih Favicon"
 msgid "Select file"
 msgstr "Pilih berkas"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4687
+#: packages/admin/src/components/PortableTextEditor.tsx:4691
 msgid "Select gallery images"
 msgstr "Pilih gambar galeri"
 
 #: packages/admin/src/components/ImageFieldRenderer.tsx:564
 #: packages/admin/src/components/MediaPickerModal.tsx:232
-#: packages/admin/src/components/PortableTextEditor.tsx:4658
+#: packages/admin/src/components/PortableTextEditor.tsx:4662
 msgid "Select image"
 msgstr "Pilih gambar"
 
@@ -12031,7 +12031,7 @@ msgid "Select up to 50 posts at a time."
 msgstr "Pilih hingga 50 postingan sekaligus."
 
 #: packages/admin/src/components/MediaPickerModal.tsx:232
-#: packages/admin/src/components/PortableTextEditor.tsx:4672
+#: packages/admin/src/components/PortableTextEditor.tsx:4676
 msgid "Select video"
 msgstr "Pilih video"
 
@@ -12040,7 +12040,7 @@ msgid "Select which content types to import."
 msgstr "Pilih tipe konten mana yang akan diimpor."
 
 #: packages/admin/src/components/BlockKitFieldWidget.tsx:108
-#: packages/admin/src/components/PortableTextEditor.tsx:3193
+#: packages/admin/src/components/PortableTextEditor.tsx:3197
 #: packages/admin/src/components/RepeaterField.tsx:396
 msgid "Select..."
 msgstr "Pilih..."
@@ -12049,7 +12049,7 @@ msgstr "Pilih..."
 msgid "Selected {label}"
 msgstr "{label} dipilih"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2496
+#: packages/admin/src/components/PortableTextEditor.tsx:2500
 msgid "Selected {selectedItemTitle}"
 msgstr "{selectedItemTitle} dipilih"
 
@@ -12156,11 +12156,11 @@ msgstr "Judul SEO"
 msgid "Separate class names with spaces. Themes can use them to style the link."
 msgstr ""
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:714
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:715
 msgid "Set a custom display size for this image instance."
 msgstr "Atur ukuran tampilan kustom untuk instansi gambar ini."
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:433
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:434
 msgid "Set a custom width and height for this image in the document. Reset uses the original media dimensions. The original media file is unchanged."
 msgstr "Atur lebar dan tinggi kustom untuk gambar ini di dokumen. Atur ulang menggunakan dimensi media asli. Berkas media asli tidak berubah."
 
@@ -12302,7 +12302,7 @@ msgstr ""
 msgid "Shown to readers in this order."
 msgstr "Ditampilkan ke pembaca dalam urutan ini."
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:763
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:764
 msgid "Shown when hovering over the image."
 msgstr "Ditampilkan saat kursor melayang di atas gambar."
 
@@ -12511,15 +12511,15 @@ msgstr "Slug disalin ke papan klip"
 msgid "Slugs cannot be changed after the field is created."
 msgstr "Slug tidak dapat diubah setelah bidang dibuat."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2023
+#: packages/admin/src/components/PortableTextEditor.tsx:2027
 msgid "Small section heading"
 msgstr "Judul bagian kecil"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2092
+#: packages/admin/src/components/PortableTextEditor.tsx:2096
 msgid "Smaller section heading"
 msgstr "Judul bagian lebih kecil"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2094
+#: packages/admin/src/components/PortableTextEditor.tsx:2098
 msgid "Smallest section heading"
 msgstr "Judul bagian terkecil"
 
@@ -12596,9 +12596,9 @@ msgid "Sort themes"
 msgstr "Urutkan tema"
 
 #: packages/admin/src/components/ContentTypeList.tsx:204
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:561
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:565
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:786
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:562
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:566
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:787
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:236
 #: packages/admin/src/components/PluginManager.tsx:636
 #: packages/admin/src/components/Redirects.tsx:488
@@ -12669,12 +12669,12 @@ msgstr "Mulai dengan tipe konten templat dan tanpa konten."
 msgid "Start with the template’s example posts and pages. Recommended for new sites."
 msgstr "Mulai dengan contoh postingan dan halaman templat. Direkomendasikan untuk situs baru."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2015
+#: packages/admin/src/components/PortableTextEditor.tsx:2019
 msgid "Start writing with plain text"
 msgstr "Mulai menulis dengan teks biasa"
 
 #: packages/admin/src/components/ContentEditor.tsx:2299
-#: packages/admin/src/components/PortableTextEditor.tsx:3451
+#: packages/admin/src/components/PortableTextEditor.tsx:3455
 msgid "Start writing, or type '/' for commands"
 msgstr "Mulai menulis, atau ketik '/' untuk perintah"
 
@@ -12739,8 +12739,8 @@ msgstr "Cadangan Tersimpan"
 msgid "Stored per locale — each translation of a byline gets its own value."
 msgstr "Disimpan per bahasa - setiap terjemahan dari byline memiliki nilainya sendiri."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4752
-#: packages/admin/src/components/PortableTextEditor.tsx:6284
+#: packages/admin/src/components/PortableTextEditor.tsx:4756
+#: packages/admin/src/components/PortableTextEditor.tsx:6294
 msgid "Strikethrough"
 msgstr "Coret"
 
@@ -12769,11 +12769,11 @@ msgstr "Sub-Kolom"
 msgid "Subscriber"
 msgstr "Pelanggan"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5239
+#: packages/admin/src/components/PortableTextEditor.tsx:5243
 msgid "Subscript"
 msgstr "Subskrip"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5245
+#: packages/admin/src/components/PortableTextEditor.tsx:5249
 msgid "Superscript"
 msgstr "Superskrip"
 
@@ -12812,15 +12812,15 @@ msgstr "Kolom Sistem"
 #: packages/admin/src/components/editor/BlockMenu.tsx:45
 #: packages/admin/src/components/editor/TableControls.tsx:31
 #: packages/admin/src/components/editor/TableControls.tsx:368
-#: packages/admin/src/components/PortableTextEditor.tsx:2084
+#: packages/admin/src/components/PortableTextEditor.tsx:2088
 msgid "Table"
 msgstr "Tabel"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4509
+#: packages/admin/src/components/PortableTextEditor.tsx:4513
 msgid "Table cells accept text, links, and formatting only."
 msgstr "Sel tabel hanya menerima teks, tautan, dan pemformatan."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:5346
+#: packages/admin/src/components/PortableTextEditor.tsx:5350
 msgid "Table controls"
 msgstr "Kontrol tabel"
 
@@ -12829,7 +12829,7 @@ msgid "Table deleted"
 msgstr "Tabel dihapus"
 
 #: packages/admin/src/components/editor/TableControls.tsx:401
-#: packages/admin/src/components/PortableTextEditor.tsx:4399
+#: packages/admin/src/components/PortableTextEditor.tsx:4403
 msgid "Table inserted"
 msgstr "Tabel disisipkan"
 
@@ -12837,7 +12837,7 @@ msgstr "Tabel disisipkan"
 msgid "Table size"
 msgstr "Ukuran tabel"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4506
+#: packages/admin/src/components/PortableTextEditor.tsx:4510
 msgid "Tables cannot be pasted inside lists or quotes. Paste the table into its own paragraph and try again."
 msgstr "Tabel tidak dapat ditempel di dalam daftar atau kutipan. Tempel tabel ke dalam paragrafnya sendiri dan coba lagi."
 
@@ -12965,7 +12965,7 @@ msgstr "Istilah"
 msgid "test@example.com"
 msgstr "test@example.com"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6528
+#: packages/admin/src/components/PortableTextEditor.tsx:6538
 msgid "Text formatting"
 msgstr "Pemformatan teks"
 
@@ -13435,7 +13435,7 @@ msgstr "Kode ini tidak valid atau sudah digunakan."
 msgid "This collection is defined in code. Some settings cannot be changed here. Edit your live.config.ts file to modify the schema."
 msgstr "Koleksi ini didefinisikan dalam kode. Beberapa pengaturan tidak dapat diubah di sini. Sunting berkas live.config.ts Anda untuk mengubah skema."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4481
+#: packages/admin/src/components/PortableTextEditor.tsx:4485
 msgid "This content cannot be edited safely"
 msgstr "Konten ini tidak dapat disunting dengan aman"
 
@@ -13496,11 +13496,11 @@ msgstr "Ekspor ini besar"
 msgid "This field cannot be edited by this version of EmDash."
 msgstr "Kolom ini tidak dapat disunting oleh versi EmDash ini."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4464
+#: packages/admin/src/components/PortableTextEditor.tsx:4468
 msgid "This field contains table content that the editor cannot preserve. Update it through the API before editing or saving this content."
 msgstr "Kolom ini berisi konten tabel yang tidak dapat dipertahankan oleh penyunting. Perbarui melalui API sebelum menyunting atau menyimpan konten ini."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4483
+#: packages/admin/src/components/PortableTextEditor.tsx:4487
 msgid "This field contains unsupported Portable Text marks: <0>{markList}</0>. Remove them through the API before editing or saving this content."
 msgstr "Kolom ini berisi tanda Portable Text yang tidak didukung: <0>{markList}</0>. Hapus tanda tersebut melalui API sebelum menyunting atau menyimpan konten ini."
 
@@ -13629,7 +13629,7 @@ msgstr "Paket ini dibuat oleh versi EmDash yang lebih baru atau berbeda."
 msgid "This passkey is already registered on this device."
 msgstr "Kunci sandi ini sudah terdaftar di perangkat ini."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4502
+#: packages/admin/src/components/PortableTextEditor.tsx:4506
 msgid "This paste is too large. Paste fewer cells or less text at a time."
 msgstr "Tempelan ini terlalu besar. Tempel lebih sedikit sel atau teks dalam satu waktu."
 
@@ -13702,12 +13702,12 @@ msgstr "Ini menghapus jadwal dan menerbitkan segera."
 msgid "This saved timezone isn't recognized. Choose a suggestion for reliable date display."
 msgstr "Zona waktu yang tersimpan ini tidak dikenali. Pilih saran untuk tampilan tanggal yang andal."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4547
+#: packages/admin/src/components/PortableTextEditor.tsx:4551
 msgid "This section contains table content that the editor cannot preserve. Update the section before inserting it."
 msgstr "Bagian ini berisi konten tabel yang tidak dapat dipertahankan oleh penyunting. Perbarui bagian sebelum menyisipkannya."
 
 #. placeholder {0}: sectionInsertErrorMarks.join(", ")
-#: packages/admin/src/components/PortableTextEditor.tsx:4549
+#: packages/admin/src/components/PortableTextEditor.tsx:4553
 msgid "This section contains unsupported Portable Text marks: <0>{0}</0>. Update the section before inserting it."
 msgstr "Bagian ini berisi tanda Portable Text yang tidak didukung: <0>{0}</0>. Perbarui bagian sebelum menyisipkannya."
 
@@ -13760,15 +13760,15 @@ msgstr "Situs ini memegang data parsial dari impor sebelumnya"
 msgid "This site was set up with starter content. It has no entries of its own, and the import deletes it before adding the package’s content."
 msgstr "Situs ini diatur dengan konten awal. Situs ini tidak memiliki entri sendiri, dan impor menghapusnya sebelum menambahkan konten paket."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4504
+#: packages/admin/src/components/PortableTextEditor.tsx:4508
 msgid "This spreadsheet data has invalid quoted cells. Fix the quotes or remove the tab separators and try again."
 msgstr "Data lembar kerja ini memiliki sel dikutip yang tidak valid. Perbaiki kutipan atau hapus pemisah tab dan coba lagi."
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4462
+#: packages/admin/src/components/PortableTextEditor.tsx:4466
 msgid "This table cannot be edited safely"
 msgstr "Tabel ini tidak dapat disunting dengan aman"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4508
+#: packages/admin/src/components/PortableTextEditor.tsx:4512
 msgid "This table has unsupported cell formatting, merged cells, or column widths. Paste it as plain text or simplify the table and try again."
 msgstr "Tabel ini memiliki pemformatan sel yang tidak didukung, sel gabungan, atau lebar kolom. Tempel sebagai teks biasa atau sederhanakan tabelnya dan coba lagi."
 
@@ -13843,7 +13843,7 @@ msgstr "Zona waktu"
 msgid "Title"
 msgstr "Judul"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:759
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:760
 msgid "Title (Tooltip)"
 msgstr "Judul (Tooltip)"
 
@@ -13907,7 +13907,7 @@ msgstr "TOML"
 msgid "Tomorrow"
 msgstr "Besok"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:535
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:536
 msgid "Tooltip text"
 msgstr "Teks tooltip"
 
@@ -14073,9 +14073,9 @@ msgid "TSX"
 msgstr "TSX"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:146
-#: packages/admin/src/components/PortableTextEditor.tsx:5162
-#: packages/admin/src/components/PortableTextEditor.tsx:5164
-#: packages/admin/src/components/PortableTextEditor.tsx:5181
+#: packages/admin/src/components/PortableTextEditor.tsx:5166
+#: packages/admin/src/components/PortableTextEditor.tsx:5168
+#: packages/admin/src/components/PortableTextEditor.tsx:5185
 msgid "Turn into"
 msgstr "Ubah menjadi"
 
@@ -14111,7 +14111,7 @@ msgstr "Dua rekaman memiliki nilai yang sama di mana harus unik"
 msgid "Type"
 msgstr "Tipe"
 
-#: packages/admin/src/components/editor/ImageNode.tsx:298
+#: packages/admin/src/components/editor/ImageNode.tsx:305
 msgid "Type caption for image (optional)"
 msgstr "Ketik takarir untuk gambar (opsional)"
 
@@ -14124,11 +14124,11 @@ msgstr "Ketik takarir untuk video (opsional)"
 msgid "Type mismatch ({0})"
 msgstr "Ketidakcocokan tipe ({0})"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:2564
+#: packages/admin/src/components/PortableTextEditor.tsx:2568
 msgid "Type to filter"
 msgstr "Ketik untuk memfilter"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4619
+#: packages/admin/src/components/PortableTextEditor.tsx:4623
 msgid "Type to search"
 msgstr "Ketik untuk mencari"
 
@@ -14150,12 +14150,12 @@ msgstr "Tidak dapat menjangkau marketplace"
 msgid "Unassigned"
 msgstr "Tidak Ditetapkan"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:4751
-#: packages/admin/src/components/PortableTextEditor.tsx:6276
+#: packages/admin/src/components/PortableTextEditor.tsx:4755
+#: packages/admin/src/components/PortableTextEditor.tsx:6286
 msgid "Underline"
 msgstr "Garis bawah"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:6507
+#: packages/admin/src/components/PortableTextEditor.tsx:6517
 msgid "Undo"
 msgstr "Urungkan"
 
@@ -14203,8 +14203,8 @@ msgstr "Peran tidak diketahui"
 msgid "Unlinked"
 msgstr "Tidak tertaut"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:693
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:694
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:695
 msgid "Unlock aspect ratio"
 msgstr "Buka kunci rasio aspek"
 
@@ -14430,7 +14430,7 @@ msgstr "Unggah media agar aset yang dapat digunakan kembali tersimpan di satu te
 msgid "Upload not finished"
 msgstr "Unggah belum selesai"
 
-#: packages/admin/src/components/PortableTextEditor.tsx:3674
+#: packages/admin/src/components/PortableTextEditor.tsx:3678
 msgid "Upload or choose a video"
 msgstr "Unggah atau pilih video"
 
@@ -14740,7 +14740,7 @@ msgstr "Versi {0} (aktif)"
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
 #: packages/admin/src/components/MediaLibrary.tsx:922
 #: packages/admin/src/components/MediaPickerModal.tsx:392
-#: packages/admin/src/components/PortableTextEditor.tsx:3673
+#: packages/admin/src/components/PortableTextEditor.tsx:3677
 msgid "Video"
 msgstr "Video"
 
@@ -14925,8 +14925,8 @@ msgstr "Apa yang Anda ketik masih ada di sini. Menyimpan menggantikan versi yang
 msgid "What’s tracked"
 msgstr "Apa yang dilacak"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:548
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:773
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:549
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:774
 msgid "When set, the image becomes a clickable link to this URL."
 msgstr "Saat diatur, gambar menjadi tautan yang dapat diklik ke URL ini."
 
@@ -14990,7 +14990,7 @@ msgstr "Kenapa ini penting untuk berbagi di media sosial?"
 msgid "Why is this important?"
 msgstr "Kenapa ini penting?"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:278
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:279
 msgid "Wide"
 msgstr "Lebar"
 
@@ -15037,8 +15037,8 @@ msgstr "Widget diperbarui"
 msgid "Widgets"
 msgstr "Widget"
 
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:449
-#: packages/admin/src/components/editor/ImageDetailPanel.tsx:681
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:450
+#: packages/admin/src/components/editor/ImageDetailPanel.tsx:682
 msgid "Width"
 msgstr "Lebar"
 
