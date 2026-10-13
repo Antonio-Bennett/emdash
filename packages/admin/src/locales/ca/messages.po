@@ -590,7 +590,7 @@ msgstr "{label} s'ha mogut a la posició {0}."
 msgid "{label} options"
 msgstr "opcions de {label}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr "{lateness} de retard"
 
@@ -782,11 +782,11 @@ msgstr "{siteName} ara és a {siteHost}. Inicia la sessió allà a partir d'ara.
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr "{siteZone} · La teva hora: {viewerZone}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr "{state} · {when}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr "{state}, {time}:"
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr "Encara no hi ha res per previsualitzar."
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr "Ara · {time}"
 
@@ -9680,7 +9680,7 @@ msgstr "Mida de sortida"
 msgid "Overdue"
 msgstr "Vençut"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr "Vençut · {lateness}"
 
@@ -14284,10 +14284,14 @@ msgstr "S'han omès les referències no utilitzades"
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "Es poden seleccionar fins a {MAX_SELECTED} signatures"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
 msgid "Update"
 msgstr "Actualitza"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
+msgid "Update"
+msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:1394
 msgid "Update Field"
@@ -15344,7 +15348,7 @@ msgstr "El teu lloc actualment és a {currentUrl}."
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "El teu lloc requereix que les versions tinguin com a mínim {0} d'antiguitat abans de poder-se instal·lar. Aquesta versió es podrà instal·lar més tard."
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr "La teva hora: {viewerTime}"

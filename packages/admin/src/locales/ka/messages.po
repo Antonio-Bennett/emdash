@@ -590,7 +590,7 @@ msgstr "{label} გადავიდა პოზიციაზე {0}."
 msgid "{label} options"
 msgstr ""
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr ""
 
@@ -782,11 +782,11 @@ msgstr ""
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr ""
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr ""
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr ""
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr ""
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr ""
 
@@ -9680,7 +9680,7 @@ msgstr "შედეგის ზომა"
 msgid "Overdue"
 msgstr ""
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr ""
 
@@ -14284,10 +14284,14 @@ msgstr ""
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "შეიძლება აირჩეს {MAX_SELECTED}-მდე ბაილაინი"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
 msgid "Update"
 msgstr "განახლება"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
+msgid "Update"
+msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:1394
 msgid "Update Field"
@@ -15344,7 +15348,7 @@ msgstr ""
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "საიტი მოითხოვს, რომ გამოშვებები დაყენებამდე მინიმუმ {0} ხნის იყოს. ეს გამოშვება მოგვიანებით დასაყენებელი გახდება."
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr ""

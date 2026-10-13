@@ -590,7 +590,7 @@ msgstr "已將 {label} 移到第 {0} 個位置。"
 msgid "{label} options"
 msgstr "{label} 選項"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr "已逾時 {lateness}"
 
@@ -782,11 +782,11 @@ msgstr "{siteName} 現在位於 {siteHost}。今後請到那裡登入。"
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr "{siteZone} · 你的時間：{viewerZone}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr "{state} · {when}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr "{state}，{time}："
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr "尚無可預覽的內容。"
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr "現在 · {time}"
 
@@ -9680,7 +9680,7 @@ msgstr "輸出尺寸"
 msgid "Overdue"
 msgstr "已逾期"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr "已逾期 · {lateness}"
 
@@ -14284,10 +14284,14 @@ msgstr "未使用的參照未納入"
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "最多可選取 {MAX_SELECTED} 個署名"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
 msgid "Update"
 msgstr "更新"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
+msgid "Update"
+msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:1394
 msgid "Update Field"
@@ -15344,7 +15348,7 @@ msgstr "網站目前的網址為 {currentUrl}。"
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "您的網站要求發行版本至少已有 {0} 的時間才能安裝。這個版本稍後才能安裝。"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr "你的時間：{viewerTime}"

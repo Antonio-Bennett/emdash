@@ -590,7 +590,7 @@ msgstr "{label} moved to position {0}."
 msgid "{label} options"
 msgstr "{label} options"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr "{lateness} late"
 
@@ -782,11 +782,11 @@ msgstr "{siteName} is now at {siteHost}. Sign in there from now on."
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr "{siteZone} · Your time: {viewerZone}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr "{state} · {when}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr "{state}, {time}:"
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr "Nothing to preview yet."
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr "Now · {time}"
 
@@ -9680,7 +9680,7 @@ msgstr "Output size"
 msgid "Overdue"
 msgstr "Overdue"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr "Overdue · {lateness}"
 
@@ -14284,8 +14284,12 @@ msgstr "Unused references were left out"
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "Up to {MAX_SELECTED} bylines can be selected"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
+msgid "Update"
+msgstr "Update"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
 msgid "Update"
 msgstr "Update"
 
@@ -15344,7 +15348,7 @@ msgstr "Your site is currently at {currentUrl}."
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr "Your time: {viewerTime}"

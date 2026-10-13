@@ -590,7 +590,7 @@ msgstr "{label} déplacé à la position {0}."
 msgid "{label} options"
 msgstr "Options de {label}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr "{lateness} de retard"
 
@@ -782,11 +782,11 @@ msgstr "{siteName} se trouve maintenant sur {siteHost}. Connectez-vous désormai
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr "{siteZone} · Votre fuseau : {viewerZone}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr "{state} · {when}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr "{state}, {time} :"
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr "Rien à prévisualiser pour le moment."
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr "Maintenant · {time}"
 
@@ -9680,7 +9680,7 @@ msgstr "Taille de sortie"
 msgid "Overdue"
 msgstr "En retard"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr "En retard · {lateness}"
 
@@ -14284,10 +14284,14 @@ msgstr "Les références inutilisées ont été exclues"
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "Vous pouvez sélectionner jusqu'à {MAX_SELECTED} collaborateurs"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
 msgid "Update"
 msgstr "Mise à jour"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
+msgid "Update"
+msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:1394
 msgid "Update Field"
@@ -15344,7 +15348,7 @@ msgstr "Votre site se trouve actuellement sur {currentUrl}."
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "Votre site exige que les versions soient publiées depuis au moins {0} avant de pouvoir être installées. Cette version sera installable plus tard."
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr "Votre heure : {viewerTime}"
