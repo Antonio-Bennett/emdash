@@ -115,7 +115,7 @@ export function CalendarEntryPanel(props: CalendarEntryPanelProps) {
 					<Drawer.Viewport className="fixed inset-0 flex items-end">
 						<Drawer.Popup
 							finalFocus={finalFocus}
-							className="flex max-h-[85dvh] w-full translate-y-(--drawer-swipe-movement-y) flex-col rounded-t-xl bg-kumo-base text-kumo-default shadow-xl outline-none transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] data-ending-style:translate-y-full data-starting-style:translate-y-full data-swiping:duration-0 motion-reduce:transition-none"
+							className="flex max-h-[85dvh] w-full max-w-none! translate-y-(--drawer-swipe-movement-y) flex-col rounded-t-xl bg-kumo-base text-kumo-default shadow-xl outline-none transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] data-ending-style:translate-y-full data-starting-style:translate-y-full data-swiping:duration-0 motion-reduce:transition-none"
 						>
 							{content}
 						</Drawer.Popup>
