@@ -7,7 +7,7 @@
 
 import { Banner, Button } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
-import { GridFour, ListBullets, WarningCircle } from "@phosphor-icons/react";
+import { WarningCircle } from "@phosphor-icons/react";
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useRouter, useSearch } from "@tanstack/react-router";
 import * as React from "react";
@@ -17,7 +17,6 @@ import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
 import { CalendarToolbar } from "../components/calendar/CalendarToolbar.js";
-import { PageHeader } from "../components/PageHeader.js";
 import { visibleCollectionEntries } from "../components/Sidebar.js";
 import { CALENDAR_MAX_ENTRIES, calendarQueryOptions } from "../lib/api/calendar.js";
 import { ApiResponseError, fetchManifest, type AdminManifest } from "../lib/api/client.js";
@@ -41,6 +40,7 @@ import {
 	type CalendarSearch,
 	type CalendarView,
 } from "../lib/calendar.js";
+import { cn } from "../lib/utils.js";
 import { useDateLocale } from "../locales/date-locale.js";
 
 const REFRESH_MS = 60_000;
@@ -51,6 +51,8 @@ const COMPACT_WIDTH = 640;
  * with the taller grid narrows the page, which would otherwise flip it back.
  */
 const COMPACT_SLACK = 24;
+/** From this width the side panel sits beside the calendar instead of over it. */
+const DOCK_WIDTH = 1000;
 const NO_LOCALES: string[] = [];
 
 /**
@@ -108,6 +110,8 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	const now = useNow();
 	const containerRef = React.useRef<HTMLDivElement>(null);
 	const compact = useNarrow(containerRef, COMPACT_WIDTH);
+	const docked = !useNarrow(containerRef, DOCK_WIDTH);
+	const [dock, setDock] = React.useState<HTMLDivElement | null>(null);
 
 	const collections = React.useMemo(
 		() =>
@@ -271,143 +275,126 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	const zoneTime = dayKeyToUTC(`${month}-15`) + 12 * 3_600_000;
 	const cutOffDay = loadedThrough && display.monthDay(loadedThrough);
 
+	const views: CalendarView[] = ["month", "agenda"];
+
 	return (
-		<div ref={containerRef} className="grid min-w-0 gap-6">
-			<PageHeader
-				title={t`Calendar`}
-				description={t`Published and scheduled entries across collections, in the site's time zone.`}
-				value={view}
-				onValueChange={(value) => {
-					if (value === "month" || value === "agenda") updateSearch({ view: value });
-				}}
-				tabs={[
-					{
-						value: "month",
-						className: "flex-1 justify-center text-sm sm:flex-none",
-						label: (
-							<span className="flex items-center gap-1.5">
-								<GridFour
-									className="size-4 shrink-0"
-									weight={view === "month" ? "fill" : "regular"}
-									aria-hidden="true"
-								/>
-								{t`Month`}
-							</span>
-						),
-					},
-					{
-						value: "agenda",
-						className: "flex-1 justify-center text-sm sm:flex-none",
-						label: (
-							<span className="flex items-center gap-1.5">
-								<ListBullets
-									className="size-4 shrink-0"
-									weight={view === "agenda" ? "fill" : "regular"}
-									aria-hidden="true"
-								/>
-								{t`Agenda`}
-							</span>
-						),
-					},
-				]}
-				tools={
-					<CalendarFilters
-						display={display}
-						collections={collections}
-						locales={locales}
-						value={filters}
-						onChange={setFilters}
-						triggerRef={filterTriggerRef}
-					/>
-				}
-			/>
-
-			<CalendarToolbar
-				title={display.monthTitle(month)}
-				display={display}
-				zoneTime={zoneTime}
-				loading={calendar.isPending && calendar.isFetching}
-				onPrevious={() => goToMonth(shiftMonth(month, -1))}
-				onNext={() => goToMonth(shiftMonth(month, 1))}
-				onToday={() => goToMonth(undefined)}
-				onPreviewPrevious={() => prefetchMonth(shiftMonth(month, -1))}
-				onPreviewNext={() => prefetchMonth(shiftMonth(month, 1))}
-			/>
-
-			{error && (
-				<Banner
-					variant="error"
-					icon={<WarningCircle aria-hidden="true" />}
-					title={t`Could not load the calendar`}
-					description={errorMessage}
-					action={
-						<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
-							{t`Retry`}
-						</Button>
+		<div ref={containerRef} className="flex h-full min-w-0">
+			<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
+				<h1 className="sr-only">{t`Calendar`}</h1>
+				<CalendarToolbar
+					title={display.monthTitle(month)}
+					display={display}
+					zoneTime={zoneTime}
+					loading={calendar.isPending && calendar.isFetching}
+					view={view}
+					views={views}
+					onViewChange={(next) => updateSearch({ view: next })}
+					onPrevious={() => goToMonth(shiftMonth(month, -1))}
+					onNext={() => goToMonth(shiftMonth(month, 1))}
+					onToday={() => goToMonth(undefined)}
+					onPreviewPrevious={() => prefetchMonth(shiftMonth(month, -1))}
+					onPreviewNext={() => prefetchMonth(shiftMonth(month, 1))}
+					tools={
+						<CalendarFilters
+							display={display}
+							collections={collections}
+							locales={locales}
+							value={filters}
+							onChange={setFilters}
+							triggerRef={filterTriggerRef}
+						/>
 					}
 				/>
-			)}
-			{calendar.data?.truncated && (
-				<Banner
-					variant="alert"
-					title={t`This range has more than ${maxEntries} entries`}
-					description={
-						cutOffDay
-							? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
-							: t`The calendar shows the first ${maxEntries}.`
-					}
+
+				{error && (
+					<Banner
+						variant="error"
+						icon={<WarningCircle aria-hidden="true" />}
+						title={t`Could not load the calendar`}
+						description={errorMessage}
+						action={
+							<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
+								{t`Retry`}
+							</Button>
+						}
+					/>
+				)}
+				{calendar.data?.truncated && (
+					<Banner
+						variant="alert"
+						title={t`This range has more than ${maxEntries} entries`}
+						description={
+							cutOffDay
+								? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
+								: t`The calendar shows the first ${maxEntries}.`
+						}
+					/>
+				)}
+
+				{!(error && !calendar.data) &&
+					(view === "month" ? (
+						<CalendarMonth
+							month={month}
+							gridDays={gridDays}
+							days={days}
+							unfilteredDays={unfilteredDays}
+							today={today}
+							now={now}
+							display={display}
+							loading={!calendar.data}
+							loadedThrough={loadedThrough}
+							compact={compact}
+							selectedKey={selectedKey}
+							onSelect={openEntry}
+							onMonthChange={goToMonth}
+							onClearFilters={filtered ? clearFilters : undefined}
+						/>
+					) : (
+						<div className="min-h-0 flex-1 overflow-y-auto">
+							<CalendarAgenda
+								key={month}
+								month={month}
+								days={days}
+								today={today}
+								now={now}
+								display={display}
+								loading={!calendar.data}
+								loadedThrough={loadedThrough}
+								onClearFilters={filtered ? clearFilters : undefined}
+								selectedKey={selectedKey}
+								onSelect={openEntry}
+							/>
+						</div>
+					))}
+			</div>
+
+			{docked && (
+				<div
+					ref={setDock}
+					className={cn(
+						"h-full shrink-0 overflow-hidden border-kumo-line transition-[width] duration-200 ease-out motion-reduce:transition-none",
+						selectedItem ? "w-96 border-s" : "w-0",
+					)}
 				/>
 			)}
-
-			{!(error && !calendar.data) &&
-				(view === "month" ? (
-					<CalendarMonth
-						month={month}
-						gridDays={gridDays}
-						days={days}
-						unfilteredDays={unfilteredDays}
-						today={today}
-						now={now}
-						display={display}
-						loading={!calendar.data}
-						loadedThrough={loadedThrough}
-						compact={compact}
-						selectedKey={selectedKey}
-						onSelect={openEntry}
-						onMonthChange={goToMonth}
-						onClearFilters={filtered ? clearFilters : undefined}
-					/>
-				) : (
-					<CalendarAgenda
-						key={month}
-						month={month}
-						days={days}
-						today={today}
-						now={now}
-						display={display}
-						loading={!calendar.data}
-						loadedThrough={loadedThrough}
-						onClearFilters={filtered ? clearFilters : undefined}
-						selectedKey={selectedKey}
-						onSelect={openEntry}
-					/>
-				))}
-
-			<CalendarEntryPanel
-				item={selectedItem}
-				display={display}
-				now={now}
-				compact={compact}
-				i18n={manifest.i18n}
-				urlPatterns={urlPatterns}
-				user={user}
-				returnFocus={returnFocusRef}
-				onClose={closeEntry}
-				onRescheduled={(_item, scheduledAt) => {
-					const target = dayKeyInZone(Date.parse(scheduledAt), display.timeZone).slice(0, 7);
-					if (target !== month) goToMonth(target);
-				}}
-			/>
+			{(!docked || dock) && (
+				<CalendarEntryPanel
+					item={selectedItem}
+					dock={docked ? dock : null}
+					display={display}
+					now={now}
+					compact={compact}
+					i18n={manifest.i18n}
+					urlPatterns={urlPatterns}
+					user={user}
+					returnFocus={returnFocusRef}
+					onClose={closeEntry}
+					onRescheduled={(_item, scheduledAt) => {
+						const target = dayKeyInZone(Date.parse(scheduledAt), display.timeZone).slice(0, 7);
+						if (target !== month) goToMonth(target);
+					}}
+				/>
+			)}
 		</div>
 	);
 }

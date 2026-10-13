@@ -4,6 +4,7 @@ import * as React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { page } from "vitest/browser";
 
+import "../../dist/styles.css";
 import { calendarQueryOptions, type CalendarEntry } from "../../src/lib/api/calendar";
 import { fetchRange, monthGridDays } from "../../src/lib/calendar";
 import { CalendarPage } from "../../src/routes/calendar";
@@ -163,6 +164,27 @@ describe("CalendarPage", () => {
 		});
 	});
 
+	it("keeps the month beside the panel on a wide screen", async () => {
+		await page.viewport(1440, 900);
+		router.search = { month: "2020-03", view: "month", entry: "posts:launch:published" };
+		serveCalendar(() =>
+			Response.json({ data: { items: [entry("launch", "2020-03-05T09:00:00.000Z")] } }),
+		);
+		const screen = await renderPage();
+
+		const panel = screen.getByRole("dialog", { name: "Entry launch" });
+		await expect.element(panel).toBeVisible();
+		const table = screen.getByRole("table");
+		await expect
+			.poll(
+				() =>
+					panel.element().getBoundingClientRect().left -
+					table.element().getBoundingClientRect().right,
+			)
+			.toBeGreaterThanOrEqual(0);
+		await expect.element(screen.getByRole("button", { name: "Next month" })).toBeVisible();
+	});
+
 	it("adds a history entry for the panel and goes back to close it", async () => {
 		router.search = { month: "2020-03", view: "agenda" };
 		serveCalendar(() =>
@@ -210,7 +232,7 @@ describe("CalendarPage", () => {
 		});
 		expect(router.back).not.toHaveBeenCalled();
 
-		await screen.getByText(/Published and scheduled entries across collections/).click();
+		await screen.getByRole("heading", { name: "March 2020" }).click();
 		expect(router.back).toHaveBeenCalledTimes(1);
 	});
 

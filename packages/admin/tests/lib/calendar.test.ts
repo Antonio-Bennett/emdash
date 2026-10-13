@@ -9,9 +9,12 @@ import {
 	filterItems,
 	formatShortDuration,
 	formatTimeUntil,
+	minutesInZone,
 	monthGridDays,
 	parseCalendarSearch,
 	toCalendarItems,
+	weekDays,
+	zonedInstant,
 } from "../../src/lib/calendar";
 
 describe("monthGridDays", () => {
@@ -25,6 +28,36 @@ describe("monthGridDays", () => {
 		expect(saturdayFirst[0]).toBe("2026-09-26");
 		expect(saturdayFirst.at(-1)).toBe("2026-11-06");
 		expect(saturdayFirst).toHaveLength(42);
+	});
+});
+
+describe("weekDays", () => {
+	it("runs from the locale's first weekday, across month and year ends", () => {
+		expect(weekDays("2026-12-31", 1)).toEqual([
+			"2026-12-28",
+			"2026-12-29",
+			"2026-12-30",
+			"2026-12-31",
+			"2027-01-01",
+			"2027-01-02",
+			"2027-01-03",
+		]);
+		expect(weekDays("2026-10-11", 0)[0]).toBe("2026-10-11");
+	});
+});
+
+describe("zonedInstant and minutesInZone", () => {
+	it("reads and sets wall-clock times in the site zone across daylight saving changes", () => {
+		const summer = zonedInstant("2026-07-01", 9 * 60 + 30, "America/New_York");
+		const winter = zonedInstant("2026-12-01", 9 * 60 + 30, "America/New_York");
+		expect(new Date(summer).toISOString()).toBe("2026-07-01T13:30:00.000Z");
+		expect(new Date(winter).toISOString()).toBe("2026-12-01T14:30:00.000Z");
+		expect(minutesInZone(summer, "America/New_York")).toBe(9 * 60 + 30);
+		expect(minutesInZone(winter, "Asia/Kolkata")).toBe(20 * 60);
+
+		// The day the clocks go back keeps 9:30 at its new offset.
+		const fallBack = zonedInstant("2026-11-01", 9 * 60 + 30, "America/New_York");
+		expect(new Date(fallBack).toISOString()).toBe("2026-11-01T14:30:00.000Z");
 	});
 });
 
@@ -161,10 +194,20 @@ describe("parseCalendarSearch", () => {
 
 	it("drops unknown views and invalid months", () => {
 		for (const month of ["2026-13", "2026-00", "0999-12", "0099-01", "2026-1", 202610]) {
-			expect(parseCalendarSearch({ view: "week", month })).toMatchObject({
+			expect(parseCalendarSearch({ view: "day", month })).toMatchObject({
 				view: undefined,
 				month: undefined,
 			});
+		}
+	});
+
+	it("keeps a week view's day only when it is a real date", () => {
+		expect(parseCalendarSearch({ view: "week", week: "2028-02-29" })).toMatchObject({
+			view: "week",
+			week: "2028-02-29",
+		});
+		for (const week of ["2026-02-29", "2026-13-01", "2026-10-1", "0999-12-31", 20261013]) {
+			expect(parseCalendarSearch({ week }).week).toBeUndefined();
 		}
 	});
 

@@ -17,12 +17,16 @@ export const CALENDAR_STATES: readonly CalendarState[] = [
 	"update",
 	"overdue",
 ];
-export type CalendarView = "month" | "agenda";
+export type CalendarView = "month" | "week" | "agenda";
+
+const CALENDAR_VIEWS: readonly CalendarView[] = ["month", "week", "agenda"];
 
 /** Search params; list values are comma-separated. */
 export interface CalendarSearch {
 	view?: CalendarView;
 	month?: string;
+	/** Any day in the week the week view shows. */
+	week?: string;
 	collections?: string;
 	locales?: string;
 	states?: string;
@@ -54,6 +58,7 @@ const MIN_YEAR = 1000;
 const MAX_YEAR = 9999;
 const MAX_TIME = Date.UTC(MAX_YEAR, 11, 31, 23, 59, 59, 999);
 const MONTH_PATTERN = /^(\d{4})-(\d{2})$/;
+const DAY_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const ENTRY_KEY_PATTERN = /^[a-z][a-z0-9_]*:[^:\s]{1,128}:(published|scheduled)$/;
 const MAX_LIST_VALUES = 50;
 const MAX_LIST_VALUE_LENGTH = 64;
@@ -80,6 +85,11 @@ export function isMonthKey(value: unknown): value is string {
 	const year = Number(match[1]);
 	const month = Number(match[2]);
 	return year >= MIN_YEAR && year <= MAX_YEAR && month >= 1 && month <= 12;
+}
+
+export function isDayKey(value: unknown): value is string {
+	if (typeof value !== "string" || !DAY_PATTERN.test(value)) return false;
+	return isMonthKey(value.slice(0, 7)) && utcDayKey(dayKeyToUTC(value)) === value;
 }
 
 /**
@@ -110,6 +120,12 @@ export function monthGridDays(month: string, weekStartsOn: number): string[] {
 	return Array.from({ length: weeks * 7 }, (_, day) => utcDayKey(first + (day - offset) * DAY_MS));
 }
 
+/** The seven days of the week containing `day`, from the locale's first weekday. */
+export function weekDays(day: string, weekStartsOn: number): string[] {
+	const offset = (new Date(dayKeyToUTC(day)).getUTCDay() - weekStartsOn + 7) % 7;
+	return Array.from({ length: 7 }, (_, index) => shiftDay(day, index - offset));
+}
+
 /** The instants that can fall on the given days in any time zone. */
 export function fetchRange(days: readonly string[]): { from: string; to: string } {
 	const first = dayKeyToUTC(days[0] ?? "1970-01-01");
@@ -137,6 +153,55 @@ export function dayKeyInZone(time: number, timeZone: string): string {
 	const part = (type: Intl.DateTimeFormatPartTypes) =>
 		parts.find((entry) => entry.type === type)?.value ?? "";
 	return `${part("year").padStart(4, "0")}-${part("month")}-${part("day")}`;
+}
+
+const zoneFormatters = new Map<string, Intl.DateTimeFormat>();
+
+/** How far the zone's wall clock is ahead of UTC at `time`, in milliseconds. */
+function zoneOffset(time: number, timeZone: string): number {
+	let formatter = zoneFormatters.get(timeZone);
+	if (!formatter) {
+		formatter = new Intl.DateTimeFormat("en-US", {
+			timeZone,
+			hourCycle: "h23",
+			year: "numeric",
+			month: "numeric",
+			day: "numeric",
+			hour: "numeric",
+			minute: "numeric",
+			second: "numeric",
+		});
+		zoneFormatters.set(timeZone, formatter);
+	}
+	const parts = Object.fromEntries(
+		formatter.formatToParts(time).map((part) => [part.type, Number(part.value)]),
+	);
+	const wall = Date.UTC(
+		parts.year ?? 1970,
+		(parts.month ?? 1) - 1,
+		parts.day ?? 1,
+		parts.hour ?? 0,
+		parts.minute ?? 0,
+		parts.second ?? 0,
+	);
+	const wholeSeconds = time - (((time % 1000) + 1000) % 1000);
+	return wall - wholeSeconds;
+}
+
+/** Minutes since midnight on the zone's wall clock. */
+export function minutesInZone(time: number, timeZone: string): number {
+	const wall = time + zoneOffset(time, timeZone);
+	return Math.floor((((wall % DAY_MS) + DAY_MS) % DAY_MS) / 60_000);
+}
+
+/**
+ * The instant a zone's wall clock reads `minutes` past midnight on `day`. A
+ * wall time that a daylight saving change skips lands an hour to one side.
+ */
+export function zonedInstant(day: string, minutes: number, timeZone: string): number {
+	const wall = dayKeyToUTC(day) + minutes * 60_000;
+	const guess = wall - zoneOffset(wall, timeZone);
+	return wall - zoneOffset(guess, timeZone);
 }
 
 export function calendarState(
@@ -249,8 +314,9 @@ export function isEntryKey(value: unknown): value is string {
 
 export function parseCalendarSearch(search: Record<string, unknown>): CalendarSearch {
 	return {
-		view: search.view === "month" || search.view === "agenda" ? search.view : undefined,
+		view: CALENDAR_VIEWS.find((view) => view === search.view),
 		month: isMonthKey(search.month) ? search.month : undefined,
+		week: isDayKey(search.week) ? search.week : undefined,
 		collections: toListParam(readList(search.collections)),
 		locales: toListParam(readList(search.locales)),
 		states: toListParam(readList(search.states).filter(isCalendarState)),
