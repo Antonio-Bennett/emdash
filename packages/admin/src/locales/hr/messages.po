@@ -590,7 +590,7 @@ msgstr "Stavka {label} premještena je na položaj {0}."
 msgid "{label} options"
 msgstr "Opcije: {label}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:361
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
 msgstr "Kasni {lateness}"
 
@@ -782,11 +782,11 @@ msgstr "Web-stranica {siteName} sada je na adresi {siteHost}. Od sada se prijavl
 msgid "{siteZone} · Your time: {viewerZone}"
 msgstr "{siteZone} · Vaše vrijeme: {viewerZone}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:277
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:282
 msgid "{state} · {when}"
 msgstr "{state} · {when}"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:339
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:344
 msgid "{state}, {time}:"
 msgstr "{state}, {time}:"
 
@@ -9428,7 +9428,7 @@ msgid "Nothing to preview yet."
 msgstr "Još nema ničega za pregled."
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:104
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:414
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:419
 msgid "Now · {time}"
 msgstr "Sada · {time}"
 
@@ -9680,7 +9680,7 @@ msgstr "Izlazna veličina"
 msgid "Overdue"
 msgstr "Kasni"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:155
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:160
 msgid "Overdue · {lateness}"
 msgstr "Kasni · {lateness}"
 
@@ -14284,10 +14284,14 @@ msgstr "Neiskorištene reference izostavljene su"
 msgid "Up to {MAX_SELECTED} bylines can be selected"
 msgstr "Može se odabrati najviše {MAX_SELECTED} potpisa"
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:157
 #: packages/admin/src/components/TaxonomyManager.tsx:889
 msgid "Update"
 msgstr "Ažuriraj"
+
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:49
+msgctxt "A published entry's scheduled changes"
+msgid "Update"
+msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:1394
 msgid "Update Field"
@@ -15344,7 +15348,7 @@ msgstr "Vaša je web-stranica trenutačno na {currentUrl}."
 msgid "Your site requires releases to be at least {0} old before they can be installed. This release will become installable later."
 msgstr "Vaša web-stranica zahtijeva da izdanja budu stara najmanje {0} prije instalacije. Ovo će se izdanje moći instalirati kasnije."
 
-#: packages/admin/src/components/calendar/CalendarEntry.tsx:279
+#: packages/admin/src/components/calendar/CalendarEntry.tsx:284
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:315
 msgid "Your time: {viewerTime}"
 msgstr "Vaše vrijeme: {viewerTime}"
