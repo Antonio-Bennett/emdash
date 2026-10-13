@@ -118,36 +118,22 @@ export function CalendarCollectionIcon({
 	);
 }
 
-/**
- * A collection's icon and name on its tint. `labelClassName` can hide the
- * name where space is short, leaving the icon.
- */
+/** A collection's icon and name on its tint. */
 export function CalendarCollectionTag({
 	slug,
 	display,
-	size = "base",
-	className,
-	labelClassName,
 }: {
 	slug: string;
 	display: CalendarDisplay;
-	size?: "sm" | "base";
-	className?: string;
-	labelClassName?: string;
 }) {
 	const { label, color } = display.collection(slug);
 	return (
 		<Badge
 			variant="secondary"
-			className={cn(
-				"max-w-40 gap-1 rounded-sm ps-1.5 text-kumo-default",
-				size === "sm" && "py-0 ps-1 pe-1",
-				COLLECTION_TINTS[color],
-				className,
-			)}
+			className={cn("max-w-40 gap-1 rounded-sm ps-1.5 text-kumo-default", COLLECTION_TINTS[color])}
 		>
 			<CalendarCollectionIcon slug={slug} display={display} />
-			<span className={cn("truncate", size === "sm" && "pe-0.5", labelClassName)}>{label}</span>
+			<span className="truncate">{label}</span>
 		</Badge>
 	);
 }
