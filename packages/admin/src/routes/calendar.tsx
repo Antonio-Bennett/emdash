@@ -7,14 +7,13 @@
 
 import { Banner, Button, useKumoToastManager } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
-import { FileDashed, WarningCircle } from "@phosphor-icons/react";
+import { WarningCircle } from "@phosphor-icons/react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useRouter, useSearch } from "@tanstack/react-router";
 import * as React from "react";
 
 import { CalendarAgenda } from "../components/calendar/CalendarAgenda.js";
-import { CalendarDrafts } from "../components/calendar/CalendarDrafts.js";
-import { CalendarDragProvider, type CalendarDraft } from "../components/calendar/CalendarDrag.js";
+import { CalendarDragProvider } from "../components/calendar/CalendarDrag.js";
 import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js";
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
@@ -27,7 +26,7 @@ import {
 	calendarQueryOptions,
 } from "../lib/api/calendar.js";
 import { ApiResponseError, fetchManifest, type AdminManifest } from "../lib/api/client.js";
-import { scheduleContent, unscheduleContent } from "../lib/api/content.js";
+import { scheduleContent } from "../lib/api/content.js";
 import { useCurrentUser } from "../lib/api/current-user.js";
 import {
 	canPublishEntry,
@@ -390,50 +389,6 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		},
 		onSettled: (_changed, _error, { item }) => refreshContent(item.collection),
 	});
-	// Unscheduled drafts sit beside the calendar, so they need the docked layout.
-	const [draftsOpen, setDraftsOpen] = React.useState(false);
-	const canSchedule = canPublishEntry(user, user?.id);
-	const showDrafts = docked && canSchedule && draftsOpen;
-	const draftCollections = visibleCollectionEntries(manifest.collections).map(
-		([slug, collection]) => ({ slug, titleField: collection.titleField }),
-	);
-	const scheduleDraft = useMutation({
-		mutationFn: ({ draft, scheduledAt }: { draft: CalendarDraft; scheduledAt: string }) =>
-			scheduleContent(draft.collection, draft.id, scheduledAt, { locale: draft.locale }),
-		onSuccess: (_changed, { draft, scheduledAt }) => {
-			const title = draft.title;
-			const when = display.formatDateTime(Date.parse(scheduledAt));
-			const toastId: string = toastManager.add({
-				title: t`Scheduled`,
-				description: t`${title} goes live ${when}.`,
-				actions: [
-					{
-						children: t`Undo`,
-						onClick: () => {
-							toastManager.close(toastId);
-							void unscheduleContent(draft.collection, draft.id, { locale: draft.locale })
-								.catch((undoError: unknown) =>
-									toastManager.add({
-										title: t`Could not remove the schedule`,
-										description: getMutationError(undoError),
-										type: "error",
-									}),
-								)
-								.finally(() => refreshContent(draft.collection));
-						},
-					},
-				],
-			});
-		},
-		onError: (scheduleError) => {
-			toastManager.add({
-				title: t`Could not schedule`,
-				description: getMutationError(scheduleError),
-				type: "error",
-			});
-		},
-		onSettled: (_changed, _error, { draft }) => refreshContent(draft.collection),
-	});
 	const rejectPastDrop = () => {
 		toastManager.add({
 			title: t`That time has passed`,
@@ -465,83 +420,63 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 
 	return (
 		<div ref={containerRef} className="flex h-full min-w-0">
-			<CalendarDragProvider
-				display={display}
-				now={now}
-				onMove={(item, scheduledAt) => move.mutate({ item, scheduledAt })}
-				onScheduleDraft={(draft, scheduledAt) => scheduleDraft.mutate({ draft, scheduledAt })}
-				onPastDrop={rejectPastDrop}
-			>
-				<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
-					<h1 className="sr-only">{t`Calendar`}</h1>
-					<CalendarToolbar
-						title={display.monthTitle(month)}
-						display={display}
-						zoneTime={dayKeyToUTC(`${month}-15`) + 12 * 3_600_000}
-						loading={calendar.isPending && calendar.isFetching}
-						view={view}
-						onViewChange={changeView}
-						onPrevious={showPrevious}
-						onNext={showNext}
-						onToday={showToday}
-						onPreviewPrevious={() => prefetchMonth(shiftMonth(month, -1))}
-						onPreviewNext={() => prefetchMonth(shiftMonth(month, 1))}
-						tools={
-							<>
-								{docked && canSchedule && (
-									<Button
-										variant="secondary"
-										className={cn("shrink-0 text-sm", draftsOpen && "bg-kumo-tint")}
-										icon={
-											<FileDashed
-												aria-hidden="true"
-												weight={draftsOpen ? "fill" : "regular"}
-												className="size-4"
-											/>
-										}
-										aria-pressed={draftsOpen}
-										onClick={() => setDraftsOpen(!draftsOpen)}
-									>
-										{t`Drafts`}
-									</Button>
-								)}
-								<CalendarFilters
-									display={display}
-									collections={collections}
-									locales={locales}
-									value={filters}
-									onChange={setFilters}
-									triggerRef={filterTriggerRef}
-								/>
-							</>
+			<div className="flex min-w-0 flex-1 flex-col gap-4 overflow-y-auto p-4 sm:p-6">
+				<h1 className="sr-only">{t`Calendar`}</h1>
+				<CalendarToolbar
+					title={display.monthTitle(month)}
+					display={display}
+					zoneTime={dayKeyToUTC(`${month}-15`) + 12 * 3_600_000}
+					loading={calendar.isPending && calendar.isFetching}
+					view={view}
+					onViewChange={changeView}
+					onPrevious={showPrevious}
+					onNext={showNext}
+					onToday={showToday}
+					onPreviewPrevious={() => prefetchMonth(shiftMonth(month, -1))}
+					onPreviewNext={() => prefetchMonth(shiftMonth(month, 1))}
+					tools={
+						<CalendarFilters
+							display={display}
+							collections={collections}
+							locales={locales}
+							value={filters}
+							onChange={setFilters}
+							triggerRef={filterTriggerRef}
+						/>
+					}
+				/>
+
+				{error && (
+					<Banner
+						variant="error"
+						icon={<WarningCircle aria-hidden="true" />}
+						title={t`Could not load the calendar`}
+						description={errorMessage}
+						action={
+							<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
+								{t`Retry`}
+							</Button>
 						}
 					/>
+				)}
+				{calendar.data?.truncated && (
+					<Banner
+						variant="alert"
+						title={t`This range has more than ${maxEntries} entries`}
+						description={
+							cutOffDay
+								? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
+								: t`The calendar shows the first ${maxEntries}.`
+						}
+					/>
+				)}
 
-					{error && (
-						<Banner
-							variant="error"
-							icon={<WarningCircle aria-hidden="true" />}
-							title={t`Could not load the calendar`}
-							description={errorMessage}
-							action={
-								<Button variant="secondary" size="sm" onClick={() => void calendar.refetch()}>
-									{t`Retry`}
-								</Button>
-							}
-						/>
-					)}
-					{calendar.data?.truncated && (
-						<Banner
-							variant="alert"
-							title={t`This range has more than ${maxEntries} entries`}
-							description={
-								cutOffDay
-									? t`The calendar shows the first ${maxEntries}, which end on ${cutOffDay}.`
-									: t`The calendar shows the first ${maxEntries}.`
-							}
-						/>
-					)}
-
+				<CalendarDragProvider
+					display={display}
+					now={now}
+					onMove={(item, scheduledAt) => move.mutate({ item, scheduledAt })}
+					onPastDrop={rejectPastDrop}
+				>
 					{!(error && !calendar.data) &&
 						(view === "month" ? (
 							<CalendarMonth
@@ -578,31 +513,18 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 								/>
 							</div>
 						))}
-				</div>
+				</CalendarDragProvider>
+			</div>
 
-				{docked && (
-					<div
-						ref={setDock}
-						className={cn(
-							"relative h-full shrink-0 overflow-hidden border-kumo-line transition-[width] duration-200 ease-out motion-reduce:transition-none",
-							selectedItem || showDrafts ? "w-96 border-s" : "w-0",
-						)}
-					>
-						{showDrafts && (
-							// The open entry covers the drafts.
-							<div inert={Boolean(selectedItem) || undefined} className="contents">
-								<CalendarDrafts
-									collections={draftCollections}
-									display={display}
-									now={now}
-									user={user}
-									onClose={() => setDraftsOpen(false)}
-								/>
-							</div>
-						)}
-					</div>
-				)}
-			</CalendarDragProvider>
+			{docked && (
+				<div
+					ref={setDock}
+					className={cn(
+						"h-full shrink-0 overflow-hidden border-kumo-line transition-[width] duration-200 ease-out motion-reduce:transition-none",
+						selectedItem ? "w-96 border-s" : "w-0",
+					)}
+				/>
+			)}
 			{(!docked || dock) && (
 				<CalendarEntryPanel
 					item={selectedItem}

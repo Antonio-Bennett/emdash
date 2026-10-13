@@ -336,64 +336,6 @@ describe("CalendarPage", () => {
 		});
 	});
 
-	it("schedules an unscheduled draft dropped on a day, offering only drafts the user can publish, and undoes it", async () => {
-		await page.viewport(1440, 900);
-		currentUser.value = { id: "author", email: "author@example.com", role: 30 };
-		router.search = { month: "2030-03", view: "month" };
-		const draft = (id: string, authorId: string) => ({
-			id,
-			type: "posts",
-			slug: id,
-			status: "draft",
-			locale: "en",
-			data: { title: `Draft ${id}` },
-			authorId,
-			scheduledAt: null,
-			updatedAt: "2030-02-01T00:00:00.000Z",
-		});
-		const schedules: unknown[] = [];
-		const draftAuthors: Array<string | null> = [];
-		globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-			const url = new URL(input instanceof Request ? input.url : input.toString(), location.origin);
-			if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
-			if (url.pathname.endsWith("/content/posts") && url.searchParams.get("status") === "draft") {
-				draftAuthors.push(url.searchParams.get("authorId"));
-				return Response.json({
-					data: { items: [draft("mine", "author"), draft("theirs", "editor")] },
-				});
-			}
-			if (url.pathname.endsWith("/content/pages")) return Response.json({ data: { items: [] } });
-			if (url.pathname.endsWith("/content/posts/mine/schedule")) {
-				schedules.push(
-					init?.method === "DELETE"
-						? "unscheduled"
-						: JSON.parse(typeof init?.body === "string" ? init.body : "null"),
-				);
-				return Response.json({ data: { item: { id: "mine" } } });
-			}
-			return Response.json({ error: { code: "NOT_FOUND", message: "Not found" } }, { status: 404 });
-		});
-		const screen = await renderPage();
-
-		await screen.getByRole("button", { name: "Drafts" }).click();
-		const mine = screen.getByRole("link", { name: /Draft mine/ });
-		await expect.element(mine).toBeVisible();
-		expect(screen.getByRole("link", { name: /Draft theirs/ }).elements()).toHaveLength(0);
-		// Others' drafts can't use up the list, since only the author's are asked for.
-		expect(draftAuthors).toEqual(["author"]);
-
-		await userEvent.dragAndDrop(mine, screen.getByRole("cell").filter({ hasText: /^12$/ }), {
-			steps: 10,
-		});
-
-		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
-
-		await page.getByRole("button", { name: "Undo" }).click();
-		await expect
-			.poll(() => schedules)
-			.toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }, "unscheduled"]);
-	});
-
 	it("moves between months and views with letter keys, but not while typing", async () => {
 		await page.viewport(1440, 900);
 		router.search = { month: "2030-03", view: "month" };

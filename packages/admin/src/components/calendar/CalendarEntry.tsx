@@ -314,8 +314,7 @@ function ChipContent({
 }) {
 	const { t } = useLingui();
 	const state = t(CALENDAR_STATE_LABELS[item.state]);
-	// A dragged draft has no time until it is over the calendar.
-	const time = Number.isFinite(item.time) ? display.formatTime(item.time) : "";
+	const time = display.formatTime(item.time);
 	const overdue = item.state === "overdue";
 	const lateness = overdue ? formatShortDuration(now - item.time, display.locale) : "";
 
@@ -367,7 +366,7 @@ export function CalendarEntryChip(props: CalendarEntryChipProps) {
  * A click handler that swallows the click a drag can end with, which would
  * otherwise open the dragged link.
  */
-export function useClickAfterDragGuard(isDragging: boolean) {
+function useClickAfterDragGuard(isDragging: boolean) {
 	const dragged = React.useRef(false);
 	React.useEffect(() => {
 		if (isDragging) {

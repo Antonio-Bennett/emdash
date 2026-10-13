@@ -20,7 +20,7 @@ interface CalendarToolbarProps {
 	/** Called when the pointer or focus reaches a month button, before it is pressed. */
 	onPreviewPrevious?: () => void;
 	onPreviewNext?: () => void;
-	/** Filters and other tools across from the view switcher. */
+	/** The filters, across from the view switcher. */
 	tools?: React.ReactNode;
 }
 
@@ -36,7 +36,7 @@ function ShortcutHint({ label, shortcut }: { label: string; shortcut: string }) 
 }
 
 /**
- * The views and tools on the first row; the month, its time zone, and the
+ * The views and filters on the first row; the month, its time zone, and the
  * month buttons on the second.
  */
 export function CalendarToolbar({

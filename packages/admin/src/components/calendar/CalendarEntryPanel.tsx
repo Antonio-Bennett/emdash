@@ -145,10 +145,7 @@ export function CalendarEntryPanel(props: CalendarEntryPanelProps) {
 				onClose();
 			}}
 		>
-			<Dialog.Portal
-				container={dock ?? undefined}
-				className={dock ? "absolute inset-0 z-10" : undefined}
-			>
+			<Dialog.Portal container={dock ?? undefined} className={dock ? "h-full" : undefined}>
 				<Dialog.Popup
 					finalFocus={finalFocus}
 					className={cn(
