@@ -1,4 +1,4 @@
-import { Button, Loader, Tabs } from "@cloudflare/kumo";
+import { Button, Loader, Tabs, Tooltip, TooltipProvider } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
 import { Columns, GridFour, Globe, ListBullets } from "@phosphor-icons/react";
 import type * as React from "react";
@@ -26,6 +26,17 @@ interface CalendarToolbarProps {
 }
 
 const VIEW_ICONS = { month: GridFour, week: Columns, agenda: ListBullets } as const;
+
+function ShortcutHint({ label, shortcut }: { label: string; shortcut: string }) {
+	return (
+		<span className="flex items-center gap-2">
+			{label}
+			<kbd className="rounded border border-kumo-line px-1 font-sans text-[11px] leading-4 text-kumo-subtle">
+				{shortcut}
+			</kbd>
+		</span>
+	);
+}
 
 export function CalendarToolbar({
 	title,
@@ -57,6 +68,8 @@ export function CalendarToolbar({
 		agenda: t`Agenda`,
 	};
 	const period = view === "week" ? "week" : "month";
+	const previousLabel = period === "week" ? t`Previous week` : t`Previous month`;
+	const nextLabel = period === "week" ? t`Next week` : t`Next month`;
 
 	return (
 		<div className="flex flex-wrap items-center gap-x-4 gap-y-3">
@@ -73,32 +86,49 @@ export function CalendarToolbar({
 					<span className="sr-only">{zoneDescription}</span>
 				</p>
 			</div>
-			<div className="flex shrink-0 items-center gap-1">
-				{loading && <Loader size="sm" aria-label={t`Loading`} className="me-1" />}
-				<Button variant="secondary" onClick={onToday} aria-keyshortcuts="T">
-					{t`Today`}
-				</Button>
-				<Button
-					variant="ghost"
-					shape="square"
-					aria-label={period === "week" ? t`Previous week` : t`Previous month`}
-					aria-keyshortcuts="K"
-					icon={<CaretPrev aria-hidden="true" />}
-					onClick={onPrevious}
-					onPointerEnter={onPreviewPrevious}
-					onFocus={onPreviewPrevious}
-				/>
-				<Button
-					variant="ghost"
-					shape="square"
-					aria-label={period === "week" ? t`Next week` : t`Next month`}
-					aria-keyshortcuts="J"
-					icon={<CaretNext aria-hidden="true" />}
-					onClick={onNext}
-					onPointerEnter={onPreviewNext}
-					onFocus={onPreviewNext}
-				/>
-			</div>
+			<TooltipProvider delay={600}>
+				<div className="flex shrink-0 items-center gap-1">
+					{loading && <Loader size="sm" aria-label={t`Loading`} className="me-1" />}
+					<Tooltip
+						content={<ShortcutHint label={t`Go to today`} shortcut="T" />}
+						render={
+							<Button variant="secondary" onClick={onToday} aria-keyshortcuts="T">
+								{t`Today`}
+							</Button>
+						}
+					/>
+					<Tooltip
+						content={<ShortcutHint label={previousLabel} shortcut="K" />}
+						render={
+							<Button
+								variant="ghost"
+								shape="square"
+								aria-label={previousLabel}
+								aria-keyshortcuts="K"
+								icon={<CaretPrev aria-hidden="true" />}
+								onClick={onPrevious}
+								onPointerEnter={onPreviewPrevious}
+								onFocus={onPreviewPrevious}
+							/>
+						}
+					/>
+					<Tooltip
+						content={<ShortcutHint label={nextLabel} shortcut="J" />}
+						render={
+							<Button
+								variant="ghost"
+								shape="square"
+								aria-label={nextLabel}
+								aria-keyshortcuts="J"
+								icon={<CaretNext aria-hidden="true" />}
+								onClick={onNext}
+								onPointerEnter={onPreviewNext}
+								onFocus={onPreviewNext}
+							/>
+						}
+					/>
+				</div>
+			</TooltipProvider>
 			<div className="flex min-w-0 items-center gap-2 max-sm:w-full">
 				<Tabs
 					value={view}

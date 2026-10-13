@@ -107,6 +107,34 @@ function useNow(): number {
 	return now;
 }
 
+/** Shortcuts don't fire while typing or inside menus and lists that use letter keys themselves. */
+const SHORTCUT_IGNORE =
+	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox]";
+
+/**
+ * Runs the handler for a letter key pressed on its own, by physical key so
+ * shortcuts work in every keyboard layout.
+ */
+function useShortcuts(handlers: Partial<Record<string, () => void>>) {
+	const latest = React.useRef(handlers);
+	React.useLayoutEffect(() => {
+		latest.current = handlers;
+	});
+	React.useEffect(() => {
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.defaultPrevented || event.repeat) return;
+			if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
+			if (event.target instanceof Element && event.target.closest(SHORTCUT_IGNORE)) return;
+			const handler = latest.current[event.code];
+			if (!handler) return;
+			event.preventDefault();
+			handler();
+		};
+		window.addEventListener("keydown", onKeyDown);
+		return () => window.removeEventListener("keydown", onKeyDown);
+	}, []);
+}
+
 export function CalendarPage() {
 	const { data: manifest } = useQuery({ queryKey: ["manifest"], queryFn: fetchManifest });
 	if (!manifest) return null;
@@ -478,6 +506,14 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	const cutOffDay = loadedThrough && display.monthDay(loadedThrough);
 
 	const views: CalendarView[] = compact ? ["month", "agenda"] : ["month", "week", "agenda"];
+	useShortcuts({
+		KeyT: period.today,
+		KeyJ: period.next,
+		KeyK: period.previous,
+		KeyM: () => changeView("month"),
+		KeyW: compact ? undefined : () => changeView("week"),
+		KeyA: () => changeView("agenda"),
+	});
 
 	return (
 		<div ref={containerRef} className="flex h-full min-w-0">

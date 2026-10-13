@@ -335,6 +335,30 @@ describe("CalendarPage", () => {
 		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
 	});
 
+	it("moves between months and views with letter keys, but not while typing", async () => {
+		await page.viewport(1440, 900);
+		router.search = { month: "2030-03", view: "month" };
+		serveCalendar(() => Response.json({ data: { items: [] } }));
+		const screen = await renderPage();
+		await expect.element(screen.getByRole("heading", { name: "March 2030" })).toBeVisible();
+
+		await userEvent.keyboard("j");
+		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
+			month: "2030-04",
+		});
+		await userEvent.keyboard("w");
+		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({ view: "week" });
+
+		router.navigate.mockClear();
+		await screen
+			.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+			.click();
+		await screen.getByLabelText("Title").fill("");
+		await userEvent.keyboard("jw");
+		await expect.element(screen.getByLabelText("Title")).toHaveValue("jw");
+		expect(router.navigate).not.toHaveBeenCalled();
+	});
+
 	it("carries the shown period between the month and week views", async () => {
 		router.search = { month: "2020-03", view: "month" };
 		serveCalendar(() => Response.json({ data: { items: [] } }));
