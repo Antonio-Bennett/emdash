@@ -19,6 +19,8 @@ export interface QuickCreateCollection {
 	label: string;
 	/** The field new entries take their title in. */
 	titleField: string;
+	/** The values new entries start with, as in the editor. */
+	defaults: Record<string, unknown>;
 }
 
 /** The collections a "+" can schedule into, and what happens once it has. */
@@ -94,7 +96,7 @@ export function CalendarQuickCreate({
 						size="sm"
 						aria-label={t`Schedule an entry on ${date}`}
 						icon={<Plus aria-hidden="true" />}
-						className={cn("text-kumo-subtle", className)}
+						className={cn("size-5 text-kumo-subtle", className)}
 					/>
 				}
 			/>
@@ -165,7 +167,7 @@ function QuickCreateForm({
 		try {
 			if (!created) {
 				const item = await createContent(target.slug, {
-					data: { [target.titleField]: title.trim() },
+					data: { ...target.defaults, [target.titleField]: title.trim() },
 				});
 				created = { collection: target.slug, id: item.id, locale: item.locale };
 				setDraft(created);

@@ -367,7 +367,15 @@ describe("CalendarPage", () => {
 			});
 		});
 
-		it("creates a draft, schedules it at the chosen time, and opens it", async () => {
+		it("creates a draft with the field defaults, schedules it at the chosen time, and opens it", async () => {
+			manifest.collections = {
+				...manifest.collections,
+				posts: {
+					label: "Posts",
+					labelSingular: "Post",
+					fields: { title: { kind: "string" }, featured: { kind: "boolean", defaultValue: false } },
+				},
+			};
 			const screen = await renderPage();
 
 			await screen
@@ -382,7 +390,7 @@ describe("CalendarPage", () => {
 				.toEqual([
 					{
 						path: "/_emdash/api/content/posts",
-						body: expect.objectContaining({ data: { title: "Spring launch" } }),
+						body: expect.objectContaining({ data: { featured: false, title: "Spring launch" } }),
 					},
 					{
 						path: "/_emdash/api/content/posts/spring/schedule",

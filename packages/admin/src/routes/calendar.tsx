@@ -407,9 +407,15 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 				);
 				const sluggable =
 					collection.routable === false || titleField === "title" || titleField === "name";
-				return complete && sluggable
-					? [{ slug, label: collection.labelSingular || collection.label, titleField }]
-					: [];
+				if (!complete || !sluggable) return [];
+				const defaults = Object.fromEntries(
+					Object.entries(collection.fields).flatMap(([name, field]) =>
+						field.defaultValue === undefined ? [] : [[name, field.defaultValue]],
+					),
+				);
+				return [
+					{ slug, label: collection.labelSingular || collection.label, titleField, defaults },
+				];
 			})
 		: [];
 	const create: CalendarCreate | undefined =
