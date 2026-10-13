@@ -33,8 +33,8 @@ vi.mock("../../src/lib/api/client.js", async () => ({
 	fetchManifest: vi.fn().mockResolvedValue({
 		timezone: "UTC",
 		collections: {
-			posts: { label: "Posts" },
-			pages: { label: "Pages" },
+			posts: { label: "Posts", labelSingular: "Post", fields: { title: { kind: "string" } } },
+			pages: { label: "Pages", labelSingular: "Page", fields: { title: { kind: "string" } } },
 		},
 		i18n: { defaultLocale: "en", locales: ["en", "fr"] },
 	}),
@@ -220,6 +220,70 @@ describe("CalendarPage", () => {
 			await new Promise((resolve) => setTimeout(resolve, 200));
 
 			expect(schedules).toEqual([]);
+		});
+	});
+
+	describe("scheduling a new entry from a day", () => {
+		let posts: Array<{ path: string; body: unknown }>;
+
+		beforeEach(async () => {
+			await page.viewport(1440, 900);
+			localStorage.clear();
+			posts = [];
+			router.search = { month: "2030-03", view: "month" };
+			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+				const url = new URL(
+					input instanceof Request ? input.url : input.toString(),
+					location.origin,
+				);
+				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
+				if (init?.method === "POST") {
+					posts.push({
+						path: url.pathname,
+						body: JSON.parse(typeof init.body === "string" ? init.body : "null"),
+					});
+					return Response.json({ data: { item: { id: "spring", locale: "en" } } });
+				}
+				return Response.json(
+					{ error: { code: "NOT_FOUND", message: "Not found" } },
+					{ status: 404 },
+				);
+			});
+		});
+
+		it("creates a draft, schedules it at the chosen time, and opens it", async () => {
+			const screen = await renderPage();
+
+			await screen
+				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+				.click();
+			await screen.getByLabelText("Title").fill("Spring launch");
+			await screen.getByLabelText("Time").fill("14:30");
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+
+			await expect
+				.poll(() => posts)
+				.toEqual([
+					{
+						path: "/_emdash/api/content/posts",
+						body: expect.objectContaining({ data: { title: "Spring launch" } }),
+					},
+					{
+						path: "/_emdash/api/content/posts/spring/schedule",
+						body: { scheduledAt: "2030-03-14T14:30:00.000Z" },
+					},
+				]);
+			await expect
+				.poll(() => router.navigate.mock.lastCall && navigatedSearch(router.navigate.mock.lastCall))
+				.toMatchObject({ search: { entry: "posts:spring:scheduled" } });
+		});
+
+		it("isn't offered to contributors, who can't schedule", async () => {
+			currentUser.value = { id: "contributor", email: "contributor@example.com", role: 20 };
+			const screen = await renderPage();
+
+			await expect.element(screen.getByRole("heading", { name: "March 2030" })).toBeVisible();
+			expect(screen.getByRole("button", { name: /^Schedule an entry/ }).elements()).toHaveLength(0);
 		});
 	});
 

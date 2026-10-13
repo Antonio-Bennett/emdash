@@ -12,6 +12,7 @@ import { cn } from "../../lib/utils.js";
 import { HOUR_HEIGHT, useCalendarDrop } from "./CalendarDrag.js";
 import { CalendarEntryChip, type CalendarSelectHandler } from "./CalendarEntry.js";
 import { CalendarFilteredNotice, CalendarMorePopover } from "./CalendarMonth.js";
+import { CalendarQuickCreate, type CalendarCreate } from "./CalendarQuickCreate.js";
 
 /** A chip's 22px height (plus a 2px gap) in minutes; entries closer than this share a row. */
 const CHIP_MINUTES = (24 / HOUR_HEIGHT) * 60;
@@ -33,6 +34,8 @@ interface CalendarWeekProps {
 	onSelect?: CalendarSelectHandler;
 	/** Whether the user may drag the entry to another day or time. */
 	canMove?: (item: CalendarItem) => boolean;
+	/** Offers a "+" on each day from today that schedules a new entry. */
+	create?: CalendarCreate;
 	/** Filters are on; when they hide every entry, a notice offers to clear them. */
 	onClearFilters?: () => void;
 }
@@ -49,6 +52,7 @@ export function CalendarWeek({
 	selectedKey,
 	onSelect,
 	canMove,
+	create,
 	onClearFilters,
 }: CalendarWeekProps) {
 	const { t } = useLingui();
@@ -83,18 +87,16 @@ export function CalendarWeek({
 					ref={scrollRef}
 					className="absolute inset-0 overflow-y-auto rounded-lg border border-kumo-line bg-kumo-base"
 				>
-					<div
-						aria-hidden="true"
-						className="sticky top-0 z-20 grid grid-cols-[3.5rem_repeat(7,minmax(0,1fr))] border-b border-kumo-line bg-kumo-base"
-					>
+					<div className="sticky top-0 z-20 grid grid-cols-[3.5rem_repeat(7,minmax(0,1fr))] border-b border-kumo-line bg-kumo-base">
 						<span />
 						{days.map((day) => (
-							<span
+							<div
 								key={day}
-								className="flex flex-col items-center gap-0.5 border-s border-kumo-line py-2 text-xs text-kumo-subtle"
+								className="group/day relative flex flex-col items-center gap-0.5 border-s border-kumo-line py-2 text-xs text-kumo-subtle"
 							>
-								{display.weekdayShort(day)}
+								<span aria-hidden="true">{display.weekdayShort(day)}</span>
 								<span
+									aria-hidden="true"
 									className={cn(
 										"inline-flex size-7 items-center justify-center rounded-full text-base font-semibold tabular-nums",
 										day === today
@@ -106,7 +108,17 @@ export function CalendarWeek({
 								>
 									{display.dayNumber(day)}
 								</span>
-							</span>
+								{create && day >= today && (
+									<CalendarQuickCreate
+										day={day}
+										today={today}
+										display={display}
+										collections={create.collections}
+										onCreated={create.onCreated}
+										className="absolute end-1 top-1 opacity-0 group-hover/day:opacity-100 focus-visible:opacity-100 data-popup-open:opacity-100 pointer-coarse:opacity-100"
+									/>
+								)}
+							</div>
 						))}
 					</div>
 					<div

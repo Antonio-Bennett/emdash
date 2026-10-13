@@ -17,6 +17,7 @@ import { CalendarDragProvider } from "../components/calendar/CalendarDrag.js";
 import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js";
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
+import type { CalendarCreate } from "../components/calendar/CalendarQuickCreate.js";
 import { CalendarToolbar } from "../components/calendar/CalendarToolbar.js";
 import { CalendarWeek } from "../components/calendar/CalendarWeek.js";
 import { getMutationError } from "../components/DialogError.js";
@@ -239,11 +240,12 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	React.useEffect(() => {
 		if (selectedKey === undefined) pushedFromRef.current = null;
 	}, [selectedKey]);
-	const openEntry = (item: CalendarItem, element: HTMLElement) => {
+	const openKey = (key: string, element: HTMLElement | null) => {
 		returnFocusRef.current = element;
 		if (selectedKey === undefined) pushedFromRef.current = searchWithoutEntry;
-		updateSearch({ entry: item.key }, { push: selectedKey === undefined });
+		updateSearch({ entry: key }, { push: selectedKey === undefined });
 	};
+	const openEntry = (item: CalendarItem, element: HTMLElement) => openKey(item.key, element);
 	const closeEntry = () => {
 		const pushedFrom = pushedFromRef.current;
 		pushedFromRef.current = null;
@@ -390,6 +392,29 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 			void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
 		},
 	});
+	// Scheduling a new entry takes publishing your own.
+	const createOptions = canPublishEntry(user, user?.id)
+		? visibleCollectionEntries(manifest.collections).flatMap(([slug, collection]) => {
+				const titleField =
+					collection.titleField ?? ["title", "name"].find((field) => field in collection.fields);
+				return collection.quickCreate === false || !titleField
+					? []
+					: [{ slug, label: collection.labelSingular || collection.label, titleField }];
+			})
+		: [];
+	const create: CalendarCreate | undefined =
+		createOptions.length > 0
+			? {
+					collections: createOptions,
+					onCreated: async ({ collection, id, trigger }) => {
+						void queryClient.invalidateQueries({ queryKey: ["content", collection] });
+						void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
+						// The panel opens once the calendar has the new entry.
+						await queryClient.invalidateQueries({ queryKey: ["calendar"] });
+						openKey(calendarEntryKey({ collection, id, kind: "scheduled" }), trigger);
+					},
+				}
+			: undefined;
 	const rejectPastDrop = () => {
 		toastManager.add({
 			title: t`That time has passed`,
@@ -483,6 +508,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 								selectedKey={selectedKey}
 								onSelect={openEntry}
 								canMove={canMove}
+								create={create}
 								onClearFilters={filtered ? clearFilters : undefined}
 							/>
 						) : view === "month" ? (
@@ -500,6 +526,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 								selectedKey={selectedKey}
 								onSelect={openEntry}
 								canMove={canMove}
+								create={create}
 								onMonthChange={goToMonth}
 								onClearFilters={filtered ? clearFilters : undefined}
 							/>
