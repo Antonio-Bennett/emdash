@@ -9128,7 +9128,7 @@ msgstr "Nema dodatih fajlova"
 msgid "No folders found"
 msgstr "Nema pronađenih fascikli"
 
-#: packages/admin/src/components/editor/DocumentOutline.tsx:214
+#: packages/admin/src/components/editor/DocumentOutline.tsx:269
 msgid "No headings in document"
 msgstr "Nema naslova u dokumentu"
 
@@ -9668,7 +9668,7 @@ msgid "Other"
 msgstr "Ostalo"
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:1297
-#: packages/admin/src/components/editor/DocumentOutline.tsx:191
+#: packages/admin/src/components/editor/DocumentOutline.tsx:248
 msgid "Outline"
 msgstr "Kontura"
 

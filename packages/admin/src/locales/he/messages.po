@@ -9129,7 +9129,7 @@ msgstr "לא נוספו קבצים"
 msgid "No folders found"
 msgstr "לא נמצאו תיקיות"
 
-#: packages/admin/src/components/editor/DocumentOutline.tsx:214
+#: packages/admin/src/components/editor/DocumentOutline.tsx:269
 msgid "No headings in document"
 msgstr "אין כותרות במסמך"
 
@@ -9669,7 +9669,7 @@ msgid "Other"
 msgstr "אחר"
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:1297
-#: packages/admin/src/components/editor/DocumentOutline.tsx:191
+#: packages/admin/src/components/editor/DocumentOutline.tsx:248
 msgid "Outline"
 msgstr "קו מתאר"
 

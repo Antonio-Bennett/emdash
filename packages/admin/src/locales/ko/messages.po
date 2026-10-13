@@ -9128,7 +9128,7 @@ msgstr "추가한 파일 없음"
 msgid "No folders found"
 msgstr "폴더를 찾을 수 없습니다"
 
-#: packages/admin/src/components/editor/DocumentOutline.tsx:214
+#: packages/admin/src/components/editor/DocumentOutline.tsx:269
 msgid "No headings in document"
 msgstr "문서에 제목이 없습니다."
 
@@ -9668,7 +9668,7 @@ msgid "Other"
 msgstr "기타"
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:1297
-#: packages/admin/src/components/editor/DocumentOutline.tsx:191
+#: packages/admin/src/components/editor/DocumentOutline.tsx:248
 msgid "Outline"
 msgstr "개요"
 

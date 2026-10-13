@@ -9128,7 +9128,7 @@ msgstr "Inga filer tillagda"
 msgid "No folders found"
 msgstr "Inga mappar hittades"
 
-#: packages/admin/src/components/editor/DocumentOutline.tsx:214
+#: packages/admin/src/components/editor/DocumentOutline.tsx:269
 msgid "No headings in document"
 msgstr "Inga rubriker i dokumentet"
 
@@ -9668,7 +9668,7 @@ msgid "Other"
 msgstr "Övrigt"
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:1297
-#: packages/admin/src/components/editor/DocumentOutline.tsx:191
+#: packages/admin/src/components/editor/DocumentOutline.tsx:248
 msgid "Outline"
 msgstr "Disposition"
 
