@@ -2,7 +2,7 @@ import { Toast } from "@cloudflare/kumo";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import * as React from "react";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { page } from "vitest/browser";
+import { page, userEvent } from "vitest/browser";
 
 import "../../dist/styles.css";
 import { calendarQueryOptions, type CalendarEntry } from "../../src/lib/api/calendar";
@@ -40,8 +40,11 @@ vi.mock("../../src/lib/api/client.js", async () => ({
 	}),
 }));
 
+const EDITOR = { id: "editor", email: "editor@example.com", role: 40 };
+const currentUser = vi.hoisted(() => ({ value: { id: "", email: "", role: 0 } }));
+
 vi.mock("../../src/lib/api/current-user.js", () => ({
-	useCurrentUser: () => ({ data: { id: "editor", email: "editor@example.com", role: 40 } }),
+	useCurrentUser: () => ({ data: currentUser.value }),
 }));
 
 const originalFetch = globalThis.fetch;
@@ -81,6 +84,7 @@ function renderPage(wrapper?: React.ComponentType<React.PropsWithChildren>) {
 
 describe("CalendarPage", () => {
 	beforeEach(() => {
+		currentUser.value = EDITOR;
 		router.search = {};
 		router.navigate.mockReset();
 		router.back.mockReset();
@@ -161,6 +165,61 @@ describe("CalendarPage", () => {
 		expect(navigatedSearch(router.navigate.mock.lastCall)).toMatchObject({
 			replace: true,
 			search: { entry: undefined },
+		});
+	});
+
+	describe("dragging an entry", () => {
+		const launch: CalendarEntry = {
+			...entry("launch", "2030-03-05T09:00:00.000Z"),
+			status: "scheduled",
+			kind: "scheduled",
+			authorId: "someone",
+		};
+		let schedules: unknown[];
+
+		beforeEach(async () => {
+			await page.viewport(1440, 900);
+			schedules = [];
+			router.search = { month: "2030-03", view: "month" };
+			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+				const url = input instanceof Request ? input.url : input.toString();
+				if (url.includes("/calendar?")) return Response.json({ data: { items: [launch] } });
+				if (url.includes("/content/posts/launch/schedule")) {
+					schedules.push(JSON.parse(typeof init?.body === "string" ? init.body : "null"));
+					return Response.json({ data: { item: { id: "launch" } } });
+				}
+				return Response.json(
+					{ error: { code: "NOT_FOUND", message: "Not found" } },
+					{ status: 404 },
+				);
+			});
+		});
+
+		const dayCell = (screen: Awaited<ReturnType<typeof renderPage>>, day: string) =>
+			screen.getByRole("cell").filter({ hasText: new RegExp(`^${day}$`) });
+
+		it("reschedules it to the day it's dropped on, at the same time", async () => {
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+
+			await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
+			// The drop doesn't also open the entry.
+			expect(router.navigate).not.toHaveBeenCalled();
+		});
+
+		it("leaves another author's entry where it is for an author", async () => {
+			currentUser.value = { id: "author", email: "author@example.com", role: 30 };
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+			await new Promise((resolve) => setTimeout(resolve, 200));
+
+			expect(schedules).toEqual([]);
 		});
 	});
 

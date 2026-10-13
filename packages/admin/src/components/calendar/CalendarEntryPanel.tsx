@@ -33,6 +33,7 @@ import {
 } from "../../lib/api/content.js";
 import type { CurrentUser } from "../../lib/api/current-user.js";
 import {
+	canPublishEntry,
 	formatTimeAgo,
 	formatTimeUntil,
 	type CalendarDisplay,
@@ -50,10 +51,6 @@ import {
 	CalendarCollectionTag,
 	CalendarStateIcon,
 } from "./CalendarEntry.js";
-
-// Role levels (matching @emdash-cms/auth)
-const ROLE_AUTHOR = 30;
-const ROLE_EDITOR = 40;
 
 const STATE_TEXT: Record<CalendarState, string> = {
 	published: "text-kumo-success",
@@ -198,11 +195,7 @@ function CalendarEntryPanelContent({
 	});
 
 	const entry = details.data;
-	const canPublish = Boolean(
-		user &&
-		entry &&
-		(user.role >= ROLE_EDITOR || (user.role >= ROLE_AUTHOR && entry.authorId === user.id)),
-	);
+	const canPublish = Boolean(entry && canPublishEntry(user, entry.authorId));
 	const scheduled = item.kind === "scheduled";
 	const title = item.title;
 	const editorLink = {

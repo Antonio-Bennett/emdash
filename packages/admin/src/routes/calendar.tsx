@@ -5,24 +5,32 @@
  * site's time zone.
  */
 
-import { Banner, Button } from "@cloudflare/kumo";
+import { Banner, Button, useKumoToastManager } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
 import { WarningCircle } from "@phosphor-icons/react";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useNavigate, useRouter, useSearch } from "@tanstack/react-router";
 import * as React from "react";
 
 import { CalendarAgenda } from "../components/calendar/CalendarAgenda.js";
+import { CalendarDragProvider } from "../components/calendar/CalendarDrag.js";
 import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js";
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
 import { CalendarToolbar } from "../components/calendar/CalendarToolbar.js";
 import { CalendarWeek } from "../components/calendar/CalendarWeek.js";
+import { getMutationError } from "../components/DialogError.js";
 import { visibleCollectionEntries } from "../components/Sidebar.js";
-import { CALENDAR_MAX_ENTRIES, calendarQueryOptions } from "../lib/api/calendar.js";
+import {
+	CALENDAR_MAX_ENTRIES,
+	calendarEntryKey,
+	calendarQueryOptions,
+} from "../lib/api/calendar.js";
 import { ApiResponseError, fetchManifest, type AdminManifest } from "../lib/api/client.js";
+import { scheduleContent } from "../lib/api/content.js";
 import { useCurrentUser } from "../lib/api/current-user.js";
 import {
+	canPublishEntry,
 	createCalendarDisplay,
 	dayKeyInZone,
 	dayKeyToUTC,
@@ -320,6 +328,76 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					previewNext: () => prefetchMonth(shiftMonth(month, 1)),
 				};
 
+	const toastManager = useKumoToastManager();
+	const canMove = React.useCallback(
+		(item: CalendarItem) => item.kind === "scheduled" && canPublishEntry(user, item.authorId),
+		[user],
+	);
+	const move = useMutation({
+		mutationFn: ({
+			item,
+			scheduledAt,
+		}: {
+			item: CalendarItem;
+			scheduledAt: string;
+			undo?: boolean;
+		}) => scheduleContent(item.collection, item.id, scheduledAt, { locale: item.locale }),
+		onMutate: async ({ item, scheduledAt }) => {
+			const { queryKey } = calendarQueryOptions(range.from, range.to);
+			await queryClient.cancelQueries({ queryKey: ["calendar"] });
+			const previous = queryClient.getQueryData(queryKey);
+			queryClient.setQueryData(queryKey, (data) =>
+				data
+					? {
+							...data,
+							items: data.items.map((entry) =>
+								calendarEntryKey(entry) === item.key ? { ...entry, at: scheduledAt } : entry,
+							),
+						}
+					: data,
+			);
+			return { queryKey, previous };
+		},
+		onError: (moveError, _variables, context) => {
+			if (context) queryClient.setQueryData(context.queryKey, context.previous);
+			toastManager.add({
+				title: t`Could not reschedule`,
+				description: getMutationError(moveError),
+				type: "error",
+			});
+		},
+		onSuccess: (_changed, { item, scheduledAt, undo }) => {
+			const title = item.title;
+			const when = display.formatDateTime(Date.parse(scheduledAt));
+			toastManager.add({
+				title: t`Rescheduled`,
+				description: t`${title} now goes live ${when}.`,
+				// A time that has passed can't be scheduled again.
+				actions:
+					undo || item.time <= Date.now()
+						? undefined
+						: [
+								{
+									children: t`Undo`,
+									onClick: () => move.mutate({ item, scheduledAt: item.at, undo: true }),
+								},
+							],
+			});
+		},
+		onSettled: (_changed, _error, { item }) => {
+			void queryClient.invalidateQueries({ queryKey: ["calendar"] });
+			void queryClient.invalidateQueries({ queryKey: ["content", item.collection] });
+			void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
+		},
+	});
+	const rejectPastDrop = () => {
+		toastManager.add({
+			title: t`That time has passed`,
+			description: t`Drop the entry on a later day or time.`,
+			type: "error",
+		});
+	};
+
 	const error = calendar.error;
 	const errorMessage =
 		error instanceof ApiResponseError
@@ -386,54 +464,63 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 					/>
 				)}
 
-				{!(error && !calendar.data) &&
-					(view === "week" ? (
-						<CalendarWeek
-							days={weekGrid}
-							items={days}
-							today={today}
-							now={now}
-							display={display}
-							loading={!calendar.data}
-							loadedThrough={loadedThrough}
-							selectedKey={selectedKey}
-							onSelect={openEntry}
-							onClearFilters={filtered ? clearFilters : undefined}
-						/>
-					) : view === "month" ? (
-						<CalendarMonth
-							month={month}
-							gridDays={gridDays}
-							days={days}
-							unfilteredDays={unfilteredDays}
-							today={today}
-							now={now}
-							display={display}
-							loading={!calendar.data}
-							loadedThrough={loadedThrough}
-							compact={compact}
-							selectedKey={selectedKey}
-							onSelect={openEntry}
-							onMonthChange={goToMonth}
-							onClearFilters={filtered ? clearFilters : undefined}
-						/>
-					) : (
-						<div className="min-h-0 flex-1 overflow-y-auto">
-							<CalendarAgenda
-								key={month}
-								month={month}
-								days={days}
+				<CalendarDragProvider
+					display={display}
+					now={now}
+					onMove={(item, scheduledAt) => move.mutate({ item, scheduledAt })}
+					onPastDrop={rejectPastDrop}
+				>
+					{!(error && !calendar.data) &&
+						(view === "week" ? (
+							<CalendarWeek
+								days={weekGrid}
+								items={days}
 								today={today}
 								now={now}
 								display={display}
 								loading={!calendar.data}
 								loadedThrough={loadedThrough}
-								onClearFilters={filtered ? clearFilters : undefined}
 								selectedKey={selectedKey}
 								onSelect={openEntry}
+								canMove={canMove}
+								onClearFilters={filtered ? clearFilters : undefined}
 							/>
-						</div>
-					))}
+						) : view === "month" ? (
+							<CalendarMonth
+								month={month}
+								gridDays={gridDays}
+								days={days}
+								unfilteredDays={unfilteredDays}
+								today={today}
+								now={now}
+								display={display}
+								loading={!calendar.data}
+								loadedThrough={loadedThrough}
+								compact={compact}
+								selectedKey={selectedKey}
+								onSelect={openEntry}
+								canMove={canMove}
+								onMonthChange={goToMonth}
+								onClearFilters={filtered ? clearFilters : undefined}
+							/>
+						) : (
+							<div className="min-h-0 flex-1 overflow-y-auto">
+								<CalendarAgenda
+									key={month}
+									month={month}
+									days={days}
+									today={today}
+									now={now}
+									display={display}
+									loading={!calendar.data}
+									loadedThrough={loadedThrough}
+									onClearFilters={filtered ? clearFilters : undefined}
+									selectedKey={selectedKey}
+									onSelect={openEntry}
+								/>
+							</div>
+						))}
+				</CalendarDragProvider>
 			</div>
 
 			{docked && (

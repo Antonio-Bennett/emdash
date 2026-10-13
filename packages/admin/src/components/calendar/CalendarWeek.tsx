@@ -9,11 +9,10 @@ import {
 	type CalendarItem,
 } from "../../lib/calendar.js";
 import { cn } from "../../lib/utils.js";
+import { HOUR_HEIGHT, useCalendarDrop } from "./CalendarDrag.js";
 import { CalendarEntryChip, type CalendarSelectHandler } from "./CalendarEntry.js";
 import { CalendarFilteredNotice, CalendarMorePopover } from "./CalendarMonth.js";
 
-/** One hour's height in pixels. */
-const HOUR_HEIGHT = 48;
 /** A chip's 22px height (plus a 2px gap) in minutes; entries closer than this share a row. */
 const CHIP_MINUTES = (24 / HOUR_HEIGHT) * 60;
 const HOURS = Array.from({ length: 24 }, (_, hour) => hour);
@@ -32,6 +31,8 @@ interface CalendarWeekProps {
 	loadedThrough?: string;
 	selectedKey?: string;
 	onSelect?: CalendarSelectHandler;
+	/** Whether the user may drag the entry to another day or time. */
+	canMove?: (item: CalendarItem) => boolean;
 	/** Filters are on; when they hide every entry, a notice offers to clear them. */
 	onClearFilters?: () => void;
 }
@@ -47,6 +48,7 @@ export function CalendarWeek({
 	loadedThrough,
 	selectedKey,
 	onSelect,
+	canMove,
 	onClearFilters,
 }: CalendarWeekProps) {
 	const { t } = useLingui();
@@ -130,11 +132,13 @@ export function CalendarWeek({
 								minutes={minutes}
 								weekend={display.isWeekend(day)}
 								loaded={loadedThrough === undefined || day < loadedThrough}
+								today={today}
 								nowMinutes={day === today ? nowMinutes : undefined}
 								now={now}
 								display={display}
 								selectedKey={selectedKey}
 								onSelect={onSelect}
+								canMove={canMove}
 							/>
 						))}
 						<div aria-hidden="true" className="pointer-events-none absolute inset-0 col-span-full">
@@ -168,12 +172,14 @@ interface CalendarWeekDayProps {
 	minutes: (item: CalendarItem) => number;
 	weekend: boolean;
 	loaded: boolean;
+	today: string;
 	/** Where the now line goes, on today's column. */
 	nowMinutes?: number;
 	now: number;
 	display: CalendarDisplay;
 	selectedKey?: string;
 	onSelect?: CalendarSelectHandler;
+	canMove?: (item: CalendarItem) => boolean;
 }
 
 function CalendarWeekDay({
@@ -182,17 +188,27 @@ function CalendarWeekDay({
 	minutes,
 	weekend,
 	loaded,
+	today,
 	nowMinutes,
 	now,
 	display,
 	selectedKey,
 	onSelect,
+	canMove,
 }: CalendarWeekDayProps) {
 	const { t } = useLingui();
+	const drop = useCalendarDrop(day, today, true);
 	const stacks = React.useMemo(() => timeStacks(items, minutes, CHIP_MINUTES), [items, minutes]);
 
 	return (
-		<div className={cn("relative border-s border-kumo-line", weekend && "bg-kumo-elevated")}>
+		<div
+			ref={drop.ref}
+			className={cn(
+				"relative border-s border-kumo-line",
+				weekend && "bg-kumo-elevated",
+				drop.highlighted && "bg-kumo-tint",
+			)}
+		>
 			{items.length > 0 && (
 				<ul aria-label={display.fullDate(day)}>
 					{stacks.map((stack) => {
@@ -213,6 +229,7 @@ function CalendarWeekDay({
 										now={now}
 										selected={shown.key === selectedKey}
 										onSelect={onSelect}
+										movable={canMove?.(shown)}
 									/>
 								</span>
 								{stack.length > 1 && (
