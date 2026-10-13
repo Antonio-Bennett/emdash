@@ -184,6 +184,36 @@ describe("CalendarPage", () => {
 		expect(router.back).toHaveBeenCalledTimes(1);
 	});
 
+	it("switches entries from the calendar and closes the panel from empty space", async () => {
+		router.search = { month: "2020-03", view: "agenda" };
+		serveCalendar(() =>
+			Response.json({
+				data: {
+					items: [
+						entry("launch", "2020-03-05T09:00:00.000Z"),
+						entry("recap", "2020-03-06T09:00:00.000Z"),
+					],
+				},
+			}),
+		);
+		const screen = await renderPage();
+
+		await screen.getByRole("link", { name: /Entry launch/ }).click();
+		router.search = navigatedSearch(router.navigate.mock.lastCall).search;
+		await screen.rerender(<CalendarPage />);
+		await expect.element(screen.getByRole("dialog", { name: "Entry launch" })).toBeVisible();
+
+		await screen.getByRole("link", { name: /Entry recap/ }).click();
+		expect(navigatedSearch(router.navigate.mock.lastCall)).toMatchObject({
+			replace: true,
+			search: { entry: "posts:recap:published" },
+		});
+		expect(router.back).not.toHaveBeenCalled();
+
+		await screen.getByText(/Published and scheduled entries across collections/).click();
+		expect(router.back).toHaveBeenCalledTimes(1);
+	});
+
 	it("keeps the panel while another month loads and closes it if the entry isn't there", async () => {
 		const key = "posts:launch:published";
 		const april = fetchRange(monthGridDays("2020-04", 0)).from;

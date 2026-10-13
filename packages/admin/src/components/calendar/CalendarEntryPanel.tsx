@@ -62,6 +62,15 @@ const STATE_TEXT: Record<CalendarState, string> = {
 	overdue: "text-kumo-warning",
 };
 
+/**
+ * Presses outside the panel that land in one of these do their own thing
+ * (open another entry, change the month, open a menu) instead of closing it.
+ * Closing goes back in history, which would undo a navigation made by the
+ * same press.
+ */
+const KEEPS_PANEL_OPEN =
+	"a[href], button, input, select, textarea, label, [role=button], [role=tab], [role=dialog], [role=menu], [role=listbox]";
+
 export interface CalendarEntryPanelProps {
 	/** The open entry; undefined closes the panel. */
 	item: CalendarItem | undefined;
@@ -83,7 +92,8 @@ export interface CalendarEntryPanelProps {
 /**
  * An entry's details and publishing actions beside the calendar. On wide
  * layouts the calendar stays usable behind it, so picking another entry
- * switches the panel; on phones it is a modal bottom sheet.
+ * switches the panel and pressing empty space closes it; on phones it is a
+ * modal bottom sheet.
  */
 export function CalendarEntryPanel(props: CalendarEntryPanelProps) {
 	const { item, compact, returnFocus, onClose } = props;
@@ -95,9 +105,20 @@ export function CalendarEntryPanel(props: CalendarEntryPanelProps) {
 		<Dialog.Root
 			open={Boolean(item)}
 			modal={compact}
-			disablePointerDismissal={!compact}
-			onOpenChange={(open) => {
-				if (!open) onClose();
+			onOpenChange={(open, eventDetails) => {
+				if (open) return;
+				const { reason, event } = eventDetails;
+				// Focus may leave the panel, so keyboard users can move on to another entry.
+				if (
+					reason === "focus-out" ||
+					(reason === "outside-press" &&
+						event.target instanceof Element &&
+						event.target.closest(KEEPS_PANEL_OPEN))
+				) {
+					eventDetails.cancel();
+					return;
+				}
+				onClose();
 			}}
 		>
 			<Dialog.Portal>
