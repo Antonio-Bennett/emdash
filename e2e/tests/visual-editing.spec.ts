@@ -4,8 +4,8 @@
  * Tests the inline TipTap editor for portable text fields:
  * - Image rendering in static mode (Image.astro)
  * - Inline editor loading with image nodes
- * - Slash commands and media picker
- * - Save on image insert
+ * - Slash commands and the image picker
+ * - The image toolbar, captions, and saving on image insert
  * - Click-to-edit of plain text fields
  */
 
@@ -122,6 +122,75 @@ async function placeSelection(
 	}, mode);
 	// TipTap focuses the editor a frame later, and keys pressed before then go elsewhere.
 	await expect(page.locator(".emdash-inline-editor")).toBeFocused();
+}
+
+/** Types `/image` on a new line after the first paragraph, and returns the picker it opens. */
+async function openImagePicker(page: import("@playwright/test").Page) {
+	await placeSelection(page, "newLine");
+	await page.keyboard.type("/image");
+	await expect(page.locator(".emdash-slash-menu")).toBeVisible();
+	await page.keyboard.press("Enter");
+	const picker = page.getByRole("dialog", { name: "Insert image" });
+	await expect(picker).toBeVisible();
+	return picker;
+}
+
+type SavedBody = {
+	data: { body: Array<{ _type: string; caption?: string; asset?: { _ref?: string } }> };
+};
+type MediaList = { data: { items: Array<Record<string, unknown>> } };
+
+/**
+ * Answers the image picker's library requests with `count` copies of the
+ * library's first image, named `e2e-0.png` onwards, nine to a page.
+ */
+async function stubLibrary(page: import("@playwright/test").Page, count: number) {
+	await page.route(
+		(url) => url.pathname === "/_emdash/api/media",
+		async (route) => {
+			const url = new URL(route.request().url());
+			const pageNumber = Number(url.searchParams.get("page"));
+			url.searchParams.set("page", "1");
+			const response = await route.fetch({ url: url.href });
+			const json = (await response.json()) as MediaList;
+			const images = Array.from({ length: count }, (_, index) => ({
+				...json.data.items[0],
+				id: `e2e-${index}`,
+				filename: `e2e-${index}.png`,
+			}));
+			await route.fulfill({
+				response,
+				json: {
+					...json,
+					data: { items: images.slice((pageNumber - 1) * 9, pageNumber * 9), totalCount: count },
+				},
+			});
+		},
+	);
+}
+
+/** Adds room below the post, which is shorter than the window, for the page to scroll. */
+async function makeRoomToScroll(page: import("@playwright/test").Page) {
+	await page.evaluate(() => {
+		const spacer = document.createElement("div");
+		spacer.style.height = "2000px";
+		document.body.append(spacer);
+	});
+}
+
+/** Wheels the page a little from its margin, beside the post. */
+async function wheelPage(page: import("@playwright/test").Page) {
+	const viewport = page.viewportSize()!;
+	await page.mouse.move(viewport.width - 4, viewport.height / 2);
+	await page.mouse.wheel(0, 120);
+}
+
+/** The editor's next save, which `stubSaves` answers without storing. */
+function nextSave(page: import("@playwright/test").Page) {
+	return page.waitForRequest(
+		(request) =>
+			request.url().includes("/_emdash/api/content/posts/") && request.method() === "PUT",
+	);
 }
 
 /** Waits for an element's own animations, such as its entrance, to finish. */
@@ -503,30 +572,109 @@ test.describe("Inline Editor", () => {
 		expect(scrollAfter).toBeGreaterThan(scrollBefore - 20);
 	});
 
-	test("/image command opens media picker", async ({ page }) => {
+	test("/image opens the image picker below its line, with its first image focused", async ({
+		page,
+	}) => {
+		await stubSaves(page);
 		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
 
+		const picker = await openImagePicker(page);
+
+		await expect(picker.getByRole("option").first()).toBeFocused();
+		await animationsFinished(picker);
+		const line = (await page.locator(".emdash-inline-editor > p").nth(1).boundingBox())!;
+		const box = (await picker.boundingBox())!;
+		expect(box.y).toBeGreaterThanOrEqual(line.y + line.height);
+		expect(Math.abs(box.x - line.x)).toBeLessThan(2);
+	});
+
+	test("Enter held down on the slash menu doesn't choose the picker's first image", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
 		const editor = page.locator(".emdash-inline-editor");
 		await expect(editor).toBeVisible({ timeout: 15000 });
-
-		// Type /image to filter to the Image command
-		await editor.locator("p").first().click();
-		await page.keyboard.press("End");
-		await page.keyboard.press("Enter");
+		await placeSelection(page, "newLine");
 		await page.keyboard.type("/image");
+		await expect(page.locator(".emdash-slash-menu")).toBeVisible();
+		await page.keyboard.down("Enter");
+		const picker = page.getByRole("dialog", { name: "Insert image" });
+		await expect(picker.getByRole("option").first()).toBeFocused();
 
-		const slashMenu = page.locator(".emdash-slash-menu");
-		await expect(slashMenu).toBeVisible({ timeout: 5000 });
+		// Pressed again while still down, it repeats.
+		await page.keyboard.down("Enter");
+		await page.keyboard.up("Enter");
 
-		// Click the Image command (or press Enter to select it)
-		await page.keyboard.press("Enter");
+		await expect(picker).toBeVisible();
+		await expect(editor.locator("figure.emdash-image")).toHaveCount(1);
+	});
 
-		// Media picker should open
-		const picker = page.locator(".emdash-media-picker");
-		await expect(picker).toBeVisible({ timeout: 5000 });
+	test("Escape closes the image picker and puts the caret back", async ({ page }) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		const picker = await openImagePicker(page);
+		await expect(picker.getByRole("option").first()).toBeFocused();
 
-		// Should show "Insert Image" title
-		await expect(picker.locator("text=Insert Image")).toBeVisible();
+		await page.keyboard.press("Escape");
+
+		await expect(picker).toBeHidden();
+		await expect(page.locator(".emdash-inline-editor")).toBeFocused();
+		await page.keyboard.type("Back on the line");
+		await expect(page.locator(".emdash-inline-editor > p").nth(1)).toHaveText("Back on the line");
+	});
+
+	test("a click elsewhere on the page closes the image picker", async ({ page }) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		const picker = await openImagePicker(page);
+		await expect(picker.getByRole("option").first()).toBeFocused();
+
+		// The page's margin, where nothing takes focus.
+		await page.mouse.click(4, 4);
+
+		await expect(picker).toBeHidden();
+	});
+
+	test("scrolling the page closes the image picker, and scrolling over it doesn't", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		await stubLibrary(page, 15);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		const editor = page.locator(".emdash-inline-editor");
+		await expect(editor).toBeVisible({ timeout: 15000 });
+		await makeRoomToScroll(page);
+		const picker = await openImagePicker(page);
+		await expect(picker.getByRole("option").first()).toBeFocused();
+		const scrolled = () => page.evaluate(() => window.scrollY);
+		// The page would have moved by the next frame but one.
+		const settled = () =>
+			page.evaluate(
+				() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))),
+			);
+		const before = await scrolled();
+
+		await picker.getByRole("button", { name: "Next page" }).focus();
+		await page.keyboard.press("PageDown");
+		await settled();
+		expect(await scrolled()).toBe(before);
+		await picker.locator(".emdash-inline-ui-picker-count").hover();
+		await page.mouse.wheel(0, 300);
+		await settled();
+		expect(await scrolled()).toBe(before);
+		await expect(picker).toBeVisible();
+
+		await wheelPage(page);
+
+		await expect(picker).toBeHidden();
+		expect(await scrolled()).toBeGreaterThan(before);
+		await expect(editor).toBeFocused();
+		await page.keyboard.type("Back on the line");
+		await expect(editor.locator("> p").nth(1)).toHaveText("Back on the line");
 	});
 
 	test("refuses file drop and paste without losing edits or breaking image insertion", async ({
@@ -611,7 +759,35 @@ test.describe("Inline Editor", () => {
 		await page.keyboard.press("Enter");
 		await page.keyboard.type("/image");
 		await page.keyboard.press("Enter");
-		await expect(page.locator(".emdash-media-picker")).toBeVisible({ timeout: 5000 });
+		await expect(page.getByRole("dialog", { name: "Insert image" })).toBeVisible({
+			timeout: 5000,
+		});
+	});
+
+	test("refuses a file dropped on an image or its caption", async ({ page }) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		const image = page.locator(".emdash-inline-editor figure.emdash-image");
+		await expect(image).toBeVisible({ timeout: 15000 });
+
+		for (const target of [image.locator("img"), image.locator("textarea")]) {
+			const prevented = await target.evaluate((element) => {
+				const transfer = new DataTransfer();
+				transfer.items.add(new File(["image"], "drop.png", { type: "image/png" }));
+				return ["dragenter", "dragover", "drop"].map((type) => {
+					const event = new DragEvent(type, {
+						bubbles: true,
+						cancelable: true,
+						dataTransfer: transfer,
+					});
+					element.dispatchEvent(event);
+					return event.defaultPrevented;
+				});
+			});
+			// The browser opens a file dropped where the page didn't take the drag.
+			expect(prevented).toEqual([true, true, true]);
+		}
+		await expect(page.getByRole("status")).toContainText("Type /image");
 	});
 
 	test("shows file-transfer guidance in Arabic with RTL direction", async ({ page }) => {
@@ -643,106 +819,51 @@ test.describe("Inline Editor", () => {
 		expect(await guidance.evaluate((element) => getComputedStyle(element).direction)).toBe("rtl");
 	});
 
-	test("media picker shows uploaded images", async ({ page }) => {
+	test("inserts the chosen image, selects it, and saves it", async ({ page }) => {
+		await stubSaves(page);
 		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
-
 		const editor = page.locator(".emdash-inline-editor");
 		await expect(editor).toBeVisible({ timeout: 15000 });
-
-		// Open media picker via slash command
-		await editor.locator("p").first().click();
-		await page.keyboard.press("End");
-		await page.keyboard.press("Enter");
-		await page.keyboard.type("/image");
-		await page.keyboard.press("Enter");
-
-		const picker = page.locator(".emdash-media-picker");
-		await expect(picker).toBeVisible({ timeout: 5000 });
-
-		// Should show at least one image (the seeded test-image.png)
-		// Wait for loading to finish — the picker shows "Loading…" then the count
-		await expect(picker.getByText("Loading…").first()).toBeHidden({ timeout: 10000 });
-
-		// Grid should have at least one image thumbnail
-		const images = picker.locator("img");
-		const count = await images.count();
-		expect(count).toBeGreaterThan(0);
-	});
-
-	test("selecting image from picker inserts it and triggers save", async ({ page }) => {
-		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
-
-		const editor = page.locator(".emdash-inline-editor");
-		await expect(editor).toBeVisible({ timeout: 15000 });
-
-		// Count existing images in editor
-		const initialImageCount = await editor.locator("img").count();
-
-		// Open media picker via slash command
-		await editor.locator("p").first().click();
-		await page.keyboard.press("End");
-		await page.keyboard.press("Enter");
-		await page.keyboard.type("/image");
-		await page.keyboard.press("Enter");
-
-		const picker = page.locator(".emdash-media-picker");
-		await expect(picker).toBeVisible({ timeout: 5000 });
-
-		// Wait for images to load
-		await expect(picker.getByText("Loading…").first()).toBeHidden({ timeout: 10000 });
-
-		// Click the first image in the grid to select it
-		const firstThumb = picker
-			.locator("button")
-			.filter({ has: page.locator("img") })
-			.first();
-		await firstThumb.click();
-
-		// Set up response listener for the save request before clicking Insert
-		const savePromise = page.waitForResponse(
-			(res) => res.url().includes("/api/content/posts/") && res.request().method() === "PUT",
-			{ timeout: 10000 },
+		const picker = await openImagePicker(page);
+		await expect(picker.locator(".emdash-inline-ui-picker-count")).toHaveText(
+			/^Showing 1–\d+ of \d+$/,
 		);
+		const save = nextSave(page);
 
-		// Click Insert button
-		const insertButton = picker.locator("button", { hasText: "Insert" });
-		await expect(insertButton).toBeVisible();
-		await insertButton.click();
+		await picker.getByRole("option").first().click();
 
-		// Picker should close
-		await expect(picker).toBeHidden({ timeout: 3000 });
-
-		// A new image should appear in the editor
-		const newImageCount = await editor.locator("img").count();
-		expect(newImageCount).toBeGreaterThan(initialImageCount);
-
-		// Save should have been triggered
-		const saveResponse = await savePromise;
-		expect(saveResponse.ok()).toBe(true);
+		await expect(picker).toBeHidden();
+		await expect(editor.locator("figure.emdash-image")).toHaveCount(2);
+		await expect(page.getByRole("toolbar", { name: "Image controls" })).toBeVisible();
+		const body = (await save).postDataJSON() as SavedBody;
+		expect(body.data.body.map((block) => block._type)).toEqual([
+			"block",
+			"image",
+			"image",
+			"block",
+		]);
 	});
 
-	test("media picker can be closed with cancel", async ({ page }) => {
+	test("chooses an image with the arrow keys and Enter", async ({ page }) => {
+		await stubSaves(page);
+		await stubLibrary(page, 3);
 		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
-
 		const editor = page.locator(".emdash-inline-editor");
 		await expect(editor).toBeVisible({ timeout: 15000 });
+		const picker = await openImagePicker(page);
+		await expect(picker.getByRole("option", { name: "e2e-0.png" })).toBeFocused();
+		const save = nextSave(page);
 
-		// Open media picker
-		await editor.locator("p").first().click();
-		await page.keyboard.press("End");
+		await page.keyboard.press("ArrowRight");
+		const second = picker.getByRole("option", { name: "e2e-1.png" });
+		await expect(second).toBeFocused();
+		await expect(second).toHaveAttribute("aria-selected", "true");
 		await page.keyboard.press("Enter");
-		await page.keyboard.type("/image");
-		await page.keyboard.press("Enter");
 
-		const picker = page.locator(".emdash-media-picker");
-		await expect(picker).toBeVisible({ timeout: 5000 });
-
-		// Click Cancel
-		const cancelButton = picker.locator("button", { hasText: "Cancel" });
-		await cancelButton.click();
-
-		// Picker should close
-		await expect(picker).toBeHidden({ timeout: 3000 });
+		await expect(picker).toBeHidden();
+		await expect(page.getByRole("toolbar", { name: "Image controls" })).toBeVisible();
+		const body = (await save).postDataJSON() as SavedBody;
+		expect(body.data.body.map((block) => block.asset?._ref)).toContain("e2e-1");
 	});
 
 	test("flushes unsaved edits when navigating away (#1582)", async ({ page }) => {
@@ -788,28 +909,111 @@ test.describe("Inline Editor", () => {
 		await expect(reloadedEditor.locator("text=Repro1582")).toBeVisible();
 	});
 
-	test("media picker can be closed with X button", async ({ page }) => {
+	test("replaces the selected image from its toolbar, keeping the caption typed under it", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		// The library offers another image to choose instead.
+		await page.route(
+			(url) => url.pathname === "/_emdash/api/media",
+			async (route) => {
+				const response = await route.fetch();
+				const json = (await response.json()) as MediaList;
+				json.data.items[0] = {
+					...json.data.items[0],
+					id: "e2e-replacement",
+					filename: "replacement.png",
+				};
+				await route.fulfill({ response, json });
+			},
+		);
 		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
-
 		const editor = page.locator(".emdash-inline-editor");
 		await expect(editor).toBeVisible({ timeout: 15000 });
+		const toolbar = page.getByRole("toolbar", { name: "Image controls" });
 
-		// Open media picker
-		await editor.locator("p").first().click();
-		await page.keyboard.press("End");
-		await page.keyboard.press("Enter");
-		await page.keyboard.type("/image");
-		await page.keyboard.press("Enter");
+		await editor.locator("figure.emdash-image img").click();
+		await expect(toolbar).toBeVisible();
+		// Focus moving from the editor to the caption keeps the image's toolbar.
+		await editor.getByRole("textbox", { name: "Caption" }).click();
+		await expect(toolbar).toBeVisible();
+		await page.keyboard.type("Seeded caption");
 
-		const picker = page.locator(".emdash-media-picker");
-		await expect(picker).toBeVisible({ timeout: 5000 });
+		await toolbar.getByRole("button", { name: "Replace" }).click();
+		const picker = page.getByRole("dialog", { name: "Replace image" });
+		await expect(picker).toBeVisible();
+		await animationsFinished(picker);
+		const bar = (await toolbar.boundingBox())!;
+		expect((await picker.boundingBox())!.y).toBeGreaterThanOrEqual(bar.y + bar.height);
+		const save = nextSave(page);
+		await picker.getByRole("option", { name: "replacement.png" }).click();
 
-		// Click the close (X) button
-		const closeButton = picker.locator('button[aria-label="Close"]');
-		await closeButton.click();
+		await expect(picker).toBeHidden();
+		await expect(toolbar.getByRole("button", { name: "Replace" })).toBeFocused();
+		const body = (await save).postDataJSON() as SavedBody;
+		expect(body.data.body.find((block) => block._type === "image")).toMatchObject({
+			asset: { _ref: "e2e-replacement" },
+			caption: "Seeded caption",
+		});
+	});
 
-		// Picker should close
-		await expect(picker).toBeHidden({ timeout: 3000 });
+	test("goes from the Replace picker to the alt text field, keeping the image's toolbar", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		const editor = page.locator(".emdash-inline-editor");
+		await expect(editor).toBeVisible({ timeout: 15000 });
+		const toolbar = page.getByRole("toolbar", { name: "Image controls" });
+		await editor.locator("figure.emdash-image img").click();
+		await toolbar.getByRole("button", { name: "Replace" }).click();
+		const picker = page.getByRole("dialog", { name: "Replace image" });
+		await expect(picker.getByRole("option").first()).toBeFocused();
+
+		await toolbar.getByRole("button", { name: "Alt text" }).click();
+
+		await expect(picker).toBeHidden();
+		await expect(toolbar.getByRole("textbox", { name: "Alt text" })).toBeFocused();
+	});
+
+	test("scrolling the page closes the Replace picker and goes back to Replace", async ({
+		page,
+	}) => {
+		await stubSaves(page);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		const editor = page.locator(".emdash-inline-editor");
+		await expect(editor).toBeVisible({ timeout: 15000 });
+		await makeRoomToScroll(page);
+		const toolbar = page.getByRole("toolbar", { name: "Image controls" });
+		await editor.locator("figure.emdash-image img").click();
+		await toolbar.getByRole("button", { name: "Replace" }).click();
+		const picker = page.getByRole("dialog", { name: "Replace image" });
+		await expect(picker.getByRole("option").first()).toBeFocused();
+
+		await wheelPage(page);
+
+		await expect(picker).toBeHidden();
+		await expect(toolbar.getByRole("button", { name: "Replace" })).toBeFocused();
+	});
+
+	test("keeps the page buttons in place on a short last page", async ({ page }) => {
+		await stubSaves(page);
+		// A page of nine and a page of six.
+		await stubLibrary(page, 15);
+		await gotoWithRetry(page, POST_WITH_IMAGE_PATH);
+		await expect(page.locator(".emdash-inline-editor")).toBeVisible({ timeout: 15000 });
+		const picker = await openImagePicker(page);
+		const count = picker.locator(".emdash-inline-ui-picker-count");
+		const pages = picker.getByRole("navigation", { name: "Image pages" });
+		await expect(count).toHaveText("Showing 1–9 of 15");
+		await animationsFinished(picker);
+		const before = (await pages.boundingBox())!;
+
+		await pages.getByRole("button", { name: "Next page" }).click();
+
+		await expect(count).toHaveText("Showing 10–15 of 15");
+		await expect(picker.getByRole("option")).toHaveCount(6);
+		expect(Math.abs((await pages.boundingBox())!.y - before.y)).toBeLessThan(1);
 	});
 });
 
