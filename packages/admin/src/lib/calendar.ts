@@ -51,13 +51,18 @@ export interface CalendarItem extends CalendarEntry {
 const ROLE_AUTHOR = 30;
 const ROLE_EDITOR = 40;
 
+/** Whether the user may publish, schedule, or reschedule anyone's entries. */
+export function canPublishAnyEntry(user: { role: number } | undefined): boolean {
+	return Boolean(user && user.role >= ROLE_EDITOR);
+}
+
 /** Whether the user may publish, schedule, or reschedule an entry with this author. */
 export function canPublishEntry(
 	user: { id: string; role: number } | undefined,
 	authorId: string | null | undefined,
 ): boolean {
 	if (!user) return false;
-	return user.role >= ROLE_EDITOR || (user.role >= ROLE_AUTHOR && authorId === user.id);
+	return canPublishAnyEntry(user) || (user.role >= ROLE_AUTHOR && authorId === user.id);
 }
 
 /** Schedules publish at the next minute sweep; the grace allows for one more. */

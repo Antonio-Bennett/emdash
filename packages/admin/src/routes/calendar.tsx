@@ -107,14 +107,26 @@ function useNow(): number {
 	return now;
 }
 
-/** Shortcuts don't fire while typing or inside menus and lists that use letter keys themselves. */
+/**
+ * Shortcuts don't fire while typing, inside menus and lists that use letter
+ * keys themselves, or behind the phone's entry sheet.
+ */
 const SHORTCUT_IGNORE =
-	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox]";
+	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox], [aria-modal=true]";
+
+const LATIN_LETTER = /^[a-z]$/i;
+const LETTER_KEY_CODE = /^Key([A-Z])$/;
 
 /**
- * Runs the handler for a letter key pressed on its own, by physical key so
- * shortcuts work in every keyboard layout.
+ * The letter a key press means: the printed letter on Latin layouts, and the
+ * letter at that position on others, such as Cyrillic.
  */
+function shortcutLetter(event: KeyboardEvent): string | undefined {
+	if (LATIN_LETTER.test(event.key)) return event.key.toLowerCase();
+	return LETTER_KEY_CODE.exec(event.code)?.[1]?.toLowerCase();
+}
+
+/** Runs the handler for a letter key pressed on its own. */
 function useShortcuts(handlers: Partial<Record<string, () => void>>) {
 	const latest = React.useRef(handlers);
 	React.useLayoutEffect(() => {
@@ -125,7 +137,8 @@ function useShortcuts(handlers: Partial<Record<string, () => void>>) {
 			if (event.defaultPrevented || event.repeat) return;
 			if (event.metaKey || event.ctrlKey || event.altKey || event.shiftKey) return;
 			if (event.target instanceof Element && event.target.closest(SHORTCUT_IGNORE)) return;
-			const handler = latest.current[event.code];
+			const letter = shortcutLetter(event);
+			const handler = letter && latest.current[letter];
 			if (!handler) return;
 			event.preventDefault();
 			handler();
@@ -296,8 +309,9 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 			replace: true,
 		});
 	}, [entryMissing, navigate]);
+	// A week link can show the agenda on a phone, so a month change drops the week.
 	const goToMonth = (next: string | undefined) => {
-		if (next === undefined || isMonthKey(next)) updateSearch({ month: next });
+		if (next === undefined || isMonthKey(next)) updateSearch({ month: next, week: undefined });
 	};
 	/** Shows the week containing `day`, or this week. */
 	const goToWeek = (day: string | undefined) => {
@@ -405,7 +419,7 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		onSuccess: (_changed, { item, scheduledAt, undo }) => {
 			const title = item.title;
 			const when = display.formatDateTime(Date.parse(scheduledAt));
-			toastManager.add({
+			const toastId: string = toastManager.add({
 				title: t`Rescheduled`,
 				description: t`${title} now goes live ${when}.`,
 				// A time that has passed can't be scheduled again.
@@ -415,7 +429,10 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 						: [
 								{
 									children: t`Undo`,
-									onClick: () => move.mutate({ item, scheduledAt: item.at, undo: true }),
+									onClick: () => {
+										toastManager.close(toastId);
+										move.mutate({ item, scheduledAt: item.at, undo: true });
+									},
 								},
 							],
 			});
@@ -458,13 +475,14 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		onSuccess: (_changed, { draft, scheduledAt }) => {
 			const title = draft.title;
 			const when = display.formatDateTime(Date.parse(scheduledAt));
-			toastManager.add({
+			const toastId: string = toastManager.add({
 				title: t`Scheduled`,
 				description: t`${title} goes live ${when}.`,
 				actions: [
 					{
 						children: t`Undo`,
-						onClick: () =>
+						onClick: () => {
+							toastManager.close(toastId);
 							void unscheduleContent(draft.collection, draft.id, { locale: draft.locale })
 								.catch((undoError: unknown) =>
 									toastManager.add({
@@ -473,7 +491,8 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 										type: "error",
 									}),
 								)
-								.finally(() => refreshContent(draft.collection)),
+								.finally(() => refreshContent(draft.collection));
+						},
 					},
 				],
 			});
@@ -507,12 +526,12 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 
 	const views: CalendarView[] = compact ? ["month", "agenda"] : ["month", "week", "agenda"];
 	useShortcuts({
-		KeyT: period.today,
-		KeyJ: period.next,
-		KeyK: period.previous,
-		KeyM: () => changeView("month"),
-		KeyW: compact ? undefined : () => changeView("week"),
-		KeyA: () => changeView("agenda"),
+		t: period.today,
+		j: period.next,
+		k: period.previous,
+		m: () => changeView("month"),
+		w: compact ? undefined : () => changeView("week"),
+		a: () => changeView("agenda"),
 	});
 
 	return (

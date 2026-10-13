@@ -4,7 +4,12 @@ import { Plus } from "@phosphor-icons/react";
 import * as React from "react";
 
 import { createContent, scheduleContent } from "../../lib/api/content.js";
-import { minutesInZone, zonedInstant, type CalendarDisplay } from "../../lib/calendar.js";
+import {
+	dayKeyToUTC,
+	minutesInZone,
+	zonedInstant,
+	type CalendarDisplay,
+} from "../../lib/calendar.js";
 import { cn } from "../../lib/utils.js";
 import { getMutationError } from "../DialogError.js";
 
@@ -128,8 +133,10 @@ function QuickCreateForm({
 	const [time, setTime] = React.useState(() => defaultTime(day, today, display.timeZone));
 	const [error, setError] = React.useState<string>();
 	const [pending, setPending] = React.useState(false);
+	// A draft that was created but not scheduled; trying again only schedules it.
+	const [draft, setDraft] = React.useState<{ collection: string; id: string; locale: string }>();
 	const date = display.fullDate(day);
-	const zone = display.zoneShortName(Date.now());
+	const zone = display.zoneShortName(dayKeyToUTC(day) + 12 * 3_600_000);
 
 	const submit = async (event: React.FormEvent) => {
 		event.preventDefault();
@@ -152,13 +159,19 @@ function QuickCreateForm({
 		} catch {
 			// The choice just isn't remembered.
 		}
-		let created: { id: string; locale: string } | undefined;
+		let created = draft;
 		try {
-			created = await createContent(target.slug, { data: { [target.titleField]: title.trim() } });
-			await scheduleContent(target.slug, created.id, new Date(at).toISOString(), {
+			if (!created) {
+				const item = await createContent(target.slug, {
+					data: { [target.titleField]: title.trim() },
+				});
+				created = { collection: target.slug, id: item.id, locale: item.locale };
+				setDraft(created);
+			}
+			await scheduleContent(created.collection, created.id, new Date(at).toISOString(), {
 				locale: created.locale,
 			});
-			await onCreated({ collection: target.slug, id: created.id });
+			await onCreated({ collection: created.collection, id: created.id });
 		} catch (failure) {
 			const message = getMutationError(failure) ?? "";
 			setError(created ? t`Saved as a draft, but not scheduled: ${message}` : message);
@@ -173,6 +186,7 @@ function QuickCreateForm({
 				label={t`Title`}
 				value={title}
 				onChange={(event) => setTitle(event.target.value)}
+				disabled={Boolean(draft)}
 				autoFocus
 				required
 			/>
@@ -182,6 +196,7 @@ function QuickCreateForm({
 					label={t`Collection`}
 					value={collection}
 					onValueChange={(value) => setCollection(value ?? collection)}
+					disabled={Boolean(draft)}
 					items={Object.fromEntries(collections.map((option) => [option.slug, option.label]))}
 				/>
 			)}

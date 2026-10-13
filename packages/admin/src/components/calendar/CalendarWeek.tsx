@@ -242,6 +242,7 @@ function CalendarWeekDay({
 										selected={shown.key === selectedKey}
 										onSelect={onSelect}
 										movable={canMove?.(shown)}
+										placedAt={minutes(first)}
 									/>
 								</span>
 								{stack.length > 1 && (

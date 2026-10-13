@@ -179,17 +179,24 @@ describe("CalendarPage", () => {
 			authorId: "someone",
 		};
 		let schedules: unknown[];
+		let refuse: boolean;
 
 		beforeEach(async () => {
 			await page.viewport(1440, 900);
 			schedules = [];
+			refuse = false;
 			router.search = { month: "2030-03", view: "month" };
 			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
 				const url = input instanceof Request ? input.url : input.toString();
 				if (url.includes("/calendar?")) return Response.json({ data: { items: [launch] } });
 				if (url.includes("/content/posts/launch/schedule")) {
 					schedules.push(JSON.parse(typeof init?.body === "string" ? init.body : "null"));
-					return Response.json({ data: { item: { id: "launch" } } });
+					return refuse
+						? Response.json(
+								{ error: { code: "CONFLICT", message: "Someone else is editing this entry" } },
+								{ status: 409 },
+							)
+						: Response.json({ data: { item: { id: "launch" } } });
 				}
 				return Response.json(
 					{ error: { code: "NOT_FOUND", message: "Not found" } },
@@ -211,6 +218,48 @@ describe("CalendarPage", () => {
 			await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
 			// The drop doesn't also open the entry.
 			expect(router.navigate).not.toHaveBeenCalled();
+			await expect
+				.element(page.getByText("Entry launch was dropped on Tuesday, March 12, 2030."))
+				.toBeInTheDocument();
+		});
+
+		it("puts the entry back when the server refuses the move", async () => {
+			refuse = true;
+			const screen = await renderPage();
+			const chip = screen.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+
+			await userEvent.dragAndDrop(chip, dayCell(screen, "12"), { steps: 10 });
+
+			await expect.poll(() => schedules).toHaveLength(1);
+			await expect
+				.element(
+					screen
+						.getByRole("list", { name: "Tuesday, March 5, 2030" })
+						.getByRole("link", { name: /Entry launch/ }),
+				)
+				.toBeVisible();
+		});
+
+		it("moves an entry in the week by how far it's dragged, keeping its minutes", async () => {
+			launch.at = "2030-03-05T09:10:00.000Z";
+			router.search = { view: "week", week: "2030-03-05" };
+			const screen = await renderPage();
+			const day = screen.getByRole("list", { name: "Tuesday, March 5, 2030" });
+			const chip = day.getByRole("link", { name: /Entry launch/ });
+			await expect.element(chip).toBeVisible();
+			const column = day.element().parentElement!;
+			const top = chip.element().getBoundingClientRect().top - column.getBoundingClientRect().top;
+
+			// Two 48px hours down.
+			await userEvent.dragAndDrop(chip, column, {
+				sourcePosition: { x: 8, y: 5 },
+				targetPosition: { x: 8, y: top + 5 + 96 },
+				steps: 10,
+			});
+
+			await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-05T11:10:00.000Z" }]);
+			launch.at = "2030-03-05T09:00:00.000Z";
 		});
 
 		it("leaves another author's entry where it is for an author", async () => {
@@ -281,6 +330,56 @@ describe("CalendarPage", () => {
 				.toMatchObject({ search: { entry: "posts:spring:scheduled" } });
 		});
 
+		it("schedules the draft it already created when trying again", async () => {
+			let failSchedule = true;
+			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
+				const url = new URL(
+					input instanceof Request ? input.url : input.toString(),
+					location.origin,
+				);
+				if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
+				if (init?.method !== "POST") {
+					return Response.json(
+						{ error: { code: "NOT_FOUND", message: "Not found" } },
+						{ status: 404 },
+					);
+				}
+				posts.push({ path: url.pathname, body: null });
+				if (url.pathname.endsWith("/schedule") && failSchedule) {
+					failSchedule = false;
+					return Response.json(
+						{
+							error: { code: "VALIDATION_ERROR", message: "Scheduled date must be in the future" },
+						},
+						{ status: 400 },
+					);
+				}
+				return Response.json({ data: { item: { id: "spring", locale: "en" } } });
+			});
+			const screen = await renderPage();
+
+			await screen
+				.getByRole("button", { name: "Schedule an entry on Thursday, March 14, 2030" })
+				.click();
+			await screen.getByLabelText("Title").fill("Spring launch");
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+			await expect
+				.element(screen.getByRole("alert"))
+				.toHaveTextContent(
+					"Saved as a draft, but not scheduled: Scheduled date must be in the future",
+				);
+
+			await screen.getByRole("button", { name: "Schedule", exact: true }).click();
+
+			await expect
+				.poll(() => posts.map((post) => post.path))
+				.toEqual([
+					"/_emdash/api/content/posts",
+					"/_emdash/api/content/posts/spring/schedule",
+					"/_emdash/api/content/posts/spring/schedule",
+				]);
+		});
+
 		it("isn't offered to contributors, who can't schedule", async () => {
 			currentUser.value = { id: "contributor", email: "contributor@example.com", role: 20 };
 			const screen = await renderPage();
@@ -306,10 +405,12 @@ describe("CalendarPage", () => {
 			updatedAt: "2030-02-01T00:00:00.000Z",
 		});
 		const schedules: unknown[] = [];
+		const draftAuthors: Array<string | null> = [];
 		globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
 			const url = new URL(input instanceof Request ? input.url : input.toString(), location.origin);
 			if (url.pathname.endsWith("/calendar")) return Response.json({ data: { items: [] } });
 			if (url.pathname.endsWith("/content/posts") && url.searchParams.get("status") === "draft") {
+				draftAuthors.push(url.searchParams.get("authorId"));
 				return Response.json({
 					data: { items: [draft("mine", "author"), draft("theirs", "editor")] },
 				});
@@ -327,12 +428,31 @@ describe("CalendarPage", () => {
 		const mine = screen.getByRole("link", { name: /Draft mine/ });
 		await expect.element(mine).toBeVisible();
 		expect(screen.getByRole("link", { name: /Draft theirs/ }).elements()).toHaveLength(0);
+		// Others' drafts can't use up the list, since only the author's are asked for.
+		expect(draftAuthors).toEqual(["author"]);
 
 		await userEvent.dragAndDrop(mine, screen.getByRole("cell").filter({ hasText: /^12$/ }), {
 			steps: 10,
 		});
 
 		await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-12T09:00:00.000Z" }]);
+	});
+
+	it("moves a week link's agenda on a phone to the next month", async () => {
+		await page.viewport(390, 844);
+		router.search = { view: "week", week: "2030-11-10" };
+		serveCalendar(() => Response.json({ data: { items: [] } }));
+		const screen = await renderPage();
+		await expect
+			.element(screen.getByRole("heading", { name: "November 2030", exact: true }))
+			.toBeVisible();
+
+		await screen.getByRole("button", { name: "Next month" }).click();
+
+		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
+			month: "2030-12",
+			week: undefined,
+		});
 	});
 
 	it("moves between months and views with letter keys, but not while typing", async () => {
@@ -345,6 +465,11 @@ describe("CalendarPage", () => {
 		await userEvent.keyboard("j");
 		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
 			month: "2030-04",
+		});
+		// On Dvorak, the key labelled K sits where QWERTY has V.
+		window.dispatchEvent(new KeyboardEvent("keydown", { key: "k", code: "KeyV" }));
+		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({
+			month: "2030-02",
 		});
 		await userEvent.keyboard("w");
 		expect(navigatedSearch(router.navigate.mock.lastCall).search).toMatchObject({ view: "week" });

@@ -7,7 +7,12 @@ import * as React from "react";
 
 import { fetchContentList } from "../../lib/api/content.js";
 import type { CurrentUser } from "../../lib/api/current-user.js";
-import { canPublishEntry, formatTimeAgo, type CalendarDisplay } from "../../lib/calendar.js";
+import {
+	canPublishAnyEntry,
+	canPublishEntry,
+	formatTimeAgo,
+	type CalendarDisplay,
+} from "../../lib/calendar.js";
 import { getEntryTitle } from "../../lib/entryTitle.js";
 import { cn } from "../../lib/utils.js";
 import { useDraftDrag, type CalendarDraft } from "./CalendarDrag.js";
@@ -37,12 +42,15 @@ interface DraftRow extends CalendarDraft {
 export function CalendarDrafts({ collections, display, now, user, onClose }: CalendarDraftsProps) {
 	const { t } = useLingui();
 	const headingId = React.useId();
+	// People who can only publish their own drafts get just theirs, so others' can't crowd them out.
+	const authorId = canPublishAnyEntry(user) ? undefined : user?.id;
 	const results = useQueries({
 		queries: collections.map((collection) => ({
-			queryKey: ["content", collection.slug, { status: "draft", calendar: true }],
+			queryKey: ["content", collection.slug, { status: "draft", calendar: true, authorId }],
 			queryFn: () =>
 				fetchContentList(collection.slug, {
 					status: "draft",
+					authorId,
 					limit: DRAFTS_PER_COLLECTION,
 					orderBy: "updatedAt",
 					order: "desc",

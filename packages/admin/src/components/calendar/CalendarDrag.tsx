@@ -1,16 +1,19 @@
 import {
 	DndContext,
 	DragOverlay,
-	PointerSensor,
+	MouseSensor,
+	TouchSensor,
 	pointerWithin,
 	useDraggable,
 	useDroppable,
 	useSensor,
 	useSensors,
+	type Active,
 	type DragEndEvent,
 	type DragMoveEvent,
-	type DragStartEvent,
+	type Over,
 } from "@dnd-kit/core";
+import { useLingui } from "@lingui/react/macro";
 import * as React from "react";
 
 import {
@@ -36,7 +39,13 @@ export interface CalendarDraft {
 	title: string;
 }
 
-type Dragged = { item: CalendarItem } | { draft: CalendarDraft };
+type Dragged =
+	| {
+			item: CalendarItem;
+			/** Minutes past midnight the entry's chip is drawn at, in the week view. */
+			placedAt?: number;
+	  }
+	| { draft: CalendarDraft };
 
 interface DropTarget {
 	day: string;
@@ -51,11 +60,17 @@ interface DragState {
 	allowed: boolean;
 }
 
-function readDragged(event: DragStartEvent | DragMoveEvent): Dragged | undefined {
-	const data = event.active.data.current;
-	if (data?.item) return { item: data.item as CalendarItem };
+function readDragged(active: Active): Dragged | undefined {
+	const data = active.data.current;
+	if (data?.item) {
+		return { item: data.item as CalendarItem, placedAt: data.placedAt as number | undefined };
+	}
 	if (data?.draft) return { draft: data.draft as CalendarDraft };
 	return undefined;
+}
+
+function readTarget(over: Over | null): DropTarget | undefined {
+	return over?.data.current as DropTarget | undefined;
 }
 
 /** The entry a dragged draft would become, for the preview. */
@@ -98,28 +113,69 @@ export function CalendarDragProvider({
 	onPastDrop,
 	children,
 }: CalendarDragProviderProps) {
-	const sensors = useSensors(useSensor(PointerSensor, { activationConstraint: { distance: 6 } }));
+	const { t } = useLingui();
+	// On touch screens a drag starts with a long press, so swipes still scroll.
+	const sensors = useSensors(
+		useSensor(MouseSensor, { activationConstraint: { distance: 6 } }),
+		useSensor(TouchSensor, { activationConstraint: { delay: 250, tolerance: 5 } }),
+	);
 	const [drag, setDrag] = React.useState<DragState | null>(null);
 
 	const landing = (event: DragMoveEvent): number | undefined => {
-		const dragged = readDragged(event);
-		const target = event.over?.data.current as DropTarget | undefined;
+		const dragged = readDragged(event.active);
+		const target = readTarget(event.over);
 		if (!dragged || !target) return undefined;
+		const item = "item" in dragged ? dragged.item : undefined;
+		const itemMinutes = item ? minutesInZone(item.time, display.timeZone) : DRAFT_DAY_MINUTES;
 		const column = target.column?.current;
 		const dropped = event.active.rect.current.translated;
-		if (!column || !dropped) {
-			const minutes =
-				"item" in dragged ? minutesInZone(dragged.item.time, display.timeZone) : DRAFT_DAY_MINUTES;
-			return zonedInstant(target.day, minutes, display.timeZone);
+		let minutes = itemMinutes;
+		if (column && dropped) {
+			// Both rects are measured now, so scrolling the grid during the drag is accounted for.
+			const pointed = ((dropped.top - column.getBoundingClientRect().top) / HOUR_HEIGHT) * 60;
+			const snap = (value: number) => Math.round(value / SNAP_MINUTES) * SNAP_MINUTES;
+			// An entry moves by whole steps from its own time, measured from where its chip is drawn;
+			// a draft lands on a step.
+			const drawnAt = "item" in dragged ? (dragged.placedAt ?? itemMinutes) : 0;
+			minutes = item ? itemMinutes + snap(pointed - drawnAt) : snap(pointed);
+			minutes = Math.min(Math.max(minutes, 0), 24 * 60 - 1);
 		}
-		// Both rects are measured now, so scrolling the grid during the drag is accounted for.
-		const offset = dropped.top - column.getBoundingClientRect().top;
-		const snapped = Math.round(((offset / HOUR_HEIGHT) * 60) / SNAP_MINUTES) * SNAP_MINUTES;
-		return zonedInstant(
-			target.day,
-			Math.min(Math.max(snapped, 0), 24 * 60 - SNAP_MINUTES),
-			display.timeZone,
-		);
+		if (item && target.day === item.day && minutes === itemMinutes) return item.time;
+		return zonedInstant(target.day, minutes, display.timeZone);
+	};
+
+	const titleOf = (active: Active) => {
+		const dragged = readDragged(active);
+		return dragged ? ("item" in dragged ? dragged.item.title : dragged.draft.title) : "";
+	};
+	const accessibility = {
+		announcements: {
+			onDragStart: ({ active }: { active: Active }) => {
+				const title = titleOf(active);
+				return t`Picked up ${title}.`;
+			},
+			onDragOver: ({ active, over }: { active: Active; over: Over | null }) => {
+				const title = titleOf(active);
+				const target = readTarget(over);
+				if (!target) return t`${title} is not over a day.`;
+				const date = display.fullDate(target.day);
+				return t`${title} is over ${date}.`;
+			},
+			onDragEnd: ({ active, over }: { active: Active; over: Over | null }) => {
+				const title = titleOf(active);
+				const target = readTarget(over);
+				if (!target) return t`${title} was dropped outside the calendar.`;
+				const date = display.fullDate(target.day);
+				return t`${title} was dropped on ${date}.`;
+			},
+			onDragCancel: ({ active }: { active: Active }) => {
+				const title = titleOf(active);
+				return t`Moving ${title} was cancelled.`;
+			},
+		},
+		screenReaderInstructions: {
+			draggable: t`To reschedule an entry with the keyboard, open it and choose Reschedule.`,
+		},
 	};
 
 	const update = (event: DragMoveEvent) => {
@@ -135,15 +191,16 @@ export function CalendarDragProvider({
 		<DndContext
 			sensors={sensors}
 			collisionDetection={pointerWithin}
+			accessibility={accessibility}
 			onDragStart={(event) => {
-				const dragged = readDragged(event);
+				const dragged = readDragged(event.active);
 				if (dragged) setDrag({ dragged, allowed: false });
 			}}
 			onDragMove={update}
 			onDragOver={update}
 			onDragCancel={() => setDrag(null)}
 			onDragEnd={(event: DragEndEvent) => {
-				const dragged = readDragged(event);
+				const dragged = readDragged(event.active);
 				const time = landing(event);
 				setDrag(null);
 				if (!dragged || time === undefined) return;
