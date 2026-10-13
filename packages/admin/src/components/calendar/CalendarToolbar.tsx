@@ -20,7 +20,7 @@ interface CalendarToolbarProps {
 	/** Called when the pointer or focus reaches a month button, before it is pressed. */
 	onPreviewPrevious?: () => void;
 	onPreviewNext?: () => void;
-	/** Filters and other tools after the view switcher. */
+	/** Filters and other tools across from the view switcher. */
 	tools?: React.ReactNode;
 }
 
@@ -35,7 +35,10 @@ function ShortcutHint({ label, shortcut }: { label: string; shortcut: string }) 
 	);
 }
 
-/** The month's navigation and title on one side, the view switcher and tools on the other. */
+/**
+ * The views and tools on the first row; the month, its time zone, and the
+ * month buttons on the second.
+ */
 export function CalendarToolbar({
 	title,
 	display,
@@ -63,66 +66,8 @@ export function CalendarToolbar({
 	const nextLabel = t`Next month`;
 
 	return (
-		<div className="flex flex-wrap items-center gap-x-4 gap-y-3">
-			<div className="flex min-w-0 flex-1 basis-72 items-center gap-3">
-				<TooltipProvider delay={600}>
-					<div className="flex shrink-0 items-center gap-1">
-						<Tooltip
-							content={<ShortcutHint label={t`Go to today`} shortcut="T" />}
-							render={
-								<Button variant="secondary" onClick={onToday} aria-keyshortcuts="T">
-									{t`Today`}
-								</Button>
-							}
-						/>
-						<Tooltip
-							content={<ShortcutHint label={previousLabel} shortcut="K" />}
-							render={
-								<Button
-									variant="ghost"
-									shape="square"
-									aria-label={previousLabel}
-									aria-keyshortcuts="K"
-									icon={<CaretPrev aria-hidden="true" />}
-									onClick={onPrevious}
-									onPointerEnter={onPreviewPrevious}
-									onFocus={onPreviewPrevious}
-								/>
-							}
-						/>
-						<Tooltip
-							content={<ShortcutHint label={nextLabel} shortcut="J" />}
-							render={
-								<Button
-									variant="ghost"
-									shape="square"
-									aria-label={nextLabel}
-									aria-keyshortcuts="J"
-									icon={<CaretNext aria-hidden="true" />}
-									onClick={onNext}
-									onPointerEnter={onPreviewNext}
-									onFocus={onPreviewNext}
-								/>
-							}
-						/>
-					</div>
-				</TooltipProvider>
-				<div className="grid min-w-0">
-					<h2 className="truncate text-xl leading-7 font-semibold text-kumo-default">{title}</h2>
-					<p
-						title={zoneDescription}
-						className="flex min-w-0 items-center gap-1 text-xs text-kumo-subtle tabular-nums"
-					>
-						<Globe aria-hidden="true" className="size-3.5 shrink-0" />
-						<span aria-hidden="true" className="truncate">
-							{showViewerZone ? t`${siteZone} · Your time: ${viewerZone}` : siteZone}
-						</span>
-						<span className="sr-only">{zoneDescription}</span>
-					</p>
-				</div>
-				{loading && <Loader size="sm" aria-label={t`Loading`} className="shrink-0" />}
-			</div>
-			<div className="flex min-w-0 items-center gap-2 max-sm:w-full">
+		<div className="grid gap-3">
+			<div className="flex items-center justify-between gap-2 border-b border-kumo-line pb-3">
 				<Tabs
 					value={view}
 					onValueChange={(value) => {
@@ -161,7 +106,67 @@ export function CalendarToolbar({
 					className="min-w-0 flex-1 sm:flex-none"
 					listClassName="w-full"
 				/>
-				{tools}
+				<div className="flex shrink-0 items-center gap-2">{tools}</div>
+			</div>
+			<div className="flex items-start justify-between gap-4">
+				<div className="flex min-w-0 flex-wrap items-baseline gap-x-3 gap-y-0.5">
+					<h2 className="text-xl leading-7 font-semibold text-kumo-default">{title}</h2>
+					<p
+						title={zoneDescription}
+						className="flex items-center gap-1.5 text-sm text-kumo-subtle tabular-nums"
+					>
+						<Globe aria-hidden="true" className="size-4 shrink-0 self-center" />
+						<span aria-hidden="true">
+							{showViewerZone ? t`${siteZone} · Your time: ${viewerZone}` : siteZone}
+						</span>
+						<span className="sr-only">{zoneDescription}</span>
+					</p>
+				</div>
+				<TooltipProvider delay={600}>
+					<div className="flex h-7 shrink-0 items-center gap-1">
+						{loading && <Loader size="sm" aria-label={t`Loading`} className="me-1" />}
+						<Tooltip
+							content={<ShortcutHint label={previousLabel} shortcut="K" />}
+							render={
+								<Button
+									variant="ghost"
+									shape="square"
+									size="sm"
+									aria-label={previousLabel}
+									aria-keyshortcuts="K"
+									icon={<CaretPrev aria-hidden="true" />}
+									onClick={onPrevious}
+									onPointerEnter={onPreviewPrevious}
+									onFocus={onPreviewPrevious}
+								/>
+							}
+						/>
+						<Tooltip
+							content={<ShortcutHint label={t`Go to today`} shortcut="T" />}
+							render={
+								<Button variant="secondary" size="sm" onClick={onToday} aria-keyshortcuts="T">
+									{t`Today`}
+								</Button>
+							}
+						/>
+						<Tooltip
+							content={<ShortcutHint label={nextLabel} shortcut="J" />}
+							render={
+								<Button
+									variant="ghost"
+									shape="square"
+									size="sm"
+									aria-label={nextLabel}
+									aria-keyshortcuts="J"
+									icon={<CaretNext aria-hidden="true" />}
+									onClick={onNext}
+									onPointerEnter={onPreviewNext}
+									onFocus={onPreviewNext}
+								/>
+							}
+						/>
+					</div>
+				</TooltipProvider>
 			</div>
 		</div>
 	);

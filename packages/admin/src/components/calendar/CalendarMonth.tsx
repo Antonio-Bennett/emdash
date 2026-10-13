@@ -24,7 +24,6 @@ import { useDateLocale } from "../../locales/date-locale.js";
 import { getLocaleDir } from "../../locales/index.js";
 import { useCalendarDrop } from "./CalendarDrag.js";
 import { CalendarDayList, CalendarEntryChip, type CalendarSelectHandler } from "./CalendarEntry.js";
-import { CalendarQuickCreate, type CalendarCreate } from "./CalendarQuickCreate.js";
 
 /** Month cells are never shorter than this, so short windows scroll the grid instead. */
 const MIN_ROW_HEIGHT = 92;
@@ -60,8 +59,6 @@ interface CalendarMonthProps {
 	onSelect?: CalendarSelectHandler;
 	/** Whether the user may drag the entry to another day. */
 	canMove?: (item: CalendarItem) => boolean;
-	/** Offers a "+" on each day from today that schedules a new entry. */
-	create?: CalendarCreate;
 	onMonthChange: (month: string) => void;
 	/** Filters are on; when they hide every entry, a notice offers to clear them. */
 	onClearFilters?: () => void;
@@ -138,7 +135,6 @@ function CalendarMonthGrid({
 	selectedKey,
 	onSelect,
 	canMove,
-	create,
 	onClearFilters,
 }: CalendarMonthProps) {
 	const weeks = React.useMemo(
@@ -191,7 +187,6 @@ function CalendarMonthGrid({
 											selectedKey={selectedKey}
 											onSelect={onSelect}
 											canMove={canMove}
-											create={create}
 										/>
 									))}
 								</tr>
@@ -228,7 +223,6 @@ interface CalendarMonthCellProps {
 	selectedKey?: string;
 	onSelect?: CalendarSelectHandler;
 	canMove?: (item: CalendarItem) => boolean;
-	create?: CalendarCreate;
 }
 
 function CalendarMonthCell({
@@ -243,7 +237,6 @@ function CalendarMonthCell({
 	selectedKey,
 	onSelect,
 	canMove,
-	create,
 }: CalendarMonthCellProps) {
 	const { t } = useLingui();
 	const drop = useCalendarDrop(day, today);
@@ -256,24 +249,13 @@ function CalendarMonthCell({
 			ref={drop.ref}
 			aria-current={isToday ? "date" : undefined}
 			className={cn(
-				"group/cell border-s border-t border-kumo-line p-1 align-top first:border-s-0",
+				"border-s border-t border-kumo-line p-1 align-top first:border-s-0",
 				(!inMonth || display.isWeekend(day)) && "bg-kumo-elevated",
 				drop.highlighted && "bg-kumo-tint",
 			)}
 		>
 			<div className="flex min-w-0 flex-col gap-0.5">
-				<div className="flex h-5 items-center">
-					{create && day >= today && (
-						<CalendarQuickCreate
-							day={day}
-							today={today}
-							display={display}
-							collections={create.collections}
-							onCreated={create.onCreated}
-							className="opacity-0 group-hover/cell:opacity-100 focus-visible:opacity-100 data-popup-open:opacity-100 pointer-coarse:opacity-100"
-						/>
-					)}
-					<span className="ms-auto" />
+				<div className="flex h-5 justify-end">
 					{isToday ? (
 						<Badge variant="red" className="h-5 min-w-5 justify-center px-1.5 tabular-nums">
 							{label}

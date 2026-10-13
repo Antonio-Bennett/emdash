@@ -18,7 +18,6 @@ import { CalendarDragProvider, type CalendarDraft } from "../components/calendar
 import { CalendarEntryPanel } from "../components/calendar/CalendarEntryPanel.js";
 import { CalendarFilters } from "../components/calendar/CalendarFilters.js";
 import { CalendarMonth } from "../components/calendar/CalendarMonth.js";
-import type { CalendarCreate } from "../components/calendar/CalendarQuickCreate.js";
 import { CalendarToolbar } from "../components/calendar/CalendarToolbar.js";
 import { getMutationError } from "../components/DialogError.js";
 import { visibleCollectionEntries } from "../components/Sidebar.js";
@@ -106,11 +105,10 @@ function useNow(): number {
 
 /**
  * Shortcuts don't fire while typing, inside menus and lists that use letter
- * keys themselves, inside popovers that a month change would close, or
- * behind the phone's entry sheet.
+ * keys themselves, or behind the phone's entry sheet.
  */
 const SHORTCUT_IGNORE =
-	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox], .kumo-popover-popup, [aria-modal=true]";
+	"input, textarea, select, [contenteditable], [role=menu], [role=listbox], [role=combobox], [aria-modal=true]";
 
 const LATIN_LETTER = /^[a-z]$/i;
 const LETTER_KEY_CODE = /^Key([A-Z])$/;
@@ -265,12 +263,11 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 	React.useEffect(() => {
 		if (selectedKey === undefined) pushedFromRef.current = null;
 	}, [selectedKey]);
-	const openKey = (key: string, element: HTMLElement | null) => {
+	const openEntry = (item: CalendarItem, element: HTMLElement) => {
 		returnFocusRef.current = element;
 		if (selectedKey === undefined) pushedFromRef.current = searchWithoutEntry;
-		updateSearch({ entry: key }, { push: selectedKey === undefined });
+		updateSearch({ entry: item.key }, { push: selectedKey === undefined });
 	};
-	const openEntry = (item: CalendarItem, element: HTMLElement) => openKey(item.key, element);
 	const closeEntry = () => {
 		const pushedFrom = pushedFromRef.current;
 		pushedFromRef.current = null;
@@ -393,44 +390,6 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 		},
 		onSettled: (_changed, _error, { item }) => refreshContent(item.collection),
 	});
-	// Scheduling a new entry takes publishing your own.
-	const createOptions = canPublishEntry(user, user?.id)
-		? visibleCollectionEntries(manifest.collections).flatMap(([slug, collection]) => {
-				const titleField =
-					collection.titleField ?? ["title", "name"].find((field) => field in collection.fields);
-				if (collection.quickCreate === false || !titleField) return [];
-				// The new entry has only a title, so the rest must be optional, and a
-				// routable entry needs a title the server can make its slug from.
-				const complete = Object.entries(collection.fields).every(
-					([name, field]) =>
-						name === titleField || !field.required || field.defaultValue !== undefined,
-				);
-				const sluggable =
-					collection.routable === false || titleField === "title" || titleField === "name";
-				if (!complete || !sluggable) return [];
-				const defaults = Object.fromEntries(
-					Object.entries(collection.fields).flatMap(([name, field]) =>
-						field.defaultValue === undefined ? [] : [[name, field.defaultValue]],
-					),
-				);
-				return [
-					{ slug, label: collection.labelSingular || collection.label, titleField, defaults },
-				];
-			})
-		: [];
-	const create: CalendarCreate | undefined =
-		createOptions.length > 0
-			? {
-					collections: createOptions,
-					onCreated: async ({ collection, id, trigger }) => {
-						void queryClient.invalidateQueries({ queryKey: ["content", collection] });
-						void queryClient.invalidateQueries({ queryKey: ["dashboard-stats"] });
-						// The panel opens once the calendar has the new entry.
-						await queryClient.invalidateQueries({ queryKey: ["calendar"] });
-						openKey(calendarEntryKey({ collection, id, kind: "scheduled" }), trigger);
-					},
-				}
-			: undefined;
 	// Unscheduled drafts sit beside the calendar, so they need the docked layout.
 	const [draftsOpen, setDraftsOpen] = React.useState(false);
 	const canSchedule = canPublishEntry(user, user?.id);
@@ -599,7 +558,6 @@ function Calendar({ manifest }: { manifest: AdminManifest }) {
 								selectedKey={selectedKey}
 								onSelect={openEntry}
 								canMove={canMove}
-								create={create}
 								onMonthChange={goToMonth}
 								onClearFilters={filtered ? clearFilters : undefined}
 							/>
