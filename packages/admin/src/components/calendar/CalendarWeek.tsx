@@ -250,6 +250,7 @@ function CalendarWeekDay({
 											day={day}
 											items={stack}
 											hidden={stack.length - 1}
+											short
 											display={display}
 											now={now}
 											selectedKey={selectedKey}

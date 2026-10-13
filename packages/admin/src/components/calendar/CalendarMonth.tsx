@@ -336,6 +336,8 @@ interface CalendarMorePopoverProps {
 	items: readonly CalendarItem[];
 	/** How many of the day's entries the cell leaves out. */
 	hidden: number;
+	/** Shows just "+N", for narrow rows. */
+	short?: boolean;
 	display: CalendarDisplay;
 	now: number;
 	nowAt?: number;
@@ -347,6 +349,7 @@ export function CalendarMorePopover({
 	day,
 	items,
 	hidden,
+	short,
 	display,
 	now,
 	nowAt,
@@ -373,7 +376,9 @@ export function CalendarMorePopover({
 					/>
 				}
 			>
-				{plural(hidden, { one: "+# more", other: "+# more" })}
+				{short
+					? plural(hidden, { one: "+#", other: "+#" })
+					: plural(hidden, { one: "+# more", other: "+# more" })}
 			</Popover.Trigger>
 			<Popover.Content className="w-80 max-w-[calc(100vw-2rem)] p-2" align="start">
 				<Popover.Title className="px-2 pt-1 pb-2 text-sm font-semibold">{date}</Popover.Title>
