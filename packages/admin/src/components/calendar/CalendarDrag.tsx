@@ -137,8 +137,12 @@ export function CalendarDragProvider({
 			// An entry moves by whole steps from its own time, measured from where its chip is drawn;
 			// a draft lands on a step.
 			const drawnAt = "item" in dragged ? (dragged.placedAt ?? itemMinutes) : 0;
-			minutes = item ? itemMinutes + snap(pointed - drawnAt) : snap(pointed);
-			minutes = Math.min(Math.max(minutes, 0), 24 * 60 - 1);
+			const from = item ? itemMinutes : 0;
+			const step = snap(pointed - drawnAt);
+			// The earliest and latest steps that stay on the day.
+			const first = -Math.floor(from / SNAP_MINUTES) * SNAP_MINUTES;
+			const last = Math.floor((24 * 60 - 1 - from) / SNAP_MINUTES) * SNAP_MINUTES;
+			minutes = from + Math.min(Math.max(step, first), last);
 		}
 		if (item && target.day === item.day && minutes === itemMinutes) return item.time;
 		return zonedInstant(target.day, minutes, display.timeZone);

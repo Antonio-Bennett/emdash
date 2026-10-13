@@ -1,6 +1,7 @@
 import { Button, Input, Popover, Select } from "@cloudflare/kumo";
 import { useLingui } from "@lingui/react/macro";
 import { Plus } from "@phosphor-icons/react";
+import { useQueryClient } from "@tanstack/react-query";
 import * as React from "react";
 
 import { createContent, scheduleContent } from "../../lib/api/content.js";
@@ -128,6 +129,7 @@ function QuickCreateForm({
 	onCreated: (created: Omit<QuickCreated, "trigger">) => void | Promise<void>;
 }) {
 	const { t } = useLingui();
+	const queryClient = useQueryClient();
 	const [title, setTitle] = React.useState("");
 	const [collection, setCollection] = React.useState(() => lastCollection(collections));
 	const [time, setTime] = React.useState(() => defaultTime(day, today, display.timeZone));
@@ -176,6 +178,9 @@ function QuickCreateForm({
 			const message = getMutationError(failure) ?? "";
 			setError(created ? t`Saved as a draft, but not scheduled: ${message}` : message);
 			setPending(false);
+			// The new draft belongs in the Drafts list now.
+			if (created)
+				void queryClient.invalidateQueries({ queryKey: ["content", created.collection] });
 		}
 	};
 

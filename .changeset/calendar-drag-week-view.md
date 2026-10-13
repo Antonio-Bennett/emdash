@@ -13,6 +13,6 @@ Adds drag-and-drop rescheduling and a week view to the admin calendar, and fits 
 - On wide screens the entry panel sits beside the calendar instead of covering it, and clicking empty space closes it. On phones it is a bottom sheet that swipes down to close.
 - Keyboard shortcuts: T goes to today, J and K to the next and previous period, and M, W, and A switch between month, week, and agenda.
 
-The week view and the Drafts pane need a wide screen; phones keep the month and agenda views. Agenda rows show times in the site's time zone; the side panel and entry tooltips also show the viewer's own time. The red line marking the present appears in the agenda and week views.
+The week view and the Drafts pane need a wide screen; phones keep the month and agenda views. Agenda rows show times in the site's time zone; the side panel and entry tooltips also show the viewer's own time. Month cells no longer draw the red line marking the present; the agenda, the week view, and the lists of a day's entries still do.
 
 The calendar data the admin loads from `emdash` includes each entry's `authorId`, which the admin uses to offer dragging only on entries the user can publish.

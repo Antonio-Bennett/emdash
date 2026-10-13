@@ -145,7 +145,7 @@ function DraftItem({
 			search={{ locale: draft.locale }}
 			onClickCapture={onClickCapture}
 			className={cn(
-				"group grid cursor-grab grid-cols-[1rem_minmax(0,1fr)] items-center gap-x-2 gap-y-1 rounded-md px-2 py-2 text-sm transition-colors hover:bg-kumo-tint focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-kumo-brand motion-reduce:transition-none",
+				"group grid cursor-grab [-webkit-touch-callout:none] grid-cols-[1rem_minmax(0,1fr)] items-center gap-x-2 gap-y-1 rounded-md px-2 py-2 text-sm transition-colors hover:bg-kumo-tint focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-kumo-brand motion-reduce:transition-none",
 				isDragging && "opacity-40",
 			)}
 		>

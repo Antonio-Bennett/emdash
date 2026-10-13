@@ -428,7 +428,12 @@ function EntryChipLink({
 				event.preventDefault();
 				onSelect(item, event.currentTarget);
 			}}
-			className={cn(chipClassName(item, display), dragging && "opacity-40")}
+			className={cn(
+				chipClassName(item, display),
+				// A long press starts a drag on touch screens, not the link preview.
+				linkRef && "[-webkit-touch-callout:none]",
+				dragging && "opacity-40",
+			)}
 		>
 			<ChipContent item={item} display={display} now={now} />
 		</Link>

@@ -172,23 +172,30 @@ describe("CalendarPage", () => {
 	});
 
 	describe("dragging an entry", () => {
-		const launch: CalendarEntry = {
-			...entry("launch", "2030-03-05T09:00:00.000Z"),
-			status: "scheduled",
-			kind: "scheduled",
-			authorId: "someone",
-		};
+		let launch: CalendarEntry;
 		let schedules: unknown[];
 		let refuse: boolean;
+		let calendarLoads: number;
 
 		beforeEach(async () => {
 			await page.viewport(1440, 900);
+			launch = {
+				...entry("launch", "2030-03-05T09:00:00.000Z"),
+				status: "scheduled",
+				kind: "scheduled",
+				authorId: "someone",
+			};
 			schedules = [];
 			refuse = false;
+			calendarLoads = 0;
 			router.search = { month: "2030-03", view: "month" };
 			globalThis.fetch = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
 				const url = input instanceof Request ? input.url : input.toString();
-				if (url.includes("/calendar?")) return Response.json({ data: { items: [launch] } });
+				if (url.includes("/calendar?")) {
+					// After a refused move, only the rollback can put the entry back: reloads never finish.
+					if (refuse && ++calendarLoads > 1) return new Promise<Response>(() => {});
+					return Response.json({ data: { items: [launch] } });
+				}
 				if (url.includes("/content/posts/launch/schedule")) {
 					schedules.push(JSON.parse(typeof init?.body === "string" ? init.body : "null"));
 					return refuse
@@ -259,7 +266,6 @@ describe("CalendarPage", () => {
 			});
 
 			await expect.poll(() => schedules).toEqual([{ scheduledAt: "2030-03-05T11:10:00.000Z" }]);
-			launch.at = "2030-03-05T09:00:00.000Z";
 		});
 
 		it("leaves another author's entry where it is for an author", async () => {
