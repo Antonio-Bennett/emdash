@@ -141,6 +141,21 @@ function existingByKey(value: unknown, path: string): Map<string, Record<string,
 	return result;
 }
 
+function inferredBlockType(
+	field: Field,
+	block: Record<string, unknown>,
+	previous: Record<string, unknown> | undefined,
+	options: BlockWriteOptions,
+): unknown {
+	const allowedTypes = field.validation?.allowedTypes ?? [];
+	return block._type === undefined &&
+		!options.restoreBlocks &&
+		allowedTypes.length === 1 &&
+		(!previous || previous._type === allowedTypes[0])
+		? allowedTypes[0]
+		: block._type;
+}
+
 function normalizeBlockArray(
 	field: Field,
 	value: unknown,
@@ -174,7 +189,9 @@ function normalizeBlockArray(
 	return value.map((rawBlock, index) => {
 		const blockPath = `${path}[${index}]`;
 		if (!isRecord(rawBlock)) validationError(blockPath, "must be an object");
-		if (typeof rawBlock._type !== "string" || rawBlock._type.length === 0) {
+		const previous = typeof rawBlock._key === "string" ? existing.get(rawBlock._key) : undefined;
+		const blockTypeSlug = inferredBlockType(field, rawBlock, previous, options);
+		if (typeof blockTypeSlug !== "string" || blockTypeSlug.length === 0) {
 			validationError(`${blockPath}._type`, "must be a block type slug");
 		}
 		if (
@@ -192,19 +209,18 @@ function normalizeBlockArray(
 			validationError(`${blockPath}._key`, "must be a non-empty string");
 		}
 
-		const previous = typeof rawBlock._key === "string" ? existing.get(rawBlock._key) : undefined;
-		const type = types.get(rawBlock._type);
-		if (!type) unsupported(`${blockPath}._type`, `block type "${rawBlock._type}" is unavailable`);
+		const type = types.get(blockTypeSlug);
+		if (!type) unsupported(`${blockPath}._type`, `block type "${blockTypeSlug}" is unavailable`);
 		if (previous) {
-			if (previous._type !== rawBlock._type) {
+			if (previous._type !== blockTypeSlug) {
 				validationError(`${blockPath}._type`, "cannot change an existing block's type");
 			}
 		} else if (
-			!allowed.has(rawBlock._type) &&
-			!(options.restoreBlocks && retired.has(rawBlock._type))
+			!allowed.has(blockTypeSlug) &&
+			!(options.restoreBlocks && retired.has(blockTypeSlug))
 		) {
-			const reason = retired.has(rawBlock._type) ? "is retired" : "is not allowed by this field";
-			validationError(`${blockPath}._type`, `block type "${rawBlock._type}" ${reason}`);
+			const reason = retired.has(blockTypeSlug) ? "is retired" : "is not allowed by this field";
+			validationError(`${blockPath}._type`, `block type "${blockTypeSlug}" ${reason}`);
 		}
 
 		let version: number;
@@ -234,7 +250,7 @@ function normalizeBlockArray(
 		const definition = versionFor(type, version, `${blockPath}._version`);
 		const normalized: Record<string, unknown> = {
 			...rawBlock,
-			_type: rawBlock._type,
+			_type: blockTypeSlug,
 			_version: version,
 			_key: key,
 		};
@@ -258,7 +274,7 @@ function normalizeBlockArray(
 		}
 		return {
 			...normalized,
-			_type: rawBlock._type,
+			_type: blockTypeSlug,
 			_version: version,
 			_key: key,
 		};
@@ -298,4 +314,43 @@ export async function normalizeBlocksData(
 		);
 	}
 	return normalized;
+}
+
+/**
+ * Fill in the `_type` an ordinary write infers for blocks that omit it, so
+ * `content:beforeSave` hooks see the type the block will be stored with.
+ * `loadExistingData` is only called when some block omits `_type`.
+ */
+export async function inferBlockTypes(
+	collection: CollectionWithFields,
+	data: Record<string, unknown>,
+	loadExistingData: () => Promise<Record<string, unknown> | undefined>,
+): Promise<Record<string, unknown>> {
+	const untyped = collection.fields.flatMap((field) => {
+		const value = data[field.slug];
+		return field.type === "blocks" &&
+			Array.isArray(value) &&
+			value.some((block) => isRecord(block) && block._type === undefined)
+			? [{ field, value }]
+			: [];
+	});
+	if (untyped.length === 0) return data;
+	const existingData = (await loadExistingData()) ?? {};
+	const inferred = { ...data };
+	for (const { field, value } of untyped) {
+		const stored = existingData[field.slug];
+		inferred[field.slug] = value.map((block: unknown) => {
+			if (!isRecord(block)) return block;
+			const previous =
+				Array.isArray(stored) && typeof block._key === "string"
+					? stored.find(
+							(candidate: unknown): candidate is Record<string, unknown> =>
+								isRecord(candidate) && candidate._key === block._key,
+						)
+					: undefined;
+			const type = inferredBlockType(field, block, previous, {});
+			return type === block._type ? block : { ...block, _type: type };
+		});
+	}
+	return inferred;
 }
