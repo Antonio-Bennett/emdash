@@ -51,7 +51,7 @@ The route sits under the collection, although the list doesn't depend on the col
 
 - Editors can change an entry's author from the entry editor.
 - The picker shows only users the entry can usefully be assigned to.
-- An Editor learns nothing from this route beyond each user's name and avatar.
+- An Editor learns from this route only which users an entry can be assigned to, with each user's ID, name and avatar.
 
 ## Non-goals
 
