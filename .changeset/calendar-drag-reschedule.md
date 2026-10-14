@@ -11,6 +11,6 @@ Adds drag-and-drop rescheduling to the admin calendar and fits the month view to
 - The page title and description give their space to the month. The view switcher and Filter sit above the month's name, which has Today and the month arrows beside it.
 - Keyboard shortcuts: T goes to today, J and K to the next and previous month, and M and A switch between month and agenda.
 
-Month cells no longer draw the red line marking the present; the agenda and the lists of a day's entries still do.
+Agenda rows show times in the site's time zone; the side panel and entry tooltips also show the viewer's own time. Month cells no longer draw the red line marking the present; the agenda and the lists of a day's entries still do.
 
 The calendar data the admin loads from `emdash` includes each entry's `authorId`, which the admin uses to offer dragging only on entries the user can publish.

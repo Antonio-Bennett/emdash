@@ -198,7 +198,6 @@ export function CalendarEntryRow({
 	const { t } = useLingui();
 	const note = useStateNote(item, display, now);
 	const published = item.state === "published";
-	const viewerTime = display.viewerZoneDiffers ? display.formatViewerTime(item.time) : null;
 
 	return (
 		<Link
@@ -212,16 +211,10 @@ export function CalendarEntryRow({
 				event.preventDefault();
 				onSelect(item, event.currentTarget);
 			}}
-			className={cn(
-				"grid scroll-mt-12 grid-cols-[4.5rem_minmax(0,1fr)] items-center gap-x-3 gap-y-0.5 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-kumo-tint focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-kumo-brand aria-[current=true]:bg-kumo-tint motion-reduce:transition-none",
-				display.viewerZoneDiffers
-					? "@lg:grid-cols-[8.5rem_minmax(0,1fr)_auto]"
-					: "@lg:grid-cols-[5rem_minmax(0,1fr)_auto]",
-			)}
+			className="grid scroll-mt-12 grid-cols-[4.5rem_minmax(0,1fr)] items-center gap-x-3 gap-y-0.5 rounded-md px-2 py-1.5 text-sm transition-colors hover:bg-kumo-tint focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-kumo-brand aria-[current=true]:bg-kumo-tint motion-reduce:transition-none @lg:grid-cols-[5rem_minmax(0,1fr)_auto]"
 		>
 			<span className="row-span-2 self-start leading-5 text-kumo-subtle tabular-nums @lg:row-span-1 @lg:self-center">
 				{display.formatTime(item.time)}
-				{viewerTime && <span className="hidden text-xs leading-4 @lg:block">{viewerTime}</span>}
 			</span>
 			<span className="flex min-w-0 items-center gap-2">
 				<CalendarStateIcon state={item.state} />
@@ -250,9 +243,6 @@ export function CalendarEntryRow({
 				)}
 			</span>
 			<span className="col-start-2 flex min-w-0 flex-wrap items-center gap-x-2 gap-y-1 @lg:col-start-auto @lg:justify-end">
-				{viewerTime && (
-					<span className="text-xs text-kumo-subtle tabular-nums @lg:hidden">{viewerTime}</span>
-				)}
 				<CalendarCollectionTag slug={item.collection} display={display} />
 				{display.showLocale && <CalendarLocaleChip locale={item.locale} />}
 			</span>

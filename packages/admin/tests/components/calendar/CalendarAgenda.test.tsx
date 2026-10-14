@@ -260,29 +260,6 @@ describe("CalendarAgenda", () => {
 			.toBeVisible();
 	});
 
-	it("also shows each time in the viewer's zone when it differs from the site's", async () => {
-		const elsewhere = createCalendarDisplay({
-			locale: "en",
-			timeZone: "UTC",
-			viewerTimeZone: "Europe/London",
-			collections: [{ slug: "posts", label: "Posts" }],
-			showLocale: false,
-		});
-		const screen = await render(
-			<CalendarAgenda
-				month="2026-10"
-				days={days}
-				today="2026-10-15"
-				now={now}
-				display={elsewhere}
-			/>,
-		);
-
-		await expect
-			.element(screen.getByRole("link", { name: /Launch/ }))
-			.toHaveTextContent(/9:00\sAM.*10:00\sAM GMT\+1/);
-	});
-
 	it("tags a scheduled update with the state wording, not the Update button's", async () => {
 		const previousLocale = i18n.locale;
 		i18n.load("de", {
