@@ -64,6 +64,7 @@ The route sits under the collection, although the list doesn't depend on the col
 - New route `GET /_emdash/api/content/{collection}/assignable-authors`, added to the OpenAPI document and the REST API reference. No existing route changes. `/admin/users` stays Admin-only.
 - The admin's author picker switches routes. For Admins, Subscribers and disabled users are no longer offered as authors, the list is sorted by name instead of newest first, and it no longer shows email.
 - No database changes and no new permission.
+- `users:read` stays Admin-only. Editors get the IDs, names and avatars of users who can create content. The accepted revision history plan ([#4127](https://github.com/emdash-cms/emdash/pull/4127)) shows the ID and name of each revision's author to anyone who can read drafts. This list covers every user who can create content rather than the authors of one entry, so it goes only to `content:edit_any`.
 - An entry whose slug is `assignable-authors` can't be opened by slug through `/content/{collection}/{slug}`, the same as an entry whose slug is `authors` or `trash` today. Opening it by ID still works.
 - Only the admin calls the route, so logged-out pages run no new query.
 
