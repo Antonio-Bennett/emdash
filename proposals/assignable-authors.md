@@ -16,7 +16,7 @@ An Editor who takes over a post from a colleague, or writes one for a new author
 
 Editors never see that picker. The entry editor loads the user list from `GET /_emdash/api/admin/users`, which refuses everyone below Admin, so the request fails with 403 and the **Ownership** section stays hidden. Only Admins can change an entry's author from the admin today.
 
-Opening `/admin/users` to Editors is not the fix. It returns every user's email, role, disabled state, last sign-in, passkey count and OAuth providers, and its `role` filter would let an Editor list all Admins. `GET /_emdash/api/content/{collection}/authors` is not enough either: it lists only users who already wrote an entry in that collection, so a newly invited author never appears.
+Opening `/admin/users` to Editors is not the fix. It returns every user's email, role, disabled state, last sign-in, passkey count and OAuth providers, and its `role` filter would let an Editor list all Admins. `GET /_emdash/api/content/{collection}/authors` is not enough either: it lists only users who already wrote an entry in that collection, so an author who has just joined never appears.
 
 ## Proposed behavior
 
@@ -71,7 +71,7 @@ The route sits under the collection, although the list doesn't depend on the col
 
 - Signed out: 401. Signed in without `content:edit_any`: 403. Unknown collection: 404 `COLLECTION_NOT_FOUND`, like `/authors`.
 - The response carries no email, so the picker drops the email it shows next to each name today. A user without a name is labelled "Unnamed user", except the signed-in user's own account, which shows their email from `/auth/me`, as revision history does in [#4136](https://github.com/emdash-cms/emdash/pull/4136). Two users without a name can't be told apart in the picker.
-- The current author is not in the list, because they were disabled, moved below Contributor, or fall outside the first 100. The picker keeps the entry's current author selected and labels it "Current author", and an Editor can still move the entry to someone in the list.
+- The current author can be missing from the list: they may be disabled, below Contributor or outside the first 100, and the update route accepts an author ID that matches no user. The picker keeps the entry's current author selected and labels it "Current author", and an Editor can still move the entry to someone in the list.
 - Without `search`, the list is never empty for a caller who holds `content:edit_any`, because the caller is listed. The **Ownership** section still hides itself when the request fails.
 
 ## Verification
