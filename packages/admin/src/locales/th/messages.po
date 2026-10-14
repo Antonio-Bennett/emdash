@@ -151,7 +151,7 @@ msgid "{0, plural, one {# matching tag} other {# matching tags}}"
 msgstr "{0, plural, one {# แท็กที่ตรงกัน} other {# แท็กที่ตรงกัน}}"
 
 #. placeholder {0}: mcpTools.length
-#: packages/admin/src/components/PluginManager.tsx:490
+#: packages/admin/src/components/PluginManager.tsx:496
 msgid "{0, plural, one {# MCP tool} other {# MCP tools}}"
 msgstr "{0, plural, one {# เครื่องมือ MCP} other {# เครื่องมือ MCP}}"
 
@@ -182,7 +182,7 @@ msgstr "{0, plural, one {ขอสิทธิ์ # รายการ} other {�
 
 #. placeholder {0}: plugin.capabilities.length
 #: packages/admin/src/components/MarketplaceBrowse.tsx:290
-#: packages/admin/src/components/PluginManager.tsx:504
+#: packages/admin/src/components/PluginManager.tsx:510
 msgid "{0, plural, one {# permission} other {# permissions}}"
 msgstr "{0, plural, one {# สิทธิ์} other {# สิทธิ์}}"
 
@@ -339,7 +339,7 @@ msgid "{0} has been deactivated"
 msgstr "ปิดใช้งาน {0} แล้ว"
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:385
+#: packages/admin/src/components/PluginManager.tsx:391
 msgid "{0} has been removed"
 msgstr "นำ {0} ออกแล้ว"
 
@@ -459,7 +459,7 @@ msgid "{0} updated everywhere it appears."
 msgstr "อัปเดต {0} ในทุกที่ที่ปรากฏแล้ว"
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:294
+#: packages/admin/src/components/PluginManager.tsx:300
 msgid "{0} updated to v{installedVersion}"
 msgstr "อัปเดต {0} เป็น v{installedVersion} แล้ว"
 
@@ -1292,7 +1292,7 @@ msgstr "เพิ่มโดเมน"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:762
 #: packages/admin/src/components/FieldEditor.tsx:701
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Add Field"
 msgstr "เพิ่มฟิลด์"
 
@@ -1484,12 +1484,12 @@ msgstr "หลังจากคุณเรียกใช้ปลั๊กอ
 msgid "Agenda"
 msgstr "กำหนดการ"
 
-#: packages/admin/src/components/PluginManager.tsx:599
+#: packages/admin/src/components/PluginManager.tsx:605
 msgid "Agent access"
 msgstr "การเข้าถึงของเอเจนต์"
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:396
+#: packages/admin/src/components/PluginManager.tsx:402
 msgid "Agent access for {0} has been updated"
 msgstr "อัปเดตการเข้าถึงของเอเจนต์สำหรับ {0} แล้ว"
 
@@ -1578,7 +1578,7 @@ msgstr "ทุกประเภท"
 msgid "All uploads finished"
 msgstr "อัปโหลดเสร็จทั้งหมดแล้ว"
 
-#: packages/admin/src/components/PluginManager.tsx:601
+#: packages/admin/src/components/PluginManager.tsx:607
 msgid "Allow MCP tokens with plugin-tool scope to invoke these routes."
 msgstr "อนุญาตให้โทเคน MCP ที่มีขอบเขต plugin-tool เรียกใช้เส้นทางเหล่านี้"
 
@@ -1615,7 +1615,7 @@ msgstr "กำหนดแล้วหรือซ้ำกัน"
 msgid "Already have an account?"
 msgstr "มีบัญชีอยู่แล้ว?"
 
-#: packages/admin/src/components/PluginManager.tsx:796
+#: packages/admin/src/components/PluginManager.tsx:802
 msgid "Also delete plugin storage data"
 msgstr "ลบข้อมูลที่จัดเก็บของปลั๊กอินด้วย"
 
@@ -1680,7 +1680,7 @@ msgstr "กุญแจดิจิทัลที่เข้ารหัส �
 #: packages/admin/src/components/MarketplaceBrowse.tsx:135
 #: packages/admin/src/components/PluginManager.tsx:136
 #: packages/admin/src/components/PluginManager.tsx:155
-#: packages/admin/src/components/PluginManager.tsx:327
+#: packages/admin/src/components/PluginManager.tsx:333
 #: packages/admin/src/components/PluginSettings.tsx:75
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:85
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:108
@@ -1726,7 +1726,8 @@ msgstr "กุญแจดิจิทัลที่เข้ารหัส �
 #: packages/admin/src/router.tsx:2312
 #: packages/admin/src/router.tsx:2328
 #: packages/admin/src/router.tsx:2353
-#: packages/admin/src/router.tsx:2955
+#: packages/admin/src/router.tsx:2779
+#: packages/admin/src/router.tsx:2964
 #: packages/admin/src/routes/byline-schema.tsx:103
 #: packages/admin/src/routes/byline-schema.tsx:123
 #: packages/admin/src/routes/byline-schema.tsx:139
@@ -2232,7 +2233,7 @@ msgstr "ตัวหนา"
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:50
 #: packages/admin/src/components/FieldEditor.tsx:414
-#: packages/admin/src/components/FieldEditor.tsx:1293
+#: packages/admin/src/components/FieldEditor.tsx:1295
 msgid "Boolean"
 msgstr "บูลีน"
 
@@ -2400,7 +2401,7 @@ msgstr "สามารถดูเนื้อหาได้"
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:818
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:391
 #: packages/admin/src/components/EditorDraftPatchPreview.tsx:78
-#: packages/admin/src/components/FieldEditor.tsx:1379
+#: packages/admin/src/components/FieldEditor.tsx:1381
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
 #: packages/admin/src/components/MediaPickerModal.tsx:1599
@@ -2408,7 +2409,7 @@ msgstr "สามารถดูเนื้อหาได้"
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
 #: packages/admin/src/components/MenuList.tsx:184
-#: packages/admin/src/components/PluginManager.tsx:802
+#: packages/admin/src/components/PluginManager.tsx:808
 #: packages/admin/src/components/PortableTextEditor.tsx:5719
 #: packages/admin/src/components/PortableTextEditor.tsx:5745
 #: packages/admin/src/components/PortableTextEditor.tsx:6485
@@ -2469,7 +2470,7 @@ msgstr "ไม่สามารถลบส่วนของธีมได้
 msgid "Canonical URL"
 msgstr "Canonical URL"
 
-#: packages/admin/src/components/PluginManager.tsx:575
+#: packages/admin/src/components/PluginManager.tsx:581
 msgid "Capabilities"
 msgstr "ความสามารถ"
 
@@ -2954,8 +2955,8 @@ msgstr "การดำเนินการกับบล็อกโค้ด
 msgid "Collapse block"
 msgstr "ยุบบล็อก"
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Collapse details"
 msgstr "ย่อรายละเอียด"
 
@@ -3842,7 +3843,7 @@ msgstr "อนุกรมวิธานที่กำหนดเอง"
 msgid "Daily automatic backups"
 msgstr "การสำรองข้อมูลอัตโนมัติรายวัน"
 
-#: packages/admin/src/components/FieldEditor.tsx:1364
+#: packages/admin/src/components/FieldEditor.tsx:1366
 #: packages/admin/src/components/ImageFieldRenderer.tsx:399
 msgid "Dark mode variant"
 msgstr "รูปภาพสำหรับโหมดมืด"
@@ -3865,7 +3866,7 @@ msgid "Date"
 msgstr "วันที่"
 
 #: packages/admin/src/components/FieldEditor.tsx:420
-#: packages/admin/src/components/FieldEditor.tsx:1294
+#: packages/admin/src/components/FieldEditor.tsx:1296
 msgid "Date & Time"
 msgstr "วันที่และเวลา"
 
@@ -4258,7 +4259,7 @@ msgid "Destination path"
 msgstr "เส้นทางปลายทาง"
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:309
-#: packages/admin/src/components/PluginManager.tsx:620
+#: packages/admin/src/components/PluginManager.tsx:626
 msgid "Destructive"
 msgstr "ทำลายข้อมูล"
 
@@ -4303,11 +4304,11 @@ msgstr "ขนาด:"
 msgid "Disable"
 msgstr "ปิดใช้งาน"
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Disable plugin"
 msgstr "ปิดใช้งานปลั๊กอิน"
 
-#: packages/admin/src/components/PluginManager.tsx:610
+#: packages/admin/src/components/PluginManager.tsx:616
 msgid "Disable plugin MCP tools"
 msgstr "ปิดใช้งานเครื่องมือ MCP ของปลั๊กอิน"
 
@@ -4323,14 +4324,14 @@ msgstr "ปิดใช้งานผู้ใช้"
 msgid "Disable User?"
 msgstr "ปิดใช้งานผู้ใช้หรือไม่?"
 
-#: packages/admin/src/components/PluginManager.tsx:445
+#: packages/admin/src/components/PluginManager.tsx:451
 #: packages/admin/src/components/Redirects.tsx:395
 #: packages/admin/src/components/users/UserDetail.tsx:213
 #: packages/admin/src/components/users/UserList.tsx:205
 msgid "Disabled"
 msgstr "ปิดใช้งานแล้ว"
 
-#: packages/admin/src/components/PluginManager.tsx:670
+#: packages/admin/src/components/PluginManager.tsx:676
 msgid "Disabled:"
 msgstr "ปิดใช้งานแล้ว:"
 
@@ -4863,7 +4864,7 @@ msgstr ""
 "ผู้สื่อข่าว\n"
 "ช่างภาพ"
 
-#: packages/admin/src/components/FieldEditor.tsx:1367
+#: packages/admin/src/components/FieldEditor.tsx:1369
 msgid "Editors can select a second image that the site shows in dark mode."
 msgstr "ผู้แก้ไขสามารถเลือกรูปภาพที่สองที่ไซต์จะแสดงในโหมดมืดได้"
 
@@ -5013,11 +5014,11 @@ msgstr "เปิดใช้งานความคิดเห็น"
 msgid "Enable full-text search on this collection"
 msgstr "เปิดใช้งานการค้นหาแบบเต็มข้อความในคอลเลกชันนี้"
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Enable plugin"
 msgstr "เปิดใช้งานปลั๊กอิน"
 
-#: packages/admin/src/components/PluginManager.tsx:611
+#: packages/admin/src/components/PluginManager.tsx:617
 msgid "Enable plugin MCP tools"
 msgstr "เปิดใช้งานเครื่องมือ MCP ของปลั๊กอิน"
 
@@ -5145,7 +5146,7 @@ msgstr "รายการฝั่งที่ลิงก์"
 #: packages/admin/src/components/SetupWizard.tsx:606
 #: packages/admin/src/components/TaxonomyManager.tsx:1206
 #: packages/admin/src/components/Widgets.tsx:772
-#: packages/admin/src/router.tsx:3230
+#: packages/admin/src/router.tsx:3239
 msgid "Error"
 msgstr "ข้อผิดพลาด"
 
@@ -5230,8 +5231,8 @@ msgstr "ออกจากโหมดไร้สิ่งรบกวน (⌘�
 msgid "Expand block"
 msgstr "ขยายบล็อก"
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Expand details"
 msgstr "ขยายรายละเอียด"
 
@@ -6111,6 +6112,10 @@ msgstr ""
 msgid "Failed to read byline field usage"
 msgstr "อ่านข้อมูลการใช้งานฟิลด์ชื่อผู้เขียนไม่สำเร็จ"
 
+#: packages/admin/src/router.tsx:2778
+msgid "Failed to register {slug}"
+msgstr ""
+
 #: packages/admin/src/lib/api/schema.ts:548
 msgid "Failed to register orphaned table"
 msgstr ""
@@ -6190,7 +6195,7 @@ msgstr "เขียน URL ใหม่ไม่สำเร็จ"
 
 #: packages/admin/src/router.tsx:843
 #: packages/admin/src/router.tsx:1245
-#: packages/admin/src/router.tsx:2954
+#: packages/admin/src/router.tsx:2963
 msgid "Failed to save"
 msgstr "บันทึกไม่สำเร็จ"
 
@@ -6330,7 +6335,7 @@ msgstr ""
 msgid "Failed to update menu item"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:326
+#: packages/admin/src/components/PluginManager.tsx:332
 #: packages/admin/src/lib/api/marketplace.ts:373
 #: packages/admin/src/lib/api/registry.ts:878
 msgid "Failed to update plugin"
@@ -6439,7 +6444,7 @@ msgstr "สร้างฟิลด์แล้ว"
 msgid "Field deleted"
 msgstr "ลบฟิลด์แล้ว"
 
-#: packages/admin/src/components/FieldEditor.tsx:1262
+#: packages/admin/src/components/FieldEditor.tsx:1263
 msgid "Field label"
 msgstr "ป้ายกำกับฟิลด์"
 
@@ -6459,7 +6464,7 @@ msgstr "เปลี่ยนประเภทฟิลด์หลังจา
 msgid "Field updated"
 msgstr "อัปเดตฟิลด์แล้ว"
 
-#: packages/admin/src/components/FieldEditor.tsx:1277
+#: packages/admin/src/components/FieldEditor.tsx:1279
 msgid "field_slug"
 msgstr ""
 
@@ -6744,7 +6749,7 @@ msgid "Go live {countdown}"
 msgstr "เผยแพร่ {countdown}"
 
 #: packages/admin/src/components/WordPressImport.tsx:2447
-#: packages/admin/src/router.tsx:3250
+#: packages/admin/src/router.tsx:3259
 msgid "Go to Dashboard"
 msgstr "ไปที่แดชบอร์ด"
 
@@ -6932,7 +6937,7 @@ msgstr "หน้าแรก"
 msgid "Homepage"
 msgstr "หน้าแรก"
 
-#: packages/admin/src/components/PluginManager.tsx:484
+#: packages/admin/src/components/PluginManager.tsx:490
 msgid "Hooks"
 msgstr "Hooks"
 
@@ -7059,7 +7064,7 @@ msgstr ""
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:42
 #: packages/admin/src/components/FieldEditor.tsx:444
-#: packages/admin/src/components/FieldEditor.tsx:1297
+#: packages/admin/src/components/FieldEditor.tsx:1299
 #: packages/admin/src/components/PortableTextEditor.tsx:3648
 msgid "Image"
 msgstr "รูปภาพ"
@@ -7453,11 +7458,11 @@ msgid "Installed"
 msgstr "ติดตั้งแล้ว"
 
 #. placeholder {0}: plugin.marketplaceVersion || plugin.version
-#: packages/admin/src/components/PluginManager.tsx:639
+#: packages/admin/src/components/PluginManager.tsx:645
 msgid "Installed from marketplace (v{0})"
 msgstr "ติดตั้งจากมาร์เก็ตเพลส (v{0})"
 
-#: packages/admin/src/components/PluginManager.tsx:658
+#: packages/admin/src/components/PluginManager.tsx:664
 msgid "Installed:"
 msgstr "ติดตั้งแล้ว:"
 
@@ -7466,7 +7471,7 @@ msgid "Installing..."
 msgstr "กำลังติดตั้ง..."
 
 #: packages/admin/src/components/FieldEditor.tsx:408
-#: packages/admin/src/components/FieldEditor.tsx:1292
+#: packages/admin/src/components/FieldEditor.tsx:1294
 msgid "Integer"
 msgstr "จำนวนเต็ม"
 
@@ -7697,7 +7702,7 @@ msgstr "หัวข้อส่วนขนาดใหญ่"
 msgid "Last edited"
 msgstr "แก้ไขล่าสุด"
 
-#: packages/admin/src/components/PluginManager.tsx:664
+#: packages/admin/src/components/PluginManager.tsx:670
 msgid "Last enabled:"
 msgstr "เปิดใช้งานล่าสุด:"
 
@@ -7915,7 +7920,7 @@ msgid "Load preview"
 msgstr "โหลดตัวอย่าง"
 
 #: packages/admin/src/components/calendar/CalendarToolbar.tsx:59
-#: packages/admin/src/router.tsx:3205
+#: packages/admin/src/router.tsx:3214
 msgid "Loading"
 msgstr "กำลังโหลด"
 
@@ -7944,8 +7949,8 @@ msgstr "กำลังโหลดคอลเลกชัน..."
 msgid "Loading comments..."
 msgstr "กำลังโหลดความคิดเห็น..."
 
-#: packages/admin/src/router.tsx:3207
-#: packages/admin/src/router.tsx:3219
+#: packages/admin/src/router.tsx:3216
+#: packages/admin/src/router.tsx:3228
 msgid "Loading configuration..."
 msgstr "กำลังโหลดการกำหนดค่า..."
 
@@ -8142,7 +8147,7 @@ msgid "Long text"
 msgstr "ข้อความยาว"
 
 #: packages/admin/src/components/FieldEditor.tsx:396
-#: packages/admin/src/components/FieldEditor.tsx:1290
+#: packages/admin/src/components/FieldEditor.tsx:1292
 msgid "Long Text"
 msgstr "ข้อความยาว"
 
@@ -8253,7 +8258,7 @@ msgid "Markdown"
 msgstr "Markdown"
 
 #: packages/admin/src/components/MarketplaceBrowse.tsx:87
-#: packages/admin/src/components/PluginManager.tsx:446
+#: packages/admin/src/components/PluginManager.tsx:452
 msgid "Marketplace"
 msgstr "Marketplace"
 
@@ -8277,7 +8282,7 @@ msgstr ""
 msgid "Matched by email"
 msgstr "จับคู่ด้วยอีเมล"
 
-#: packages/admin/src/components/FieldEditor.tsx:1342
+#: packages/admin/src/components/FieldEditor.tsx:1344
 msgid "Max Items"
 msgstr "จำนวนรายการสูงสุด"
 
@@ -8506,7 +8511,7 @@ msgstr "คู่มือการย้ายข้อมูล"
 msgid "Migration key"
 msgstr "คีย์การย้ายข้อมูล"
 
-#: packages/admin/src/components/FieldEditor.tsx:1335
+#: packages/admin/src/components/FieldEditor.tsx:1337
 msgid "Min Items"
 msgstr "รายการขั้นต่ำ"
 
@@ -8923,7 +8928,7 @@ msgstr "ใหม่ที่สุด"
 msgid "News"
 msgstr "ข่าวสาร"
 
-#: packages/admin/src/components/FieldEditor.tsx:1382
+#: packages/admin/src/components/FieldEditor.tsx:1384
 #: packages/admin/src/components/ThemeMarketplaceDetail.tsx:315
 msgid "Next"
 msgstr "ถัดไป"
@@ -9164,7 +9169,7 @@ msgstr "ไม่ได้ระบุโทเค็นคำเชิญ"
 msgid "No items yet"
 msgstr "ยังไม่มีรายการ"
 
-#: packages/admin/src/components/FieldEditor.tsx:1346
+#: packages/admin/src/components/FieldEditor.tsx:1348
 msgid "No limit"
 msgstr "ไม่จำกัด"
 
@@ -9433,7 +9438,7 @@ msgid "Now · {time}"
 msgstr "ขณะนี้ · {time}"
 
 #: packages/admin/src/components/FieldEditor.tsx:402
-#: packages/admin/src/components/FieldEditor.tsx:1291
+#: packages/admin/src/components/FieldEditor.tsx:1293
 msgid "Number"
 msgstr "ตัวเลข"
 
@@ -9693,7 +9698,7 @@ msgstr "แทนที่ชื่อหน้าในผลการค้น
 msgid "Ownership"
 msgstr "ความเป็นเจ้าของ"
 
-#: packages/admin/src/components/PluginManager.tsx:648
+#: packages/admin/src/components/PluginManager.tsx:654
 msgid "Package"
 msgstr "แพ็กเกจ"
 
@@ -9707,7 +9712,7 @@ msgstr "Digest ของแพ็กเกจ"
 msgid "Package downloaded"
 msgstr "ดาวน์โหลดแพ็กเกจแล้ว"
 
-#: packages/admin/src/router.tsx:3245
+#: packages/admin/src/router.tsx:3254
 msgid "Page Not Found"
 msgstr "ไม่พบหน้า"
 
@@ -9721,7 +9726,7 @@ msgstr "หมายเลขหน้า"
 msgid "Page size"
 msgstr "จำนวนรายการต่อหน้า"
 
-#: packages/admin/src/components/PluginManager.tsx:472
+#: packages/admin/src/components/PluginManager.tsx:478
 #: packages/admin/src/components/WordPressImport.tsx:1357
 msgid "Pages"
 msgstr "หน้า"
@@ -9924,7 +9929,7 @@ msgstr "PHP"
 msgid "Picked up {label}."
 msgstr "หยิบ {label} แล้ว"
 
-#: packages/admin/src/components/FieldEditor.tsx:1450
+#: packages/admin/src/components/FieldEditor.tsx:1452
 msgid "Picking entries this one links to lets editors drag them into an order. The other direction lists whatever points at the entry and cannot be reordered."
 msgstr "การเลือกรายการที่รายการนี้ลิงก์ไปช่วยให้ผู้แก้ไขลากเพื่อจัดลำดับได้ ทิศทางตรงข้ามจะแสดงรายการที่ชี้มายังรายการนี้ และจัดลำดับใหม่ไม่ได้"
 
@@ -10018,7 +10023,7 @@ msgstr "ข้อผิดพลาดของปลั๊กอิน ({0})"
 msgid "Plugin installation requires explicit consent"
 msgstr "การติดตั้งปลั๊กอินต้องได้รับความยินยอมอย่างชัดแจ้ง"
 
-#: packages/admin/src/components/PluginManager.tsx:395
+#: packages/admin/src/components/PluginManager.tsx:401
 msgid "Plugin MCP access updated"
 msgstr "อัปเดตการเข้าถึง MCP ของปลั๊กอินแล้ว"
 
@@ -10039,7 +10044,7 @@ msgstr "ไม่พบปลั๊กอิน"
 msgid "Plugin not found. The publisher or slug may be incorrect."
 msgstr "ไม่พบปลั๊กอิน ผู้เผยแพร่หรือ slug อาจไม่ถูกต้อง"
 
-#: packages/admin/src/components/PluginManager.tsx:541
+#: packages/admin/src/components/PluginManager.tsx:547
 msgid "Plugin pages"
 msgstr "หน้าของปลั๊กอิน"
 
@@ -10077,7 +10082,7 @@ msgstr "ปลั๊กอินตอบกลับด้วย {0}: {text}"
 msgid "Plugin tools: {0}"
 msgstr "เครื่องมือของปลั๊กอิน: {0}"
 
-#: packages/admin/src/components/PluginManager.tsx:384
+#: packages/admin/src/components/PluginManager.tsx:390
 msgid "Plugin uninstalled"
 msgstr "ถอนการติดตั้งปลั๊กอินแล้ว"
 
@@ -10086,7 +10091,7 @@ msgstr "ถอนการติดตั้งปลั๊กอินแล้
 msgid "Plugin update requires re-consent"
 msgstr "การอัปเดตปลั๊กอินต้องขอความยินยอมใหม่"
 
-#: packages/admin/src/components/PluginManager.tsx:293
+#: packages/admin/src/components/PluginManager.tsx:299
 msgid "Plugin updated"
 msgstr "อัปเดตปลั๊กอินแล้ว"
 
@@ -10648,7 +10653,7 @@ msgid "Registration was cancelled or timed out. Please try again."
 msgstr "การลงทะเบียนถูกยกเลิกหรือหมดเวลา โปรดลองอีกครั้ง"
 
 #: packages/admin/src/components/PluginManager.tsx:210
-#: packages/admin/src/components/PluginManager.tsx:447
+#: packages/admin/src/components/PluginManager.tsx:453
 #: packages/admin/src/components/Sidebar.tsx:497
 msgid "Registry"
 msgstr "รีจิสทรี"
@@ -10800,7 +10805,7 @@ msgstr "นำ passkey ออกหรือไม่"
 msgid "Remove schedule"
 msgstr "นำกำหนดเวลาออก"
 
-#: packages/admin/src/components/FieldEditor.tsx:1325
+#: packages/admin/src/components/FieldEditor.tsx:1327
 msgid "Remove sub-field"
 msgstr "นำฟิลด์ย่อยออก"
 
@@ -10979,7 +10984,7 @@ msgstr "ต้องมี slug ก่อนจึงจะเผยแพร่
 #: packages/admin/src/components/BylineFieldEditor.tsx:275
 #: packages/admin/src/components/ContentTypeEditor.tsx:949
 #: packages/admin/src/components/FieldEditor.tsx:866
-#: packages/admin/src/components/FieldEditor.tsx:1307
+#: packages/admin/src/components/FieldEditor.tsx:1309
 #: packages/admin/src/routes/byline-schema.tsx:246
 msgid "Required"
 msgstr "ต้องระบุ"
@@ -11136,7 +11141,7 @@ msgstr "เลิกใช้แล้ว"
 #: packages/admin/src/components/Sections.tsx:281
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:122
 #: packages/admin/src/lib/content-editor-panels.tsx:201
-#: packages/admin/src/router.tsx:3233
+#: packages/admin/src/router.tsx:3242
 #: packages/admin/src/routes/byline-schema.tsx:280
 #: packages/admin/src/routes/calendar.tsx:345
 msgid "Retry"
@@ -11327,7 +11332,7 @@ msgstr "เข้าถึงได้ด้วย URL"
 #. placeholder {0}: tool.route
 #. placeholder {1}: tool.permission
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:305
-#: packages/admin/src/components/PluginManager.tsx:624
+#: packages/admin/src/components/PluginManager.tsx:630
 msgid "Route: {0} · Permission: {1}"
 msgstr "เส้นทาง: {0} · สิทธิ์: {1}"
 
@@ -11468,7 +11473,7 @@ msgid "Saving a collection here turns this field into an entry picker. Its store
 msgstr "การบันทึกคอลเลกชันที่นี่จะเปลี่ยนฟิลด์นี้เป็นตัวเลือกรายการ ID รายการที่จัดเก็บไว้จะย้ายไปยังความสัมพันธ์ และจะค้นหาหรือกรองด้วยฟิลด์นี้ไม่ได้อีก"
 
 #: packages/admin/src/components/BylineFormDialog.tsx:549
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 #: packages/admin/src/components/MediaDetailPanel.tsx:1888
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
 #: packages/admin/src/components/MenuEditor.tsx:467
@@ -11899,7 +11904,7 @@ msgstr "ดูว่าไฟล์นี้ถูกใช้ที่ใด"
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
-#: packages/admin/src/components/FieldEditor.tsx:1295
+#: packages/admin/src/components/FieldEditor.tsx:1297
 #: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
@@ -12215,7 +12220,7 @@ msgstr "กำลังตั้งค่า..."
 #: packages/admin/src/components/ContentEditor.tsx:2026
 #: packages/admin/src/components/ContentTypeEditor.tsx:465
 #: packages/admin/src/components/Header.tsx:102
-#: packages/admin/src/components/PluginManager.tsx:530
+#: packages/admin/src/components/PluginManager.tsx:536
 #: packages/admin/src/components/Settings.tsx:46
 #: packages/admin/src/components/Sidebar.tsx:510
 #: packages/admin/src/components/WordPressImport.tsx:1840
@@ -12257,7 +12262,7 @@ msgid "Short text"
 msgstr "ข้อความสั้น"
 
 #: packages/admin/src/components/FieldEditor.tsx:390
-#: packages/admin/src/components/FieldEditor.tsx:1289
+#: packages/admin/src/components/FieldEditor.tsx:1291
 msgid "Short Text"
 msgstr "ข้อความสั้น"
 
@@ -12492,7 +12497,7 @@ msgstr "ข้ามแล้ว"
 #: packages/admin/src/components/ContentTypeList.tsx:201
 #: packages/admin/src/components/FieldEditor.tsx:468
 #: packages/admin/src/components/FieldEditor.tsx:844
-#: packages/admin/src/components/FieldEditor.tsx:1265
+#: packages/admin/src/components/FieldEditor.tsx:1266
 #: packages/admin/src/components/RelationForm.tsx:322
 #: packages/admin/src/components/RelationList.tsx:90
 #: packages/admin/src/components/SectionEditor.tsx:280
@@ -12600,7 +12605,7 @@ msgstr "จัดเรียงธีม"
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:566
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:787
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:236
-#: packages/admin/src/components/PluginManager.tsx:636
+#: packages/admin/src/components/PluginManager.tsx:642
 #: packages/admin/src/components/Redirects.tsx:488
 #: packages/admin/src/components/SectionEditor.tsx:315
 msgid "Source"
@@ -12752,7 +12757,7 @@ msgstr "โครงสร้าง"
 msgid "Structured"
 msgstr "มีโครงสร้าง"
 
-#: packages/admin/src/components/FieldEditor.tsx:1303
+#: packages/admin/src/components/FieldEditor.tsx:1305
 msgid "Sub-field slugs cannot be changed after creation."
 msgstr ""
 
@@ -13248,7 +13253,7 @@ msgstr "เนื้อหาของแพ็กเกจจะถูกเข
 msgid "The package’s file index is not valid."
 msgstr "ดัชนีไฟล์ของแพ็กเกจไม่ถูกต้อง"
 
-#: packages/admin/src/router.tsx:3247
+#: packages/admin/src/router.tsx:3256
 msgid "The page you're looking for doesn't exist."
 msgstr "ไม่พบหน้าที่คุณกำลังค้นหา"
 
@@ -13522,7 +13527,7 @@ msgstr "ฟิลด์นี้ต้องการรายการแบบ
 msgid "This field is required"
 msgstr "ฟิลด์นี้ต้องระบุ"
 
-#: packages/admin/src/components/FieldEditor.tsx:1418
+#: packages/admin/src/components/FieldEditor.tsx:1420
 msgid "This field lists entries that link to this one."
 msgstr "ฟิลด์นี้แสดงรายการที่ลิงก์มายังรายการนี้"
 
@@ -13531,16 +13536,16 @@ msgstr "ฟิลด์นี้แสดงรายการที่ลิง
 msgid "This field picks"
 msgstr "ฟิลด์นี้เลือก"
 
-#: packages/admin/src/components/FieldEditor.tsx:1417
+#: packages/admin/src/components/FieldEditor.tsx:1419
 msgid "This field picks entries this one links to."
 msgstr "ฟิลด์นี้เลือกรายการที่รายการนี้ลิงก์ไป"
 
 #. placeholder {0}: relation.childLabel
-#: packages/admin/src/components/FieldEditor.tsx:1429
+#: packages/admin/src/components/FieldEditor.tsx:1431
 msgid "This field will show the <0>{0}</0> this {linkingSide} links to"
 msgstr "ฟิลด์นี้จะแสดง <0>{0}</0> ที่ {linkingSide} นี้ลิงก์ไป"
 
-#: packages/admin/src/components/FieldEditor.tsx:1434
+#: packages/admin/src/components/FieldEditor.tsx:1436
 msgid "This field will show the <0>{linkingSide}</0> linking to this {linkedSide}"
 msgstr "ฟิลด์นี้จะแสดง <0>{linkingSide}</0> ที่ลิงก์มายัง {linkedSide} นี้"
 
@@ -13666,7 +13671,7 @@ msgstr "ปลั๊กอินนี้ยังไม่พร้อมใช
 msgid "This plugin requires no special permissions."
 msgstr "ปลั๊กอินนี้ไม่ต้องการสิทธิ์พิเศษใด ๆ"
 
-#: packages/admin/src/components/PluginManager.tsx:457
+#: packages/admin/src/components/PluginManager.tsx:463
 msgid "This publisher identity no longer resolves."
 msgstr "ตัวตนของผู้เผยแพร่นี้ไม่สามารถระบุได้อีกต่อไป"
 
@@ -13806,7 +13811,7 @@ msgstr "การดำเนินการนี้จะลบ \"{0}\" อย
 msgid "This will permanently delete this comment. This action cannot be undone."
 msgstr "การดำเนินการนี้จะลบความคิดเห็นนี้อย่างถาวร ไม่สามารถยกเลิกการดำเนินการนี้ได้"
 
-#: packages/admin/src/components/PluginManager.tsx:791
+#: packages/admin/src/components/PluginManager.tsx:797
 msgid "This will remove the plugin and its bundle from your site."
 msgstr "การดำเนินการนี้จะนำปลั๊กอินและบันเดิลของปลั๊กอินออกจากเว็บไซต์ของคุณ"
 
@@ -14104,7 +14109,7 @@ msgid "Two records have the same value where it must be unique"
 msgstr "มีสองระเบียนที่มีค่าเดียวกันในส่วนที่ต้องไม่ซ้ำกัน"
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:255
-#: packages/admin/src/components/FieldEditor.tsx:1281
+#: packages/admin/src/components/FieldEditor.tsx:1283
 #: packages/admin/src/components/MediaLibrary.tsx:1142
 #: packages/admin/src/routes/byline-schema.tsx:240
 #: packages/admin/src/routes/bylines.tsx:343
@@ -14164,20 +14169,20 @@ msgid "Unfinished media uploads were left out"
 msgstr "ไม่ได้รวมการอัปโหลดมีเดียที่ยังไม่เสร็จ"
 
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:202
-#: packages/admin/src/components/PluginManager.tsx:686
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:692
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstall"
 msgstr "ถอนการติดตั้ง"
 
-#: packages/admin/src/components/PluginManager.tsx:789
+#: packages/admin/src/components/PluginManager.tsx:795
 msgid "Uninstall {pluginName}?"
 msgstr "ถอนการติดตั้ง {pluginName} หรือไม่?"
 
-#: packages/admin/src/components/PluginManager.tsx:784
+#: packages/admin/src/components/PluginManager.tsx:790
 msgid "Uninstall confirmation"
 msgstr "การยืนยันการถอนการติดตั้ง"
 
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstalling..."
 msgstr "กำลังถอนการติดตั้ง..."
 
@@ -14293,7 +14298,7 @@ msgctxt "A published entry's scheduled changes"
 msgid "Update"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Update Field"
 msgstr "อัปเดตฟิลด์"
 
@@ -14329,7 +14334,7 @@ msgid "Update this redirect rule."
 msgstr "อัปเดตกฎการเปลี่ยนเส้นทางนี้"
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 msgid "Update to v{0}"
 msgstr "อัปเดตเป็น v{0}"
 
@@ -14356,7 +14361,7 @@ msgid "Updating usage"
 msgstr "กำลังอัปเดตข้อมูลการใช้งาน"
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:353
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 #: packages/admin/src/components/SandboxedPluginPage.tsx:161
 #: packages/admin/src/components/SandboxedPluginPage.tsx:165
 #: packages/admin/src/components/SandboxedPluginWidget.tsx:122
@@ -14490,7 +14495,7 @@ msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:49
 #: packages/admin/src/components/FieldEditor.tsx:474
-#: packages/admin/src/components/FieldEditor.tsx:1296
+#: packages/admin/src/components/FieldEditor.tsx:1298
 #: packages/admin/src/components/MenuEditor.tsx:522
 #: packages/admin/src/components/MenuEditor.tsx:719
 msgid "URL"
@@ -14677,7 +14682,7 @@ msgid "v{0}"
 msgstr "v{0}"
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:450
+#: packages/admin/src/components/PluginManager.tsx:456
 msgid "v{0} available"
 msgstr "มี v{0} ให้ใช้งาน"
 
@@ -14905,7 +14910,7 @@ msgstr "Passkey คืออะไร?"
 msgid "What it leaves out"
 msgstr "สิ่งที่ไม่ได้รวมไว้"
 
-#: packages/admin/src/components/FieldEditor.tsx:1463
+#: packages/admin/src/components/FieldEditor.tsx:1465
 msgid "What the direction changes"
 msgstr "สิ่งที่ทิศทางเปลี่ยนแปลง"
 
@@ -15032,7 +15037,7 @@ msgid "Widget updated"
 msgstr "อัปเดตวิดเจ็ตแล้ว"
 
 #: packages/admin/src/components/AdminCommandPalette.tsx:181
-#: packages/admin/src/components/PluginManager.tsx:478
+#: packages/admin/src/components/PluginManager.tsx:484
 #: packages/admin/src/components/settings/transfer/labels.ts:31
 #: packages/admin/src/components/settings/transfer/labels.ts:91
 #: packages/admin/src/components/Sidebar.tsx:452

@@ -151,7 +151,7 @@ msgid "{0, plural, one {# matching tag} other {# matching tags}}"
 msgstr "{0, plural, one {# odgovarajuća oznaka} few {# odgovarajuće oznake} other {# odgovarajućih oznaka}}"
 
 #. placeholder {0}: mcpTools.length
-#: packages/admin/src/components/PluginManager.tsx:490
+#: packages/admin/src/components/PluginManager.tsx:496
 msgid "{0, plural, one {# MCP tool} other {# MCP tools}}"
 msgstr "{0, plural, one {# MCP alat} few {# MCP alata} other {# MCP alata}}"
 
@@ -182,7 +182,7 @@ msgstr "{0, plural, one {# zatražena dozvola} few {# zatražene dozvole} other 
 
 #. placeholder {0}: plugin.capabilities.length
 #: packages/admin/src/components/MarketplaceBrowse.tsx:290
-#: packages/admin/src/components/PluginManager.tsx:504
+#: packages/admin/src/components/PluginManager.tsx:510
 msgid "{0, plural, one {# permission} other {# permissions}}"
 msgstr "{0, plural, one {# dozvola} few {# dozvole} other {# dozvola}}"
 
@@ -339,7 +339,7 @@ msgid "{0} has been deactivated"
 msgstr "{0} je deaktiviran"
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:385
+#: packages/admin/src/components/PluginManager.tsx:391
 msgid "{0} has been removed"
 msgstr "{0} je uklonjen"
 
@@ -459,7 +459,7 @@ msgid "{0} updated everywhere it appears."
 msgstr "{0} je ažuriran svuda gde se pojavljuje."
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:294
+#: packages/admin/src/components/PluginManager.tsx:300
 msgid "{0} updated to v{installedVersion}"
 msgstr "{0} je ažuriran na v{installedVersion}"
 
@@ -1292,7 +1292,7 @@ msgstr "Dodaj domen"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:762
 #: packages/admin/src/components/FieldEditor.tsx:701
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Add Field"
 msgstr "Dodaj polje"
 
@@ -1484,12 +1484,12 @@ msgstr "Nakon što izričito pokreneš ovaj dodatak, on može da šalje izabrani
 msgid "Agenda"
 msgstr "Agenda"
 
-#: packages/admin/src/components/PluginManager.tsx:599
+#: packages/admin/src/components/PluginManager.tsx:605
 msgid "Agent access"
 msgstr "Pristup agenta"
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:396
+#: packages/admin/src/components/PluginManager.tsx:402
 msgid "Agent access for {0} has been updated"
 msgstr "Ažuriran je pristup agenta za {0}"
 
@@ -1578,7 +1578,7 @@ msgstr "Svi tipovi"
 msgid "All uploads finished"
 msgstr "Sva otpremanja su završena"
 
-#: packages/admin/src/components/PluginManager.tsx:601
+#: packages/admin/src/components/PluginManager.tsx:607
 msgid "Allow MCP tokens with plugin-tool scope to invoke these routes."
 msgstr "Dozvoli MCP tokenima sa opsegom alata dodatka da pozivaju ove rute."
 
@@ -1615,7 +1615,7 @@ msgstr "Već dodeljeno ili duplikat"
 msgid "Already have an account?"
 msgstr "Već imaš nalog?"
 
-#: packages/admin/src/components/PluginManager.tsx:796
+#: packages/admin/src/components/PluginManager.tsx:802
 msgid "Also delete plugin storage data"
 msgstr "Obriši i podatke skladišta dodatka"
 
@@ -1680,7 +1680,7 @@ msgstr "Šifrovani digitalni ključ koji otključavaš pomoću otiska prsta, lic
 #: packages/admin/src/components/MarketplaceBrowse.tsx:135
 #: packages/admin/src/components/PluginManager.tsx:136
 #: packages/admin/src/components/PluginManager.tsx:155
-#: packages/admin/src/components/PluginManager.tsx:327
+#: packages/admin/src/components/PluginManager.tsx:333
 #: packages/admin/src/components/PluginSettings.tsx:75
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:85
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:108
@@ -1726,7 +1726,8 @@ msgstr "Šifrovani digitalni ključ koji otključavaš pomoću otiska prsta, lic
 #: packages/admin/src/router.tsx:2312
 #: packages/admin/src/router.tsx:2328
 #: packages/admin/src/router.tsx:2353
-#: packages/admin/src/router.tsx:2955
+#: packages/admin/src/router.tsx:2779
+#: packages/admin/src/router.tsx:2964
 #: packages/admin/src/routes/byline-schema.tsx:103
 #: packages/admin/src/routes/byline-schema.tsx:123
 #: packages/admin/src/routes/byline-schema.tsx:139
@@ -2232,7 +2233,7 @@ msgstr "Podebljano"
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:50
 #: packages/admin/src/components/FieldEditor.tsx:414
-#: packages/admin/src/components/FieldEditor.tsx:1293
+#: packages/admin/src/components/FieldEditor.tsx:1295
 msgid "Boolean"
 msgstr "Boolean"
 
@@ -2400,7 +2401,7 @@ msgstr "Može pregledati sadržaj"
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:818
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:391
 #: packages/admin/src/components/EditorDraftPatchPreview.tsx:78
-#: packages/admin/src/components/FieldEditor.tsx:1379
+#: packages/admin/src/components/FieldEditor.tsx:1381
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
 #: packages/admin/src/components/MediaPickerModal.tsx:1599
@@ -2408,7 +2409,7 @@ msgstr "Može pregledati sadržaj"
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
 #: packages/admin/src/components/MenuList.tsx:184
-#: packages/admin/src/components/PluginManager.tsx:802
+#: packages/admin/src/components/PluginManager.tsx:808
 #: packages/admin/src/components/PortableTextEditor.tsx:5719
 #: packages/admin/src/components/PortableTextEditor.tsx:5745
 #: packages/admin/src/components/PortableTextEditor.tsx:6485
@@ -2469,7 +2470,7 @@ msgstr "Nije moguće obrisati sekcije teme"
 msgid "Canonical URL"
 msgstr "Kanonijski URL"
 
-#: packages/admin/src/components/PluginManager.tsx:575
+#: packages/admin/src/components/PluginManager.tsx:581
 msgid "Capabilities"
 msgstr "Mogućnosti"
 
@@ -2954,8 +2955,8 @@ msgstr "Radnje bloka koda"
 msgid "Collapse block"
 msgstr "Skupi blok"
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Collapse details"
 msgstr "Skupi detalje"
 
@@ -3842,7 +3843,7 @@ msgstr "Prilagođene taksonomije"
 msgid "Daily automatic backups"
 msgstr "Dnevne automatske rezervne kopije"
 
-#: packages/admin/src/components/FieldEditor.tsx:1364
+#: packages/admin/src/components/FieldEditor.tsx:1366
 #: packages/admin/src/components/ImageFieldRenderer.tsx:399
 msgid "Dark mode variant"
 msgstr "Varijanta za tamni režim"
@@ -3865,7 +3866,7 @@ msgid "Date"
 msgstr "Datum"
 
 #: packages/admin/src/components/FieldEditor.tsx:420
-#: packages/admin/src/components/FieldEditor.tsx:1294
+#: packages/admin/src/components/FieldEditor.tsx:1296
 msgid "Date & Time"
 msgstr "Datum i vreme"
 
@@ -4258,7 +4259,7 @@ msgid "Destination path"
 msgstr "Putanja odredišta"
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:309
-#: packages/admin/src/components/PluginManager.tsx:620
+#: packages/admin/src/components/PluginManager.tsx:626
 msgid "Destructive"
 msgstr "Razarajuće"
 
@@ -4303,11 +4304,11 @@ msgstr "Dimenzije:"
 msgid "Disable"
 msgstr "Onemogući"
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Disable plugin"
 msgstr "Onemogući dodatak"
 
-#: packages/admin/src/components/PluginManager.tsx:610
+#: packages/admin/src/components/PluginManager.tsx:616
 msgid "Disable plugin MCP tools"
 msgstr "Onemogući MCP alate dodatka"
 
@@ -4323,14 +4324,14 @@ msgstr "Onemogući korisnika"
 msgid "Disable User?"
 msgstr "Onemogućiti korisnika?"
 
-#: packages/admin/src/components/PluginManager.tsx:445
+#: packages/admin/src/components/PluginManager.tsx:451
 #: packages/admin/src/components/Redirects.tsx:395
 #: packages/admin/src/components/users/UserDetail.tsx:213
 #: packages/admin/src/components/users/UserList.tsx:205
 msgid "Disabled"
 msgstr "Onemogućeno"
 
-#: packages/admin/src/components/PluginManager.tsx:670
+#: packages/admin/src/components/PluginManager.tsx:676
 msgid "Disabled:"
 msgstr "Onemogućeno:"
 
@@ -4863,7 +4864,7 @@ msgstr ""
 "Reporter\n"
 "Fotograf"
 
-#: packages/admin/src/components/FieldEditor.tsx:1367
+#: packages/admin/src/components/FieldEditor.tsx:1369
 msgid "Editors can select a second image that the site shows in dark mode."
 msgstr "Urednici mogu da izaberu drugu sliku koju sajt prikazuje u tamnom režimu."
 
@@ -5013,11 +5014,11 @@ msgstr "Omogući komentare"
 msgid "Enable full-text search on this collection"
 msgstr "Omogući pretragu punog teksta na ovoj kolekciji"
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Enable plugin"
 msgstr "Omogući dodatak"
 
-#: packages/admin/src/components/PluginManager.tsx:611
+#: packages/admin/src/components/PluginManager.tsx:617
 msgid "Enable plugin MCP tools"
 msgstr "Omogući MCP alate dodatka"
 
@@ -5145,7 +5146,7 @@ msgstr "unos na strani koja povezuje"
 #: packages/admin/src/components/SetupWizard.tsx:606
 #: packages/admin/src/components/TaxonomyManager.tsx:1206
 #: packages/admin/src/components/Widgets.tsx:772
-#: packages/admin/src/router.tsx:3230
+#: packages/admin/src/router.tsx:3239
 msgid "Error"
 msgstr "Greška"
 
@@ -5230,8 +5231,8 @@ msgstr "Izađi iz režima bez ometanja (⌘⇧\\)"
 msgid "Expand block"
 msgstr "Proširi blok"
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Expand details"
 msgstr "Proširi detalje"
 
@@ -6111,6 +6112,10 @@ msgstr ""
 msgid "Failed to read byline field usage"
 msgstr "Čitanje upotrebe polja potpisa autora nije uspelo"
 
+#: packages/admin/src/router.tsx:2778
+msgid "Failed to register {slug}"
+msgstr ""
+
 #: packages/admin/src/lib/api/schema.ts:548
 msgid "Failed to register orphaned table"
 msgstr ""
@@ -6190,7 +6195,7 @@ msgstr "Prepisivanje URL-ova nije uspelo"
 
 #: packages/admin/src/router.tsx:843
 #: packages/admin/src/router.tsx:1245
-#: packages/admin/src/router.tsx:2954
+#: packages/admin/src/router.tsx:2963
 msgid "Failed to save"
 msgstr "Čuvanje nije uspelo"
 
@@ -6330,7 +6335,7 @@ msgstr ""
 msgid "Failed to update menu item"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:326
+#: packages/admin/src/components/PluginManager.tsx:332
 #: packages/admin/src/lib/api/marketplace.ts:373
 #: packages/admin/src/lib/api/registry.ts:878
 msgid "Failed to update plugin"
@@ -6439,7 +6444,7 @@ msgstr "Polje kreirano"
 msgid "Field deleted"
 msgstr "Polje obrisano"
 
-#: packages/admin/src/components/FieldEditor.tsx:1262
+#: packages/admin/src/components/FieldEditor.tsx:1263
 msgid "Field label"
 msgstr "Oznaka polja"
 
@@ -6459,7 +6464,7 @@ msgstr "Tip polja se ne može menjati nakon kreiranja."
 msgid "Field updated"
 msgstr "Polje ažurirano"
 
-#: packages/admin/src/components/FieldEditor.tsx:1277
+#: packages/admin/src/components/FieldEditor.tsx:1279
 msgid "field_slug"
 msgstr ""
 
@@ -6744,7 +6749,7 @@ msgid "Go live {countdown}"
 msgstr "Objavljuje se {countdown}"
 
 #: packages/admin/src/components/WordPressImport.tsx:2447
-#: packages/admin/src/router.tsx:3250
+#: packages/admin/src/router.tsx:3259
 msgid "Go to Dashboard"
 msgstr "Idi na kontrolnu tablu"
 
@@ -6932,7 +6937,7 @@ msgstr "Početna"
 msgid "Homepage"
 msgstr "Početna stranica"
 
-#: packages/admin/src/components/PluginManager.tsx:484
+#: packages/admin/src/components/PluginManager.tsx:490
 msgid "Hooks"
 msgstr "Kuke"
 
@@ -7059,7 +7064,7 @@ msgstr "visualEditing.image"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:42
 #: packages/admin/src/components/FieldEditor.tsx:444
-#: packages/admin/src/components/FieldEditor.tsx:1297
+#: packages/admin/src/components/FieldEditor.tsx:1299
 #: packages/admin/src/components/PortableTextEditor.tsx:3648
 msgid "Image"
 msgstr "Slika"
@@ -7453,11 +7458,11 @@ msgid "Installed"
 msgstr "Instalirano"
 
 #. placeholder {0}: plugin.marketplaceVersion || plugin.version
-#: packages/admin/src/components/PluginManager.tsx:639
+#: packages/admin/src/components/PluginManager.tsx:645
 msgid "Installed from marketplace (v{0})"
 msgstr "Instalirano sa marketplace-a (v{0})"
 
-#: packages/admin/src/components/PluginManager.tsx:658
+#: packages/admin/src/components/PluginManager.tsx:664
 msgid "Installed:"
 msgstr "Instalirano:"
 
@@ -7466,7 +7471,7 @@ msgid "Installing..."
 msgstr "Instaliranje..."
 
 #: packages/admin/src/components/FieldEditor.tsx:408
-#: packages/admin/src/components/FieldEditor.tsx:1292
+#: packages/admin/src/components/FieldEditor.tsx:1294
 msgid "Integer"
 msgstr "Ceo broj"
 
@@ -7697,7 +7702,7 @@ msgstr "Veliki naslov sekcije"
 msgid "Last edited"
 msgstr "Poslednja izmena"
 
-#: packages/admin/src/components/PluginManager.tsx:664
+#: packages/admin/src/components/PluginManager.tsx:670
 msgid "Last enabled:"
 msgstr "Poslednje omogućeno:"
 
@@ -7915,7 +7920,7 @@ msgid "Load preview"
 msgstr "Učitaj pregled"
 
 #: packages/admin/src/components/calendar/CalendarToolbar.tsx:59
-#: packages/admin/src/router.tsx:3205
+#: packages/admin/src/router.tsx:3214
 msgid "Loading"
 msgstr "Učitavanje"
 
@@ -7944,8 +7949,8 @@ msgstr "Učitavanje kolekcija..."
 msgid "Loading comments..."
 msgstr "Učitavanje komentara..."
 
-#: packages/admin/src/router.tsx:3207
-#: packages/admin/src/router.tsx:3219
+#: packages/admin/src/router.tsx:3216
+#: packages/admin/src/router.tsx:3228
 msgid "Loading configuration..."
 msgstr "Učitavanje konfiguracije..."
 
@@ -8142,7 +8147,7 @@ msgid "Long text"
 msgstr "Dugačak tekst"
 
 #: packages/admin/src/components/FieldEditor.tsx:396
-#: packages/admin/src/components/FieldEditor.tsx:1290
+#: packages/admin/src/components/FieldEditor.tsx:1292
 msgid "Long Text"
 msgstr "Dugačak tekst"
 
@@ -8253,7 +8258,7 @@ msgid "Markdown"
 msgstr "Markdown"
 
 #: packages/admin/src/components/MarketplaceBrowse.tsx:87
-#: packages/admin/src/components/PluginManager.tsx:446
+#: packages/admin/src/components/PluginManager.tsx:452
 msgid "Marketplace"
 msgstr "Prodavnica"
 
@@ -8277,7 +8282,7 @@ msgstr ""
 msgid "Matched by email"
 msgstr "Poklopljeno po e-adresi"
 
-#: packages/admin/src/components/FieldEditor.tsx:1342
+#: packages/admin/src/components/FieldEditor.tsx:1344
 msgid "Max Items"
 msgstr "Maks. stavki"
 
@@ -8506,7 +8511,7 @@ msgstr "Vodič za migraciju"
 msgid "Migration key"
 msgstr "Ključ za migraciju"
 
-#: packages/admin/src/components/FieldEditor.tsx:1335
+#: packages/admin/src/components/FieldEditor.tsx:1337
 msgid "Min Items"
 msgstr "Min. stavki"
 
@@ -8923,7 +8928,7 @@ msgstr "Najnovije"
 msgid "News"
 msgstr "Vesti"
 
-#: packages/admin/src/components/FieldEditor.tsx:1382
+#: packages/admin/src/components/FieldEditor.tsx:1384
 #: packages/admin/src/components/ThemeMarketplaceDetail.tsx:315
 msgid "Next"
 msgstr "Sledeće"
@@ -9164,7 +9169,7 @@ msgstr "Nije prosleđen token za pozivnicu"
 msgid "No items yet"
 msgstr "Još nema stavki"
 
-#: packages/admin/src/components/FieldEditor.tsx:1346
+#: packages/admin/src/components/FieldEditor.tsx:1348
 msgid "No limit"
 msgstr "Bez limita"
 
@@ -9433,7 +9438,7 @@ msgid "Now · {time}"
 msgstr "Sada · {time}"
 
 #: packages/admin/src/components/FieldEditor.tsx:402
-#: packages/admin/src/components/FieldEditor.tsx:1291
+#: packages/admin/src/components/FieldEditor.tsx:1293
 msgid "Number"
 msgstr "Broj"
 
@@ -9693,7 +9698,7 @@ msgstr "Zamenjuje naslov stranice u rezultatima pretraživača"
 msgid "Ownership"
 msgstr "Vlasništvo"
 
-#: packages/admin/src/components/PluginManager.tsx:648
+#: packages/admin/src/components/PluginManager.tsx:654
 msgid "Package"
 msgstr "Paket"
 
@@ -9707,7 +9712,7 @@ msgstr "Sažetak paketa"
 msgid "Package downloaded"
 msgstr "Preuzet je paket"
 
-#: packages/admin/src/router.tsx:3245
+#: packages/admin/src/router.tsx:3254
 msgid "Page Not Found"
 msgstr "Stranica nije pronađena"
 
@@ -9721,7 +9726,7 @@ msgstr "Broj stranice"
 msgid "Page size"
 msgstr "Veličina stranice"
 
-#: packages/admin/src/components/PluginManager.tsx:472
+#: packages/admin/src/components/PluginManager.tsx:478
 #: packages/admin/src/components/WordPressImport.tsx:1357
 msgid "Pages"
 msgstr "Stranice"
@@ -9924,7 +9929,7 @@ msgstr "PHP"
 msgid "Picked up {label}."
 msgstr "Stavka {label} je preuzeta."
 
-#: packages/admin/src/components/FieldEditor.tsx:1450
+#: packages/admin/src/components/FieldEditor.tsx:1452
 msgid "Picking entries this one links to lets editors drag them into an order. The other direction lists whatever points at the entry and cannot be reordered."
 msgstr "Ako birate unose na koje ovaj upućuje, urednici mogu da ih prevlače u željeni redosled. Drugi smer prikazuje sve što upućuje na unos i ne može da se preuređuje."
 
@@ -10018,7 +10023,7 @@ msgstr "Greška dodatka ({0})"
 msgid "Plugin installation requires explicit consent"
 msgstr "Instalacija dodatka zahteva izričitu saglasnost"
 
-#: packages/admin/src/components/PluginManager.tsx:395
+#: packages/admin/src/components/PluginManager.tsx:401
 msgid "Plugin MCP access updated"
 msgstr "Ažuriran je MCP pristup dodatka"
 
@@ -10039,7 +10044,7 @@ msgstr "Dodatak nije pronađen"
 msgid "Plugin not found. The publisher or slug may be incorrect."
 msgstr "Dodatak nije pronađen. Izdavač ili slug možda nisu tačni."
 
-#: packages/admin/src/components/PluginManager.tsx:541
+#: packages/admin/src/components/PluginManager.tsx:547
 msgid "Plugin pages"
 msgstr "Stranice dodatka"
 
@@ -10077,7 +10082,7 @@ msgstr "Dodatak je odgovorio sa {0}: {text}"
 msgid "Plugin tools: {0}"
 msgstr "Alati dodatka: {0}"
 
-#: packages/admin/src/components/PluginManager.tsx:384
+#: packages/admin/src/components/PluginManager.tsx:390
 msgid "Plugin uninstalled"
 msgstr "Dodatak deinstaliran"
 
@@ -10086,7 +10091,7 @@ msgstr "Dodatak deinstaliran"
 msgid "Plugin update requires re-consent"
 msgstr "Ažuriranje dodatka zahteva ponovnu saglasnost"
 
-#: packages/admin/src/components/PluginManager.tsx:293
+#: packages/admin/src/components/PluginManager.tsx:299
 msgid "Plugin updated"
 msgstr "Dodatak ažuriran"
 
@@ -10648,7 +10653,7 @@ msgid "Registration was cancelled or timed out. Please try again."
 msgstr "Registracija je otkazana ili je isteklo vreme. Pokušaj ponovo."
 
 #: packages/admin/src/components/PluginManager.tsx:210
-#: packages/admin/src/components/PluginManager.tsx:447
+#: packages/admin/src/components/PluginManager.tsx:453
 #: packages/admin/src/components/Sidebar.tsx:497
 msgid "Registry"
 msgstr "Registar"
@@ -10800,7 +10805,7 @@ msgstr "Ukloniti pristupni ključ (passkey)?"
 msgid "Remove schedule"
 msgstr "Ukloni raspored"
 
-#: packages/admin/src/components/FieldEditor.tsx:1325
+#: packages/admin/src/components/FieldEditor.tsx:1327
 msgid "Remove sub-field"
 msgstr "Ukloni podpolje"
 
@@ -10979,7 +10984,7 @@ msgstr "Zahtevaj slug pre nego što sadržaj može da se objavi"
 #: packages/admin/src/components/BylineFieldEditor.tsx:275
 #: packages/admin/src/components/ContentTypeEditor.tsx:949
 #: packages/admin/src/components/FieldEditor.tsx:866
-#: packages/admin/src/components/FieldEditor.tsx:1307
+#: packages/admin/src/components/FieldEditor.tsx:1309
 #: packages/admin/src/routes/byline-schema.tsx:246
 msgid "Required"
 msgstr "Obavezno"
@@ -11136,7 +11141,7 @@ msgstr "Povučeno"
 #: packages/admin/src/components/Sections.tsx:281
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:122
 #: packages/admin/src/lib/content-editor-panels.tsx:201
-#: packages/admin/src/router.tsx:3233
+#: packages/admin/src/router.tsx:3242
 #: packages/admin/src/routes/byline-schema.tsx:280
 #: packages/admin/src/routes/calendar.tsx:345
 msgid "Retry"
@@ -11327,7 +11332,7 @@ msgstr "Rutabilno"
 #. placeholder {0}: tool.route
 #. placeholder {1}: tool.permission
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:305
-#: packages/admin/src/components/PluginManager.tsx:624
+#: packages/admin/src/components/PluginManager.tsx:630
 msgid "Route: {0} · Permission: {1}"
 msgstr "Ruta: {0} · Dozvola: {1}"
 
@@ -11468,7 +11473,7 @@ msgid "Saving a collection here turns this field into an entry picker. Its store
 msgstr "Čuvanjem kolekcije ovde ovo polje postaje birač unosa. Sačuvani ID-ovi unosa prelaze u relaciju, a polje više ne može da se pretražuje ni filtrira."
 
 #: packages/admin/src/components/BylineFormDialog.tsx:549
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 #: packages/admin/src/components/MediaDetailPanel.tsx:1888
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
 #: packages/admin/src/components/MenuEditor.tsx:467
@@ -11899,7 +11904,7 @@ msgstr "Vidi gde se koristi ovaj fajl."
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
-#: packages/admin/src/components/FieldEditor.tsx:1295
+#: packages/admin/src/components/FieldEditor.tsx:1297
 #: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
@@ -12215,7 +12220,7 @@ msgstr "Podešava se..."
 #: packages/admin/src/components/ContentEditor.tsx:2026
 #: packages/admin/src/components/ContentTypeEditor.tsx:465
 #: packages/admin/src/components/Header.tsx:102
-#: packages/admin/src/components/PluginManager.tsx:530
+#: packages/admin/src/components/PluginManager.tsx:536
 #: packages/admin/src/components/Settings.tsx:46
 #: packages/admin/src/components/Sidebar.tsx:510
 #: packages/admin/src/components/WordPressImport.tsx:1840
@@ -12257,7 +12262,7 @@ msgid "Short text"
 msgstr "Kratak tekst"
 
 #: packages/admin/src/components/FieldEditor.tsx:390
-#: packages/admin/src/components/FieldEditor.tsx:1289
+#: packages/admin/src/components/FieldEditor.tsx:1291
 msgid "Short Text"
 msgstr "Kratak tekst"
 
@@ -12492,7 +12497,7 @@ msgstr "Preskočeno"
 #: packages/admin/src/components/ContentTypeList.tsx:201
 #: packages/admin/src/components/FieldEditor.tsx:468
 #: packages/admin/src/components/FieldEditor.tsx:844
-#: packages/admin/src/components/FieldEditor.tsx:1265
+#: packages/admin/src/components/FieldEditor.tsx:1266
 #: packages/admin/src/components/RelationForm.tsx:322
 #: packages/admin/src/components/RelationList.tsx:90
 #: packages/admin/src/components/SectionEditor.tsx:280
@@ -12600,7 +12605,7 @@ msgstr "Sortiraj teme"
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:566
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:787
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:236
-#: packages/admin/src/components/PluginManager.tsx:636
+#: packages/admin/src/components/PluginManager.tsx:642
 #: packages/admin/src/components/Redirects.tsx:488
 #: packages/admin/src/components/SectionEditor.tsx:315
 msgid "Source"
@@ -12752,7 +12757,7 @@ msgstr "Struktura"
 msgid "Structured"
 msgstr "Strukturirano"
 
-#: packages/admin/src/components/FieldEditor.tsx:1303
+#: packages/admin/src/components/FieldEditor.tsx:1305
 msgid "Sub-field slugs cannot be changed after creation."
 msgstr ""
 
@@ -13248,7 +13253,7 @@ msgstr "Sadržaj paketa se upisuje na ovaj sajt. Uvoz ne može da se poništi ka
 msgid "The package’s file index is not valid."
 msgstr "Indeks fajlova paketa nije važeći."
 
-#: packages/admin/src/router.tsx:3247
+#: packages/admin/src/router.tsx:3256
 msgid "The page you're looking for doesn't exist."
 msgstr "Stranica koju tražiš ne postoji."
 
@@ -13522,7 +13527,7 @@ msgstr "Ovo polje očekuje listu. Sačuvana vrednost ostaje nepromenjena dok je 
 msgid "This field is required"
 msgstr "Ovo polje je obavezno"
 
-#: packages/admin/src/components/FieldEditor.tsx:1418
+#: packages/admin/src/components/FieldEditor.tsx:1420
 msgid "This field lists entries that link to this one."
 msgstr "Ovo polje prikazuje unose koji upućuju na ovaj."
 
@@ -13531,16 +13536,16 @@ msgstr "Ovo polje prikazuje unose koji upućuju na ovaj."
 msgid "This field picks"
 msgstr "Ovo polje bira"
 
-#: packages/admin/src/components/FieldEditor.tsx:1417
+#: packages/admin/src/components/FieldEditor.tsx:1419
 msgid "This field picks entries this one links to."
 msgstr "Ovo polje bira unose na koje ovaj upućuje."
 
 #. placeholder {0}: relation.childLabel
-#: packages/admin/src/components/FieldEditor.tsx:1429
+#: packages/admin/src/components/FieldEditor.tsx:1431
 msgid "This field will show the <0>{0}</0> this {linkingSide} links to"
 msgstr "Ovo polje će prikazivati <0>{0}</0> na koje ovaj {linkingSide} upućuje"
 
-#: packages/admin/src/components/FieldEditor.tsx:1434
+#: packages/admin/src/components/FieldEditor.tsx:1436
 msgid "This field will show the <0>{linkingSide}</0> linking to this {linkedSide}"
 msgstr "Ovo polje će prikazivati <0>{linkingSide}</0> koji upućuju na ovaj {linkedSide}"
 
@@ -13666,7 +13671,7 @@ msgstr "Ovaj dodatak još nije dostupan"
 msgid "This plugin requires no special permissions."
 msgstr "Ovaj dodatak ne zahteva posebna dozvoljenja."
 
-#: packages/admin/src/components/PluginManager.tsx:457
+#: packages/admin/src/components/PluginManager.tsx:463
 msgid "This publisher identity no longer resolves."
 msgstr "Identitet ovog izdavača se više ne razrešava."
 
@@ -13806,7 +13811,7 @@ msgstr "Ovo će trajno obrisati \"{0}\". Ova radnja se ne može poništiti."
 msgid "This will permanently delete this comment. This action cannot be undone."
 msgstr "Ovo će trajno obrisati ovaj komentar. Ova radnja se ne može poništiti."
 
-#: packages/admin/src/components/PluginManager.tsx:791
+#: packages/admin/src/components/PluginManager.tsx:797
 msgid "This will remove the plugin and its bundle from your site."
 msgstr "Ovo će ukloniti dodatak i njegov paket sa tvog sajta."
 
@@ -14104,7 +14109,7 @@ msgid "Two records have the same value where it must be unique"
 msgstr "Dva zapisa imaju istu vrednost tamo gde mora da bude jedinstvena"
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:255
-#: packages/admin/src/components/FieldEditor.tsx:1281
+#: packages/admin/src/components/FieldEditor.tsx:1283
 #: packages/admin/src/components/MediaLibrary.tsx:1142
 #: packages/admin/src/routes/byline-schema.tsx:240
 #: packages/admin/src/routes/bylines.tsx:343
@@ -14164,20 +14169,20 @@ msgid "Unfinished media uploads were left out"
 msgstr "Izostavljena su nedovršena otpremanja medija"
 
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:202
-#: packages/admin/src/components/PluginManager.tsx:686
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:692
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstall"
 msgstr "Deinstaliraj"
 
-#: packages/admin/src/components/PluginManager.tsx:789
+#: packages/admin/src/components/PluginManager.tsx:795
 msgid "Uninstall {pluginName}?"
 msgstr "Deinstalirati {pluginName}?"
 
-#: packages/admin/src/components/PluginManager.tsx:784
+#: packages/admin/src/components/PluginManager.tsx:790
 msgid "Uninstall confirmation"
 msgstr "Potvrda deinstalacije"
 
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstalling..."
 msgstr "Deinstalira se..."
 
@@ -14293,7 +14298,7 @@ msgctxt "A published entry's scheduled changes"
 msgid "Update"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Update Field"
 msgstr "Ažuriraj polje"
 
@@ -14329,7 +14334,7 @@ msgid "Update this redirect rule."
 msgstr "Ažuriraj ovo pravilo preusmeravanja."
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 msgid "Update to v{0}"
 msgstr "Ažuriraj na v{0}"
 
@@ -14356,7 +14361,7 @@ msgid "Updating usage"
 msgstr "Ažuriranje korišćenja"
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:353
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 #: packages/admin/src/components/SandboxedPluginPage.tsx:161
 #: packages/admin/src/components/SandboxedPluginPage.tsx:165
 #: packages/admin/src/components/SandboxedPluginWidget.tsx:122
@@ -14490,7 +14495,7 @@ msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:49
 #: packages/admin/src/components/FieldEditor.tsx:474
-#: packages/admin/src/components/FieldEditor.tsx:1296
+#: packages/admin/src/components/FieldEditor.tsx:1298
 #: packages/admin/src/components/MenuEditor.tsx:522
 #: packages/admin/src/components/MenuEditor.tsx:719
 msgid "URL"
@@ -14677,7 +14682,7 @@ msgid "v{0}"
 msgstr "v{0}"
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:450
+#: packages/admin/src/components/PluginManager.tsx:456
 msgid "v{0} available"
 msgstr "v{0} dostupno"
 
@@ -14905,7 +14910,7 @@ msgstr "Šta je pristupni ključ (passkey)?"
 msgid "What it leaves out"
 msgstr "Šta izostavlja"
 
-#: packages/admin/src/components/FieldEditor.tsx:1463
+#: packages/admin/src/components/FieldEditor.tsx:1465
 msgid "What the direction changes"
 msgstr "Šta menja smer"
 
@@ -15032,7 +15037,7 @@ msgid "Widget updated"
 msgstr "Vidžet ažuriran"
 
 #: packages/admin/src/components/AdminCommandPalette.tsx:181
-#: packages/admin/src/components/PluginManager.tsx:478
+#: packages/admin/src/components/PluginManager.tsx:484
 #: packages/admin/src/components/settings/transfer/labels.ts:31
 #: packages/admin/src/components/settings/transfer/labels.ts:91
 #: packages/admin/src/components/Sidebar.tsx:452

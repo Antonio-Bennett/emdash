@@ -151,7 +151,7 @@ msgid "{0, plural, one {# matching tag} other {# matching tags}}"
 msgstr ""
 
 #. placeholder {0}: mcpTools.length
-#: packages/admin/src/components/PluginManager.tsx:490
+#: packages/admin/src/components/PluginManager.tsx:496
 msgid "{0, plural, one {# MCP tool} other {# MCP tools}}"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgstr ""
 
 #. placeholder {0}: plugin.capabilities.length
 #: packages/admin/src/components/MarketplaceBrowse.tsx:290
-#: packages/admin/src/components/PluginManager.tsx:504
+#: packages/admin/src/components/PluginManager.tsx:510
 msgid "{0, plural, one {# permission} other {# permissions}}"
 msgstr ""
 
@@ -339,7 +339,7 @@ msgid "{0} has been deactivated"
 msgstr ""
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:385
+#: packages/admin/src/components/PluginManager.tsx:391
 msgid "{0} has been removed"
 msgstr ""
 
@@ -459,7 +459,7 @@ msgid "{0} updated everywhere it appears."
 msgstr ""
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:294
+#: packages/admin/src/components/PluginManager.tsx:300
 msgid "{0} updated to v{installedVersion}"
 msgstr ""
 
@@ -1292,7 +1292,7 @@ msgstr ""
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:762
 #: packages/admin/src/components/FieldEditor.tsx:701
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Add Field"
 msgstr ""
 
@@ -1484,12 +1484,12 @@ msgstr ""
 msgid "Agenda"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:599
+#: packages/admin/src/components/PluginManager.tsx:605
 msgid "Agent access"
 msgstr ""
 
 #. placeholder {0}: plugin.name
-#: packages/admin/src/components/PluginManager.tsx:396
+#: packages/admin/src/components/PluginManager.tsx:402
 msgid "Agent access for {0} has been updated"
 msgstr ""
 
@@ -1578,7 +1578,7 @@ msgstr ""
 msgid "All uploads finished"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:601
+#: packages/admin/src/components/PluginManager.tsx:607
 msgid "Allow MCP tokens with plugin-tool scope to invoke these routes."
 msgstr ""
 
@@ -1615,7 +1615,7 @@ msgstr ""
 msgid "Already have an account?"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:796
+#: packages/admin/src/components/PluginManager.tsx:802
 msgid "Also delete plugin storage data"
 msgstr ""
 
@@ -1680,7 +1680,7 @@ msgstr ""
 #: packages/admin/src/components/MarketplaceBrowse.tsx:135
 #: packages/admin/src/components/PluginManager.tsx:136
 #: packages/admin/src/components/PluginManager.tsx:155
-#: packages/admin/src/components/PluginManager.tsx:327
+#: packages/admin/src/components/PluginManager.tsx:333
 #: packages/admin/src/components/PluginSettings.tsx:75
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:85
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:108
@@ -1726,7 +1726,8 @@ msgstr ""
 #: packages/admin/src/router.tsx:2312
 #: packages/admin/src/router.tsx:2328
 #: packages/admin/src/router.tsx:2353
-#: packages/admin/src/router.tsx:2955
+#: packages/admin/src/router.tsx:2779
+#: packages/admin/src/router.tsx:2964
 #: packages/admin/src/routes/byline-schema.tsx:103
 #: packages/admin/src/routes/byline-schema.tsx:123
 #: packages/admin/src/routes/byline-schema.tsx:139
@@ -2232,7 +2233,7 @@ msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:50
 #: packages/admin/src/components/FieldEditor.tsx:414
-#: packages/admin/src/components/FieldEditor.tsx:1293
+#: packages/admin/src/components/FieldEditor.tsx:1295
 msgid "Boolean"
 msgstr ""
 
@@ -2400,7 +2401,7 @@ msgstr ""
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:818
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:391
 #: packages/admin/src/components/EditorDraftPatchPreview.tsx:78
-#: packages/admin/src/components/FieldEditor.tsx:1379
+#: packages/admin/src/components/FieldEditor.tsx:1381
 #: packages/admin/src/components/MediaDetailPanel.tsx:1857
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
 #: packages/admin/src/components/MediaPickerModal.tsx:1599
@@ -2408,7 +2409,7 @@ msgstr ""
 #: packages/admin/src/components/MenuEditor.tsx:548
 #: packages/admin/src/components/MenuEditor.tsx:753
 #: packages/admin/src/components/MenuList.tsx:184
-#: packages/admin/src/components/PluginManager.tsx:802
+#: packages/admin/src/components/PluginManager.tsx:808
 #: packages/admin/src/components/PortableTextEditor.tsx:5719
 #: packages/admin/src/components/PortableTextEditor.tsx:5745
 #: packages/admin/src/components/PortableTextEditor.tsx:6485
@@ -2469,7 +2470,7 @@ msgstr ""
 msgid "Canonical URL"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:575
+#: packages/admin/src/components/PluginManager.tsx:581
 msgid "Capabilities"
 msgstr ""
 
@@ -2954,8 +2955,8 @@ msgstr ""
 msgid "Collapse block"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Collapse details"
 msgstr ""
 
@@ -3842,7 +3843,7 @@ msgstr ""
 msgid "Daily automatic backups"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1364
+#: packages/admin/src/components/FieldEditor.tsx:1366
 #: packages/admin/src/components/ImageFieldRenderer.tsx:399
 msgid "Dark mode variant"
 msgstr ""
@@ -3865,7 +3866,7 @@ msgid "Date"
 msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:420
-#: packages/admin/src/components/FieldEditor.tsx:1294
+#: packages/admin/src/components/FieldEditor.tsx:1296
 msgid "Date & Time"
 msgstr ""
 
@@ -4258,7 +4259,7 @@ msgid "Destination path"
 msgstr ""
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:309
-#: packages/admin/src/components/PluginManager.tsx:620
+#: packages/admin/src/components/PluginManager.tsx:626
 msgid "Destructive"
 msgstr ""
 
@@ -4303,11 +4304,11 @@ msgstr ""
 msgid "Disable"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Disable plugin"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:610
+#: packages/admin/src/components/PluginManager.tsx:616
 msgid "Disable plugin MCP tools"
 msgstr ""
 
@@ -4323,14 +4324,14 @@ msgstr ""
 msgid "Disable User?"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:445
+#: packages/admin/src/components/PluginManager.tsx:451
 #: packages/admin/src/components/Redirects.tsx:395
 #: packages/admin/src/components/users/UserDetail.tsx:213
 #: packages/admin/src/components/users/UserList.tsx:205
 msgid "Disabled"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:670
+#: packages/admin/src/components/PluginManager.tsx:676
 msgid "Disabled:"
 msgstr ""
 
@@ -4860,7 +4861,7 @@ msgid ""
 "Photographer"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1367
+#: packages/admin/src/components/FieldEditor.tsx:1369
 msgid "Editors can select a second image that the site shows in dark mode."
 msgstr ""
 
@@ -5010,11 +5011,11 @@ msgstr ""
 msgid "Enable full-text search on this collection"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:552
+#: packages/admin/src/components/PluginManager.tsx:558
 msgid "Enable plugin"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:611
+#: packages/admin/src/components/PluginManager.tsx:617
 msgid "Enable plugin MCP tools"
 msgstr ""
 
@@ -5142,7 +5143,7 @@ msgstr ""
 #: packages/admin/src/components/SetupWizard.tsx:606
 #: packages/admin/src/components/TaxonomyManager.tsx:1206
 #: packages/admin/src/components/Widgets.tsx:772
-#: packages/admin/src/router.tsx:3230
+#: packages/admin/src/router.tsx:3239
 msgid "Error"
 msgstr ""
 
@@ -5227,8 +5228,8 @@ msgstr ""
 msgid "Expand block"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:558
-#: packages/admin/src/components/PluginManager.tsx:563
+#: packages/admin/src/components/PluginManager.tsx:564
+#: packages/admin/src/components/PluginManager.tsx:569
 msgid "Expand details"
 msgstr ""
 
@@ -6108,6 +6109,10 @@ msgstr ""
 msgid "Failed to read byline field usage"
 msgstr ""
 
+#: packages/admin/src/router.tsx:2778
+msgid "Failed to register {slug}"
+msgstr ""
+
 #: packages/admin/src/lib/api/schema.ts:548
 msgid "Failed to register orphaned table"
 msgstr ""
@@ -6187,7 +6192,7 @@ msgstr ""
 
 #: packages/admin/src/router.tsx:843
 #: packages/admin/src/router.tsx:1245
-#: packages/admin/src/router.tsx:2954
+#: packages/admin/src/router.tsx:2963
 msgid "Failed to save"
 msgstr ""
 
@@ -6327,7 +6332,7 @@ msgstr ""
 msgid "Failed to update menu item"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:326
+#: packages/admin/src/components/PluginManager.tsx:332
 #: packages/admin/src/lib/api/marketplace.ts:373
 #: packages/admin/src/lib/api/registry.ts:878
 msgid "Failed to update plugin"
@@ -6436,7 +6441,7 @@ msgstr ""
 msgid "Field deleted"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1262
+#: packages/admin/src/components/FieldEditor.tsx:1263
 msgid "Field label"
 msgstr ""
 
@@ -6456,7 +6461,7 @@ msgstr ""
 msgid "Field updated"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1277
+#: packages/admin/src/components/FieldEditor.tsx:1279
 msgid "field_slug"
 msgstr ""
 
@@ -6741,7 +6746,7 @@ msgid "Go live {countdown}"
 msgstr ""
 
 #: packages/admin/src/components/WordPressImport.tsx:2447
-#: packages/admin/src/router.tsx:3250
+#: packages/admin/src/router.tsx:3259
 msgid "Go to Dashboard"
 msgstr ""
 
@@ -6929,7 +6934,7 @@ msgstr ""
 msgid "Homepage"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:484
+#: packages/admin/src/components/PluginManager.tsx:490
 msgid "Hooks"
 msgstr ""
 
@@ -7056,7 +7061,7 @@ msgstr ""
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:42
 #: packages/admin/src/components/FieldEditor.tsx:444
-#: packages/admin/src/components/FieldEditor.tsx:1297
+#: packages/admin/src/components/FieldEditor.tsx:1299
 #: packages/admin/src/components/PortableTextEditor.tsx:3648
 msgid "Image"
 msgstr ""
@@ -7450,11 +7455,11 @@ msgid "Installed"
 msgstr ""
 
 #. placeholder {0}: plugin.marketplaceVersion || plugin.version
-#: packages/admin/src/components/PluginManager.tsx:639
+#: packages/admin/src/components/PluginManager.tsx:645
 msgid "Installed from marketplace (v{0})"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:658
+#: packages/admin/src/components/PluginManager.tsx:664
 msgid "Installed:"
 msgstr ""
 
@@ -7463,7 +7468,7 @@ msgid "Installing..."
 msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:408
-#: packages/admin/src/components/FieldEditor.tsx:1292
+#: packages/admin/src/components/FieldEditor.tsx:1294
 msgid "Integer"
 msgstr ""
 
@@ -7694,7 +7699,7 @@ msgstr ""
 msgid "Last edited"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:664
+#: packages/admin/src/components/PluginManager.tsx:670
 msgid "Last enabled:"
 msgstr ""
 
@@ -7912,7 +7917,7 @@ msgid "Load preview"
 msgstr ""
 
 #: packages/admin/src/components/calendar/CalendarToolbar.tsx:59
-#: packages/admin/src/router.tsx:3205
+#: packages/admin/src/router.tsx:3214
 msgid "Loading"
 msgstr ""
 
@@ -7941,8 +7946,8 @@ msgstr ""
 msgid "Loading comments..."
 msgstr ""
 
-#: packages/admin/src/router.tsx:3207
-#: packages/admin/src/router.tsx:3219
+#: packages/admin/src/router.tsx:3216
+#: packages/admin/src/router.tsx:3228
 msgid "Loading configuration..."
 msgstr ""
 
@@ -8139,7 +8144,7 @@ msgid "Long text"
 msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:396
-#: packages/admin/src/components/FieldEditor.tsx:1290
+#: packages/admin/src/components/FieldEditor.tsx:1292
 msgid "Long Text"
 msgstr ""
 
@@ -8250,7 +8255,7 @@ msgid "Markdown"
 msgstr ""
 
 #: packages/admin/src/components/MarketplaceBrowse.tsx:87
-#: packages/admin/src/components/PluginManager.tsx:446
+#: packages/admin/src/components/PluginManager.tsx:452
 msgid "Marketplace"
 msgstr ""
 
@@ -8274,7 +8279,7 @@ msgstr ""
 msgid "Matched by email"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1342
+#: packages/admin/src/components/FieldEditor.tsx:1344
 msgid "Max Items"
 msgstr ""
 
@@ -8503,7 +8508,7 @@ msgstr ""
 msgid "Migration key"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1335
+#: packages/admin/src/components/FieldEditor.tsx:1337
 msgid "Min Items"
 msgstr ""
 
@@ -8920,7 +8925,7 @@ msgstr ""
 msgid "News"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1382
+#: packages/admin/src/components/FieldEditor.tsx:1384
 #: packages/admin/src/components/ThemeMarketplaceDetail.tsx:315
 msgid "Next"
 msgstr ""
@@ -9161,7 +9166,7 @@ msgstr ""
 msgid "No items yet"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1346
+#: packages/admin/src/components/FieldEditor.tsx:1348
 msgid "No limit"
 msgstr ""
 
@@ -9430,7 +9435,7 @@ msgid "Now · {time}"
 msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:402
-#: packages/admin/src/components/FieldEditor.tsx:1291
+#: packages/admin/src/components/FieldEditor.tsx:1293
 msgid "Number"
 msgstr ""
 
@@ -9687,7 +9692,7 @@ msgstr ""
 msgid "Ownership"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:648
+#: packages/admin/src/components/PluginManager.tsx:654
 msgid "Package"
 msgstr ""
 
@@ -9701,7 +9706,7 @@ msgstr ""
 msgid "Package downloaded"
 msgstr ""
 
-#: packages/admin/src/router.tsx:3245
+#: packages/admin/src/router.tsx:3254
 msgid "Page Not Found"
 msgstr ""
 
@@ -9715,7 +9720,7 @@ msgstr ""
 msgid "Page size"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:472
+#: packages/admin/src/components/PluginManager.tsx:478
 #: packages/admin/src/components/WordPressImport.tsx:1357
 msgid "Pages"
 msgstr ""
@@ -9918,7 +9923,7 @@ msgstr ""
 msgid "Picked up {label}."
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1450
+#: packages/admin/src/components/FieldEditor.tsx:1452
 msgid "Picking entries this one links to lets editors drag them into an order. The other direction lists whatever points at the entry and cannot be reordered."
 msgstr ""
 
@@ -10012,7 +10017,7 @@ msgstr ""
 msgid "Plugin installation requires explicit consent"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:395
+#: packages/admin/src/components/PluginManager.tsx:401
 msgid "Plugin MCP access updated"
 msgstr ""
 
@@ -10033,7 +10038,7 @@ msgstr ""
 msgid "Plugin not found. The publisher or slug may be incorrect."
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:541
+#: packages/admin/src/components/PluginManager.tsx:547
 msgid "Plugin pages"
 msgstr ""
 
@@ -10071,7 +10076,7 @@ msgstr ""
 msgid "Plugin tools: {0}"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:384
+#: packages/admin/src/components/PluginManager.tsx:390
 msgid "Plugin uninstalled"
 msgstr ""
 
@@ -10080,7 +10085,7 @@ msgstr ""
 msgid "Plugin update requires re-consent"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:293
+#: packages/admin/src/components/PluginManager.tsx:299
 msgid "Plugin updated"
 msgstr ""
 
@@ -10642,7 +10647,7 @@ msgid "Registration was cancelled or timed out. Please try again."
 msgstr ""
 
 #: packages/admin/src/components/PluginManager.tsx:210
-#: packages/admin/src/components/PluginManager.tsx:447
+#: packages/admin/src/components/PluginManager.tsx:453
 #: packages/admin/src/components/Sidebar.tsx:497
 msgid "Registry"
 msgstr ""
@@ -10794,7 +10799,7 @@ msgstr ""
 msgid "Remove schedule"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1325
+#: packages/admin/src/components/FieldEditor.tsx:1327
 msgid "Remove sub-field"
 msgstr ""
 
@@ -10973,7 +10978,7 @@ msgstr ""
 #: packages/admin/src/components/BylineFieldEditor.tsx:275
 #: packages/admin/src/components/ContentTypeEditor.tsx:949
 #: packages/admin/src/components/FieldEditor.tsx:866
-#: packages/admin/src/components/FieldEditor.tsx:1307
+#: packages/admin/src/components/FieldEditor.tsx:1309
 #: packages/admin/src/routes/byline-schema.tsx:246
 msgid "Required"
 msgstr ""
@@ -11130,7 +11135,7 @@ msgstr ""
 #: packages/admin/src/components/Sections.tsx:281
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:122
 #: packages/admin/src/lib/content-editor-panels.tsx:201
-#: packages/admin/src/router.tsx:3233
+#: packages/admin/src/router.tsx:3242
 #: packages/admin/src/routes/byline-schema.tsx:280
 #: packages/admin/src/routes/calendar.tsx:345
 msgid "Retry"
@@ -11321,7 +11326,7 @@ msgstr ""
 #. placeholder {0}: tool.route
 #. placeholder {1}: tool.permission
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:305
-#: packages/admin/src/components/PluginManager.tsx:624
+#: packages/admin/src/components/PluginManager.tsx:630
 msgid "Route: {0} · Permission: {1}"
 msgstr ""
 
@@ -11462,7 +11467,7 @@ msgid "Saving a collection here turns this field into an entry picker. Its store
 msgstr ""
 
 #: packages/admin/src/components/BylineFormDialog.tsx:549
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 #: packages/admin/src/components/MediaDetailPanel.tsx:1888
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
 #: packages/admin/src/components/MenuEditor.tsx:467
@@ -11893,7 +11898,7 @@ msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:51
 #: packages/admin/src/components/FieldEditor.tsx:426
-#: packages/admin/src/components/FieldEditor.tsx:1295
+#: packages/admin/src/components/FieldEditor.tsx:1297
 #: packages/admin/src/components/MediaPickerModal.tsx:870
 #: packages/admin/src/components/Settings.tsx:159
 msgid "Select"
@@ -12209,7 +12214,7 @@ msgstr ""
 #: packages/admin/src/components/ContentEditor.tsx:2026
 #: packages/admin/src/components/ContentTypeEditor.tsx:465
 #: packages/admin/src/components/Header.tsx:102
-#: packages/admin/src/components/PluginManager.tsx:530
+#: packages/admin/src/components/PluginManager.tsx:536
 #: packages/admin/src/components/Settings.tsx:46
 #: packages/admin/src/components/Sidebar.tsx:510
 #: packages/admin/src/components/WordPressImport.tsx:1840
@@ -12251,7 +12256,7 @@ msgid "Short text"
 msgstr ""
 
 #: packages/admin/src/components/FieldEditor.tsx:390
-#: packages/admin/src/components/FieldEditor.tsx:1289
+#: packages/admin/src/components/FieldEditor.tsx:1291
 msgid "Short Text"
 msgstr ""
 
@@ -12486,7 +12491,7 @@ msgstr ""
 #: packages/admin/src/components/ContentTypeList.tsx:201
 #: packages/admin/src/components/FieldEditor.tsx:468
 #: packages/admin/src/components/FieldEditor.tsx:844
-#: packages/admin/src/components/FieldEditor.tsx:1265
+#: packages/admin/src/components/FieldEditor.tsx:1266
 #: packages/admin/src/components/RelationForm.tsx:322
 #: packages/admin/src/components/RelationList.tsx:90
 #: packages/admin/src/components/SectionEditor.tsx:280
@@ -12594,7 +12599,7 @@ msgstr ""
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:566
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:787
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:236
-#: packages/admin/src/components/PluginManager.tsx:636
+#: packages/admin/src/components/PluginManager.tsx:642
 #: packages/admin/src/components/Redirects.tsx:488
 #: packages/admin/src/components/SectionEditor.tsx:315
 msgid "Source"
@@ -12746,7 +12751,7 @@ msgstr ""
 msgid "Structured"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1303
+#: packages/admin/src/components/FieldEditor.tsx:1305
 msgid "Sub-field slugs cannot be changed after creation."
 msgstr ""
 
@@ -13242,7 +13247,7 @@ msgstr ""
 msgid "The package’s file index is not valid."
 msgstr ""
 
-#: packages/admin/src/router.tsx:3247
+#: packages/admin/src/router.tsx:3256
 msgid "The page you're looking for doesn't exist."
 msgstr ""
 
@@ -13516,7 +13521,7 @@ msgstr ""
 msgid "This field is required"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1418
+#: packages/admin/src/components/FieldEditor.tsx:1420
 msgid "This field lists entries that link to this one."
 msgstr ""
 
@@ -13525,16 +13530,16 @@ msgstr ""
 msgid "This field picks"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1417
+#: packages/admin/src/components/FieldEditor.tsx:1419
 msgid "This field picks entries this one links to."
 msgstr ""
 
 #. placeholder {0}: relation.childLabel
-#: packages/admin/src/components/FieldEditor.tsx:1429
+#: packages/admin/src/components/FieldEditor.tsx:1431
 msgid "This field will show the <0>{0}</0> this {linkingSide} links to"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1434
+#: packages/admin/src/components/FieldEditor.tsx:1436
 msgid "This field will show the <0>{linkingSide}</0> linking to this {linkedSide}"
 msgstr ""
 
@@ -13660,7 +13665,7 @@ msgstr ""
 msgid "This plugin requires no special permissions."
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:457
+#: packages/admin/src/components/PluginManager.tsx:463
 msgid "This publisher identity no longer resolves."
 msgstr ""
 
@@ -13800,7 +13805,7 @@ msgstr ""
 msgid "This will permanently delete this comment. This action cannot be undone."
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:791
+#: packages/admin/src/components/PluginManager.tsx:797
 msgid "This will remove the plugin and its bundle from your site."
 msgstr ""
 
@@ -14098,7 +14103,7 @@ msgid "Two records have the same value where it must be unique"
 msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:255
-#: packages/admin/src/components/FieldEditor.tsx:1281
+#: packages/admin/src/components/FieldEditor.tsx:1283
 #: packages/admin/src/components/MediaLibrary.tsx:1142
 #: packages/admin/src/routes/byline-schema.tsx:240
 #: packages/admin/src/routes/bylines.tsx:343
@@ -14158,20 +14163,20 @@ msgid "Unfinished media uploads were left out"
 msgstr ""
 
 #: packages/admin/src/components/MarketplacePluginDetail.tsx:202
-#: packages/admin/src/components/PluginManager.tsx:686
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:692
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstall"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:789
+#: packages/admin/src/components/PluginManager.tsx:795
 msgid "Uninstall {pluginName}?"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:784
+#: packages/admin/src/components/PluginManager.tsx:790
 msgid "Uninstall confirmation"
 msgstr ""
 
-#: packages/admin/src/components/PluginManager.tsx:805
+#: packages/admin/src/components/PluginManager.tsx:811
 msgid "Uninstalling..."
 msgstr ""
 
@@ -14287,7 +14292,7 @@ msgctxt "A published entry's scheduled changes"
 msgid "Update"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1394
+#: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Update Field"
 msgstr ""
 
@@ -14323,7 +14328,7 @@ msgid "Update this redirect rule."
 msgstr ""
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 msgid "Update to v{0}"
 msgstr ""
 
@@ -14350,7 +14355,7 @@ msgid "Updating usage"
 msgstr ""
 
 #: packages/admin/src/components/CapabilityConsentDialog.tsx:353
-#: packages/admin/src/components/PluginManager.tsx:522
+#: packages/admin/src/components/PluginManager.tsx:528
 #: packages/admin/src/components/SandboxedPluginPage.tsx:161
 #: packages/admin/src/components/SandboxedPluginPage.tsx:165
 #: packages/admin/src/components/SandboxedPluginWidget.tsx:122
@@ -14484,7 +14489,7 @@ msgstr ""
 
 #: packages/admin/src/components/BylineFieldEditor.tsx:49
 #: packages/admin/src/components/FieldEditor.tsx:474
-#: packages/admin/src/components/FieldEditor.tsx:1296
+#: packages/admin/src/components/FieldEditor.tsx:1298
 #: packages/admin/src/components/MenuEditor.tsx:522
 #: packages/admin/src/components/MenuEditor.tsx:719
 msgid "URL"
@@ -14671,7 +14676,7 @@ msgid "v{0}"
 msgstr ""
 
 #. placeholder {0}: updateInfo.latest
-#: packages/admin/src/components/PluginManager.tsx:450
+#: packages/admin/src/components/PluginManager.tsx:456
 msgid "v{0} available"
 msgstr ""
 
@@ -14899,7 +14904,7 @@ msgstr ""
 msgid "What it leaves out"
 msgstr ""
 
-#: packages/admin/src/components/FieldEditor.tsx:1463
+#: packages/admin/src/components/FieldEditor.tsx:1465
 msgid "What the direction changes"
 msgstr ""
 
@@ -15026,7 +15031,7 @@ msgid "Widget updated"
 msgstr ""
 
 #: packages/admin/src/components/AdminCommandPalette.tsx:181
-#: packages/admin/src/components/PluginManager.tsx:478
+#: packages/admin/src/components/PluginManager.tsx:484
 #: packages/admin/src/components/settings/transfer/labels.ts:31
 #: packages/admin/src/components/settings/transfer/labels.ts:91
 #: packages/admin/src/components/Sidebar.tsx:452
