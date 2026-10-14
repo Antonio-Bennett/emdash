@@ -14,13 +14,13 @@ created: 2026-10-14
 
 An Editor who takes over a post from a colleague, or writes one for a new author, wants to set who owns it. The server already allows this: an update may change `authorId` when the caller holds `content:edit_any`, which Editors have. The entry editor has an author picker for exactly this, under **Ownership** in the settings sidebar.
 
-Editors never see that picker. The editor loads the user list from `GET /_emdash/api/admin/users`, which refuses everyone below Admin, so the request fails with 403 and the **Ownership** section stays hidden. Only Admins can change an entry's author from the admin today.
+Editors never see that picker. The entry editor loads the user list from `GET /_emdash/api/admin/users`, which refuses everyone below Admin, so the request fails with 403 and the **Ownership** section stays hidden. Only Admins can change an entry's author from the admin today.
 
 Opening `/admin/users` to Editors is not the fix. It returns every user's email, role, disabled state, last sign-in, passkey count and OAuth providers, and its `role` filter would let an Editor list all Admins. `GET /_emdash/api/content/{collection}/authors` is not enough either: it lists only users who already wrote an entry in that collection, so a newly invited author never appears.
 
 ## Proposed behavior
 
-A new route lists the users an entry in a collection can be assigned to, with only what the picker shows:
+A new route lists the users an entry in a collection can be assigned to, with the same fields as the `/authors` route:
 
 ```http
 GET /_emdash/api/content/posts/assignable-authors?search=sam&limit=50
@@ -42,7 +42,7 @@ GET /_emdash/api/content/posts/assignable-authors?search=sam&limit=50
 
 - It requires `content:edit_any`, the permission the server already checks before it lets an update change `authorId`.
 - It lists users who can create content (`content:create`, Contributor and above in 1.x) and are not disabled.
-- Items are sorted by name, then email, like the `/authors` route. `search` matches name or email. Pagination follows the list convention: `limit` defaults to 50 and is clamped to 100, with `cursor` and `nextCursor`.
+- Items are sorted by name, or by email for users without a name, like the `/authors` route. `search` matches name or email. Pagination follows the list convention: `limit` defaults to 50 and is clamped to 100, with `cursor` and `nextCursor`.
 - The entry editor loads the picker from this route instead of `/admin/users`, for everyone who holds `content:edit_any`. Admins use the same route, so the picker shows the same list to an Admin and an Editor.
 
 The route sits under the collection, although the list doesn't depend on the collection in 1.x. The custom roles RFC ([#4156](https://github.com/emdash-cms/emdash/pull/4156)) scopes content permissions to collections. Under that design, the check and the filter can both name the collection: who may assign authors in `jobs`, and who may write in `jobs`.
@@ -51,7 +51,7 @@ The route sits under the collection, although the list doesn't depend on the col
 
 - Editors can change an entry's author from the entry editor.
 - The picker shows only users the entry can usefully be assigned to.
-- An Editor learns nothing about users beyond the name, email and avatar the picker needs.
+- An Editor learns nothing about users beyond their name, email and avatar.
 
 ## Non-goals
 
@@ -62,17 +62,17 @@ The route sits under the collection, although the list doesn't depend on the col
 ## Interfaces and compatibility
 
 - New route `GET /_emdash/api/content/{collection}/assignable-authors`, added to the OpenAPI document and the REST API reference. No existing route changes. `/admin/users` stays Admin-only.
-- The admin's author picker switches routes. For Admins the list gets shorter: Subscribers and disabled users are no longer offered as authors.
+- The admin's author picker switches routes. For Admins, Subscribers and disabled users are no longer offered as authors, and the list is sorted by name instead of newest first.
 - No database changes and no new permission.
 - An entry whose slug is `assignable-authors` can't be opened by slug through `/content/{collection}/{slug}`, the same as an entry whose slug is `authors` or `trash` today. Opening it by ID still works.
-- The route is admin-only, so logged-out pages run no new query.
+- Only the admin calls the route, so logged-out pages run no new query.
 
 ## Errors and edge cases
 
 - Signed out: 401. Signed in without `content:edit_any`: 403. Unknown collection: 404 `COLLECTION_NOT_FOUND`, like `/authors`.
-- Users without a name are labelled by email in the picker, as they are today. This is why the response carries email.
+- The picker shows each user's email next to their name and labels users without a name by email, as it does today. This is why the response carries email.
 - The current author is not in the list, because they were disabled, moved below Contributor, or fall outside the first 100. The picker keeps the entry's current author selected and labels it "Current author", and an Editor can still move the entry to someone in the list.
-- An empty list can't happen for a signed-in caller who holds `content:edit_any`, because the caller is listed. The **Ownership** section still hides itself when the request fails.
+- Without `search`, the list is never empty for a caller who holds `content:edit_any`, because the caller is listed. The **Ownership** section still hides itself when the request fails.
 
 ## Verification
 
@@ -82,5 +82,5 @@ The route sits under the collection, although the list doesn't depend on the col
 
 ## Open questions
 
-- Should Editors see email at all? Contributors already get the email of every user who has written in a collection, through `/authors`. Dropping email would leave users without a name with no label.
+- Should Editors see email at all? Contributors already get the email of every user who has written in a collection, through `/authors`, while the user list for mentions in the editorial comments RFC ([#4126](https://github.com/emdash-cms/emdash/pull/4126)) never returns email. Dropping email would leave users without a name with no label.
 - Should the picker fetch the current author when they aren't in the list (for example with an `include` parameter), so it can show their name instead of "Current author"?
