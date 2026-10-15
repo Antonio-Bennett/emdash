@@ -1441,6 +1441,10 @@ msgstr "Aanvullende gegevens om te importeren."
 msgid "Additional details"
 msgstr ""
 
+#: packages/admin/src/components/settings/SeoSettings.tsx:278
+msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
+msgstr ""
+
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "admin"
@@ -1699,9 +1703,9 @@ msgstr ""
 #: packages/admin/src/components/settings/SecuritySettings.tsx:56
 #: packages/admin/src/components/settings/SecuritySettings.tsx:72
 #: packages/admin/src/components/settings/SecuritySettings.tsx:129
-#: packages/admin/src/components/settings/SeoSettings.tsx:82
-#: packages/admin/src/components/settings/SeoSettings.tsx:144
-#: packages/admin/src/components/settings/SeoSettings.tsx:145
+#: packages/admin/src/components/settings/SeoSettings.tsx:86
+#: packages/admin/src/components/settings/SeoSettings.tsx:148
+#: packages/admin/src/components/settings/SeoSettings.tsx:149
 #: packages/admin/src/components/settings/SocialSettings.tsx:67
 #: packages/admin/src/components/settings/SocialSettings.tsx:111
 #: packages/admin/src/components/settings/SocialSettings.tsx:112
@@ -2174,8 +2178,8 @@ msgstr ""
 msgid "Between {min} and {max}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:252
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:256
 msgid "Bing Verification"
 msgstr "Bing-verificatie"
 
@@ -2554,7 +2558,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "Favicon wijzigen"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:208
+#: packages/admin/src/components/settings/SeoSettings.tsx:212
 msgid "Change Image"
 msgstr "Afbeelding wijzigen"
 
@@ -2596,7 +2600,7 @@ msgstr "Wijzigingen verworpen"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:172
+#: packages/admin/src/components/settings/SeoSettings.tsx:176
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Teken tussen de paginatitel en de sitenaam (bijv. \"Mijn bericht | Mijn site\")"
 
@@ -3835,7 +3839,7 @@ msgstr "Aangepast"
 msgid "Custom Fields"
 msgstr "Aangepaste velden"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:271
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Aangepaste content voor robots.txt. Laat leeg om de standaard te gebruiken."
 
@@ -3915,12 +3919,12 @@ msgstr "Standaardrol"
 msgid "Default role:"
 msgstr "Standaardrol:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:186
+#: packages/admin/src/components/settings/SeoSettings.tsx:190
 msgid "Default social image"
 msgstr "Standaardafbeelding voor social media"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:177
+#: packages/admin/src/components/settings/SeoSettings.tsx:181
 msgid "Default Social Image"
 msgstr "Standaardafbeelding voor social media"
 
@@ -4351,6 +4355,11 @@ msgstr "Als je <0>{0}</0> uitschakelt, kan deze gebruiker niet meer inloggen tot
 #: packages/admin/src/routes/users.tsx:284
 msgid "Disabling..."
 msgstr "Uitschakelen..."
+
+#: packages/admin/src/components/settings/SeoSettings.tsx:276
+#: packages/admin/src/components/settings/SeoSettings.tsx:286
+msgid "Disallow AI training"
+msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -5361,7 +5370,7 @@ msgstr ""
 msgid "Failed to cancel import"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:118
+#: packages/admin/src/lib/api/settings.ts:119
 msgid "Failed to change the domain"
 msgstr ""
 
@@ -5395,7 +5404,7 @@ msgid "Failed to create {0}"
 msgstr ""
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:146
-#: packages/admin/src/lib/api/settings.ts:95
+#: packages/admin/src/lib/api/settings.ts:96
 msgid "Failed to create a sign-in link"
 msgstr ""
 
@@ -5642,7 +5651,7 @@ msgstr "Dupliceren mislukt"
 msgid "Failed to duplicate content"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:105
+#: packages/admin/src/lib/api/settings.ts:106
 msgid "Failed to email users"
 msgstr ""
 
@@ -5852,7 +5861,7 @@ msgstr "Ophalen van sectie mislukt"
 msgid "Failed to fetch sections"
 msgstr "Ophalen van secties mislukt"
 
-#: packages/admin/src/lib/api/settings.ts:60
+#: packages/admin/src/lib/api/settings.ts:61
 msgid "Failed to fetch settings"
 msgstr "Ophalen van instellingen mislukt"
 
@@ -5873,7 +5882,7 @@ msgstr ""
 msgid "Failed to fetch terms"
 msgstr "Ophalen van termen mislukt"
 
-#: packages/admin/src/lib/api/settings.ts:87
+#: packages/admin/src/lib/api/settings.ts:88
 msgid "Failed to fetch the site domain"
 msgstr ""
 
@@ -6217,7 +6226,7 @@ msgstr "Opslaan van veld mislukt"
 
 #: packages/admin/src/components/PluginSettings.tsx:74
 #: packages/admin/src/components/settings/GeneralSettings.tsx:133
-#: packages/admin/src/components/settings/SeoSettings.tsx:81
+#: packages/admin/src/components/settings/SeoSettings.tsx:85
 #: packages/admin/src/components/settings/SocialSettings.tsx:66
 msgid "Failed to save settings"
 msgstr "Opslaan van instellingen mislukt"
@@ -6369,7 +6378,7 @@ msgstr ""
 msgid "Failed to update section"
 msgstr "Bijwerken van sectie mislukt"
 
-#: packages/admin/src/lib/api/settings.ts:72
+#: packages/admin/src/lib/api/settings.ts:73
 msgid "Failed to update settings"
 msgstr "Bijwerken van instellingen mislukt"
 
@@ -6773,8 +6782,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:244
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:248
 msgid "Google Verification"
 msgstr "Google-verificatie"
 
@@ -8032,7 +8041,7 @@ msgstr "Secties laden..."
 
 #: packages/admin/src/components/PluginSettings.tsx:131
 #: packages/admin/src/components/settings/GeneralSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:133
+#: packages/admin/src/components/settings/SeoSettings.tsx:137
 #: packages/admin/src/components/settings/SocialSettings.tsx:100
 msgid "Loading settings..."
 msgstr "Instellingen laden..."
@@ -8499,11 +8508,11 @@ msgstr ""
 msgid "Meta Description"
 msgstr "Metabeschrijving"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:255
+#: packages/admin/src/components/settings/SeoSettings.tsx:259
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Inhoud van de metatag voor verificatie via Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:247
+#: packages/admin/src/components/settings/SeoSettings.tsx:251
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Inhoud van de metatag voor verificatie via Google Search Console"
 
@@ -10724,7 +10733,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:217
+#: packages/admin/src/components/settings/SeoSettings.tsx:221
 msgid "Remove"
 msgstr "Verwijderen"
 
@@ -11304,8 +11313,8 @@ msgstr "Rechts"
 msgid "Risk score: {0}/100"
 msgstr "Risicoscore: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:260
-#: packages/admin/src/components/settings/SeoSettings.tsx:263
+#: packages/admin/src/components/settings/SeoSettings.tsx:264
+#: packages/admin/src/components/settings/SeoSettings.tsx:267
 msgid "robots.txt"
 msgstr ""
 
@@ -11698,12 +11707,12 @@ msgstr "Reacties zoeken..."
 msgid "Search content..."
 msgstr "Content zoeken..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:166
+#: packages/admin/src/components/settings/SeoSettings.tsx:170
 msgid "Search Engine Optimization"
 msgstr "Zoekmachineoptimalisatie"
 
 #: packages/admin/src/components/Settings.tsx:67
-#: packages/admin/src/components/settings/SeoSettings.tsx:123
+#: packages/admin/src/components/settings/SeoSettings.tsx:127
 msgid "Search engine optimization and verification"
 msgstr "Zoekmachineoptimalisatie en verificatie"
 
@@ -11988,7 +11997,7 @@ msgstr ""
 msgid "Select dark mode variant for {label}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:289
+#: packages/admin/src/components/settings/SeoSettings.tsx:309
 msgid "Select default social image"
 msgstr ""
 
@@ -12015,7 +12024,7 @@ msgstr ""
 msgid "Select image"
 msgstr "Afbeelding selecteren"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:228
+#: packages/admin/src/components/settings/SeoSettings.tsx:232
 msgid "Select Image"
 msgstr "Afbeelding selecteren"
 
@@ -12147,7 +12156,7 @@ msgstr "SEO"
 msgid "SEO settings"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:122
+#: packages/admin/src/components/settings/SeoSettings.tsx:126
 msgid "SEO Settings"
 msgstr "SEO-instellingen"
 
@@ -12155,7 +12164,7 @@ msgstr "SEO-instellingen"
 msgid "SEO settings (Yoast)"
 msgstr "SEO-instellingen (Yoast)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:77
+#: packages/admin/src/components/settings/SeoSettings.tsx:81
 msgid "SEO settings saved"
 msgstr "SEO-instellingen opgeslagen"
 
@@ -13299,7 +13308,7 @@ msgstr ""
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:197
+#: packages/admin/src/components/settings/SeoSettings.tsx:201
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "De afbeelding waarnaar wordt verwezen is niet meer beschikbaar. Kies een nieuwe afbeelding of verwijder de verwijzing."
 
@@ -13860,7 +13869,7 @@ msgstr "Titel"
 msgid "Title (Tooltip)"
 msgstr "Titel (tooltip)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:169
+#: packages/admin/src/components/settings/SeoSettings.tsx:173
 msgid "Title Separator"
 msgstr "Titelscheidingsteken"
 
@@ -14607,7 +14616,7 @@ msgstr "Gebruik de biometrische authenticatie, beveiligingssleutel of pincode va
 msgid "Use your registered passkey to sign in securely."
 msgstr "Gebruik je geregistreerde passkey om veilig in te loggen."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:178
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Wordt gebruikt als fallback Open Graph-afbeelding wanneer een pagina er geen heeft. Aanbevolen formaat: 1200×630."
 

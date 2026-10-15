@@ -1441,6 +1441,10 @@ msgstr "بيانات إضافية للاستيراد."
 msgid "Additional details"
 msgstr "تفاصيل إضافية"
 
+#: packages/admin/src/components/settings/SeoSettings.tsx:278
+msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
+msgstr ""
+
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "مسؤول"
@@ -1699,9 +1703,9 @@ msgstr "مفتاح رقمي مشفّر تفتحه باستخدام بصمة إص
 #: packages/admin/src/components/settings/SecuritySettings.tsx:56
 #: packages/admin/src/components/settings/SecuritySettings.tsx:72
 #: packages/admin/src/components/settings/SecuritySettings.tsx:129
-#: packages/admin/src/components/settings/SeoSettings.tsx:82
-#: packages/admin/src/components/settings/SeoSettings.tsx:144
-#: packages/admin/src/components/settings/SeoSettings.tsx:145
+#: packages/admin/src/components/settings/SeoSettings.tsx:86
+#: packages/admin/src/components/settings/SeoSettings.tsx:148
+#: packages/admin/src/components/settings/SeoSettings.tsx:149
 #: packages/admin/src/components/settings/SocialSettings.tsx:67
 #: packages/admin/src/components/settings/SocialSettings.tsx:111
 #: packages/admin/src/components/settings/SocialSettings.tsx:112
@@ -2174,8 +2178,8 @@ msgstr "قبل المتابعة:"
 msgid "Between {min} and {max}"
 msgstr "بين {min} و{max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:252
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:256
 msgid "Bing Verification"
 msgstr "تحقق Bing"
 
@@ -2554,7 +2558,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "تغيير أيقونة المتصفح"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:208
+#: packages/admin/src/components/settings/SeoSettings.tsx:212
 msgid "Change Image"
 msgstr "تغيير الصورة"
 
@@ -2596,7 +2600,7 @@ msgstr "تم تجاهل التغييرات"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "حُفظت التغييرات، لكن الصفحات المخزنة مؤقتًا قد تظل تعرض {pluralLower} القديمة. أعد محاولة تحديث ذاكرة التخزين المؤقت."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:172
+#: packages/admin/src/components/settings/SeoSettings.tsx:176
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "الحرف بين عنوان الصفحة واسم الموقع (مثال: \"منشوري | موقعي\")"
 
@@ -3835,7 +3839,7 @@ msgstr "مخصص"
 msgid "Custom Fields"
 msgstr "حقول مخصصة"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:271
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "محتوى robots.txt مخصص. اتركه فارغًا لاستخدام الافتراضي."
 
@@ -3915,12 +3919,12 @@ msgstr "الدور الافتراضي"
 msgid "Default role:"
 msgstr "الدور الافتراضي:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:186
+#: packages/admin/src/components/settings/SeoSettings.tsx:190
 msgid "Default social image"
 msgstr "صورة التواصل الاجتماعي الافتراضية"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:177
+#: packages/admin/src/components/settings/SeoSettings.tsx:181
 msgid "Default Social Image"
 msgstr "صورة التواصل الاجتماعي الافتراضية"
 
@@ -4351,6 +4355,11 @@ msgstr "تعطيل <0>{0}</0> سيحول دون تسجيل دخولهم حتى �
 #: packages/admin/src/routes/users.tsx:284
 msgid "Disabling..."
 msgstr "جارٍ التعطيل..."
+
+#: packages/admin/src/components/settings/SeoSettings.tsx:276
+#: packages/admin/src/components/settings/SeoSettings.tsx:286
+msgid "Disallow AI training"
+msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -5361,7 +5370,7 @@ msgstr "فشلت الموافقة على الطلب"
 msgid "Failed to cancel import"
 msgstr "فشل إلغاء الاستيراد"
 
-#: packages/admin/src/lib/api/settings.ts:118
+#: packages/admin/src/lib/api/settings.ts:119
 msgid "Failed to change the domain"
 msgstr ""
 
@@ -5395,7 +5404,7 @@ msgid "Failed to create {0}"
 msgstr "فشل إنشاء {0}"
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:146
-#: packages/admin/src/lib/api/settings.ts:95
+#: packages/admin/src/lib/api/settings.ts:96
 msgid "Failed to create a sign-in link"
 msgstr ""
 
@@ -5642,7 +5651,7 @@ msgstr "فشل التكرار"
 msgid "Failed to duplicate content"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:105
+#: packages/admin/src/lib/api/settings.ts:106
 msgid "Failed to email users"
 msgstr ""
 
@@ -5852,7 +5861,7 @@ msgstr "فشل جلب القسم"
 msgid "Failed to fetch sections"
 msgstr "فشل جلب الأقسام"
 
-#: packages/admin/src/lib/api/settings.ts:60
+#: packages/admin/src/lib/api/settings.ts:61
 msgid "Failed to fetch settings"
 msgstr "فشل جلب الإعدادات"
 
@@ -5873,7 +5882,7 @@ msgstr ""
 msgid "Failed to fetch terms"
 msgstr "فشل جلب المصطلحات"
 
-#: packages/admin/src/lib/api/settings.ts:87
+#: packages/admin/src/lib/api/settings.ts:88
 msgid "Failed to fetch the site domain"
 msgstr ""
 
@@ -6217,7 +6226,7 @@ msgstr "فشل حفظ الحقل"
 
 #: packages/admin/src/components/PluginSettings.tsx:74
 #: packages/admin/src/components/settings/GeneralSettings.tsx:133
-#: packages/admin/src/components/settings/SeoSettings.tsx:81
+#: packages/admin/src/components/settings/SeoSettings.tsx:85
 #: packages/admin/src/components/settings/SocialSettings.tsx:66
 msgid "Failed to save settings"
 msgstr "فشل في حفظ الإعدادات"
@@ -6369,7 +6378,7 @@ msgstr ""
 msgid "Failed to update section"
 msgstr "فشل تحديث القسم"
 
-#: packages/admin/src/lib/api/settings.ts:72
+#: packages/admin/src/lib/api/settings.ts:73
 msgid "Failed to update settings"
 msgstr "فشل تحديث الإعدادات"
 
@@ -6773,8 +6782,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:244
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:248
 msgid "Google Verification"
 msgstr "تحقق Google"
 
@@ -8032,7 +8041,7 @@ msgstr "جاري تحميل الأقسام..."
 
 #: packages/admin/src/components/PluginSettings.tsx:131
 #: packages/admin/src/components/settings/GeneralSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:133
+#: packages/admin/src/components/settings/SeoSettings.tsx:137
 #: packages/admin/src/components/settings/SocialSettings.tsx:100
 msgid "Loading settings..."
 msgstr "جاري تحميل الإعدادات..."
@@ -8499,11 +8508,11 @@ msgstr "دمج الخلايا المحددة"
 msgid "Meta Description"
 msgstr "الوصف التعريفي"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:255
+#: packages/admin/src/components/settings/SeoSettings.tsx:259
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "محتوى علامة meta لتحقق Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:247
+#: packages/admin/src/components/settings/SeoSettings.tsx:251
 msgid "Meta tag content for Google Search Console verification"
 msgstr "محتوى علامة meta لتحقق Google Search Console"
 
@@ -10724,7 +10733,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:217
+#: packages/admin/src/components/settings/SeoSettings.tsx:221
 msgid "Remove"
 msgstr "إزالة"
 
@@ -11304,8 +11313,8 @@ msgstr "يمين"
 msgid "Risk score: {0}/100"
 msgstr "درجة المخاطرة: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:260
-#: packages/admin/src/components/settings/SeoSettings.tsx:263
+#: packages/admin/src/components/settings/SeoSettings.tsx:264
+#: packages/admin/src/components/settings/SeoSettings.tsx:267
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -11698,12 +11707,12 @@ msgstr "البحث في التعليقات..."
 msgid "Search content..."
 msgstr "البحث في المحتوى..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:166
+#: packages/admin/src/components/settings/SeoSettings.tsx:170
 msgid "Search Engine Optimization"
 msgstr "تحسين محركات البحث"
 
 #: packages/admin/src/components/Settings.tsx:67
-#: packages/admin/src/components/settings/SeoSettings.tsx:123
+#: packages/admin/src/components/settings/SeoSettings.tsx:127
 msgid "Search engine optimization and verification"
 msgstr "تحسين محركات البحث والتحقق"
 
@@ -11988,7 +11997,7 @@ msgstr "اختيار المحتوى"
 msgid "Select dark mode variant for {label}"
 msgstr "اختيار نسخة الوضع الداكن لـ {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:289
+#: packages/admin/src/components/settings/SeoSettings.tsx:309
 msgid "Select default social image"
 msgstr "اختيار صورة المشاركة الاجتماعية الافتراضية"
 
@@ -12015,7 +12024,7 @@ msgstr "اختيار صور المعرض"
 msgid "Select image"
 msgstr "اختيار صورة"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:228
+#: packages/admin/src/components/settings/SeoSettings.tsx:232
 msgid "Select Image"
 msgstr "اختيار صورة"
 
@@ -12147,7 +12156,7 @@ msgstr "تحسين محركات البحث"
 msgid "SEO settings"
 msgstr "إعدادات تحسين محركات البحث"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:122
+#: packages/admin/src/components/settings/SeoSettings.tsx:126
 msgid "SEO Settings"
 msgstr "إعدادات تحسين محركات البحث"
 
@@ -12155,7 +12164,7 @@ msgstr "إعدادات تحسين محركات البحث"
 msgid "SEO settings (Yoast)"
 msgstr "إعدادات تحسين محركات البحث (Yoast)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:77
+#: packages/admin/src/components/settings/SeoSettings.tsx:81
 msgid "SEO settings saved"
 msgstr "تم حفظ إعدادات تحسين محركات البحث"
 
@@ -13299,7 +13308,7 @@ msgstr "لا يمكن التحقق من هوية الناشر."
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:197
+#: packages/admin/src/components/settings/SeoSettings.tsx:201
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "الصورة المرجعية لم تعد متاحة. اختر أخرى أو احذف المرجع."
 
@@ -13860,7 +13869,7 @@ msgstr "العنوان"
 msgid "Title (Tooltip)"
 msgstr "العنوان (تلميح)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:169
+#: packages/admin/src/components/settings/SeoSettings.tsx:173
 msgid "Title Separator"
 msgstr "فاصل العنوان"
 
@@ -14607,7 +14616,7 @@ msgstr "استخدم المصادقة الحيوية لجهازك أو مفتا�
 msgid "Use your registered passkey to sign in securely."
 msgstr "قم باستخدام مفتاح المرور المسجل الخاص بك لتسجيل الدخول بشكل آمن."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:178
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "تُستخدم صورةً احتياطية لـ Open Graph حين لا تحتوي الصفحة على صورة. الحجم الموصى به: 1200×630."
 

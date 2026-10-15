@@ -1441,6 +1441,10 @@ msgstr "가져올 추가 데이터입니다."
 msgid "Additional details"
 msgstr "추가 세부정보"
 
+#: packages/admin/src/components/settings/SeoSettings.tsx:278
+msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
+msgstr ""
+
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "admin"
@@ -1699,9 +1703,9 @@ msgstr "지문, 얼굴 인식, PIN 또는 기기 비밀번호로 잠금을 해�
 #: packages/admin/src/components/settings/SecuritySettings.tsx:56
 #: packages/admin/src/components/settings/SecuritySettings.tsx:72
 #: packages/admin/src/components/settings/SecuritySettings.tsx:129
-#: packages/admin/src/components/settings/SeoSettings.tsx:82
-#: packages/admin/src/components/settings/SeoSettings.tsx:144
-#: packages/admin/src/components/settings/SeoSettings.tsx:145
+#: packages/admin/src/components/settings/SeoSettings.tsx:86
+#: packages/admin/src/components/settings/SeoSettings.tsx:148
+#: packages/admin/src/components/settings/SeoSettings.tsx:149
 #: packages/admin/src/components/settings/SocialSettings.tsx:67
 #: packages/admin/src/components/settings/SocialSettings.tsx:111
 #: packages/admin/src/components/settings/SocialSettings.tsx:112
@@ -2174,8 +2178,8 @@ msgstr "계속하기 전에 다음 사항을 확인하세요:"
 msgid "Between {min} and {max}"
 msgstr "{min} 이상 {max} 이하"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:252
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:256
 msgid "Bing Verification"
 msgstr "Bing 인증"
 
@@ -2554,7 +2558,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "파비콘 변경"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:208
+#: packages/admin/src/components/settings/SeoSettings.tsx:212
 msgid "Change Image"
 msgstr "이미지 변경"
 
@@ -2596,7 +2600,7 @@ msgstr "변경 사항을 버렸습니다"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "변경 사항을 저장했지만 캐시된 페이지에는 변경 전 {pluralLower} 정보가 표시될 수 있습니다. 캐시 새로고침을 다시 시도하세요."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:172
+#: packages/admin/src/components/settings/SeoSettings.tsx:176
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "페이지 제목과 사이트 이름 사이의 문자(예: \"내 게시물 | 내 사이트\")"
 
@@ -3835,7 +3839,7 @@ msgstr "커스텀"
 msgid "Custom Fields"
 msgstr "커스텀 필드"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:271
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "robots.txt 내용을 직접 입력하세요. 비워 두면 기본값이 사용됩니다."
 
@@ -3915,12 +3919,12 @@ msgstr "기본 역할"
 msgid "Default role:"
 msgstr "기본 역할:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:186
+#: packages/admin/src/components/settings/SeoSettings.tsx:190
 msgid "Default social image"
 msgstr "기본 소셜 이미지"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:177
+#: packages/admin/src/components/settings/SeoSettings.tsx:181
 msgid "Default Social Image"
 msgstr "기본 소셜 공유 이미지"
 
@@ -4351,6 +4355,11 @@ msgstr "<0>{0}</0>을(를) 비활성화하면 다시 활성화할 때까지 로�
 #: packages/admin/src/routes/users.tsx:284
 msgid "Disabling..."
 msgstr "비활성화 중..."
+
+#: packages/admin/src/components/settings/SeoSettings.tsx:276
+#: packages/admin/src/components/settings/SeoSettings.tsx:286
+msgid "Disallow AI training"
+msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -5361,7 +5370,7 @@ msgstr "요청을 승인하지 못했습니다"
 msgid "Failed to cancel import"
 msgstr "가져오기를 취소하지 못했습니다"
 
-#: packages/admin/src/lib/api/settings.ts:118
+#: packages/admin/src/lib/api/settings.ts:119
 msgid "Failed to change the domain"
 msgstr ""
 
@@ -5395,7 +5404,7 @@ msgid "Failed to create {0}"
 msgstr "{0}을(를) 생성하지 못했습니다."
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:146
-#: packages/admin/src/lib/api/settings.ts:95
+#: packages/admin/src/lib/api/settings.ts:96
 msgid "Failed to create a sign-in link"
 msgstr ""
 
@@ -5642,7 +5651,7 @@ msgstr "복제에 실패했습니다"
 msgid "Failed to duplicate content"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:105
+#: packages/admin/src/lib/api/settings.ts:106
 msgid "Failed to email users"
 msgstr ""
 
@@ -5852,7 +5861,7 @@ msgstr "섹션을 불러오지 못했습니다."
 msgid "Failed to fetch sections"
 msgstr "섹션 목록을 불러오지 못했습니다."
 
-#: packages/admin/src/lib/api/settings.ts:60
+#: packages/admin/src/lib/api/settings.ts:61
 msgid "Failed to fetch settings"
 msgstr "설정을 가져오지 못했습니다."
 
@@ -5873,7 +5882,7 @@ msgstr ""
 msgid "Failed to fetch terms"
 msgstr "분류 항목을 가져오지 못했습니다."
 
-#: packages/admin/src/lib/api/settings.ts:87
+#: packages/admin/src/lib/api/settings.ts:88
 msgid "Failed to fetch the site domain"
 msgstr ""
 
@@ -6217,7 +6226,7 @@ msgstr "필드를 저장하지 못했습니다."
 
 #: packages/admin/src/components/PluginSettings.tsx:74
 #: packages/admin/src/components/settings/GeneralSettings.tsx:133
-#: packages/admin/src/components/settings/SeoSettings.tsx:81
+#: packages/admin/src/components/settings/SeoSettings.tsx:85
 #: packages/admin/src/components/settings/SocialSettings.tsx:66
 msgid "Failed to save settings"
 msgstr "설정을 저장하지 못했습니다."
@@ -6369,7 +6378,7 @@ msgstr ""
 msgid "Failed to update section"
 msgstr "섹션을 업데이트하지 못했습니다."
 
-#: packages/admin/src/lib/api/settings.ts:72
+#: packages/admin/src/lib/api/settings.ts:73
 msgid "Failed to update settings"
 msgstr "설정을 업데이트하지 못했습니다."
 
@@ -6773,8 +6782,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:244
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:248
 msgid "Google Verification"
 msgstr "Google 인증"
 
@@ -8032,7 +8041,7 @@ msgstr "섹션 로드 중..."
 
 #: packages/admin/src/components/PluginSettings.tsx:131
 #: packages/admin/src/components/settings/GeneralSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:133
+#: packages/admin/src/components/settings/SeoSettings.tsx:137
 #: packages/admin/src/components/settings/SocialSettings.tsx:100
 msgid "Loading settings..."
 msgstr "설정 로드 중..."
@@ -8499,11 +8508,11 @@ msgstr "선택한 셀 병합"
 msgid "Meta Description"
 msgstr "메타 설명"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:255
+#: packages/admin/src/components/settings/SeoSettings.tsx:259
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Bing 웹마스터 도구 확인을 위한 메타태그 콘텐츠"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:247
+#: packages/admin/src/components/settings/SeoSettings.tsx:251
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Google Search Console 소유권 확인용 메타 태그의 content 값"
 
@@ -10724,7 +10733,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:217
+#: packages/admin/src/components/settings/SeoSettings.tsx:221
 msgid "Remove"
 msgstr "제거"
 
@@ -11304,8 +11313,8 @@ msgstr "오른쪽"
 msgid "Risk score: {0}/100"
 msgstr "위험 점수: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:260
-#: packages/admin/src/components/settings/SeoSettings.tsx:263
+#: packages/admin/src/components/settings/SeoSettings.tsx:264
+#: packages/admin/src/components/settings/SeoSettings.tsx:267
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -11698,12 +11707,12 @@ msgstr "댓글 검색..."
 msgid "Search content..."
 msgstr "콘텐츠 검색..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:166
+#: packages/admin/src/components/settings/SeoSettings.tsx:170
 msgid "Search Engine Optimization"
 msgstr "검색 엔진 최적화"
 
 #: packages/admin/src/components/Settings.tsx:67
-#: packages/admin/src/components/settings/SeoSettings.tsx:123
+#: packages/admin/src/components/settings/SeoSettings.tsx:127
 msgid "Search engine optimization and verification"
 msgstr "검색 엔진 최적화 및 소유권 인증"
 
@@ -11988,7 +11997,7 @@ msgstr "콘텐츠 선택"
 msgid "Select dark mode variant for {label}"
 msgstr "{label} 항목의 다크 모드용 대체 이미지 선택"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:289
+#: packages/admin/src/components/settings/SeoSettings.tsx:309
 msgid "Select default social image"
 msgstr "기본 소셜 이미지 선택"
 
@@ -12015,7 +12024,7 @@ msgstr "갤러리 이미지 선택"
 msgid "Select image"
 msgstr "이미지 선택"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:228
+#: packages/admin/src/components/settings/SeoSettings.tsx:232
 msgid "Select Image"
 msgstr "이미지 선택"
 
@@ -12147,7 +12156,7 @@ msgstr "SEO"
 msgid "SEO settings"
 msgstr "SEO 설정"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:122
+#: packages/admin/src/components/settings/SeoSettings.tsx:126
 msgid "SEO Settings"
 msgstr "SEO 설정"
 
@@ -12155,7 +12164,7 @@ msgstr "SEO 설정"
 msgid "SEO settings (Yoast)"
 msgstr "SEO 설정 (Yoast)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:77
+#: packages/admin/src/components/settings/SeoSettings.tsx:81
 msgid "SEO settings saved"
 msgstr "SEO 설정이 저장되었습니다"
 
@@ -13299,7 +13308,7 @@ msgstr "게시자의 신원을 검증할 수 없습니다."
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:197
+#: packages/admin/src/components/settings/SeoSettings.tsx:201
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "참조된 이미지를 더 이상 사용할 수 없습니다. 새 이미지를 선택하거나 참조를 제거하세요."
 
@@ -13860,7 +13869,7 @@ msgstr "제목"
 msgid "Title (Tooltip)"
 msgstr "제목(도구 설명)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:169
+#: packages/admin/src/components/settings/SeoSettings.tsx:173
 msgid "Title Separator"
 msgstr "제목 구분 기호"
 
@@ -14607,7 +14616,7 @@ msgstr "기기의 생체 인증, 보안 키 또는 PIN을 사용하여 로그인
 msgid "Use your registered passkey to sign in securely."
 msgstr "등록된 패스키를 사용하여 안전하게 로그인하세요."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:178
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "페이지에 Open Graph 이미지가 없을 때 대신 사용됩니다. 권장 크기: 1200×630."
 

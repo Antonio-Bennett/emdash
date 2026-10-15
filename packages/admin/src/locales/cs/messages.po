@@ -1441,6 +1441,10 @@ msgstr "Další data k importu."
 msgid "Additional details"
 msgstr ""
 
+#: packages/admin/src/components/settings/SeoSettings.tsx:278
+msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
+msgstr ""
+
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "admin"
@@ -1699,9 +1703,9 @@ msgstr ""
 #: packages/admin/src/components/settings/SecuritySettings.tsx:56
 #: packages/admin/src/components/settings/SecuritySettings.tsx:72
 #: packages/admin/src/components/settings/SecuritySettings.tsx:129
-#: packages/admin/src/components/settings/SeoSettings.tsx:82
-#: packages/admin/src/components/settings/SeoSettings.tsx:144
-#: packages/admin/src/components/settings/SeoSettings.tsx:145
+#: packages/admin/src/components/settings/SeoSettings.tsx:86
+#: packages/admin/src/components/settings/SeoSettings.tsx:148
+#: packages/admin/src/components/settings/SeoSettings.tsx:149
 #: packages/admin/src/components/settings/SocialSettings.tsx:67
 #: packages/admin/src/components/settings/SocialSettings.tsx:111
 #: packages/admin/src/components/settings/SocialSettings.tsx:112
@@ -2174,8 +2178,8 @@ msgstr "Než budete pokračovat:"
 msgid "Between {min} and {max}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:252
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:256
 msgid "Bing Verification"
 msgstr "Ověření Bing"
 
@@ -2554,7 +2558,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "Změnit ikonu webu"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:208
+#: packages/admin/src/components/settings/SeoSettings.tsx:212
 msgid "Change Image"
 msgstr "Změnit obrázek"
 
@@ -2596,7 +2600,7 @@ msgstr "Změny byly zahozeny"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:172
+#: packages/admin/src/components/settings/SeoSettings.tsx:176
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Znak mezi názvem stránky a názvem webu (např. „Můj příspěvek | Můj web“)"
 
@@ -3835,7 +3839,7 @@ msgstr "Vlastní"
 msgid "Custom Fields"
 msgstr "Vlastní pole"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:271
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Vlastní obsah souboru robots.txt. Ponechte prázdné pro použití výchozího."
 
@@ -3915,12 +3919,12 @@ msgstr "Výchozí role"
 msgid "Default role:"
 msgstr "Výchozí role:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:186
+#: packages/admin/src/components/settings/SeoSettings.tsx:190
 msgid "Default social image"
 msgstr "Výchozí obrázek pro sociální sítě"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:177
+#: packages/admin/src/components/settings/SeoSettings.tsx:181
 msgid "Default Social Image"
 msgstr "Výchozí obrázek pro sociální sítě"
 
@@ -4351,6 +4355,11 @@ msgstr "Zakázání účtu <0>{0}</0> znemožní přihlášení, dokud nebude zn
 #: packages/admin/src/routes/users.tsx:284
 msgid "Disabling..."
 msgstr "Zakazování..."
+
+#: packages/admin/src/components/settings/SeoSettings.tsx:276
+#: packages/admin/src/components/settings/SeoSettings.tsx:286
+msgid "Disallow AI training"
+msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -5361,7 +5370,7 @@ msgstr ""
 msgid "Failed to cancel import"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:118
+#: packages/admin/src/lib/api/settings.ts:119
 msgid "Failed to change the domain"
 msgstr ""
 
@@ -5395,7 +5404,7 @@ msgid "Failed to create {0}"
 msgstr ""
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:146
-#: packages/admin/src/lib/api/settings.ts:95
+#: packages/admin/src/lib/api/settings.ts:96
 msgid "Failed to create a sign-in link"
 msgstr ""
 
@@ -5642,7 +5651,7 @@ msgstr "Nepodařilo se duplikovat"
 msgid "Failed to duplicate content"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:105
+#: packages/admin/src/lib/api/settings.ts:106
 msgid "Failed to email users"
 msgstr ""
 
@@ -5852,7 +5861,7 @@ msgstr "Nepodařilo se načíst sekci"
 msgid "Failed to fetch sections"
 msgstr "Nepodařilo se načíst sekce"
 
-#: packages/admin/src/lib/api/settings.ts:60
+#: packages/admin/src/lib/api/settings.ts:61
 msgid "Failed to fetch settings"
 msgstr "Nepodařilo se načíst nastavení"
 
@@ -5873,7 +5882,7 @@ msgstr ""
 msgid "Failed to fetch terms"
 msgstr "Nepodařilo se načíst položky taxonomie"
 
-#: packages/admin/src/lib/api/settings.ts:87
+#: packages/admin/src/lib/api/settings.ts:88
 msgid "Failed to fetch the site domain"
 msgstr ""
 
@@ -6217,7 +6226,7 @@ msgstr "Nepodařilo se uložit pole"
 
 #: packages/admin/src/components/PluginSettings.tsx:74
 #: packages/admin/src/components/settings/GeneralSettings.tsx:133
-#: packages/admin/src/components/settings/SeoSettings.tsx:81
+#: packages/admin/src/components/settings/SeoSettings.tsx:85
 #: packages/admin/src/components/settings/SocialSettings.tsx:66
 msgid "Failed to save settings"
 msgstr "Nepodařilo se uložit nastavení"
@@ -6369,7 +6378,7 @@ msgstr ""
 msgid "Failed to update section"
 msgstr "Nepodařilo se aktualizovat sekci"
 
-#: packages/admin/src/lib/api/settings.ts:72
+#: packages/admin/src/lib/api/settings.ts:73
 msgid "Failed to update settings"
 msgstr "Nepodařilo se aktualizovat nastavení"
 
@@ -6773,8 +6782,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:244
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:248
 msgid "Google Verification"
 msgstr "Ověření pro Google"
 
@@ -8032,7 +8041,7 @@ msgstr "Načítání sekcí..."
 
 #: packages/admin/src/components/PluginSettings.tsx:131
 #: packages/admin/src/components/settings/GeneralSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:133
+#: packages/admin/src/components/settings/SeoSettings.tsx:137
 #: packages/admin/src/components/settings/SocialSettings.tsx:100
 msgid "Loading settings..."
 msgstr "Načítání nastavení..."
@@ -8499,11 +8508,11 @@ msgstr ""
 msgid "Meta Description"
 msgstr "Meta popis"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:255
+#: packages/admin/src/components/settings/SeoSettings.tsx:259
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Obsah meta tagu pro ověření v Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:247
+#: packages/admin/src/components/settings/SeoSettings.tsx:251
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Obsah meta tagu pro ověření v Google Search Console"
 
@@ -10724,7 +10733,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:217
+#: packages/admin/src/components/settings/SeoSettings.tsx:221
 msgid "Remove"
 msgstr "Odebrat"
 
@@ -11304,8 +11313,8 @@ msgstr "Vpravo"
 msgid "Risk score: {0}/100"
 msgstr "Skóre rizika: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:260
-#: packages/admin/src/components/settings/SeoSettings.tsx:263
+#: packages/admin/src/components/settings/SeoSettings.tsx:264
+#: packages/admin/src/components/settings/SeoSettings.tsx:267
 msgid "robots.txt"
 msgstr ""
 
@@ -11698,12 +11707,12 @@ msgstr "Hledat komentáře..."
 msgid "Search content..."
 msgstr "Hledat obsah..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:166
+#: packages/admin/src/components/settings/SeoSettings.tsx:170
 msgid "Search Engine Optimization"
 msgstr "Optimalizace pro vyhledávače"
 
 #: packages/admin/src/components/Settings.tsx:67
-#: packages/admin/src/components/settings/SeoSettings.tsx:123
+#: packages/admin/src/components/settings/SeoSettings.tsx:127
 msgid "Search engine optimization and verification"
 msgstr "Optimalizace pro vyhledávače a ověření"
 
@@ -11988,7 +11997,7 @@ msgstr ""
 msgid "Select dark mode variant for {label}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:289
+#: packages/admin/src/components/settings/SeoSettings.tsx:309
 msgid "Select default social image"
 msgstr ""
 
@@ -12015,7 +12024,7 @@ msgstr ""
 msgid "Select image"
 msgstr "Vybrat obrázek"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:228
+#: packages/admin/src/components/settings/SeoSettings.tsx:232
 msgid "Select Image"
 msgstr "Vybrat obrázek"
 
@@ -12147,7 +12156,7 @@ msgstr "SEO"
 msgid "SEO settings"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:122
+#: packages/admin/src/components/settings/SeoSettings.tsx:126
 msgid "SEO Settings"
 msgstr "Nastavení SEO"
 
@@ -12155,7 +12164,7 @@ msgstr "Nastavení SEO"
 msgid "SEO settings (Yoast)"
 msgstr "Nastavení SEO (Yoast)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:77
+#: packages/admin/src/components/settings/SeoSettings.tsx:81
 msgid "SEO settings saved"
 msgstr "Nastavení SEO uloženo"
 
@@ -13299,7 +13308,7 @@ msgstr ""
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:197
+#: packages/admin/src/components/settings/SeoSettings.tsx:201
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "Odkazovaný obrázek již není k dispozici. Vyberte nový, nebo odkaz odeberte."
 
@@ -13860,7 +13869,7 @@ msgstr "Titulek"
 msgid "Title (Tooltip)"
 msgstr "Titulek (nápověda)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:169
+#: packages/admin/src/components/settings/SeoSettings.tsx:173
 msgid "Title Separator"
 msgstr "Oddělovač titulku"
 
@@ -14607,7 +14616,7 @@ msgstr "K přihlášení použijte biometrické ověření zařízení, bezpečn
 msgid "Use your registered passkey to sign in securely."
 msgstr "K bezpečnému přihlášení použijte zaregistrovaný přístupový klíč."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:178
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Použije se jako záložní obrázek Open Graph, pokud stránka vlastní obrázek nemá. Doporučená velikost: 1200×630."
 

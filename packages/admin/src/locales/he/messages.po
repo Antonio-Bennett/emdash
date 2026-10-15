@@ -1442,6 +1442,10 @@ msgstr "נתונים נוספים לייבוא."
 msgid "Additional details"
 msgstr "פרטים נוספים"
 
+#: packages/admin/src/components/settings/SeoSettings.tsx:278
+msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
+msgstr ""
+
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "ניהול"
@@ -1700,9 +1704,9 @@ msgstr "מפתח דיגיטלי מוצפן שנפתח באמצעות טביעת 
 #: packages/admin/src/components/settings/SecuritySettings.tsx:56
 #: packages/admin/src/components/settings/SecuritySettings.tsx:72
 #: packages/admin/src/components/settings/SecuritySettings.tsx:129
-#: packages/admin/src/components/settings/SeoSettings.tsx:82
-#: packages/admin/src/components/settings/SeoSettings.tsx:144
-#: packages/admin/src/components/settings/SeoSettings.tsx:145
+#: packages/admin/src/components/settings/SeoSettings.tsx:86
+#: packages/admin/src/components/settings/SeoSettings.tsx:148
+#: packages/admin/src/components/settings/SeoSettings.tsx:149
 #: packages/admin/src/components/settings/SocialSettings.tsx:67
 #: packages/admin/src/components/settings/SocialSettings.tsx:111
 #: packages/admin/src/components/settings/SocialSettings.tsx:112
@@ -2175,8 +2179,8 @@ msgstr "לפני שתמשיכו:"
 msgid "Between {min} and {max}"
 msgstr "בין {min} ל-{max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:252
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:256
 msgid "Bing Verification"
 msgstr "אימות Bing"
 
@@ -2555,7 +2559,7 @@ msgstr "שינוי דומיין"
 msgid "Change Favicon"
 msgstr "שינוי favicon"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:208
+#: packages/admin/src/components/settings/SeoSettings.tsx:212
 msgid "Change Image"
 msgstr "שינוי תמונה"
 
@@ -2597,7 +2601,7 @@ msgstr "השינויים בוטלו"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "השינויים נשמרו, אבל ייתכן שדפים שמורים במטמון עדיין מציגים {pluralLower} ישנים. נסו שוב לרענן את המטמון."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:172
+#: packages/admin/src/components/settings/SeoSettings.tsx:176
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "תו בין כותרת העמוד לשם האתר (למשל, \"הפוסט שלי | האתר שלי\")"
 
@@ -3836,7 +3840,7 @@ msgstr "מותאם אישית"
 msgid "Custom Fields"
 msgstr "שדות מותאמים אישית"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:271
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "תוכן robots.txt מותאם אישית. השאירו ריק כדי להשתמש בברירת המחדל."
 
@@ -3916,12 +3920,12 @@ msgstr "תפקיד ברירת מחדל"
 msgid "Default role:"
 msgstr "תפקיד ברירת מחדל:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:186
+#: packages/admin/src/components/settings/SeoSettings.tsx:190
 msgid "Default social image"
 msgstr "תמונה חברתית כברירת מחדל"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:177
+#: packages/admin/src/components/settings/SeoSettings.tsx:181
 msgid "Default Social Image"
 msgstr "תמונה חברתית כברירת מחדל"
 
@@ -4352,6 +4356,11 @@ msgstr "השבתת <0>{0}</0> תמנע מהם להתחבר עד להפעלה מ�
 #: packages/admin/src/routes/users.tsx:284
 msgid "Disabling..."
 msgstr "בהשבתה..."
+
+#: packages/admin/src/components/settings/SeoSettings.tsx:276
+#: packages/admin/src/components/settings/SeoSettings.tsx:286
+msgid "Disallow AI training"
+msgstr ""
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -5362,7 +5371,7 @@ msgstr "אישור הבקשה נכשל"
 msgid "Failed to cancel import"
 msgstr "ביטול הייבוא נכשל"
 
-#: packages/admin/src/lib/api/settings.ts:118
+#: packages/admin/src/lib/api/settings.ts:119
 msgid "Failed to change the domain"
 msgstr "שינוי הדומיין נכשל"
 
@@ -5396,7 +5405,7 @@ msgid "Failed to create {0}"
 msgstr "יצירת {0} נכשלה"
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:146
-#: packages/admin/src/lib/api/settings.ts:95
+#: packages/admin/src/lib/api/settings.ts:96
 msgid "Failed to create a sign-in link"
 msgstr "יצירת קישור התחברות נכשלה"
 
@@ -5643,7 +5652,7 @@ msgstr "השכפול נכשל"
 msgid "Failed to duplicate content"
 msgstr ""
 
-#: packages/admin/src/lib/api/settings.ts:105
+#: packages/admin/src/lib/api/settings.ts:106
 msgid "Failed to email users"
 msgstr "שליחת האימייל למשתמשים נכשלה"
 
@@ -5853,7 +5862,7 @@ msgstr "אחזור מקטע נכשל"
 msgid "Failed to fetch sections"
 msgstr "אחזור מקטעים נכשל"
 
-#: packages/admin/src/lib/api/settings.ts:60
+#: packages/admin/src/lib/api/settings.ts:61
 msgid "Failed to fetch settings"
 msgstr "אחזור הגדרות נכשל"
 
@@ -5874,7 +5883,7 @@ msgstr ""
 msgid "Failed to fetch terms"
 msgstr "אחזור מונחים נכשל"
 
-#: packages/admin/src/lib/api/settings.ts:87
+#: packages/admin/src/lib/api/settings.ts:88
 msgid "Failed to fetch the site domain"
 msgstr "טעינת הדומיין של האתר נכשלה"
 
@@ -6218,7 +6227,7 @@ msgstr "שמירת שדה נכשלה"
 
 #: packages/admin/src/components/PluginSettings.tsx:74
 #: packages/admin/src/components/settings/GeneralSettings.tsx:133
-#: packages/admin/src/components/settings/SeoSettings.tsx:81
+#: packages/admin/src/components/settings/SeoSettings.tsx:85
 #: packages/admin/src/components/settings/SocialSettings.tsx:66
 msgid "Failed to save settings"
 msgstr "שמירת הגדרות נכשלה"
@@ -6370,7 +6379,7 @@ msgstr ""
 msgid "Failed to update section"
 msgstr "עדכון מקטע נכשל"
 
-#: packages/admin/src/lib/api/settings.ts:72
+#: packages/admin/src/lib/api/settings.ts:73
 msgid "Failed to update settings"
 msgstr "עדכון הגדרות נכשל"
 
@@ -6774,8 +6783,8 @@ msgstr "יתפרסם"
 msgid "Goes live {countdown}"
 msgstr "יתפרסם {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:238
-#: packages/admin/src/components/settings/SeoSettings.tsx:244
+#: packages/admin/src/components/settings/SeoSettings.tsx:242
+#: packages/admin/src/components/settings/SeoSettings.tsx:248
 msgid "Google Verification"
 msgstr "אימות Google"
 
@@ -8033,7 +8042,7 @@ msgstr "מתבצעת טעינת מקטעים..."
 
 #: packages/admin/src/components/PluginSettings.tsx:131
 #: packages/admin/src/components/settings/GeneralSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:133
+#: packages/admin/src/components/settings/SeoSettings.tsx:137
 #: packages/admin/src/components/settings/SocialSettings.tsx:100
 msgid "Loading settings..."
 msgstr "מתבצעת טעינת הגדרות..."
@@ -8500,11 +8509,11 @@ msgstr "מיזוג תאים נבחרים"
 msgid "Meta Description"
 msgstr "תיאור meta"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:255
+#: packages/admin/src/components/settings/SeoSettings.tsx:259
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "תוכן תגית meta לאימות Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:247
+#: packages/admin/src/components/settings/SeoSettings.tsx:251
 msgid "Meta tag content for Google Search Console verification"
 msgstr "תוכן תגית meta לאימות Google Search Console"
 
@@ -10725,7 +10734,7 @@ msgstr "הסרה"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:217
+#: packages/admin/src/components/settings/SeoSettings.tsx:221
 msgid "Remove"
 msgstr "הסרה"
 
@@ -11305,8 +11314,8 @@ msgstr "ימין"
 msgid "Risk score: {0}/100"
 msgstr "ציון סיכון: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:260
-#: packages/admin/src/components/settings/SeoSettings.tsx:263
+#: packages/admin/src/components/settings/SeoSettings.tsx:264
+#: packages/admin/src/components/settings/SeoSettings.tsx:267
 msgid "robots.txt"
 msgstr "קובץ robots.txt"
 
@@ -11699,12 +11708,12 @@ msgstr "חיפוש תגובות..."
 msgid "Search content..."
 msgstr "חיפוש תוכן..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:166
+#: packages/admin/src/components/settings/SeoSettings.tsx:170
 msgid "Search Engine Optimization"
 msgstr "אופטימיזציה למנועי חיפוש"
 
 #: packages/admin/src/components/Settings.tsx:67
-#: packages/admin/src/components/settings/SeoSettings.tsx:123
+#: packages/admin/src/components/settings/SeoSettings.tsx:127
 msgid "Search engine optimization and verification"
 msgstr "אופטימיזציה למנועי חיפוש ואימות"
 
@@ -11989,7 +11998,7 @@ msgstr "בחירת תוכן"
 msgid "Select dark mode variant for {label}"
 msgstr "בחירת גרסה למצב כהה עבור {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:289
+#: packages/admin/src/components/settings/SeoSettings.tsx:309
 msgid "Select default social image"
 msgstr "בחירת תמונה חברתית כברירת מחדל"
 
@@ -12016,7 +12025,7 @@ msgstr "בחירת תמונות גלריה"
 msgid "Select image"
 msgstr "בחירת תמונה"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:228
+#: packages/admin/src/components/settings/SeoSettings.tsx:232
 msgid "Select Image"
 msgstr "בחירת תמונה"
 
@@ -12148,7 +12157,7 @@ msgstr "SEO"
 msgid "SEO settings"
 msgstr "הגדרות SEO"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:122
+#: packages/admin/src/components/settings/SeoSettings.tsx:126
 msgid "SEO Settings"
 msgstr "הגדרות SEO"
 
@@ -12156,7 +12165,7 @@ msgstr "הגדרות SEO"
 msgid "SEO settings (Yoast)"
 msgstr "הגדרות SEO ‏(Yoast)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:77
+#: packages/admin/src/components/settings/SeoSettings.tsx:81
 msgid "SEO settings saved"
 msgstr "הגדרות SEO נשמרו"
 
@@ -13300,7 +13309,7 @@ msgstr "לא ניתן לאמת את זהות המפרסם."
 msgid "The range has more entries than the calendar can show."
 msgstr "בטווח יש יותר פריטים ממה שלוח השנה יכול להציג."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:197
+#: packages/admin/src/components/settings/SeoSettings.tsx:201
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "התמונה המקושרת אינה זמינה עוד. בחרו תמונה חדשה או הסירו את הקישור."
 
@@ -13861,7 +13870,7 @@ msgstr "כותרת"
 msgid "Title (Tooltip)"
 msgstr "כותרת (חלונית מידע)"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:169
+#: packages/admin/src/components/settings/SeoSettings.tsx:173
 msgid "Title Separator"
 msgstr "מפריד כותרות"
 
@@ -14608,7 +14617,7 @@ msgstr "השתמשו באימות הביומטרי, מפתח האבטחה או �
 msgid "Use your registered passkey to sign in securely."
 msgstr "השתמשו במפתח הגישה הרשום שלכם כדי להתחבר באופן מאובטח."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:178
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "משמש כתמונת Open Graph חלופית כשלעמוד אין תמונה. גודל מומלץ: 1200×630."
 
