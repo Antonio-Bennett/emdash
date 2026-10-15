@@ -87,7 +87,7 @@ msgid "{0, plural, one {# collection} other {# collections}}"
 msgstr "{0, plural, one {# კოლექცია} other {# კოლექცია}}"
 
 #. placeholder {0}: result.comments.imported
-#: packages/admin/src/components/WordPressImport.tsx:2292
+#: packages/admin/src/components/WordPressImport.tsx:2317
 msgid "{0, plural, one {# comment imported} other {# comments imported}}"
 msgstr "{0, plural, one {# კომენტარი იმპორტირდა} other {# კომენტარი იმპორტირდა}}"
 
@@ -102,12 +102,12 @@ msgid "{0, plural, one {# comment} other {# comments}}"
 msgstr "{0, plural, one {# კომენტარი} other {# კომენტარი}}"
 
 #. placeholder {0}: result.errors.length
-#: packages/admin/src/components/WordPressImport.tsx:2303
+#: packages/admin/src/components/WordPressImport.tsx:2328
 msgid "{0, plural, one {# content error} other {# content errors}}"
 msgstr "{0, plural, one {# შიგთავსის შეცდომა} other {# შიგთავსის შეცდომა}}"
 
 #. placeholder {0}: result.imported
-#: packages/admin/src/components/WordPressImport.tsx:2244
+#: packages/admin/src/components/WordPressImport.tsx:2269
 msgid "{0, plural, one {# content item imported} other {# content items imported}}"
 msgstr "{0, plural, one {# შიგთავსის ელემენტი იმპორტირდა} other {# შიგთავსის ელემენტი იმპორტირდა}}"
 
@@ -156,22 +156,22 @@ msgid "{0, plural, one {# MCP tool} other {# MCP tools}}"
 msgstr "{0, plural, one {# MCP ინსტრუმენტი} other {# MCP ინსტრუმენტი}}"
 
 #. placeholder {0}: mediaResult.failed.length
-#: packages/admin/src/components/WordPressImport.tsx:2308
+#: packages/admin/src/components/WordPressImport.tsx:2333
 msgid "{0, plural, one {# media error} other {# media errors}}"
 msgstr "{0, plural, one {# მედიის შეცდომა} other {# მედიის შეცდომა}}"
 
 #. placeholder {0}: mediaResult.imported.length
-#: packages/admin/src/components/WordPressImport.tsx:2260
+#: packages/admin/src/components/WordPressImport.tsx:2285
 msgid "{0, plural, one {# media file imported} other {# media files imported}}"
 msgstr "{0, plural, one {# მედია ფაილი იმპორტირდა} other {# მედია ფაილი იმპორტირდა}}"
 
 #. placeholder {0}: result.menus.created
-#: packages/admin/src/components/WordPressImport.tsx:2284
+#: packages/admin/src/components/WordPressImport.tsx:2309
 msgid "{0, plural, one {# menu imported} other {# menus imported}}"
 msgstr "{0, plural, one {# მენიუ იმპორტირდა} other {# მენიუ იმპორტირდა}}"
 
 #. placeholder {0}: navMenus.length
-#: packages/admin/src/components/WordPressImport.tsx:1932
+#: packages/admin/src/components/WordPressImport.tsx:1957
 msgid "{0, plural, one {# menu will be imported} other {# menus will be imported}}"
 msgstr "{0, plural, one {# მენიუ იმპორტირდება} other {# მენიუ იმპორტირდება}}"
 
@@ -187,7 +187,7 @@ msgid "{0, plural, one {# permission} other {# permissions}}"
 msgstr "{0, plural, one {# ნებართვა} other {# ნებართვა}}"
 
 #. placeholder {0}: mapping.postCount
-#: packages/admin/src/components/WordPressImport.tsx:2515
+#: packages/admin/src/components/WordPressImport.tsx:2540
 msgid "{0, plural, one {# post} other {# posts}}"
 msgstr "{0, plural, one {# პოსტი} other {# პოსტი}}"
 
@@ -222,17 +222,17 @@ msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# არჩეულია} other {# არჩეულია}}"
 
 #. placeholder {0}: result.skipped
-#: packages/admin/src/components/WordPressImport.tsx:2252
+#: packages/admin/src/components/WordPressImport.tsx:2277
 msgid "{0, plural, one {# skipped (already exists)} other {# skipped (already exist)}}"
 msgstr "{0, plural, one {# გამოტოვებული (უკვე არსებობს)} other {# გამოტოვებული (უკვე არსებობს)}}"
 
 #. placeholder {0}: result.taxonomyAssignments
-#: packages/admin/src/components/WordPressImport.tsx:2276
+#: packages/admin/src/components/WordPressImport.tsx:2301
 msgid "{0, plural, one {# taxonomy assignment} other {# taxonomy assignments}}"
 msgstr "{0, plural, one {# ტაქსონომიის მინიჭება} other {# ტაქსონომიის მინიჭება}}"
 
 #. placeholder {0}: result.taxonomiesCreated.length
-#: packages/admin/src/components/WordPressImport.tsx:2268
+#: packages/admin/src/components/WordPressImport.tsx:2293
 msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {# ტაქსონომია შეიქმნა} other {# ტაქსონომია შეიქმნა}}"
 
@@ -324,7 +324,7 @@ msgid "{0} can't be moved here — its parent has no translation in this locale,
 msgstr "{0} ვერ გადმოიტანება აქ — მის მშობელს ამ ლოკალში თარგმანი არ აქვს, ამიტომ ეს სია მისი ჯგუფი არ არის."
 
 #. placeholder {0}: bestMatch?.detected.siteTitle || "WordPress site"
-#: packages/admin/src/components/WordPressImport.tsx:1332
+#: packages/admin/src/components/WordPressImport.tsx:1357
 msgid "{0} detected"
 msgstr "აღმოჩენილია {0}"
 
@@ -360,12 +360,12 @@ msgstr "{0} ახლა აქტიურია"
 
 #. placeholder {0}: postType.count
 #. placeholder {1}: postType.suggestedCollection
-#: packages/admin/src/components/WordPressImport.tsx:2002
+#: packages/admin/src/components/WordPressImport.tsx:2027
 msgid "{0} items → {1}"
 msgstr "{0} ელემენტი → {1}"
 
 #. placeholder {0}: analysis.postTypes .filter((pt) => selections[pt.name]?.enabled) .reduce((sum, pt) => sum + pt.count, 0)
-#: packages/admin/src/components/WordPressImport.tsx:1925
+#: packages/admin/src/components/WordPressImport.tsx:1950
 msgid "{0} items will be imported"
 msgstr "{0} ელემენტი იმპორტირდება"
 
@@ -509,15 +509,15 @@ msgstr "დასრულებულია {completedCount} / {0}"
 msgid "{completedCount} of {0} uploads complete"
 msgstr "ატვირთვა დასრულებულია: {completedCount} / {0}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2101
+#: packages/admin/src/components/WordPressImport.tsx:2126
 msgid "{count, plural, one {# file} other {# files}}"
 msgstr "{count, plural, one {# ფაილი} other {# ფაილი}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2380
+#: packages/admin/src/components/WordPressImport.tsx:2405
 msgid "{count, plural, one {# item} other {# items}}"
 msgstr "{count, plural, one {# ელემენტი} other {# ელემენტი}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2172
+#: packages/admin/src/components/WordPressImport.tsx:2197
 msgid "{current} of {total}"
 msgstr "{current} / {total}"
 
@@ -598,11 +598,11 @@ msgstr ""
 msgid "{matchCount, plural, one {# item matching \"{searchQuery}\"} other {# items matching \"{searchQuery}\"}}"
 msgstr "{matchCount, plural, one {# ელემენტი ემთხვევა „{searchQuery}“-ს} other {# ელემენტი ემთხვევა „{searchQuery}“-ს}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2502
+#: packages/admin/src/components/WordPressImport.tsx:2527
 msgid "{matchedCount} of {totalCount} assigned"
 msgstr "მინიჭებულია {matchedCount} / {totalCount}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2490
+#: packages/admin/src/components/WordPressImport.tsx:2515
 msgid "{matchedCount} of {totalCount} authors matched by email"
 msgstr "ელფოსტით დაემთხვა {matchedCount} / {totalCount} ავტორი"
 
@@ -662,11 +662,11 @@ msgstr "{name} უნდა იყოს მაქსიმუმ {bound}."
 msgid "{name}: this site already has some"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1908
+#: packages/admin/src/components/WordPressImport.tsx:1933
 msgid "{needsNewCollections, plural, one {# new collection will be created} other {# new collections will be created}}"
 msgstr "{needsNewCollections, plural, one {# ახალი კოლექცია შეიქმნება} other {# ახალი კოლექცია შეიქმნება}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:1917
+#: packages/admin/src/components/WordPressImport.tsx:1942
 msgid "{needsNewFields, plural, one {Fields will be added to # existing collection} other {Fields will be added to # existing collections}}"
 msgstr "{needsNewFields, plural, one {ველები დაემატება # არსებულ კოლექციას} other {ველები დაემატება # არსებულ კოლექციას}}"
 
@@ -843,21 +843,21 @@ msgstr "/new-page ან /articles/[slug]"
 msgid "/old-page or /blog/[slug]"
 msgstr "/old-page ან /blog/[slug]"
 
-#: packages/admin/src/components/WordPressImport.tsx:2122
+#: packages/admin/src/components/WordPressImport.tsx:2147
 msgid "• Files are downloaded from your WordPress site"
 msgstr "• ფაილები გადმოიწერება WordPress-ის საიტიდან"
 
-#: packages/admin/src/components/WordPressImport.tsx:2123
+#: packages/admin/src/components/WordPressImport.tsx:2148
 msgid "• Uploaded to your EmDash media storage"
 msgstr "• აიტვირთება EmDash-ის მედია საცავში"
 
-#: packages/admin/src/components/WordPressImport.tsx:2124
+#: packages/admin/src/components/WordPressImport.tsx:2149
 msgid "• URLs in your content are updated automatically"
 msgstr "• შიგთავსში არსებული URL-ები ავტომატურად განახლდება"
 
 #: packages/admin/src/components/SetupWizard.tsx:288
 #: packages/admin/src/components/SetupWizard.tsx:339
-#: packages/admin/src/components/WordPressImport.tsx:1630
+#: packages/admin/src/components/WordPressImport.tsx:1655
 msgid "← Back"
 msgstr "← უკან"
 
@@ -901,11 +901,11 @@ msgstr ""
 msgid "1 year"
 msgstr "1 წელი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1551
+#: packages/admin/src/components/WordPressImport.tsx:1576
 msgid "1. Log into your WordPress admin"
 msgstr "1. შედით WordPress-ის ადმინ პანელში"
 
-#: packages/admin/src/components/WordPressImport.tsx:1304
+#: packages/admin/src/components/WordPressImport.tsx:1329
 msgid "1. Log into your WordPress admin dashboard"
 msgstr "1. შედით WordPress-ის ადმინისტრირების დაფაზე"
 
@@ -913,11 +913,11 @@ msgstr "1. შედით WordPress-ის ადმინისტრირე
 msgid "16:9"
 msgstr "16:9"
 
-#: packages/admin/src/components/WordPressImport.tsx:76
+#: packages/admin/src/components/WordPressImport.tsx:77
 msgid "2. Go to <0>Tools → Export</0>"
 msgstr "2. გადადით <0>ინსტრუმენტები → ექსპორტი</0>"
 
-#: packages/admin/src/components/WordPressImport.tsx:1552
+#: packages/admin/src/components/WordPressImport.tsx:1577
 msgid "2. Go to Users → Profile"
 msgstr "2. გადადით მომხმარებლები → პროფილი"
 
@@ -925,11 +925,11 @@ msgstr "2. გადადით მომხმარებლები → პ
 msgid "3:2"
 msgstr "3:2"
 
-#: packages/admin/src/components/WordPressImport.tsx:1553
+#: packages/admin/src/components/WordPressImport.tsx:1578
 msgid "3. Scroll to \"Application Passwords\""
 msgstr "3. ჩამოდით „აპლიკაციის პაროლები“ განყოფილებამდე"
 
-#: packages/admin/src/components/WordPressImport.tsx:1308
+#: packages/admin/src/components/WordPressImport.tsx:1333
 msgid "3. Select \"All content\""
 msgstr "3. აირჩიეთ „ყველა შიგთავსი“"
 
@@ -957,11 +957,11 @@ msgstr "308 მუდმივი (მკაცრი)"
 msgid "4:3"
 msgstr "4:3"
 
-#: packages/admin/src/components/WordPressImport.tsx:1309
+#: packages/admin/src/components/WordPressImport.tsx:1334
 msgid "4. Click \"Download Export File\""
 msgstr "4. დააწკაპუნეთ „ექსპორტის ფაილის გადმოწერაზე“"
 
-#: packages/admin/src/components/WordPressImport.tsx:1554
+#: packages/admin/src/components/WordPressImport.tsx:1579
 msgid "4. Enter \"EmDash\" and click \"Add New\""
 msgstr "4. შეიყვანეთ „EmDash“ და დააწკაპუნეთ „ახლის დამატებაზე“"
 
@@ -977,11 +977,11 @@ msgstr "410 შიგთავსი წაშლილია (Gone)"
 msgid "451 Unavailable for legal reasons"
 msgstr "451 მიუწვდომელია იურიდიული მიზეზების გამო"
 
-#: packages/admin/src/components/WordPressImport.tsx:1555
+#: packages/admin/src/components/WordPressImport.tsx:1580
 msgid "5. Copy the generated password"
 msgstr "5. დააკოპირეთ დაგენერირებული პაროლი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1310
+#: packages/admin/src/components/WordPressImport.tsx:1335
 msgid "5. Upload the file here"
 msgstr "5. ატვირთეთ ფაილი აქ"
 
@@ -1167,7 +1167,7 @@ msgstr "ანგარიში არსებობს"
 msgid "Account Info"
 msgstr "ანგარიშის ინფორმაცია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1189
+#: packages/admin/src/components/WordPressImport.tsx:1208
 msgid "ACF Fields"
 msgstr "ACF ველები"
 
@@ -1296,7 +1296,7 @@ msgstr "დომენის დამატება"
 msgid "Add Field"
 msgstr "ველის დამატება"
 
-#: packages/admin/src/components/WordPressImport.tsx:2013
+#: packages/admin/src/components/WordPressImport.tsx:2038
 msgid "Add fields"
 msgstr "ველების დამატება"
 
@@ -1433,7 +1433,7 @@ msgstr "ემატება..."
 msgid "Adding…"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1782
+#: packages/admin/src/components/WordPressImport.tsx:1807
 msgid "Additional data to import."
 msgstr "დამატებითი მონაცემები იმპორტისთვის."
 
@@ -1441,7 +1441,7 @@ msgstr "დამატებითი მონაცემები იმპ�
 msgid "Additional details"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1512
+#: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "admin"
 
@@ -1546,7 +1546,7 @@ msgstr "ყველა კოლექცია"
 msgid "All comments require approval"
 msgstr "ყველა კომენტარი საჭიროებს დამტკიცებას"
 
-#: packages/admin/src/components/WordPressImport.tsx:2547
+#: packages/admin/src/components/WordPressImport.tsx:2572
 msgid "All imported content will be unassigned. You can reassign authors later from the content editor."
 msgstr "მთელი იმპორტირებული შიგთავსი ავტორების გარეშე დარჩება. ავტორების ხელახლა მინიჭება მოგვიანებით შიგთავსის რედაქტორიდან შეგიძლიათ."
 
@@ -1660,7 +1660,7 @@ msgstr "ალტ-ტექსტი საქაღალდეებზე ა
 msgid "Alt text set"
 msgstr "ალტ-ტექსტი დაყენებულია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1424
+#: packages/admin/src/components/WordPressImport.tsx:1449
 msgid "Alternatively, you can export from WordPress (Tools → Export) and upload the file."
 msgstr "ალტერნატივის სახით, შეგიძლიათ WordPress-იდან ექსპორტი გააკეთოთ (ინსტრუმენტები → ექსპორტი) და ფაილი ატვირთოთ."
 
@@ -1747,11 +1747,11 @@ msgstr "დაფიქსირდა მოულოდნელი შეც�
 msgid "An unknown error occurred"
 msgstr "დაფიქსირდა უცნობი შეცდომა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1604
+#: packages/admin/src/components/WordPressImport.tsx:1629
 msgid "Analyzing export file..."
 msgstr "ექსპორტის ფაილის ანალიზი..."
 
-#: packages/admin/src/components/WordPressImport.tsx:836
+#: packages/admin/src/components/WordPressImport.tsx:855
 msgid "Analyzing WordPress site..."
 msgstr "WordPress-ის საიტის ანალიზი..."
 
@@ -1787,7 +1787,7 @@ msgstr "API ტოკენები"
 msgid "Appears on posts and pages"
 msgstr "ჩანს პოსტებსა და გვერდებზე"
 
-#: packages/admin/src/components/WordPressImport.tsx:1519
+#: packages/admin/src/components/WordPressImport.tsx:1544
 msgid "Application Password"
 msgstr "აპლიკაციის პაროლი"
 
@@ -1890,7 +1890,7 @@ msgstr "თხოვეთ ადმინისტრატორს, დაა
 msgid "Aspect ratio"
 msgstr "ასპექტის შეფარდება"
 
-#: packages/admin/src/components/WordPressImport.tsx:2485
+#: packages/admin/src/components/WordPressImport.tsx:2510
 msgid "Assign WordPress authors to EmDash users. Posts will be attributed to the selected user."
 msgstr "მიანიჭეთ WordPress-ის ავტორები EmDash-ის მომხმარებლებს. პოსტები მიეკუთვნება არჩეულ მომხმარებელს."
 
@@ -1956,7 +1956,7 @@ msgstr "ავთენტიფიკაცია გაუქმდა ან 
 msgid "Author"
 msgstr "ავტორი"
 
-#: packages/admin/src/components/WordPressImport.tsx:2500
+#: packages/admin/src/components/WordPressImport.tsx:2525
 msgid "Author Mapping"
 msgstr "ავტორების მიბმა"
 
@@ -2069,8 +2069,8 @@ msgstr ""
 #: packages/admin/src/components/MediaDetailPanel.tsx:1815
 #: packages/admin/src/components/MediaLibrary.tsx:747
 #: packages/admin/src/components/MenuEditor.tsx:405
-#: packages/admin/src/components/WordPressImport.tsx:1539
-#: packages/admin/src/components/WordPressImport.tsx:2556
+#: packages/admin/src/components/WordPressImport.tsx:1564
+#: packages/admin/src/components/WordPressImport.tsx:2581
 msgid "Back"
 msgstr "უკან"
 
@@ -2237,6 +2237,10 @@ msgstr "მუქი"
 msgid "Boolean"
 msgstr "ლოგიკური"
 
+#: packages/admin/src/components/WordPressImport.tsx:1314
+msgid "Bot protection blocked the connection"
+msgstr ""
+
 #: packages/admin/src/components/RelationForm.tsx:344
 msgid "Both reference fields bound to this relation share these limits, so the two sides cannot disagree about the same links."
 msgstr ""
@@ -2261,8 +2265,8 @@ msgstr "დაათვალიერეთ და დააყენეთ პ
 msgid "Browse files"
 msgstr "ფაილების დათვალიერება"
 
-#: packages/admin/src/components/WordPressImport.tsx:1155
-#: packages/admin/src/components/WordPressImport.tsx:1623
+#: packages/admin/src/components/WordPressImport.tsx:1174
+#: packages/admin/src/components/WordPressImport.tsx:1648
 msgid "Browse Files"
 msgstr "ფაილების დათვალიერება"
 
@@ -2427,7 +2431,7 @@ msgstr "შეუძლია შიგთავსის ნახვა"
 #: packages/admin/src/components/TaxonomyManager.tsx:1098
 #: packages/admin/src/components/users/InviteUserModal.tsx:198
 #: packages/admin/src/components/Widgets.tsx:452
-#: packages/admin/src/components/WordPressImport.tsx:1946
+#: packages/admin/src/components/WordPressImport.tsx:1971
 msgid "Cancel"
 msgstr "გაუქმება"
 
@@ -2501,11 +2505,11 @@ msgid "Categories"
 msgstr "კატეგორიები"
 
 #. placeholder {0}: analysis.categories
-#: packages/admin/src/components/WordPressImport.tsx:1814
+#: packages/admin/src/components/WordPressImport.tsx:1839
 msgid "Categories ({0})"
 msgstr "კატეგორიები ({0})"
 
-#: packages/admin/src/components/WordPressImport.tsx:1177
+#: packages/admin/src/components/WordPressImport.tsx:1196
 msgid "Categories & Tags"
 msgstr "კატეგორიები და თეგები"
 
@@ -2620,7 +2624,7 @@ msgstr "შეამოწმეთ registry.policy.minimumReleaseAge astro.conf
 msgid "Check registry.policy.minimumReleaseAgeExclude in astro.config.mjs, then restart EmDash."
 msgstr "შეამოწმეთ registry.policy.minimumReleaseAgeExclude astro.config.mjs-ში, შემდეგ გადატვირთეთ EmDash."
 
-#: packages/admin/src/components/WordPressImport.tsx:1126
+#: packages/admin/src/components/WordPressImport.tsx:1145
 msgid "Check Site"
 msgstr "საიტის შემოწმება"
 
@@ -2638,7 +2642,7 @@ msgstr ""
 msgid "Check your email"
 msgstr "შეამოწმეთ ელფოსტა"
 
-#: packages/admin/src/components/WordPressImport.tsx:802
+#: packages/admin/src/components/WordPressImport.tsx:821
 msgid "Checking {urlInput}..."
 msgstr "მოწმდება {urlInput}..."
 
@@ -2935,6 +2939,10 @@ msgstr "პანელის დახურვა"
 msgid "Close settings"
 msgstr "პარამეტრების დახურვა"
 
+#: packages/admin/src/components/WordPressImport.tsx:93
+msgid "Cloudflare's bot protection answered with a challenge page, so EmDash can't reach the EmDash Exporter API. Allow requests to /wp-json/emdash/v1/ (and ?rest_route=/emdash/v1/ on sites without pretty permalinks), for example with a WAF custom rule that skips bot protection, or pause bot protection during the migration, then try again."
+msgstr ""
+
 #: packages/admin/src/components/ContentTypeList.tsx:388
 #: packages/admin/src/components/editor/IframeBlockNode.tsx:40
 #: packages/admin/src/components/Redirects.tsx:491
@@ -2992,7 +3000,7 @@ msgstr "კოლექციები"
 msgid "Collections and fields, all content with drafts, revisions, scheduled posts, and trash, translations, taxonomies, bylines, media files, menus, widgets, sections, redirects, SEO, and site settings."
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2356
+#: packages/admin/src/components/WordPressImport.tsx:2381
 msgid "Collections created:"
 msgstr "შექმნილი კოლექციები:"
 
@@ -3097,17 +3105,17 @@ msgstr "დაადასტურეთ Face ID-ით, Touch ID-ით ან
 msgid "Confirm with your fingerprint, face, or PIN."
 msgstr "დაადასტურეთ თითის ანაბეჭდით, სახით ან PIN-ით."
 
-#: packages/admin/src/components/WordPressImport.tsx:727
-#: packages/admin/src/components/WordPressImport.tsx:1083
+#: packages/admin/src/components/WordPressImport.tsx:746
+#: packages/admin/src/components/WordPressImport.tsx:1102
 msgid "Connect"
 msgstr "დაკავშირება"
 
-#: packages/admin/src/components/WordPressImport.tsx:1536
+#: packages/admin/src/components/WordPressImport.tsx:1561
 msgid "Connect & Analyze"
 msgstr "დაკავშირება და ანალიზი"
 
 #. placeholder {0}: siteTitle || "WordPress"
-#: packages/admin/src/components/WordPressImport.tsx:1486
+#: packages/admin/src/components/WordPressImport.tsx:1511
 msgid "Connect to {0}"
 msgstr "დაკავშირება {0}-თან"
 
@@ -3121,7 +3129,7 @@ msgstr "ნებისმიერ ქსელურ ჰოსტთან დ
 msgid "Connect to network hosts and load external plugin admin images"
 msgstr "ქსელურ ჰოსტებთან დაკავშირება და გარე პლაგინის ადმინის სურათების ჩატვირთვა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1402
+#: packages/admin/src/components/WordPressImport.tsx:1427
 msgid "Connect with WordPress"
 msgstr "WordPress-თან დაკავშირება"
 
@@ -3157,11 +3165,11 @@ msgid "Content digest"
 msgstr ""
 
 #. placeholder {0}: result.errors.length
-#: packages/admin/src/components/WordPressImport.tsx:2411
+#: packages/admin/src/components/WordPressImport.tsx:2436
 msgid "Content Errors ({0})"
 msgstr "შიგთავსის შეცდომები ({0})"
 
-#: packages/admin/src/components/WordPressImport.tsx:1346
+#: packages/admin/src/components/WordPressImport.tsx:1371
 msgid "Content found:"
 msgstr "ნაპოვნი შიგთავსი:"
 
@@ -3218,7 +3226,7 @@ msgstr "შიგთავსის ძებნის შედეგები"
 msgid "Content snapshot:"
 msgstr "შიგთავსის სნაპშოტი:"
 
-#: packages/admin/src/components/WordPressImport.tsx:1760
+#: packages/admin/src/components/WordPressImport.tsx:1785
 msgid "Content to Import"
 msgstr "იმპორტირებადი შიგთავსი"
 
@@ -3240,7 +3248,7 @@ msgstr "ერთი ჯგუფის შიგთავსის ტიპე
 msgid "Content using this media item may show a broken reference."
 msgstr "შიგთავსში, რომელიც ამ მედია ელემენტს იყენებს, შესაძლოა გატეხილი მითითება ჩანდეს."
 
-#: packages/admin/src/components/WordPressImport.tsx:2339
+#: packages/admin/src/components/WordPressImport.tsx:2364
 msgid "Content was skipped because it already exists"
 msgstr "შიგთავსი გამოტოვდა, რადგან უკვე არსებობს"
 
@@ -3259,7 +3267,7 @@ msgstr "გაგრძელება"
 msgid "Continue →"
 msgstr "გაგრძელება →"
 
-#: packages/admin/src/components/WordPressImport.tsx:2558
+#: packages/admin/src/components/WordPressImport.tsx:2583
 msgid "Continue Import"
 msgstr "იმპორტის გაგრძელება"
 
@@ -3421,7 +3429,7 @@ msgstr ""
 msgid "Couldn’t confirm whether the media item or selected folder still exists. Try again."
 msgstr "ვერ დადასტურდა, არსებობს თუ არა ჯერ კიდევ მედია ელემენტი ან არჩეული საქაღალდე. სცადეთ ხელახლა."
 
-#: packages/admin/src/components/WordPressImport.tsx:1293
+#: packages/admin/src/components/WordPressImport.tsx:1315
 msgid "Couldn't detect WordPress"
 msgstr "WordPress ვერ აღმოჩნდა"
 
@@ -3602,7 +3610,7 @@ msgstr ""
 msgid "Create New Token"
 msgstr "ახალი ტოკენის შექმნა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1530
+#: packages/admin/src/components/WordPressImport.tsx:1555
 msgid "Create one in WordPress: Users → Profile → Application Passwords"
 msgstr "შექმენით ის WordPress-ში: მომხმარებლები → პროფილი → აპლიკაციის პაროლები"
 
@@ -3642,7 +3650,7 @@ msgstr ""
 msgid "Create Relation"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1950
+#: packages/admin/src/components/WordPressImport.tsx:1975
 msgid "Create Schema & Import"
 msgstr "სქემის შექმნა და იმპორტი"
 
@@ -3745,7 +3753,7 @@ msgstr "შექმნის თარიღი"
 msgid "Creating collections and fields"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:913
+#: packages/admin/src/components/WordPressImport.tsx:932
 msgid "Creating collections and fields..."
 msgstr "იქმნება კოლექციები და ველები..."
 
@@ -3835,7 +3843,7 @@ msgstr "robots.txt-ის მორგებული შიგთავსი. 
 msgid "Custom Section"
 msgstr "მორგებული სექცია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1178
+#: packages/admin/src/components/WordPressImport.tsx:1197
 msgid "Custom Taxonomies"
 msgstr "მორგებული ტაქსონომიები"
 
@@ -4482,7 +4490,7 @@ msgstr ""
 #: packages/admin/src/components/ContentList.tsx:1229
 #: packages/admin/src/components/MediaUploadDialog.tsx:335
 #: packages/admin/src/components/users/InviteUserModal.tsx:142
-#: packages/admin/src/components/WordPressImport.tsx:2157
+#: packages/admin/src/components/WordPressImport.tsx:2182
 msgid "Done"
 msgstr "მზადაა"
 
@@ -4540,7 +4548,7 @@ msgstr ""
 msgid "Downloaded"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2155
+#: packages/admin/src/components/WordPressImport.tsx:2180
 msgid "Downloading"
 msgstr "მიმდინარეობს გადმოწერა"
 
@@ -4577,7 +4585,7 @@ msgstr "მონახაზი, გამოქვეყნებული ა
 msgid "Drafts"
 msgstr "მონახაზები"
 
-#: packages/admin/src/components/WordPressImport.tsx:1197
+#: packages/admin/src/components/WordPressImport.tsx:1216
 msgid "Drafts & Private"
 msgstr "მონახაზები და პირადი"
 
@@ -4585,7 +4593,7 @@ msgstr "მონახაზები და პირადი"
 msgid "Drag and drop files here"
 msgstr "ფაილები გადმოიტანეთ და ჩააგდეთ აქ"
 
-#: packages/admin/src/components/WordPressImport.tsx:1150
+#: packages/admin/src/components/WordPressImport.tsx:1169
 msgid "Drag and drop or click to browse (.xml)"
 msgstr "გადმოიტანეთ და ჩააგდეთ ან დააწკაპუნეთ ასარჩევად (.xml)"
 
@@ -4637,7 +4645,7 @@ msgstr "ჩააგდეთ თითო სურათი ყოველ �
 msgid "Drop to add widget"
 msgstr "ჩააგდეთ ვიჯეტის დასამატებლად"
 
-#: packages/admin/src/components/WordPressImport.tsx:1617
+#: packages/admin/src/components/WordPressImport.tsx:1642
 msgid "Drop your WordPress export file here"
 msgstr "WordPress-ის ექსპორტის ფაილი აქ ჩააგდეთ"
 
@@ -4868,7 +4876,7 @@ msgstr ""
 msgid "Editors can select a second image that the site shows in dark mode."
 msgstr "რედაქტორებს შეუძლიათ აირჩიონ მეორე სურათი, რომელსაც საიტი მუქ რეჟიმში აჩვენებს."
 
-#: packages/admin/src/components/WordPressImport.tsx:1073
+#: packages/admin/src/components/WordPressImport.tsx:1092
 msgid "em1.…"
 msgstr "em1.…"
 
@@ -4970,7 +4978,7 @@ msgstr "EmDash წინა სურათს არ ინახავს."
 msgid "EmDash does not keep the uncropped image."
 msgstr "EmDash მოუჭრელ სურათს არ ინახავს."
 
-#: packages/admin/src/components/WordPressImport.tsx:1336
+#: packages/admin/src/components/WordPressImport.tsx:1361
 msgid "EmDash Exporter plugin detected! You can import directly."
 msgstr "აღმოჩენილია EmDash Exporter-ის პლაგინი! შეგიძლიათ პირდაპირ იმპორტი გააკეთოთ."
 
@@ -5072,7 +5080,7 @@ msgstr "შეიყვანეთ URL (https://…) ან ფარდობ�
 msgid "Enter a valid URL (e.g. https://example.com)"
 msgstr "შეიყვანეთ სწორი URL (მაგ. https://example.com)"
 
-#: packages/admin/src/components/WordPressImport.tsx:1409
+#: packages/admin/src/components/WordPressImport.tsx:1434
 msgid "Enter credentials manually"
 msgstr "ავტორიზაციის მონაცემების ხელით შეყვანა"
 
@@ -5109,12 +5117,12 @@ msgstr "შეიყვანეთ URL..."
 msgid "Enter your handle to sign in."
 msgstr "შესასვლელად შეიყვანეთ მომხმარებლის სახელი."
 
-#: packages/admin/src/components/WordPressImport.tsx:1488
+#: packages/admin/src/components/WordPressImport.tsx:1513
 msgid "Enter your WordPress credentials to import content directly."
 msgstr "შეიყვანეთ WordPress-ის მონაცემები, რომ შიგთავსი პირდაპირ იმპორტირდეს."
 
-#: packages/admin/src/components/WordPressImport.tsx:1111
-#: packages/admin/src/components/WordPressImport.tsx:1123
+#: packages/admin/src/components/WordPressImport.tsx:1130
+#: packages/admin/src/components/WordPressImport.tsx:1142
 msgid "Enter your WordPress site URL"
 msgstr "შეიყვანეთ WordPress-ის საიტის URL"
 
@@ -5215,7 +5223,7 @@ msgstr ""
 msgid "Existing content is indexed. New changes are tracked automatically."
 msgstr "არსებული შიგთავსი ინდექსირებულია. ახალი ცვლილებები ავტომატურად აღირიცხება."
 
-#: packages/admin/src/components/WordPressImport.tsx:2039
+#: packages/admin/src/components/WordPressImport.tsx:2064
 msgid "Exists"
 msgstr "არსებობს"
 
@@ -5254,7 +5262,7 @@ msgstr "ვადის გასვლა"
 msgid "Export"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1302
+#: packages/admin/src/components/WordPressImport.tsx:1327
 msgid "Export from WordPress manually"
 msgstr "WordPress-იდან ხელით ექსპორტი"
 
@@ -5270,7 +5278,7 @@ msgstr ""
 msgid "Export site"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1426
+#: packages/admin/src/components/WordPressImport.tsx:1451
 msgid "Export your content from WordPress to import everything including drafts."
 msgstr "შიგთავსის ექსპორტი WordPress-იდან, რომ მონახაზების ჩათვლით ყველაფერი იმპორტირდეს."
 
@@ -5304,7 +5312,7 @@ msgstr "ჩავარდა"
 
 #: packages/admin/src/components/BulkTagDialog.tsx:70
 #: packages/admin/src/components/settings/transfer/ExportSection.tsx:306
-#: packages/admin/src/components/WordPressImport.tsx:2159
+#: packages/admin/src/components/WordPressImport.tsx:2184
 msgid "Failed"
 msgstr "ვერ მოხერხდა"
 
@@ -5340,8 +5348,8 @@ msgstr ""
 msgid "Failed to analyze import"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:421
-#: packages/admin/src/lib/api/import.ts:766
+#: packages/admin/src/components/WordPressImport.tsx:433
+#: packages/admin/src/lib/api/import.ts:768
 msgid "Failed to analyze WordPress site"
 msgstr "WordPress-ის საიტის ანალიზი ვერ მოხერხდა"
 
@@ -5465,7 +5473,7 @@ msgstr ""
 msgid "Failed to create section"
 msgstr "სექციის შექმნა ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1743
+#: packages/admin/src/components/WordPressImport.tsx:1768
 msgid "Failed to create some collections"
 msgstr "ზოგიერთი კოლექციის შექმნა ვერ მოხერხდა"
 
@@ -5651,7 +5659,7 @@ msgstr "ძებნის ჩართვა ვერ მოხერხდა
 msgid "Failed to enable user"
 msgstr "მომხმარებლის ჩართვა ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:348
+#: packages/admin/src/components/WordPressImport.tsx:355
 msgid "Failed to execute import"
 msgstr "იმპორტის შესრულება ვერ მოხერხდა"
 
@@ -5934,12 +5942,12 @@ msgstr "ატვირთვის URL-ის მიღება ვერ მ�
 msgid "Failed to import"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:444
+#: packages/admin/src/components/WordPressImport.tsx:462
 #: packages/admin/src/lib/api/import.ts:257
 msgid "Failed to import from WordPress"
 msgstr "WordPress-იდან იმპორტი ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:373
+#: packages/admin/src/components/WordPressImport.tsx:380
 #: packages/admin/src/lib/api/import.ts:534
 #: packages/admin/src/lib/api/import.ts:539
 msgid "Failed to import media"
@@ -6090,12 +6098,12 @@ msgstr "მასობრივი მოქმედების შესრ�
 msgid "Failed to permanently delete content"
 msgstr "შიგთავსის სამუდამოდ წაშლა ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:327
+#: packages/admin/src/components/WordPressImport.tsx:334
 #: packages/admin/src/lib/api/import.ts:390
 msgid "Failed to prepare import"
 msgstr "იმპორტის მომზადება ვერ მოხერხდა"
 
-#: packages/admin/src/lib/api/import.ts:710
+#: packages/admin/src/lib/api/import.ts:712
 msgid "Failed to probe URL"
 msgstr ""
 
@@ -6188,8 +6196,8 @@ msgstr "რევიზიის აღდგენა ვერ მოხერ
 msgid "Failed to revoke API token"
 msgstr "API ტოკენის გაუქმება ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:386
-#: packages/admin/src/lib/api/import.ts:727
+#: packages/admin/src/components/WordPressImport.tsx:393
+#: packages/admin/src/lib/api/import.ts:729
 msgid "Failed to rewrite URLs"
 msgstr "URL-ების გადაწერა ვერ მოხერხდა"
 
@@ -6419,11 +6427,11 @@ msgstr "ხშირად დასმული კითხვები"
 msgid "Favicon"
 msgstr "ფავიკონი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1211
+#: packages/admin/src/components/WordPressImport.tsx:1230
 msgid "Feature"
 msgstr "ფუნქცია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1179
+#: packages/admin/src/components/WordPressImport.tsx:1198
 msgid "Featured Images"
 msgstr "რჩეული სურათები"
 
@@ -6432,7 +6440,7 @@ msgstr "რჩეული სურათები"
 msgid "Features"
 msgstr "ფუნქციები"
 
-#: packages/admin/src/components/WordPressImport.tsx:837
+#: packages/admin/src/components/WordPressImport.tsx:856
 msgid "Fetching content from the EmDash Exporter API."
 msgstr "შიგთავსი იტვირთება EmDash Exporter API-დან."
 
@@ -6474,7 +6482,7 @@ msgstr ""
 msgid "Fields"
 msgstr "ველები"
 
-#: packages/admin/src/components/WordPressImport.tsx:2362
+#: packages/admin/src/components/WordPressImport.tsx:2387
 msgid "Fields created:"
 msgstr "შექმნილი ველები:"
 
@@ -6483,7 +6491,7 @@ msgid "File"
 msgstr "ფაილი"
 
 #. placeholder {0}: progress.current
-#: packages/admin/src/components/WordPressImport.tsx:2187
+#: packages/admin/src/components/WordPressImport.tsx:2212
 msgid "File {0}"
 msgstr "ფაილი {0}"
 
@@ -6647,11 +6655,11 @@ msgstr "საქაღალდეების ნავიგაცია"
 msgid "Fonts"
 msgstr "შრიფტები"
 
-#: packages/admin/src/components/WordPressImport.tsx:1427
+#: packages/admin/src/components/WordPressImport.tsx:1452
 msgid "For a complete import including drafts and all content, export from WordPress."
 msgstr "სრული იმპორტისთვის, მონახაზებისა და მთელი შიგთავსის ჩათვლით, გააკეთეთ ექსპორტი WordPress-იდან."
 
-#: packages/admin/src/components/WordPressImport.tsx:67
+#: packages/admin/src/components/WordPressImport.tsx:68
 msgid "For the best import experience, install the <0>EmDash Exporter</0> plugin on your WordPress site."
 msgstr "საუკეთესო იმპორტისთვის დააყენეთ <0>EmDash Exporter</0> პლაგინი WordPress-ის საიტზე."
 
@@ -6689,7 +6697,7 @@ msgid "From URL"
 msgstr "URL-იდან"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:280
-#: packages/admin/src/components/WordPressImport.tsx:1186
+#: packages/admin/src/components/WordPressImport.tsx:1205
 msgid "Full"
 msgstr "სრული"
 
@@ -6748,7 +6756,7 @@ msgstr "Go"
 msgid "Go live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2447
+#: packages/admin/src/components/WordPressImport.tsx:2472
 #: packages/admin/src/router.tsx:3259
 msgid "Go to Dashboard"
 msgstr "დაფაზე გადასვლა"
@@ -6963,7 +6971,7 @@ msgstr ""
 msgid "How many"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1549
+#: packages/admin/src/components/WordPressImport.tsx:1574
 msgid "How to create an Application Password"
 msgstr "როგორ შევქმნათ აპლიკაციის პაროლი"
 
@@ -7011,7 +7019,7 @@ msgstr ""
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
-#: packages/admin/src/components/WordPressImport.tsx:1119
+#: packages/admin/src/components/WordPressImport.tsx:1138
 msgid "https://yoursite.com"
 msgstr "https://yoursite.com"
 
@@ -7141,12 +7149,12 @@ msgstr "სურათები"
 #: packages/admin/src/components/AdminCommandPalette.tsx:239
 #: packages/admin/src/components/settings/transfer/ImportSection.tsx:210
 #: packages/admin/src/components/Sidebar.tsx:506
-#: packages/admin/src/components/WordPressImport.tsx:764
+#: packages/admin/src/components/WordPressImport.tsx:783
 msgid "Import"
 msgstr "იმპორტი"
 
 #. placeholder {0}: postType.name
-#: packages/admin/src/components/WordPressImport.tsx:1987
+#: packages/admin/src/components/WordPressImport.tsx:2012
 msgid "Import {0}"
 msgstr "იმპორტი: {0}"
 
@@ -7158,7 +7166,7 @@ msgstr ""
 msgid "Import a site package into this site while it is empty, overwriting its initial setup. Admin includes this; choose it instead of Admin to give an agent narrower access."
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1395
+#: packages/admin/src/components/WordPressImport.tsx:1420
 msgid "Import all content directly including drafts, custom post types, ACF fields, and SEO data. No file download needed."
 msgstr "მთელი შიგთავსის პირდაპირი იმპორტი მონახაზების, მორგებული პოსტის ტიპების, ACF ველებისა და SEO მონაცემების ჩათვლით. ფაილის გადმოწერა საჭირო არ არის."
 
@@ -7166,11 +7174,11 @@ msgstr "მთელი შიგთავსის პირდაპირი 
 msgid "Import an existing EmDash site"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2445
+#: packages/admin/src/components/WordPressImport.tsx:2470
 msgid "Import Another File"
 msgstr "სხვა ფაილის იმპორტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1205
+#: packages/admin/src/components/WordPressImport.tsx:1224
 msgid "Import Capabilities"
 msgstr "იმპორტის შესაძლებლობები"
 
@@ -7179,31 +7187,31 @@ msgstr "იმპორტის შესაძლებლობები"
 msgid "Import complete"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2333
+#: packages/admin/src/components/WordPressImport.tsx:2358
 msgid "Import Complete"
 msgstr "იმპორტი დასრულდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:2334
+#: packages/admin/src/components/WordPressImport.tsx:2359
 msgid "Import Completed with Errors"
 msgstr "იმპორტი დასრულდა შეცდომებით"
 
-#: packages/admin/src/components/WordPressImport.tsx:1728
+#: packages/admin/src/components/WordPressImport.tsx:1753
 msgid "Import failed"
 msgstr "იმპორტი ვერ მოხერხდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:717
+#: packages/admin/src/components/WordPressImport.tsx:736
 msgid "Import from WordPress"
 msgstr "იმპორტი WordPress-იდან"
 
-#: packages/admin/src/components/WordPressImport.tsx:2136
+#: packages/admin/src/components/WordPressImport.tsx:2161
 msgid "Import Media"
 msgstr "მედიის იმპორტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:2089
+#: packages/admin/src/components/WordPressImport.tsx:2114
 msgid "Import Media Files"
 msgstr "მედია ფაილების იმპორტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:719
+#: packages/admin/src/components/WordPressImport.tsx:738
 msgid "Import posts, pages, and custom post types from WordPress."
 msgstr "პოსტების, გვერდებისა და მორგებული პოსტის ტიპების იმპორტი WordPress-იდან."
 
@@ -7211,7 +7219,7 @@ msgstr "პოსტების, გვერდებისა და მო�
 msgid "Import requested by {requester}"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1843
+#: packages/admin/src/components/WordPressImport.tsx:1868
 msgid "Import site configuration from WordPress."
 msgstr "საიტის კონფიგურაციის იმპორტი WordPress-იდან."
 
@@ -7219,7 +7227,7 @@ msgstr "საიტის კონფიგურაციის იმპო�
 msgid "Import this package?"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1393
+#: packages/admin/src/components/WordPressImport.tsx:1418
 msgid "Import via EmDash Exporter"
 msgstr "იმპორტი EmDash Exporter-ის მეშვეობით"
 
@@ -7227,7 +7235,7 @@ msgstr "იმპორტი EmDash Exporter-ის მეშვეობით
 msgid "Imported"
 msgstr "იმპორტირებულია"
 
-#: packages/admin/src/components/WordPressImport.tsx:2373
+#: packages/admin/src/components/WordPressImport.tsx:2398
 msgid "Imported by Collection"
 msgstr "იმპორტირებულია კოლექციის მიხედვით"
 
@@ -7236,7 +7244,7 @@ msgid "Importing"
 msgstr ""
 
 #. placeholder {0}: wpImportProgress.comments
-#: packages/admin/src/components/WordPressImport.tsx:930
+#: packages/admin/src/components/WordPressImport.tsx:949
 msgid "Importing comments... {0}"
 msgstr "კომენტარების იმპორტი... {0}"
 
@@ -7244,25 +7252,25 @@ msgstr "კომენტარების იმპორტი... {0}"
 msgid "Importing content"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:948
+#: packages/admin/src/components/WordPressImport.tsx:967
 msgid "Importing content..."
 msgstr "შიგთავსის იმპორტი..."
 
 #. placeholder {0}: wpImportProgress.processed
-#: packages/admin/src/components/WordPressImport.tsx:928
+#: packages/admin/src/components/WordPressImport.tsx:947
 msgid "Importing content... {0}"
 msgstr "შიგთავსის იმპორტი... {0}"
 
 #. placeholder {0}: wpImportProgress.processed
-#: packages/admin/src/components/WordPressImport.tsx:927
+#: packages/admin/src/components/WordPressImport.tsx:946
 msgid "Importing content... {0} of {totalSelectedPosts}"
 msgstr "შიგთავსის იმპორტი... {0} / {totalSelectedPosts}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2168
+#: packages/admin/src/components/WordPressImport.tsx:2193
 msgid "Importing Media"
 msgstr "მედიის იმპორტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:931
+#: packages/admin/src/components/WordPressImport.tsx:950
 msgid "Importing menus and site settings..."
 msgstr "მენიუებისა და საიტის პარამეტრების იმპორტი..."
 
@@ -7270,7 +7278,7 @@ msgstr "მენიუებისა და საიტის პარამ
 msgid "Importing menus, widgets, and settings"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:932
+#: packages/admin/src/components/WordPressImport.tsx:951
 msgid "Importing reusable blocks..."
 msgstr ""
 
@@ -7299,7 +7307,7 @@ msgstr ""
 msgid "Include inferred bylines"
 msgstr "ავტომატურად დადგენილი ბაილაინების ჩართვა"
 
-#: packages/admin/src/components/WordPressImport.tsx:2009
+#: packages/admin/src/components/WordPressImport.tsx:2034
 msgid "Incompatible"
 msgstr "შეუთავსებელი"
 
@@ -7438,7 +7446,7 @@ msgstr "ელფოსტის ფუნქციების ჩასარ�
 msgid "Install blocked"
 msgstr "დაყენება დაბლოკილია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1067
+#: packages/admin/src/components/WordPressImport.tsx:1086
 msgid "Install the EmDash Exporter plugin on your WordPress site and generate a key under Tools → EmDash Migration."
 msgstr "დააყენეთ EmDash Exporter პლაგინი WordPress-ის საიტზე და შექმენით გასაღები მენიუში ინსტრუმენტები → EmDash Migration."
 
@@ -7643,7 +7651,7 @@ msgstr ""
 msgid "Keep this site’s: “{targetValue}”"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:944
+#: packages/admin/src/components/WordPressImport.tsx:963
 msgid "Keep this tab open. The import runs in small steps and can be safely re-run if interrupted."
 msgstr "დატოვეთ ეს ჩანართი ღია. იმპორტი მცირე ნაბიჯებით მიმდინარეობს და შეწყვეტის შემთხვევაში უსაფრთხოდ შეიძლება ხელახლა გაშვება."
 
@@ -7749,7 +7757,7 @@ msgstr ""
 msgid "Learn more"
 msgstr "გაიგეთ მეტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:2526
+#: packages/admin/src/components/WordPressImport.tsx:2551
 msgid "Leave unassigned"
 msgstr "მიუნიჭებლად დატოვება"
 
@@ -8138,7 +8146,7 @@ msgstr "გამოსვლა"
 msgid "Logo"
 msgstr "ლოგო"
 
-#: packages/admin/src/components/WordPressImport.tsx:1861
+#: packages/admin/src/components/WordPressImport.tsx:1886
 msgid "Logo & favicon"
 msgstr "ლოგო და ფავიკონი"
 
@@ -8231,12 +8239,12 @@ msgstr ""
 msgid "Manual"
 msgstr "ხელით"
 
-#: packages/admin/src/components/WordPressImport.tsx:2483
+#: packages/admin/src/components/WordPressImport.tsx:2508
 msgid "Map Authors"
 msgstr "ავტორების მიბმა"
 
 #. placeholder {0}: mapping.wpLogin
-#: packages/admin/src/components/WordPressImport.tsx:2531
+#: packages/admin/src/components/WordPressImport.tsx:2556
 msgid "Map WordPress user {0} to EmDash user"
 msgstr "WordPress-ის მომხმარებლის {0} მიბმა EmDash-ის მომხმარებელზე"
 
@@ -8315,9 +8323,9 @@ msgstr "MDX"
 #: packages/admin/src/components/settings/transfer/labels.ts:17
 #: packages/admin/src/components/settings/transfer/labels.ts:84
 #: packages/admin/src/components/Sidebar.tsx:428
-#: packages/admin/src/components/WordPressImport.tsx:778
-#: packages/admin/src/components/WordPressImport.tsx:1176
-#: packages/admin/src/components/WordPressImport.tsx:1363
+#: packages/admin/src/components/WordPressImport.tsx:797
+#: packages/admin/src/components/WordPressImport.tsx:1195
+#: packages/admin/src/components/WordPressImport.tsx:1388
 msgid "Media"
 msgstr "მედია"
 
@@ -8326,7 +8334,7 @@ msgid "Media details"
 msgstr "მედიის დეტალები"
 
 #. placeholder {0}: mediaResult.failed.length
-#: packages/admin/src/components/WordPressImport.tsx:2429
+#: packages/admin/src/components/WordPressImport.tsx:2454
 msgid "Media Errors ({0})"
 msgstr "მედიის შეცდომები ({0})"
 
@@ -8335,15 +8343,15 @@ msgstr "მედიის შეცდომები ({0})"
 msgid "Media folders"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2391
+#: packages/admin/src/components/WordPressImport.tsx:2416
 msgid "Media Import"
 msgstr "მედიის იმპორტი"
 
-#: packages/admin/src/components/WordPressImport.tsx:2332
+#: packages/admin/src/components/WordPressImport.tsx:2357
 msgid "Media Import Complete"
 msgstr "მედიის იმპორტი დასრულდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:2343
+#: packages/admin/src/components/WordPressImport.tsx:2368
 msgid "Media import was skipped"
 msgstr "მედიის იმპორტი გამოტოვდა"
 
@@ -8469,12 +8477,12 @@ msgstr ""
 #: packages/admin/src/components/MenuList.tsx:101
 #: packages/admin/src/components/settings/transfer/labels.ts:28
 #: packages/admin/src/components/Sidebar.tsx:445
-#: packages/admin/src/components/WordPressImport.tsx:1180
+#: packages/admin/src/components/WordPressImport.tsx:1199
 msgid "Menus"
 msgstr "მენიუები"
 
 #. placeholder {0}: navMenus.length
-#: packages/admin/src/components/WordPressImport.tsx:1796
+#: packages/admin/src/components/WordPressImport.tsx:1821
 msgid "Menus ({0})"
 msgstr "მენიუები ({0})"
 
@@ -8499,7 +8507,7 @@ msgstr "მეტა თეგის შიგთავსი Bing Webmaster Too
 msgid "Meta tag content for Google Search Console verification"
 msgstr "მეტა თეგის შიგთავსი Google Search Console-ის დადასტურებისთვის"
 
-#: packages/admin/src/components/WordPressImport.tsx:1874
+#: packages/admin/src/components/WordPressImport.tsx:1899
 msgid "Meta titles, descriptions, and social images"
 msgstr "მეტა სათაურები, აღწერები და სოციალური ქსელების სურათები"
 
@@ -8507,7 +8515,7 @@ msgstr "მეტა სათაურები, აღწერები დ�
 msgid "Migration guide"
 msgstr "მიგრაციის სახელმძღვანელო"
 
-#: packages/admin/src/components/WordPressImport.tsx:1080
+#: packages/admin/src/components/WordPressImport.tsx:1099
 msgid "Migration key"
 msgstr "მიგრაციის გასაღები"
 
@@ -8852,7 +8860,7 @@ msgstr ""
 msgid "New byline field"
 msgstr "ახალი ბაილაინის ველი"
 
-#: packages/admin/src/components/WordPressImport.tsx:2011
+#: packages/admin/src/components/WordPressImport.tsx:2036
 msgid "New collection"
 msgstr "ახალი კოლექცია"
 
@@ -9096,7 +9104,7 @@ msgstr "ელფოსტის პროვაიდერი კონფი�
 msgid "No email provider configured. Share this link manually."
 msgstr "ელფოსტის პროვაიდერი კონფიგურირებული არ არის. გააზიარეთ ეს ბმული ხელით."
 
-#: packages/admin/src/components/WordPressImport.tsx:2545
+#: packages/admin/src/components/WordPressImport.tsx:2570
 msgid "No EmDash users found"
 msgstr "EmDash-ის მომხმარებლები ვერ მოიძებნა"
 
@@ -9456,7 +9464,7 @@ msgstr "სიის ხედებში გვერდზე გამოს
 msgid "Numbered List"
 msgstr "დანომრილი სია"
 
-#: packages/admin/src/components/WordPressImport.tsx:522
+#: packages/admin/src/components/WordPressImport.tsx:541
 msgid "OAuth authorization requires HTTPS. Please use manual credentials."
 msgstr "OAuth-ის ავტორიზაცია მოითხოვს HTTPS-ს. გამოიყენეთ ხელით შეყვანილი მონაცემები."
 
@@ -9576,7 +9584,7 @@ msgstr ""
 msgid "Open Windows settings"
 msgstr "Windows-ის პარამეტრების გახსნა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1563
+#: packages/admin/src/components/WordPressImport.tsx:1588
 msgid "Open WordPress Profile"
 msgstr "WordPress-ის პროფილის გახსნა"
 
@@ -9624,11 +9632,11 @@ msgstr "ვარიანტები (თითო ხაზზე)"
 msgid "Or browse files from your computer"
 msgstr "ან აირჩიეთ ფაილები კომპიუტერიდან"
 
-#: packages/admin/src/components/WordPressImport.tsx:1619
+#: packages/admin/src/components/WordPressImport.tsx:1644
 msgid "Or click to browse. Accepts .xml files exported from WordPress."
 msgstr "ან დააწკაპუნეთ ასარჩევად. მიიღება WordPress-იდან ექსპორტირებული .xml ფაილები."
 
-#: packages/admin/src/components/WordPressImport.tsx:1100
+#: packages/admin/src/components/WordPressImport.tsx:1119
 msgid "or connect by URL"
 msgstr "ან დაკავშირდით URL-ით"
 
@@ -9638,11 +9646,11 @@ msgstr "ან დაკავშირდით URL-ით"
 msgid "Or continue with"
 msgstr "ან გააგრძელეთ"
 
-#: packages/admin/src/components/WordPressImport.tsx:1420
+#: packages/admin/src/components/WordPressImport.tsx:1445
 msgid "Or upload an export file"
 msgstr "ან ექსპორტის ფაილის ატვირთვა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1138
+#: packages/admin/src/components/WordPressImport.tsx:1157
 msgid "or upload directly"
 msgstr "ან პირდაპირ ატვირთვა"
 
@@ -9727,7 +9735,7 @@ msgid "Page size"
 msgstr "გვერდის ზომა"
 
 #: packages/admin/src/components/PluginManager.tsx:478
-#: packages/admin/src/components/WordPressImport.tsx:1357
+#: packages/admin/src/components/WordPressImport.tsx:1382
 msgid "Pages"
 msgstr "გვერდები"
 
@@ -9754,7 +9762,7 @@ msgstr "მშობელი"
 msgid "Part of a redirect loop"
 msgstr "გადამისამართების მარყუჟის ნაწილი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1184
+#: packages/admin/src/components/WordPressImport.tsx:1203
 msgid "Partial"
 msgstr "ნაწილობრივი"
 
@@ -9842,7 +9850,7 @@ msgstr "პასკები მოითხოვს HTTPS-ს ან http://l
 msgid "Paste an embed code or an https link…"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1065
+#: packages/admin/src/components/WordPressImport.tsx:1084
 msgid "Paste your migration key"
 msgstr "ჩასვით მიგრაციის გასაღები"
 
@@ -9969,7 +9977,7 @@ msgstr "შეიყვანეთ სწორი ელფოსტის მ
 msgid "Please enter a valid URL"
 msgstr "შეიყვანეთ სწორი URL"
 
-#: packages/admin/src/components/WordPressImport.tsx:1213
+#: packages/admin/src/components/WordPressImport.tsx:1232
 msgid "Plugin"
 msgstr "პლაგინი"
 
@@ -10135,11 +10143,11 @@ msgstr ""
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:479
 #: packages/admin/src/components/RelationForm.tsx:297
-#: packages/admin/src/components/WordPressImport.tsx:1351
+#: packages/admin/src/components/WordPressImport.tsx:1376
 msgid "Posts"
 msgstr "პოსტები"
 
-#: packages/admin/src/components/WordPressImport.tsx:1175
+#: packages/admin/src/components/WordPressImport.tsx:1194
 msgid "Posts & Pages"
 msgstr "პოსტები და გვერდები"
 
@@ -10151,7 +10159,7 @@ msgstr "პოსტები გვერდზე"
 msgid "Pre-release"
 msgstr "წინასწარი გამოშვება"
 
-#: packages/admin/src/components/WordPressImport.tsx:924
+#: packages/admin/src/components/WordPressImport.tsx:943
 msgid "Preparing categories and tags..."
 msgstr ""
 
@@ -10163,7 +10171,7 @@ msgstr "რეგისტრაციის მომზადება..."
 msgid "Preparing this site"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:2208
+#: packages/admin/src/components/WordPressImport.tsx:2233
 msgid "Preparing to download files from WordPress..."
 msgstr "მზადება WordPress-იდან ფაილების გადმოსაწერად..."
 
@@ -10420,7 +10428,7 @@ msgstr ""
 msgid "Quote"
 msgstr "ციტატა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1193
+#: packages/admin/src/components/WordPressImport.tsx:1212
 msgid "Raw meta"
 msgstr "ნედლი მეტამონაცემები"
 
@@ -10511,7 +10519,7 @@ msgstr ""
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:481
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:492
 #: packages/admin/src/components/settings/transfer/ExportSection.tsx:301
-#: packages/admin/src/components/WordPressImport.tsx:2015
+#: packages/admin/src/components/WordPressImport.tsx:2040
 msgid "Ready"
 msgstr "მზადაა"
 
@@ -10989,7 +10997,7 @@ msgstr "სლაგი სავალდებულოა გამოქვ�
 msgid "Required"
 msgstr "სავალდებულო"
 
-#: packages/admin/src/components/WordPressImport.tsx:2028
+#: packages/admin/src/components/WordPressImport.tsx:2053
 msgid "Required fields:"
 msgstr "სავალდებულო ველები:"
 
@@ -11196,7 +11204,7 @@ msgstr "მრავალჯერადი შიგთავსის ბლ�
 msgid "Reverted to published version"
 msgstr "დაბრუნდა გამოქვეყნებულ ვერსიაზე"
 
-#: packages/admin/src/components/WordPressImport.tsx:750
+#: packages/admin/src/components/WordPressImport.tsx:769
 msgid "Review"
 msgstr "გადახედვა"
 
@@ -11563,11 +11571,11 @@ msgstr "დაგეგმილი გამოქვეყნება"
 msgid "Scheduled publishing needs attention"
 msgstr "დაგეგმილი გამოქვეყნება ყურადღებას მოითხოვს"
 
-#: packages/admin/src/components/WordPressImport.tsx:2351
+#: packages/admin/src/components/WordPressImport.tsx:2376
 msgid "Schema Changes"
 msgstr "სქემის ცვლილებები"
 
-#: packages/admin/src/components/WordPressImport.tsx:1728
+#: packages/admin/src/components/WordPressImport.tsx:1753
 msgid "Schema preparation failed"
 msgstr "სქემის მომზადება ვერ მოხერხდა"
 
@@ -12040,7 +12048,7 @@ msgstr ""
 msgid "Select video"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1761
+#: packages/admin/src/components/WordPressImport.tsx:1786
 msgid "Select which content types to import."
 msgstr "აირჩიეთ, რომელი ტიპის შიგთავსი უნდა იმპორტირდეს."
 
@@ -12143,7 +12151,7 @@ msgstr ""
 msgid "SEO Settings"
 msgstr "SEO პარამეტრები"
 
-#: packages/admin/src/components/WordPressImport.tsx:1872
+#: packages/admin/src/components/WordPressImport.tsx:1897
 msgid "SEO settings (Yoast)"
 msgstr "SEO პარამეტრები (Yoast)"
 
@@ -12223,7 +12231,7 @@ msgstr "მიმდინარეობს გამართვა..."
 #: packages/admin/src/components/PluginManager.tsx:536
 #: packages/admin/src/components/Settings.tsx:46
 #: packages/admin/src/components/Sidebar.tsx:510
-#: packages/admin/src/components/WordPressImport.tsx:1840
+#: packages/admin/src/components/WordPressImport.tsx:1865
 msgid "Settings"
 msgstr "პარამეტრები"
 
@@ -12404,7 +12412,7 @@ msgstr ""
 msgid "Site Identity"
 msgstr "საიტის იდენტობა"
 
-#: packages/admin/src/components/WordPressImport.tsx:2299
+#: packages/admin/src/components/WordPressImport.tsx:2324
 msgid "site identity applied (title, tagline, logo)"
 msgstr "საიტის იდენტობა გამოყენებულია (სათაური, სლოგანი, ლოგო)"
 
@@ -12427,7 +12435,7 @@ msgstr ""
 
 #: packages/admin/src/components/MediaUsedIn.tsx:298
 #: packages/admin/src/components/SetupWizard.tsx:405
-#: packages/admin/src/components/WordPressImport.tsx:1182
+#: packages/admin/src/components/WordPressImport.tsx:1201
 msgid "Site Settings"
 msgstr "საიტის პარამეტრები"
 
@@ -12440,7 +12448,7 @@ msgstr ""
 msgid "Site Title"
 msgstr "საიტის სათაური"
 
-#: packages/admin/src/components/WordPressImport.tsx:1852
+#: packages/admin/src/components/WordPressImport.tsx:1877
 msgid "Site title & tagline"
 msgstr "საიტის სათაური და სლოგანი"
 
@@ -12481,11 +12489,11 @@ msgstr "ზომა საქაღალდეებზე არ ვრცე
 msgid "Size:"
 msgstr "ზომა:"
 
-#: packages/admin/src/components/WordPressImport.tsx:2133
+#: packages/admin/src/components/WordPressImport.tsx:2158
 msgid "Skip Media Import"
 msgstr "მედიის იმპორტის გამოტოვება"
 
-#: packages/admin/src/components/WordPressImport.tsx:2158
+#: packages/admin/src/components/WordPressImport.tsx:2183
 msgid "Skipped"
 msgstr "გამოტოვებული"
 
@@ -12559,7 +12567,7 @@ msgstr ""
 msgid "Some content may not appear here yet."
 msgstr "ზოგიერთი შიგთავსი შესაძლოა ჯერ არ ჩანდეს აქ."
 
-#: packages/admin/src/components/WordPressImport.tsx:1889
+#: packages/admin/src/components/WordPressImport.tsx:1914
 msgid "Some content types cannot be imported"
 msgstr "ზოგიერთი ტიპის შიგთავსის იმპორტი შეუძლებელია"
 
@@ -12662,7 +12670,7 @@ msgstr ""
 msgid "Start import"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1951
+#: packages/admin/src/components/WordPressImport.tsx:1976
 msgid "Start Import"
 msgstr "იმპორტის დაწყება"
 
@@ -12749,11 +12757,11 @@ msgstr "ინახება ლოკალის მიხედვით —
 msgid "Strikethrough"
 msgstr "გადახაზული"
 
-#: packages/admin/src/components/WordPressImport.tsx:1781
+#: packages/admin/src/components/WordPressImport.tsx:1806
 msgid "Structure"
 msgstr "სტრუქტურა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1195
+#: packages/admin/src/components/WordPressImport.tsx:1214
 msgid "Structured"
 msgstr "სტრუქტურირებული"
 
@@ -12858,7 +12866,7 @@ msgid "Tags"
 msgstr "თეგები"
 
 #. placeholder {0}: analysis.tags
-#: packages/admin/src/components/WordPressImport.tsx:1826
+#: packages/admin/src/components/WordPressImport.tsx:1851
 msgid "Tags ({0})"
 msgstr "თეგები ({0})"
 
@@ -13050,7 +13058,7 @@ msgstr "მოწყობილობას წვდომა არ მიე
 msgid "The download stopped"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1891
+#: packages/admin/src/components/WordPressImport.tsx:1916
 msgid "The existing collection has fields with incompatible types."
 msgstr "არსებულ კოლექციაში არათავსებადი ტიპის ველებია."
 
@@ -13456,7 +13464,7 @@ msgstr ""
 msgid "This device is requesting permission to use:"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1088
+#: packages/admin/src/components/WordPressImport.tsx:1107
 msgid "This doesn't look like a valid migration key. Generate a new one in the plugin and paste the full string starting with \"em1.\"."
 msgstr "ეს არ ჰგავს სწორ მიგრაციის გასაღებს. შექმენით ახალი პლაგინში და ჩასვით სრული სტრიქონი, რომელიც იწყება „em1.“-ით."
 
@@ -13577,7 +13585,7 @@ msgstr ""
 msgid "This is a custom section."
 msgstr "ეს ინდივიდუალური სექციაა."
 
-#: packages/admin/src/components/WordPressImport.tsx:1337
+#: packages/admin/src/components/WordPressImport.tsx:1362
 msgid "This is a WordPress site."
 msgstr "ეს WordPress-ის საიტია."
 
@@ -13601,7 +13609,7 @@ msgstr "ბმული იწურება 7 დღეში და მხო
 msgid "This link expires in 7 days."
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:949
+#: packages/admin/src/components/WordPressImport.tsx:968
 msgid "This may take a while for large exports."
 msgstr "დიდი მოცულობის ექსპორტისას ამას დრო დასჭირდება."
 
@@ -14038,7 +14046,7 @@ msgstr "სცადეთ ძებნის ან ფილტრების
 msgid "Try again"
 msgstr "ხელახლა ცდა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1611
+#: packages/admin/src/components/WordPressImport.tsx:1636
 msgid "Try Again"
 msgstr "ხელახლა ცდა"
 
@@ -14063,8 +14071,8 @@ msgstr "სცადეთ სხვა ფაილის სახელი �
 msgid "Try another filename, or clear your search and filters."
 msgstr "სცადეთ სხვა ფაილის სახელი, ან გაასუფთავეთ ძებნა და ფილტრები."
 
-#: packages/admin/src/components/WordPressImport.tsx:1315
-#: packages/admin/src/components/WordPressImport.tsx:1437
+#: packages/admin/src/components/WordPressImport.tsx:1340
+#: packages/admin/src/components/WordPressImport.tsx:1462
 msgid "Try Another URL"
 msgstr "სხვა URL-ით ცდა"
 
@@ -14125,7 +14133,7 @@ msgid "Type caption for video (optional)"
 msgstr ""
 
 #. placeholder {0}: status.existingType
-#: packages/admin/src/components/WordPressImport.tsx:2047
+#: packages/admin/src/components/WordPressImport.tsx:2072
 msgid "Type mismatch ({0})"
 msgstr "ტიპის შეუსაბამობა ({0})"
 
@@ -14348,7 +14356,7 @@ msgstr "განახლებულია"
 msgid "Updated At"
 msgstr "განახლების დრო"
 
-#: packages/admin/src/components/WordPressImport.tsx:974
+#: packages/admin/src/components/WordPressImport.tsx:993
 msgid "Updating content URLs..."
 msgstr "მიმდინარეობს შიგთავსის URL-ების განახლება..."
 
@@ -14386,7 +14394,7 @@ msgstr "დასაწყებად ატვირთეთ ფაილი"
 msgid "Upload a video to get started"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1420
+#: packages/admin/src/components/WordPressImport.tsx:1445
 msgid "Upload an export file"
 msgstr "ატვირთეთ ექსპორტის ფაილი"
 
@@ -14403,8 +14411,8 @@ msgstr "მედიის ატვირთვა და წაშლა"
 msgid "Upload and manage media"
 msgstr "მედიის ატვირთვა და მართვა"
 
-#: packages/admin/src/components/WordPressImport.tsx:1313
-#: packages/admin/src/components/WordPressImport.tsx:1434
+#: packages/admin/src/components/WordPressImport.tsx:1338
+#: packages/admin/src/components/WordPressImport.tsx:1459
 msgid "Upload Export File"
 msgstr "ექსპორტის ფაილის ატვირთვა"
 
@@ -14456,7 +14464,7 @@ msgstr "ატვირთვა {0}-ში"
 msgid "Upload to {providerName}"
 msgstr "ატვირთვა {providerName}-ში"
 
-#: packages/admin/src/components/WordPressImport.tsx:1149
+#: packages/admin/src/components/WordPressImport.tsx:1168
 msgid "Upload WordPress export file"
 msgstr "WordPress-ის ექსპორტის ფაილის ატვირთვა"
 
@@ -14470,7 +14478,7 @@ msgstr "ატვირთულია:"
 
 #: packages/admin/src/components/media/MediaBrowserItems.tsx:208
 #: packages/admin/src/components/MediaUploadDialog.tsx:60
-#: packages/admin/src/components/WordPressImport.tsx:2156
+#: packages/admin/src/components/WordPressImport.tsx:2181
 msgid "Uploading"
 msgstr "იტვირთება"
 
@@ -14847,11 +14855,11 @@ msgid "We checked before opening the browser's passkey prompt so you can choose 
 msgstr "ბრაუზერის პასკის მოთხოვნის გახსნამდე შევამოწმეთ, რომ თავად გადაწყვიტოთ, რა მოხდება შემდეგ."
 
 #. placeholder {0}: result.url
-#: packages/admin/src/components/WordPressImport.tsx:1295
+#: packages/admin/src/components/WordPressImport.tsx:1320
 msgid "We couldn't connect to a WordPress site at {0}. This could mean the site isn't WordPress, the REST API is disabled, or the site isn't accessible."
 msgstr "ვერ დავუკავშირდით WordPress-ის საიტს მისამართზე {0}. შესაძლოა, საიტი WordPress არ არის, REST API გამორთულია ან საიტი მიუწვდომელია."
 
-#: packages/admin/src/components/WordPressImport.tsx:1113
+#: packages/admin/src/components/WordPressImport.tsx:1132
 msgid "We'll check what import options are available for your site."
 msgstr "შევამოწმებთ, რა იმპორტის ვარიანტებია ხელმისაწვდომი საიტისთვის."
 
@@ -14898,7 +14906,7 @@ msgstr ""
 msgid "What happens next?"
 msgstr "რა მოხდება შემდეგ?"
 
-#: packages/admin/src/components/WordPressImport.tsx:2120
+#: packages/admin/src/components/WordPressImport.tsx:2145
 msgid "What happens when you import:"
 msgstr "რა ხდება იმპორტისას:"
 
@@ -14922,7 +14930,7 @@ msgstr ""
 msgid "What will be imported"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1903
+#: packages/admin/src/components/WordPressImport.tsx:1928
 msgid "What will happen when you import"
 msgstr "რა მოხდება იმპორტის დროს"
 
@@ -15042,7 +15050,7 @@ msgstr "ვიჯეტი განახლდა"
 #: packages/admin/src/components/settings/transfer/labels.ts:91
 #: packages/admin/src/components/Sidebar.tsx:452
 #: packages/admin/src/components/Widgets.tsx:389
-#: packages/admin/src/components/WordPressImport.tsx:1188
+#: packages/admin/src/components/WordPressImport.tsx:1207
 msgid "Widgets"
 msgstr "ვიჯეტები"
 
@@ -15059,7 +15067,7 @@ msgstr "სიგანეები"
 msgid "Will be cleared on save"
 msgstr "შენახვისას გასუფთავდება"
 
-#: packages/admin/src/components/WordPressImport.tsx:2043
+#: packages/admin/src/components/WordPressImport.tsx:2068
 msgid "Will create"
 msgstr "შეიქმნება"
 
@@ -15079,11 +15087,11 @@ msgstr "პასკით რთული პაროლების დამ
 msgid "Without an email provider, invite links must be shared manually."
 msgstr "ელფოსტის პროვაიდერის გარეშე მოწვევის ბმულები ხელით უნდა გაიზიაროთ."
 
-#: packages/admin/src/components/WordPressImport.tsx:228
+#: packages/admin/src/components/WordPressImport.tsx:235
 msgid "WordPress authorization was rejected"
 msgstr "WordPress-ის ავტორიზაცია უარყოფილია"
 
-#: packages/admin/src/components/WordPressImport.tsx:1505
+#: packages/admin/src/components/WordPressImport.tsx:1530
 msgid "WordPress Username"
 msgstr "WordPress-ის მომხმარებლის სახელი"
 
@@ -15119,7 +15127,7 @@ msgstr "დაწერეთ ვიჯეტის შიგთავსი..."
 msgid "Writing the file index"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1212
+#: packages/admin/src/components/WordPressImport.tsx:1231
 msgid "WXR File"
 msgstr "WXR ფაილი"
 
@@ -15127,7 +15135,7 @@ msgstr "WXR ფაილი"
 msgid "XML"
 msgstr "XML"
 
-#: packages/admin/src/components/WordPressImport.tsx:1526
+#: packages/admin/src/components/WordPressImport.tsx:1551
 msgid "xxxx xxxx xxxx xxxx xxxx xxxx"
 msgstr "xxxx xxxx xxxx xxxx xxxx xxxx"
 
@@ -15146,7 +15154,7 @@ msgstr "ყოველწლიური"
 msgid "Yes"
 msgstr "კი"
 
-#: packages/admin/src/components/WordPressImport.tsx:1191
+#: packages/admin/src/components/WordPressImport.tsx:1210
 msgid "Yoast/RankMath"
 msgstr "Yoast/RankMath"
 
@@ -15233,7 +15241,7 @@ msgstr "შემოგვიერთდებით როგორც <0>{0}<
 msgid "You'll be prompted to use your device's biometric authentication, security key, or PIN."
 msgstr "მოგეთხოვებათ მოწყობილობის ბიომეტრიული ავთენტიფიკაციის, უსაფრთხოების გასაღების ან PIN-ის გამოყენება."
 
-#: packages/admin/src/components/WordPressImport.tsx:1398
+#: packages/admin/src/components/WordPressImport.tsx:1423
 msgid "You'll be redirected to WordPress to authorize the connection."
 msgstr "კავშირის ავტორიზაციისთვის გადამისამართდებით WordPress-ზე."
 
@@ -15367,7 +15375,7 @@ msgid "Your unsaved media changes will be lost."
 msgstr "მედიაში შეტანილი შეუნახავი ცვლილებები დაიკარგება."
 
 #. placeholder {0}: attachments.count
-#: packages/admin/src/components/WordPressImport.tsx:2091
+#: packages/admin/src/components/WordPressImport.tsx:2116
 msgid "Your WordPress export contains {0} media files."
 msgstr "WordPress-ის ექსპორტი შეიცავს {0} მედია ფაილს."
 

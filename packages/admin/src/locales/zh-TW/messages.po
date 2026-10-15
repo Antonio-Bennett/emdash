@@ -87,7 +87,7 @@ msgid "{0, plural, one {# collection} other {# collections}}"
 msgstr "{0, plural, one {# 個內容集合} other {# 個內容集合}}"
 
 #. placeholder {0}: result.comments.imported
-#: packages/admin/src/components/WordPressImport.tsx:2292
+#: packages/admin/src/components/WordPressImport.tsx:2317
 msgid "{0, plural, one {# comment imported} other {# comments imported}}"
 msgstr "{0, plural, one {# 則留言已匯入} other {# 則留言已匯入}}"
 
@@ -102,12 +102,12 @@ msgid "{0, plural, one {# comment} other {# comments}}"
 msgstr "{0, plural, one {# 則留言} other {# 則留言}}"
 
 #. placeholder {0}: result.errors.length
-#: packages/admin/src/components/WordPressImport.tsx:2303
+#: packages/admin/src/components/WordPressImport.tsx:2328
 msgid "{0, plural, one {# content error} other {# content errors}}"
 msgstr "{0, plural, one {# 個內容錯誤} other {# 個內容錯誤}}"
 
 #. placeholder {0}: result.imported
-#: packages/admin/src/components/WordPressImport.tsx:2244
+#: packages/admin/src/components/WordPressImport.tsx:2269
 msgid "{0, plural, one {# content item imported} other {# content items imported}}"
 msgstr "{0, plural, one {已匯入 # 個內容項目} other {已匯入 # 個內容項目}}"
 
@@ -156,22 +156,22 @@ msgid "{0, plural, one {# MCP tool} other {# MCP tools}}"
 msgstr "{0, plural, one {# 個 MCP 工具} other {# 個 MCP 工具}}"
 
 #. placeholder {0}: mediaResult.failed.length
-#: packages/admin/src/components/WordPressImport.tsx:2308
+#: packages/admin/src/components/WordPressImport.tsx:2333
 msgid "{0, plural, one {# media error} other {# media errors}}"
 msgstr "{0, plural, one {# 個媒體錯誤} other {# 個媒體錯誤}}"
 
 #. placeholder {0}: mediaResult.imported.length
-#: packages/admin/src/components/WordPressImport.tsx:2260
+#: packages/admin/src/components/WordPressImport.tsx:2285
 msgid "{0, plural, one {# media file imported} other {# media files imported}}"
 msgstr "{0, plural, one {已匯入 # 個媒體檔案} other {已匯入 # 個媒體檔案}}"
 
 #. placeholder {0}: result.menus.created
-#: packages/admin/src/components/WordPressImport.tsx:2284
+#: packages/admin/src/components/WordPressImport.tsx:2309
 msgid "{0, plural, one {# menu imported} other {# menus imported}}"
 msgstr "{0, plural, one {已匯入 # 個選單} other {已匯入 # 個選單}}"
 
 #. placeholder {0}: navMenus.length
-#: packages/admin/src/components/WordPressImport.tsx:1932
+#: packages/admin/src/components/WordPressImport.tsx:1957
 msgid "{0, plural, one {# menu will be imported} other {# menus will be imported}}"
 msgstr "{0, plural, one {將匯入 # 個選單} other {將匯入 # 個選單}}"
 
@@ -187,7 +187,7 @@ msgid "{0, plural, one {# permission} other {# permissions}}"
 msgstr "{0, plural, one {# 項權限} other {# 項權限}}"
 
 #. placeholder {0}: mapping.postCount
-#: packages/admin/src/components/WordPressImport.tsx:2515
+#: packages/admin/src/components/WordPressImport.tsx:2540
 msgid "{0, plural, one {# post} other {# posts}}"
 msgstr "{0, plural, one {# 篇文章} other {# 篇文章}}"
 
@@ -222,17 +222,17 @@ msgid "{0, plural, one {# selected} other {# selected}}"
 msgstr "{0, plural, one {# 個已選取} other {# 個已選取}}"
 
 #. placeholder {0}: result.skipped
-#: packages/admin/src/components/WordPressImport.tsx:2252
+#: packages/admin/src/components/WordPressImport.tsx:2277
 msgid "{0, plural, one {# skipped (already exists)} other {# skipped (already exist)}}"
 msgstr "{0, plural, one {# 個已略過 (已存在)} other {# 個已略過 (已存在)}}"
 
 #. placeholder {0}: result.taxonomyAssignments
-#: packages/admin/src/components/WordPressImport.tsx:2276
+#: packages/admin/src/components/WordPressImport.tsx:2301
 msgid "{0, plural, one {# taxonomy assignment} other {# taxonomy assignments}}"
 msgstr "{0, plural, one {# 個分類法指派} other {# 個分類法指派}}"
 
 #. placeholder {0}: result.taxonomiesCreated.length
-#: packages/admin/src/components/WordPressImport.tsx:2268
+#: packages/admin/src/components/WordPressImport.tsx:2293
 msgid "{0, plural, one {# taxonomy created} other {# taxonomies created}}"
 msgstr "{0, plural, one {已建立 # 個分類法} other {已建立 # 個分類法}}"
 
@@ -324,7 +324,7 @@ msgid "{0} can't be moved here — its parent has no translation in this locale,
 msgstr "無法將 {0} 移到這裡，因為其上層項目沒有這個語言的翻譯，所以不屬於這份清單。"
 
 #. placeholder {0}: bestMatch?.detected.siteTitle || "WordPress site"
-#: packages/admin/src/components/WordPressImport.tsx:1332
+#: packages/admin/src/components/WordPressImport.tsx:1357
 msgid "{0} detected"
 msgstr "偵測到 {0}"
 
@@ -360,12 +360,12 @@ msgstr "{0} 現已啟用"
 
 #. placeholder {0}: postType.count
 #. placeholder {1}: postType.suggestedCollection
-#: packages/admin/src/components/WordPressImport.tsx:2002
+#: packages/admin/src/components/WordPressImport.tsx:2027
 msgid "{0} items → {1}"
 msgstr "{0} 個項目 → {1}"
 
 #. placeholder {0}: analysis.postTypes .filter((pt) => selections[pt.name]?.enabled) .reduce((sum, pt) => sum + pt.count, 0)
-#: packages/admin/src/components/WordPressImport.tsx:1925
+#: packages/admin/src/components/WordPressImport.tsx:1950
 msgid "{0} items will be imported"
 msgstr "將匯入 {0} 個項目"
 
@@ -509,15 +509,15 @@ msgstr "已完成 {completedCount} / {0} 個"
 msgid "{completedCount} of {0} uploads complete"
 msgstr "已完成 {completedCount} / {0} 個檔案的上傳"
 
-#: packages/admin/src/components/WordPressImport.tsx:2101
+#: packages/admin/src/components/WordPressImport.tsx:2126
 msgid "{count, plural, one {# file} other {# files}}"
 msgstr "{count, plural, one {# 個檔案} other {# 個檔案}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2380
+#: packages/admin/src/components/WordPressImport.tsx:2405
 msgid "{count, plural, one {# item} other {# items}}"
 msgstr "{count, plural, one {# 個項目} other {# 個項目}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2172
+#: packages/admin/src/components/WordPressImport.tsx:2197
 msgid "{current} of {total}"
 msgstr "{current} / {total}"
 
@@ -598,11 +598,11 @@ msgstr "已逾時 {lateness}"
 msgid "{matchCount, plural, one {# item matching \"{searchQuery}\"} other {# items matching \"{searchQuery}\"}}"
 msgstr "{matchCount, plural, one {符合「{searchQuery}」的 # 個項目} other {符合「{searchQuery}」的 # 個項目}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2502
+#: packages/admin/src/components/WordPressImport.tsx:2527
 msgid "{matchedCount} of {totalCount} assigned"
 msgstr "已指派 {totalCount} 個項目中的 {matchedCount} 個"
 
-#: packages/admin/src/components/WordPressImport.tsx:2490
+#: packages/admin/src/components/WordPressImport.tsx:2515
 msgid "{matchedCount} of {totalCount} authors matched by email"
 msgstr "已透過電子郵件比對到 {matchedCount}/{totalCount} 位作者"
 
@@ -662,11 +662,11 @@ msgstr "{name} 不得大於 {bound}。"
 msgid "{name}: this site already has some"
 msgstr "{name}：這個網站已有部分項目"
 
-#: packages/admin/src/components/WordPressImport.tsx:1908
+#: packages/admin/src/components/WordPressImport.tsx:1933
 msgid "{needsNewCollections, plural, one {# new collection will be created} other {# new collections will be created}}"
 msgstr "{needsNewCollections, plural, one {將建立 # 個新內容集合} other {將建立 # 個新內容集合}}"
 
-#: packages/admin/src/components/WordPressImport.tsx:1917
+#: packages/admin/src/components/WordPressImport.tsx:1942
 msgid "{needsNewFields, plural, one {Fields will be added to # existing collection} other {Fields will be added to # existing collections}}"
 msgstr "{needsNewFields, plural, one {欄位將新增至 # 個現有內容集合} other {欄位將新增至 # 個現有內容集合}}"
 
@@ -843,21 +843,21 @@ msgstr "/new-page 或 /articles/[slug]"
 msgid "/old-page or /blog/[slug]"
 msgstr "/old-page 或 /blog/[slug]"
 
-#: packages/admin/src/components/WordPressImport.tsx:2122
+#: packages/admin/src/components/WordPressImport.tsx:2147
 msgid "• Files are downloaded from your WordPress site"
 msgstr "• 從您的 WordPress 網站下載檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:2123
+#: packages/admin/src/components/WordPressImport.tsx:2148
 msgid "• Uploaded to your EmDash media storage"
 msgstr "• 已上傳至您的 EmDash 媒體儲存空間"
 
-#: packages/admin/src/components/WordPressImport.tsx:2124
+#: packages/admin/src/components/WordPressImport.tsx:2149
 msgid "• URLs in your content are updated automatically"
 msgstr "• 內容中的網址會自動更新"
 
 #: packages/admin/src/components/SetupWizard.tsx:288
 #: packages/admin/src/components/SetupWizard.tsx:339
-#: packages/admin/src/components/WordPressImport.tsx:1630
+#: packages/admin/src/components/WordPressImport.tsx:1655
 msgid "← Back"
 msgstr "← 返回"
 
@@ -901,11 +901,11 @@ msgstr "已更新 1 篇文章"
 msgid "1 year"
 msgstr "1 年"
 
-#: packages/admin/src/components/WordPressImport.tsx:1551
+#: packages/admin/src/components/WordPressImport.tsx:1576
 msgid "1. Log into your WordPress admin"
 msgstr "1. 登入您的 WordPress 管理後台"
 
-#: packages/admin/src/components/WordPressImport.tsx:1304
+#: packages/admin/src/components/WordPressImport.tsx:1329
 msgid "1. Log into your WordPress admin dashboard"
 msgstr "1. 登入您的 WordPress 管理控制台"
 
@@ -913,11 +913,11 @@ msgstr "1. 登入您的 WordPress 管理控制台"
 msgid "16:9"
 msgstr "16:9"
 
-#: packages/admin/src/components/WordPressImport.tsx:76
+#: packages/admin/src/components/WordPressImport.tsx:77
 msgid "2. Go to <0>Tools → Export</0>"
 msgstr "2. 前往 <0>工具 → 匯出</0>"
 
-#: packages/admin/src/components/WordPressImport.tsx:1552
+#: packages/admin/src/components/WordPressImport.tsx:1577
 msgid "2. Go to Users → Profile"
 msgstr "2. 前往 [使用者] → [個人資料]"
 
@@ -925,11 +925,11 @@ msgstr "2. 前往 [使用者] → [個人資料]"
 msgid "3:2"
 msgstr "3:2"
 
-#: packages/admin/src/components/WordPressImport.tsx:1553
+#: packages/admin/src/components/WordPressImport.tsx:1578
 msgid "3. Scroll to \"Application Passwords\""
 msgstr "3. 捲動至 [應用程式密碼]"
 
-#: packages/admin/src/components/WordPressImport.tsx:1308
+#: packages/admin/src/components/WordPressImport.tsx:1333
 msgid "3. Select \"All content\""
 msgstr "3. 選取「所有內容」"
 
@@ -957,11 +957,11 @@ msgstr "308 永久重新導向 (嚴格)"
 msgid "4:3"
 msgstr "4:3"
 
-#: packages/admin/src/components/WordPressImport.tsx:1309
+#: packages/admin/src/components/WordPressImport.tsx:1334
 msgid "4. Click \"Download Export File\""
 msgstr "4. 按一下「下載匯出檔案」"
 
-#: packages/admin/src/components/WordPressImport.tsx:1554
+#: packages/admin/src/components/WordPressImport.tsx:1579
 msgid "4. Enter \"EmDash\" and click \"Add New\""
 msgstr "4. 輸入「EmDash」，然後按一下「新增」"
 
@@ -977,11 +977,11 @@ msgstr "410 內容已刪除 (已不存在)"
 msgid "451 Unavailable for legal reasons"
 msgstr "451 因法律原因無法提供"
 
-#: packages/admin/src/components/WordPressImport.tsx:1555
+#: packages/admin/src/components/WordPressImport.tsx:1580
 msgid "5. Copy the generated password"
 msgstr "5. 複製產生的密碼"
 
-#: packages/admin/src/components/WordPressImport.tsx:1310
+#: packages/admin/src/components/WordPressImport.tsx:1335
 msgid "5. Upload the file here"
 msgstr "5. 在這裡上傳檔案"
 
@@ -1167,7 +1167,7 @@ msgstr "帳號已存在"
 msgid "Account Info"
 msgstr "帳號資訊"
 
-#: packages/admin/src/components/WordPressImport.tsx:1189
+#: packages/admin/src/components/WordPressImport.tsx:1208
 msgid "ACF Fields"
 msgstr "ACF 欄位"
 
@@ -1296,7 +1296,7 @@ msgstr "新增網域"
 msgid "Add Field"
 msgstr "新增欄位"
 
-#: packages/admin/src/components/WordPressImport.tsx:2013
+#: packages/admin/src/components/WordPressImport.tsx:2038
 msgid "Add fields"
 msgstr "新增欄位"
 
@@ -1433,7 +1433,7 @@ msgstr "正在新增…"
 msgid "Adding…"
 msgstr "正在加入…"
 
-#: packages/admin/src/components/WordPressImport.tsx:1782
+#: packages/admin/src/components/WordPressImport.tsx:1807
 msgid "Additional data to import."
 msgstr "要匯入的其他資料。"
 
@@ -1441,7 +1441,7 @@ msgstr "要匯入的其他資料。"
 msgid "Additional details"
 msgstr "其他詳細資料"
 
-#: packages/admin/src/components/WordPressImport.tsx:1512
+#: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
 msgstr "管理員"
 
@@ -1546,7 +1546,7 @@ msgstr "所有內容集合"
 msgid "All comments require approval"
 msgstr "所有留言都需要審核"
 
-#: packages/admin/src/components/WordPressImport.tsx:2547
+#: packages/admin/src/components/WordPressImport.tsx:2572
 msgid "All imported content will be unassigned. You can reassign authors later from the content editor."
 msgstr "所有匯入內容將不會指派給任何人。之後可在內容編輯器中重新指派作者。"
 
@@ -1660,7 +1660,7 @@ msgstr "資料夾不適用替代文字"
 msgid "Alt text set"
 msgstr "已設定替代文字"
 
-#: packages/admin/src/components/WordPressImport.tsx:1424
+#: packages/admin/src/components/WordPressImport.tsx:1449
 msgid "Alternatively, you can export from WordPress (Tools → Export) and upload the file."
 msgstr "或者，您可以從 WordPress 匯出 (工具 → 匯出)，再上傳檔案。"
 
@@ -1747,11 +1747,11 @@ msgstr "發生未預期的錯誤。"
 msgid "An unknown error occurred"
 msgstr "發生不明錯誤"
 
-#: packages/admin/src/components/WordPressImport.tsx:1604
+#: packages/admin/src/components/WordPressImport.tsx:1629
 msgid "Analyzing export file..."
 msgstr "正在分析匯出檔案..."
 
-#: packages/admin/src/components/WordPressImport.tsx:836
+#: packages/admin/src/components/WordPressImport.tsx:855
 msgid "Analyzing WordPress site..."
 msgstr "正在分析 WordPress 網站..."
 
@@ -1787,7 +1787,7 @@ msgstr "API 權杖"
 msgid "Appears on posts and pages"
 msgstr "顯示於文章及頁面"
 
-#: packages/admin/src/components/WordPressImport.tsx:1519
+#: packages/admin/src/components/WordPressImport.tsx:1544
 msgid "Application Password"
 msgstr "應用程式密碼"
 
@@ -1890,7 +1890,7 @@ msgstr "請網站管理員完成這項設定。"
 msgid "Aspect ratio"
 msgstr "長寬比"
 
-#: packages/admin/src/components/WordPressImport.tsx:2485
+#: packages/admin/src/components/WordPressImport.tsx:2510
 msgid "Assign WordPress authors to EmDash users. Posts will be attributed to the selected user."
 msgstr "將 WordPress 作者指派給 EmDash 使用者。文章會歸屬於選取的使用者。"
 
@@ -1956,7 +1956,7 @@ msgstr "身分驗證已取消或逾時。請再試一次。"
 msgid "Author"
 msgstr "作者"
 
-#: packages/admin/src/components/WordPressImport.tsx:2500
+#: packages/admin/src/components/WordPressImport.tsx:2525
 msgid "Author Mapping"
 msgstr "作者對應"
 
@@ -2069,8 +2069,8 @@ msgstr "返回"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1815
 #: packages/admin/src/components/MediaLibrary.tsx:747
 #: packages/admin/src/components/MenuEditor.tsx:405
-#: packages/admin/src/components/WordPressImport.tsx:1539
-#: packages/admin/src/components/WordPressImport.tsx:2556
+#: packages/admin/src/components/WordPressImport.tsx:1564
+#: packages/admin/src/components/WordPressImport.tsx:2581
 msgid "Back"
 msgstr "返回"
 
@@ -2237,6 +2237,10 @@ msgstr "粗體"
 msgid "Boolean"
 msgstr "布林值"
 
+#: packages/admin/src/components/WordPressImport.tsx:1314
+msgid "Bot protection blocked the connection"
+msgstr ""
+
 #: packages/admin/src/components/RelationForm.tsx:344
 msgid "Both reference fields bound to this relation share these limits, so the two sides cannot disagree about the same links."
 msgstr "綁定這項關聯的兩個參照欄位共用這些限制，因此兩側對同一組連結的限制不會互相矛盾。"
@@ -2261,8 +2265,8 @@ msgstr "瀏覽並安裝外掛以擴充網站功能。"
 msgid "Browse files"
 msgstr "瀏覽檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:1155
-#: packages/admin/src/components/WordPressImport.tsx:1623
+#: packages/admin/src/components/WordPressImport.tsx:1174
+#: packages/admin/src/components/WordPressImport.tsx:1648
 msgid "Browse Files"
 msgstr "瀏覽檔案"
 
@@ -2427,7 +2431,7 @@ msgstr "可以檢視內容"
 #: packages/admin/src/components/TaxonomyManager.tsx:1098
 #: packages/admin/src/components/users/InviteUserModal.tsx:198
 #: packages/admin/src/components/Widgets.tsx:452
-#: packages/admin/src/components/WordPressImport.tsx:1946
+#: packages/admin/src/components/WordPressImport.tsx:1971
 msgid "Cancel"
 msgstr "取消"
 
@@ -2501,11 +2505,11 @@ msgid "Categories"
 msgstr "分類"
 
 #. placeholder {0}: analysis.categories
-#: packages/admin/src/components/WordPressImport.tsx:1814
+#: packages/admin/src/components/WordPressImport.tsx:1839
 msgid "Categories ({0})"
 msgstr "分類 ({0})"
 
-#: packages/admin/src/components/WordPressImport.tsx:1177
+#: packages/admin/src/components/WordPressImport.tsx:1196
 msgid "Categories & Tags"
 msgstr "分類與標籤"
 
@@ -2620,7 +2624,7 @@ msgstr "請檢查 astro.config.mjs 中的 registry.policy.minimumReleaseAge，�
 msgid "Check registry.policy.minimumReleaseAgeExclude in astro.config.mjs, then restart EmDash."
 msgstr "請檢查 astro.config.mjs 中的 registry.policy.minimumReleaseAgeExclude，然後重新啟動 EmDash。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1126
+#: packages/admin/src/components/WordPressImport.tsx:1145
 msgid "Check Site"
 msgstr "檢查網站"
 
@@ -2638,7 +2642,7 @@ msgstr "請檢查連線後再試一次。"
 msgid "Check your email"
 msgstr "請查看您的電子郵件"
 
-#: packages/admin/src/components/WordPressImport.tsx:802
+#: packages/admin/src/components/WordPressImport.tsx:821
 msgid "Checking {urlInput}..."
 msgstr "正在檢查 {urlInput}..."
 
@@ -2935,6 +2939,10 @@ msgstr "關閉面板"
 msgid "Close settings"
 msgstr "關閉設定"
 
+#: packages/admin/src/components/WordPressImport.tsx:93
+msgid "Cloudflare's bot protection answered with a challenge page, so EmDash can't reach the EmDash Exporter API. Allow requests to /wp-json/emdash/v1/ (and ?rest_route=/emdash/v1/ on sites without pretty permalinks), for example with a WAF custom rule that skips bot protection, or pause bot protection during the migration, then try again."
+msgstr ""
+
 #: packages/admin/src/components/ContentTypeList.tsx:388
 #: packages/admin/src/components/editor/IframeBlockNode.tsx:40
 #: packages/admin/src/components/Redirects.tsx:491
@@ -2992,7 +3000,7 @@ msgstr "內容集合"
 msgid "Collections and fields, all content with drafts, revisions, scheduled posts, and trash, translations, taxonomies, bylines, media files, menus, widgets, sections, redirects, SEO, and site settings."
 msgstr "集合與欄位、所有內容 (包含草稿、內容修訂、排程文章與回收桶)、翻譯、分類法、署名、媒體檔案、選單、小工具、區段、重新導向、SEO 與網站設定。"
 
-#: packages/admin/src/components/WordPressImport.tsx:2356
+#: packages/admin/src/components/WordPressImport.tsx:2381
 msgid "Collections created:"
 msgstr "已建立的內容集合:"
 
@@ -3097,17 +3105,17 @@ msgstr "請使用 Face ID、Touch ID 或裝置密碼確認。"
 msgid "Confirm with your fingerprint, face, or PIN."
 msgstr "請使用指紋、臉部辨識或 PIN 碼確認。"
 
-#: packages/admin/src/components/WordPressImport.tsx:727
-#: packages/admin/src/components/WordPressImport.tsx:1083
+#: packages/admin/src/components/WordPressImport.tsx:746
+#: packages/admin/src/components/WordPressImport.tsx:1102
 msgid "Connect"
 msgstr "連線"
 
-#: packages/admin/src/components/WordPressImport.tsx:1536
+#: packages/admin/src/components/WordPressImport.tsx:1561
 msgid "Connect & Analyze"
 msgstr "連線並分析"
 
 #. placeholder {0}: siteTitle || "WordPress"
-#: packages/admin/src/components/WordPressImport.tsx:1486
+#: packages/admin/src/components/WordPressImport.tsx:1511
 msgid "Connect to {0}"
 msgstr "連線至 {0}"
 
@@ -3121,7 +3129,7 @@ msgstr "連線至任何網路主機，並載入外掛管理介面的外部圖片
 msgid "Connect to network hosts and load external plugin admin images"
 msgstr "連線至網路主機，並載入外掛管理介面的外部圖片"
 
-#: packages/admin/src/components/WordPressImport.tsx:1402
+#: packages/admin/src/components/WordPressImport.tsx:1427
 msgid "Connect with WordPress"
 msgstr "連線至 WordPress"
 
@@ -3157,11 +3165,11 @@ msgid "Content digest"
 msgstr "內容摘要值"
 
 #. placeholder {0}: result.errors.length
-#: packages/admin/src/components/WordPressImport.tsx:2411
+#: packages/admin/src/components/WordPressImport.tsx:2436
 msgid "Content Errors ({0})"
 msgstr "內容錯誤 ({0})"
 
-#: packages/admin/src/components/WordPressImport.tsx:1346
+#: packages/admin/src/components/WordPressImport.tsx:1371
 msgid "Content found:"
 msgstr "找到的內容:"
 
@@ -3218,7 +3226,7 @@ msgstr "內容搜尋結果"
 msgid "Content snapshot:"
 msgstr "內容快照:"
 
-#: packages/admin/src/components/WordPressImport.tsx:1760
+#: packages/admin/src/components/WordPressImport.tsx:1785
 msgid "Content to Import"
 msgstr "要匯入的內容"
 
@@ -3240,7 +3248,7 @@ msgstr "同群組的內容類型會放在側邊欄的同一個可收合資料夾
 msgid "Content using this media item may show a broken reference."
 msgstr "使用這個媒體項目的內容可能會出現失效的參照。"
 
-#: packages/admin/src/components/WordPressImport.tsx:2339
+#: packages/admin/src/components/WordPressImport.tsx:2364
 msgid "Content was skipped because it already exists"
 msgstr "因內容已存在而略過"
 
@@ -3259,7 +3267,7 @@ msgstr "繼續"
 msgid "Continue →"
 msgstr "繼續 →"
 
-#: packages/admin/src/components/WordPressImport.tsx:2558
+#: packages/admin/src/components/WordPressImport.tsx:2583
 msgid "Continue Import"
 msgstr "繼續匯入"
 
@@ -3421,7 +3429,7 @@ msgstr "無法檢查文章"
 msgid "Couldn’t confirm whether the media item or selected folder still exists. Try again."
 msgstr "無法確認媒體項目或選取的資料夾是否仍存在。請再試一次。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1293
+#: packages/admin/src/components/WordPressImport.tsx:1315
 msgid "Couldn't detect WordPress"
 msgstr "無法偵測 WordPress"
 
@@ -3602,7 +3610,7 @@ msgstr "建立新的 {singularLower}"
 msgid "Create New Token"
 msgstr "建立新權杖"
 
-#: packages/admin/src/components/WordPressImport.tsx:1530
+#: packages/admin/src/components/WordPressImport.tsx:1555
 msgid "Create one in WordPress: Users → Profile → Application Passwords"
 msgstr "在 WordPress 中建立: [使用者] → [個人資料] → [應用程式密碼]"
 
@@ -3642,7 +3650,7 @@ msgstr "建立關聯"
 msgid "Create Relation"
 msgstr "建立關聯"
 
-#: packages/admin/src/components/WordPressImport.tsx:1950
+#: packages/admin/src/components/WordPressImport.tsx:1975
 msgid "Create Schema & Import"
 msgstr "建立結構描述並匯入"
 
@@ -3745,7 +3753,7 @@ msgstr "建立時間"
 msgid "Creating collections and fields"
 msgstr "正在建立集合與欄位"
 
-#: packages/admin/src/components/WordPressImport.tsx:913
+#: packages/admin/src/components/WordPressImport.tsx:932
 msgid "Creating collections and fields..."
 msgstr "正在建立內容集合及欄位…"
 
@@ -3835,7 +3843,7 @@ msgstr "自訂 robots.txt 內容。留空即可使用預設值。"
 msgid "Custom Section"
 msgstr "自訂區段"
 
-#: packages/admin/src/components/WordPressImport.tsx:1178
+#: packages/admin/src/components/WordPressImport.tsx:1197
 msgid "Custom Taxonomies"
 msgstr "自訂分類法"
 
@@ -4482,7 +4490,7 @@ msgstr "不配對"
 #: packages/admin/src/components/ContentList.tsx:1229
 #: packages/admin/src/components/MediaUploadDialog.tsx:335
 #: packages/admin/src/components/users/InviteUserModal.tsx:142
-#: packages/admin/src/components/WordPressImport.tsx:2157
+#: packages/admin/src/components/WordPressImport.tsx:2182
 msgid "Done"
 msgstr "完成"
 
@@ -4540,7 +4548,7 @@ msgstr "將這個網站下載為單一 .emdash 套件檔案，供另一個 EmDas
 msgid "Downloaded"
 msgstr "已下載"
 
-#: packages/admin/src/components/WordPressImport.tsx:2155
+#: packages/admin/src/components/WordPressImport.tsx:2180
 msgid "Downloading"
 msgstr "正在下載"
 
@@ -4577,7 +4585,7 @@ msgstr "草稿、已發佈或已封存"
 msgid "Drafts"
 msgstr "草稿"
 
-#: packages/admin/src/components/WordPressImport.tsx:1197
+#: packages/admin/src/components/WordPressImport.tsx:1216
 msgid "Drafts & Private"
 msgstr "草稿與私密內容"
 
@@ -4585,7 +4593,7 @@ msgstr "草稿與私密內容"
 msgid "Drag and drop files here"
 msgstr "將檔案拖放到這裡"
 
-#: packages/admin/src/components/WordPressImport.tsx:1150
+#: packages/admin/src/components/WordPressImport.tsx:1169
 msgid "Drag and drop or click to browse (.xml)"
 msgstr "拖放或按一下以瀏覽 (.xml)"
 
@@ -4637,7 +4645,7 @@ msgstr "一次只能拖放一張圖片。"
 msgid "Drop to add widget"
 msgstr "放開以新增小工具"
 
-#: packages/admin/src/components/WordPressImport.tsx:1617
+#: packages/admin/src/components/WordPressImport.tsx:1642
 msgid "Drop your WordPress export file here"
 msgstr "將 WordPress 匯出檔案拖放到這裡"
 
@@ -4868,7 +4876,7 @@ msgstr ""
 msgid "Editors can select a second image that the site shows in dark mode."
 msgstr "編輯者可以選擇第二張圖片，供網站在深色模式下顯示。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1073
+#: packages/admin/src/components/WordPressImport.tsx:1092
 msgid "em1.…"
 msgstr "em1.…"
 
@@ -4970,7 +4978,7 @@ msgstr "EmDash 不會保留先前的圖片。"
 msgid "EmDash does not keep the uncropped image."
 msgstr "EmDash 不會保留未裁切的圖片。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1336
+#: packages/admin/src/components/WordPressImport.tsx:1361
 msgid "EmDash Exporter plugin detected! You can import directly."
 msgstr "偵測到 EmDash Exporter 外掛。您可以直接匯入。"
 
@@ -5072,7 +5080,7 @@ msgstr "輸入 URL (https://…) 或相對路徑 (/…)"
 msgid "Enter a valid URL (e.g. https://example.com)"
 msgstr "輸入有效的網址 (例如 https://example.com)"
 
-#: packages/admin/src/components/WordPressImport.tsx:1409
+#: packages/admin/src/components/WordPressImport.tsx:1434
 msgid "Enter credentials manually"
 msgstr "手動輸入認證資訊"
 
@@ -5109,12 +5117,12 @@ msgstr "輸入 URL…"
 msgid "Enter your handle to sign in."
 msgstr "輸入您的代號以登入。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1488
+#: packages/admin/src/components/WordPressImport.tsx:1513
 msgid "Enter your WordPress credentials to import content directly."
 msgstr "輸入您的 WordPress 認證資訊，以直接匯入內容。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1111
-#: packages/admin/src/components/WordPressImport.tsx:1123
+#: packages/admin/src/components/WordPressImport.tsx:1130
+#: packages/admin/src/components/WordPressImport.tsx:1142
 msgid "Enter your WordPress site URL"
 msgstr "輸入您的 WordPress 網站網址"
 
@@ -5215,7 +5223,7 @@ msgstr "現有的 {pluralLower} 會保留。"
 msgid "Existing content is indexed. New changes are tracked automatically."
 msgstr "已索引現有內容。新的變更會自動追蹤。"
 
-#: packages/admin/src/components/WordPressImport.tsx:2039
+#: packages/admin/src/components/WordPressImport.tsx:2064
 msgid "Exists"
 msgstr "已存在"
 
@@ -5254,7 +5262,7 @@ msgstr "到期日"
 msgid "Export"
 msgstr "匯出"
 
-#: packages/admin/src/components/WordPressImport.tsx:1302
+#: packages/admin/src/components/WordPressImport.tsx:1327
 msgid "Export from WordPress manually"
 msgstr "從 WordPress 手動匯出"
 
@@ -5270,7 +5278,7 @@ msgstr "{requester} 已申請匯出"
 msgid "Export site"
 msgstr "匯出網站"
 
-#: packages/admin/src/components/WordPressImport.tsx:1426
+#: packages/admin/src/components/WordPressImport.tsx:1451
 msgid "Export your content from WordPress to import everything including drafts."
 msgstr "從 WordPress 匯出內容，即可匯入包括草稿在內的所有內容。"
 
@@ -5304,7 +5312,7 @@ msgstr "失敗"
 
 #: packages/admin/src/components/BulkTagDialog.tsx:70
 #: packages/admin/src/components/settings/transfer/ExportSection.tsx:306
-#: packages/admin/src/components/WordPressImport.tsx:2159
+#: packages/admin/src/components/WordPressImport.tsx:2184
 msgid "Failed"
 msgstr "失敗"
 
@@ -5340,8 +5348,8 @@ msgstr ""
 msgid "Failed to analyze import"
 msgstr "無法分析匯入資料"
 
-#: packages/admin/src/components/WordPressImport.tsx:421
-#: packages/admin/src/lib/api/import.ts:766
+#: packages/admin/src/components/WordPressImport.tsx:433
+#: packages/admin/src/lib/api/import.ts:768
 msgid "Failed to analyze WordPress site"
 msgstr "無法分析 WordPress 網站"
 
@@ -5465,7 +5473,7 @@ msgstr ""
 msgid "Failed to create section"
 msgstr "無法建立區段"
 
-#: packages/admin/src/components/WordPressImport.tsx:1743
+#: packages/admin/src/components/WordPressImport.tsx:1768
 msgid "Failed to create some collections"
 msgstr "建立部分內容集合失敗"
 
@@ -5651,7 +5659,7 @@ msgstr "啟用搜尋失敗"
 msgid "Failed to enable user"
 msgstr "無法啟用使用者"
 
-#: packages/admin/src/components/WordPressImport.tsx:348
+#: packages/admin/src/components/WordPressImport.tsx:355
 msgid "Failed to execute import"
 msgstr "無法執行匯入"
 
@@ -5934,12 +5942,12 @@ msgstr "無法取得上傳網址"
 msgid "Failed to import"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:444
+#: packages/admin/src/components/WordPressImport.tsx:462
 #: packages/admin/src/lib/api/import.ts:257
 msgid "Failed to import from WordPress"
 msgstr "無法從 WordPress 匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:373
+#: packages/admin/src/components/WordPressImport.tsx:380
 #: packages/admin/src/lib/api/import.ts:534
 #: packages/admin/src/lib/api/import.ts:539
 msgid "Failed to import media"
@@ -6090,12 +6098,12 @@ msgstr "執行批次操作失敗"
 msgid "Failed to permanently delete content"
 msgstr "無法永久刪除內容"
 
-#: packages/admin/src/components/WordPressImport.tsx:327
+#: packages/admin/src/components/WordPressImport.tsx:334
 #: packages/admin/src/lib/api/import.ts:390
 msgid "Failed to prepare import"
 msgstr "準備匯入失敗"
 
-#: packages/admin/src/lib/api/import.ts:710
+#: packages/admin/src/lib/api/import.ts:712
 msgid "Failed to probe URL"
 msgstr ""
 
@@ -6188,8 +6196,8 @@ msgstr "無法還原修訂版本"
 msgid "Failed to revoke API token"
 msgstr "撤銷 API 權杖失敗"
 
-#: packages/admin/src/components/WordPressImport.tsx:386
-#: packages/admin/src/lib/api/import.ts:727
+#: packages/admin/src/components/WordPressImport.tsx:393
+#: packages/admin/src/lib/api/import.ts:729
 msgid "Failed to rewrite URLs"
 msgstr "重寫網址失敗"
 
@@ -6419,11 +6427,11 @@ msgstr "常見問題"
 msgid "Favicon"
 msgstr "網站圖示"
 
-#: packages/admin/src/components/WordPressImport.tsx:1211
+#: packages/admin/src/components/WordPressImport.tsx:1230
 msgid "Feature"
 msgstr "功能"
 
-#: packages/admin/src/components/WordPressImport.tsx:1179
+#: packages/admin/src/components/WordPressImport.tsx:1198
 msgid "Featured Images"
 msgstr "精選圖片"
 
@@ -6432,7 +6440,7 @@ msgstr "精選圖片"
 msgid "Features"
 msgstr "功能"
 
-#: packages/admin/src/components/WordPressImport.tsx:837
+#: packages/admin/src/components/WordPressImport.tsx:856
 msgid "Fetching content from the EmDash Exporter API."
 msgstr "正在從 EmDash Exporter API 擷取內容。"
 
@@ -6474,7 +6482,7 @@ msgstr ""
 msgid "Fields"
 msgstr "欄位"
 
-#: packages/admin/src/components/WordPressImport.tsx:2362
+#: packages/admin/src/components/WordPressImport.tsx:2387
 msgid "Fields created:"
 msgstr "已建立的欄位:"
 
@@ -6483,7 +6491,7 @@ msgid "File"
 msgstr "檔案"
 
 #. placeholder {0}: progress.current
-#: packages/admin/src/components/WordPressImport.tsx:2187
+#: packages/admin/src/components/WordPressImport.tsx:2212
 msgid "File {0}"
 msgstr "檔案 {0}"
 
@@ -6647,11 +6655,11 @@ msgstr "資料夾導覽"
 msgid "Fonts"
 msgstr "字型"
 
-#: packages/admin/src/components/WordPressImport.tsx:1427
+#: packages/admin/src/components/WordPressImport.tsx:1452
 msgid "For a complete import including drafts and all content, export from WordPress."
 msgstr "若要完整匯入草稿及所有內容，請從 WordPress 匯出。"
 
-#: packages/admin/src/components/WordPressImport.tsx:67
+#: packages/admin/src/components/WordPressImport.tsx:68
 msgid "For the best import experience, install the <0>EmDash Exporter</0> plugin on your WordPress site."
 msgstr "若要獲得最佳匯入體驗，請在 WordPress 網站安裝 <0>EmDash Exporter</0> 外掛。"
 
@@ -6689,7 +6697,7 @@ msgid "From URL"
 msgstr "從網址"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:280
-#: packages/admin/src/components/WordPressImport.tsx:1186
+#: packages/admin/src/components/WordPressImport.tsx:1205
 msgid "Full"
 msgstr "完整"
 
@@ -6748,7 +6756,7 @@ msgstr "Go"
 msgid "Go live {countdown}"
 msgstr "{countdown} 上線"
 
-#: packages/admin/src/components/WordPressImport.tsx:2447
+#: packages/admin/src/components/WordPressImport.tsx:2472
 #: packages/admin/src/router.tsx:3259
 msgid "Go to Dashboard"
 msgstr "前往控制台"
@@ -6963,7 +6971,7 @@ msgstr "代稱如何產生？"
 msgid "How many"
 msgstr "數量限制"
 
-#: packages/admin/src/components/WordPressImport.tsx:1549
+#: packages/admin/src/components/WordPressImport.tsx:1574
 msgid "How to create an Application Password"
 msgstr "如何建立應用程式密碼"
 
@@ -7011,7 +7019,7 @@ msgstr "https://example.com/blog/my-post"
 msgid "https://example.com/image.jpg"
 msgstr "https://example.com/image.jpg"
 
-#: packages/admin/src/components/WordPressImport.tsx:1119
+#: packages/admin/src/components/WordPressImport.tsx:1138
 msgid "https://yoursite.com"
 msgstr "https://yoursite.com"
 
@@ -7141,12 +7149,12 @@ msgstr "圖片"
 #: packages/admin/src/components/AdminCommandPalette.tsx:239
 #: packages/admin/src/components/settings/transfer/ImportSection.tsx:210
 #: packages/admin/src/components/Sidebar.tsx:506
-#: packages/admin/src/components/WordPressImport.tsx:764
+#: packages/admin/src/components/WordPressImport.tsx:783
 msgid "Import"
 msgstr "匯入"
 
 #. placeholder {0}: postType.name
-#: packages/admin/src/components/WordPressImport.tsx:1987
+#: packages/admin/src/components/WordPressImport.tsx:2012
 msgid "Import {0}"
 msgstr "匯入 {0}"
 
@@ -7158,7 +7166,7 @@ msgstr "匯入網站套件"
 msgid "Import a site package into this site while it is empty, overwriting its initial setup. Admin includes this; choose it instead of Admin to give an agent narrower access."
 msgstr "在網站沒有內容時匯入網站套件，覆寫初始設定。[管理員] 權限已包含這項權限；若要縮小代理程式的存取範圍，請選擇這項權限，而非 [管理員]。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1395
+#: packages/admin/src/components/WordPressImport.tsx:1420
 msgid "Import all content directly including drafts, custom post types, ACF fields, and SEO data. No file download needed."
 msgstr "直接匯入所有內容，包括草稿、自訂文章類型、ACF 欄位及 SEO 資料，無需下載檔案。"
 
@@ -7166,11 +7174,11 @@ msgstr "直接匯入所有內容，包括草稿、自訂文章類型、ACF 欄�
 msgid "Import an existing EmDash site"
 msgstr "匯入現有的 EmDash 網站"
 
-#: packages/admin/src/components/WordPressImport.tsx:2445
+#: packages/admin/src/components/WordPressImport.tsx:2470
 msgid "Import Another File"
 msgstr "匯入另一個檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:1205
+#: packages/admin/src/components/WordPressImport.tsx:1224
 msgid "Import Capabilities"
 msgstr "匯入權限"
 
@@ -7179,31 +7187,31 @@ msgstr "匯入權限"
 msgid "Import complete"
 msgstr "匯入完成"
 
-#: packages/admin/src/components/WordPressImport.tsx:2333
+#: packages/admin/src/components/WordPressImport.tsx:2358
 msgid "Import Complete"
 msgstr "匯入完成"
 
-#: packages/admin/src/components/WordPressImport.tsx:2334
+#: packages/admin/src/components/WordPressImport.tsx:2359
 msgid "Import Completed with Errors"
 msgstr "匯入完成，但發生錯誤"
 
-#: packages/admin/src/components/WordPressImport.tsx:1728
+#: packages/admin/src/components/WordPressImport.tsx:1753
 msgid "Import failed"
 msgstr "匯入失敗"
 
-#: packages/admin/src/components/WordPressImport.tsx:717
+#: packages/admin/src/components/WordPressImport.tsx:736
 msgid "Import from WordPress"
 msgstr "從 WordPress 匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:2136
+#: packages/admin/src/components/WordPressImport.tsx:2161
 msgid "Import Media"
 msgstr "匯入媒體"
 
-#: packages/admin/src/components/WordPressImport.tsx:2089
+#: packages/admin/src/components/WordPressImport.tsx:2114
 msgid "Import Media Files"
 msgstr "匯入媒體檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:719
+#: packages/admin/src/components/WordPressImport.tsx:738
 msgid "Import posts, pages, and custom post types from WordPress."
 msgstr "從 WordPress 匯入文章、頁面及自訂文章類型。"
 
@@ -7211,7 +7219,7 @@ msgstr "從 WordPress 匯入文章、頁面及自訂文章類型。"
 msgid "Import requested by {requester}"
 msgstr "{requester} 已申請匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:1843
+#: packages/admin/src/components/WordPressImport.tsx:1868
 msgid "Import site configuration from WordPress."
 msgstr "從 WordPress 匯入網站設定。"
 
@@ -7219,7 +7227,7 @@ msgstr "從 WordPress 匯入網站設定。"
 msgid "Import this package?"
 msgstr "要匯入這個套件嗎？"
 
-#: packages/admin/src/components/WordPressImport.tsx:1393
+#: packages/admin/src/components/WordPressImport.tsx:1418
 msgid "Import via EmDash Exporter"
 msgstr "使用 EmDash Exporter 匯入"
 
@@ -7227,7 +7235,7 @@ msgstr "使用 EmDash Exporter 匯入"
 msgid "Imported"
 msgstr "已匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:2373
+#: packages/admin/src/components/WordPressImport.tsx:2398
 msgid "Imported by Collection"
 msgstr "依內容集合分組的匯入內容"
 
@@ -7236,7 +7244,7 @@ msgid "Importing"
 msgstr "匯入中"
 
 #. placeholder {0}: wpImportProgress.comments
-#: packages/admin/src/components/WordPressImport.tsx:930
+#: packages/admin/src/components/WordPressImport.tsx:949
 msgid "Importing comments... {0}"
 msgstr "正在匯入留言... {0}"
 
@@ -7244,25 +7252,25 @@ msgstr "正在匯入留言... {0}"
 msgid "Importing content"
 msgstr "正在匯入內容"
 
-#: packages/admin/src/components/WordPressImport.tsx:948
+#: packages/admin/src/components/WordPressImport.tsx:967
 msgid "Importing content..."
 msgstr "正在匯入內容…"
 
 #. placeholder {0}: wpImportProgress.processed
-#: packages/admin/src/components/WordPressImport.tsx:928
+#: packages/admin/src/components/WordPressImport.tsx:947
 msgid "Importing content... {0}"
 msgstr "正在匯入內容... {0}"
 
 #. placeholder {0}: wpImportProgress.processed
-#: packages/admin/src/components/WordPressImport.tsx:927
+#: packages/admin/src/components/WordPressImport.tsx:946
 msgid "Importing content... {0} of {totalSelectedPosts}"
 msgstr "正在匯入內容... {0} / {totalSelectedPosts}"
 
-#: packages/admin/src/components/WordPressImport.tsx:2168
+#: packages/admin/src/components/WordPressImport.tsx:2193
 msgid "Importing Media"
 msgstr "正在匯入媒體"
 
-#: packages/admin/src/components/WordPressImport.tsx:931
+#: packages/admin/src/components/WordPressImport.tsx:950
 msgid "Importing menus and site settings..."
 msgstr "正在匯入選單與網站設定..."
 
@@ -7270,7 +7278,7 @@ msgstr "正在匯入選單與網站設定..."
 msgid "Importing menus, widgets, and settings"
 msgstr "正在匯入選單、小工具及設定"
 
-#: packages/admin/src/components/WordPressImport.tsx:932
+#: packages/admin/src/components/WordPressImport.tsx:951
 msgid "Importing reusable blocks..."
 msgstr "正在匯入可重複使用的區塊..."
 
@@ -7299,7 +7307,7 @@ msgstr "包含留言"
 msgid "Include inferred bylines"
 msgstr "包含推定的署名"
 
-#: packages/admin/src/components/WordPressImport.tsx:2009
+#: packages/admin/src/components/WordPressImport.tsx:2034
 msgid "Incompatible"
 msgstr "不相容"
 
@@ -7438,7 +7446,7 @@ msgstr "安裝並啟用電子郵件服務提供者外掛，以使用邀請、快
 msgid "Install blocked"
 msgstr "安裝遭到封鎖"
 
-#: packages/admin/src/components/WordPressImport.tsx:1067
+#: packages/admin/src/components/WordPressImport.tsx:1086
 msgid "Install the EmDash Exporter plugin on your WordPress site and generate a key under Tools → EmDash Migration."
 msgstr "在您的 WordPress 網站安裝 EmDash Exporter 外掛，然後前往 [工具] → [EmDash Migration] 產生金鑰。"
 
@@ -7643,7 +7651,7 @@ msgstr "保留這個網站的值 (空白)"
 msgid "Keep this site’s: “{targetValue}”"
 msgstr "保留這個網站的值：「{targetValue}」"
 
-#: packages/admin/src/components/WordPressImport.tsx:944
+#: packages/admin/src/components/WordPressImport.tsx:963
 msgid "Keep this tab open. The import runs in small steps and can be safely re-run if interrupted."
 msgstr "請保持此分頁開啟。匯入作業會分成數個小步驟執行，若中斷也能安全地重新執行。"
 
@@ -7749,7 +7757,7 @@ msgstr "請參閱<0>說明文件<1/></0>，了解如何安裝外掛。"
 msgid "Learn more"
 msgstr "進一步瞭解"
 
-#: packages/admin/src/components/WordPressImport.tsx:2526
+#: packages/admin/src/components/WordPressImport.tsx:2551
 msgid "Leave unassigned"
 msgstr "保留未指派狀態"
 
@@ -8138,7 +8146,7 @@ msgstr "登出"
 msgid "Logo"
 msgstr "標誌"
 
-#: packages/admin/src/components/WordPressImport.tsx:1861
+#: packages/admin/src/components/WordPressImport.tsx:1886
 msgid "Logo & favicon"
 msgstr "標誌與網站圖示"
 
@@ -8231,12 +8239,12 @@ msgstr ""
 msgid "Manual"
 msgstr "手動"
 
-#: packages/admin/src/components/WordPressImport.tsx:2483
+#: packages/admin/src/components/WordPressImport.tsx:2508
 msgid "Map Authors"
 msgstr "對應作者"
 
 #. placeholder {0}: mapping.wpLogin
-#: packages/admin/src/components/WordPressImport.tsx:2531
+#: packages/admin/src/components/WordPressImport.tsx:2556
 msgid "Map WordPress user {0} to EmDash user"
 msgstr "將 WordPress 使用者 {0} 對應至 EmDash 使用者"
 
@@ -8315,9 +8323,9 @@ msgstr "MDX"
 #: packages/admin/src/components/settings/transfer/labels.ts:17
 #: packages/admin/src/components/settings/transfer/labels.ts:84
 #: packages/admin/src/components/Sidebar.tsx:428
-#: packages/admin/src/components/WordPressImport.tsx:778
-#: packages/admin/src/components/WordPressImport.tsx:1176
-#: packages/admin/src/components/WordPressImport.tsx:1363
+#: packages/admin/src/components/WordPressImport.tsx:797
+#: packages/admin/src/components/WordPressImport.tsx:1195
+#: packages/admin/src/components/WordPressImport.tsx:1388
 msgid "Media"
 msgstr "媒體"
 
@@ -8326,7 +8334,7 @@ msgid "Media details"
 msgstr "媒體詳情"
 
 #. placeholder {0}: mediaResult.failed.length
-#: packages/admin/src/components/WordPressImport.tsx:2429
+#: packages/admin/src/components/WordPressImport.tsx:2454
 msgid "Media Errors ({0})"
 msgstr "媒體錯誤 ({0})"
 
@@ -8335,15 +8343,15 @@ msgstr "媒體錯誤 ({0})"
 msgid "Media folders"
 msgstr "媒體資料夾"
 
-#: packages/admin/src/components/WordPressImport.tsx:2391
+#: packages/admin/src/components/WordPressImport.tsx:2416
 msgid "Media Import"
 msgstr "媒體匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:2332
+#: packages/admin/src/components/WordPressImport.tsx:2357
 msgid "Media Import Complete"
 msgstr "媒體匯入完成"
 
-#: packages/admin/src/components/WordPressImport.tsx:2343
+#: packages/admin/src/components/WordPressImport.tsx:2368
 msgid "Media import was skipped"
 msgstr "已略過媒體匯入"
 
@@ -8469,12 +8477,12 @@ msgstr ""
 #: packages/admin/src/components/MenuList.tsx:101
 #: packages/admin/src/components/settings/transfer/labels.ts:28
 #: packages/admin/src/components/Sidebar.tsx:445
-#: packages/admin/src/components/WordPressImport.tsx:1180
+#: packages/admin/src/components/WordPressImport.tsx:1199
 msgid "Menus"
 msgstr "選單"
 
 #. placeholder {0}: navMenus.length
-#: packages/admin/src/components/WordPressImport.tsx:1796
+#: packages/admin/src/components/WordPressImport.tsx:1821
 msgid "Menus ({0})"
 msgstr "選單 ({0})"
 
@@ -8499,7 +8507,7 @@ msgstr "用於 Bing Webmaster Tools 驗證的中繼標籤內容"
 msgid "Meta tag content for Google Search Console verification"
 msgstr "用於 Google Search Console 驗證的中繼標籤內容"
 
-#: packages/admin/src/components/WordPressImport.tsx:1874
+#: packages/admin/src/components/WordPressImport.tsx:1899
 msgid "Meta titles, descriptions, and social images"
 msgstr "Meta 標題、說明及社群圖片"
 
@@ -8507,7 +8515,7 @@ msgstr "Meta 標題、說明及社群圖片"
 msgid "Migration guide"
 msgstr "移轉指南"
 
-#: packages/admin/src/components/WordPressImport.tsx:1080
+#: packages/admin/src/components/WordPressImport.tsx:1099
 msgid "Migration key"
 msgstr "移轉金鑰"
 
@@ -8852,7 +8860,7 @@ msgstr "新增署名"
 msgid "New byline field"
 msgstr "新增署名欄位"
 
-#: packages/admin/src/components/WordPressImport.tsx:2011
+#: packages/admin/src/components/WordPressImport.tsx:2036
 msgid "New collection"
 msgstr "新內容集合"
 
@@ -9096,7 +9104,7 @@ msgstr "尚未設定電子郵件服務提供者"
 msgid "No email provider configured. Share this link manually."
 msgstr "尚未設定電子郵件服務提供者。請手動分享此連結。"
 
-#: packages/admin/src/components/WordPressImport.tsx:2545
+#: packages/admin/src/components/WordPressImport.tsx:2570
 msgid "No EmDash users found"
 msgstr "找不到 EmDash 使用者"
 
@@ -9456,7 +9464,7 @@ msgstr "清單檢視中每頁顯示的文章數"
 msgid "Numbered List"
 msgstr "編號清單"
 
-#: packages/admin/src/components/WordPressImport.tsx:522
+#: packages/admin/src/components/WordPressImport.tsx:541
 msgid "OAuth authorization requires HTTPS. Please use manual credentials."
 msgstr "OAuth 授權需要 HTTPS。請使用手動認證資訊。"
 
@@ -9576,7 +9584,7 @@ msgstr "開啟新網址的登入頁面："
 msgid "Open Windows settings"
 msgstr "開啟 Windows 設定"
 
-#: packages/admin/src/components/WordPressImport.tsx:1563
+#: packages/admin/src/components/WordPressImport.tsx:1588
 msgid "Open WordPress Profile"
 msgstr "開啟 WordPress 個人檔案"
 
@@ -9624,11 +9632,11 @@ msgstr "選項 (每行一個)"
 msgid "Or browse files from your computer"
 msgstr "或瀏覽電腦中的檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:1619
+#: packages/admin/src/components/WordPressImport.tsx:1644
 msgid "Or click to browse. Accepts .xml files exported from WordPress."
 msgstr "或按一下以瀏覽。接受從 WordPress 匯出的 .xml 檔案。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1100
+#: packages/admin/src/components/WordPressImport.tsx:1119
 msgid "or connect by URL"
 msgstr "或透過網址連線"
 
@@ -9638,11 +9646,11 @@ msgstr "或透過網址連線"
 msgid "Or continue with"
 msgstr "或繼續使用"
 
-#: packages/admin/src/components/WordPressImport.tsx:1420
+#: packages/admin/src/components/WordPressImport.tsx:1445
 msgid "Or upload an export file"
 msgstr "或上傳匯出檔案"
 
-#: packages/admin/src/components/WordPressImport.tsx:1138
+#: packages/admin/src/components/WordPressImport.tsx:1157
 msgid "or upload directly"
 msgstr "或直接上傳"
 
@@ -9727,7 +9735,7 @@ msgid "Page size"
 msgstr "每頁項目數"
 
 #: packages/admin/src/components/PluginManager.tsx:478
-#: packages/admin/src/components/WordPressImport.tsx:1357
+#: packages/admin/src/components/WordPressImport.tsx:1382
 msgid "Pages"
 msgstr "頁面"
 
@@ -9754,7 +9762,7 @@ msgstr "上層項目"
 msgid "Part of a redirect loop"
 msgstr "屬於重新導向迴圈的一部分"
 
-#: packages/admin/src/components/WordPressImport.tsx:1184
+#: packages/admin/src/components/WordPressImport.tsx:1203
 msgid "Partial"
 msgstr "部分"
 
@@ -9842,7 +9850,7 @@ msgstr "通行密鑰需要 HTTPS 或 http://localhost (含您的通訊埠)；這
 msgid "Paste an embed code or an https link…"
 msgstr "貼上嵌入程式碼或 https 連結…"
 
-#: packages/admin/src/components/WordPressImport.tsx:1065
+#: packages/admin/src/components/WordPressImport.tsx:1084
 msgid "Paste your migration key"
 msgstr "貼上您的移轉金鑰"
 
@@ -9969,7 +9977,7 @@ msgstr "請輸入有效的電子郵件地址"
 msgid "Please enter a valid URL"
 msgstr "請輸入有效的網址"
 
-#: packages/admin/src/components/WordPressImport.tsx:1213
+#: packages/admin/src/components/WordPressImport.tsx:1232
 msgid "Plugin"
 msgstr "外掛"
 
@@ -10135,11 +10143,11 @@ msgstr "文章網址 (每行一個)"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:479
 #: packages/admin/src/components/RelationForm.tsx:297
-#: packages/admin/src/components/WordPressImport.tsx:1351
+#: packages/admin/src/components/WordPressImport.tsx:1376
 msgid "Posts"
 msgstr "文章"
 
-#: packages/admin/src/components/WordPressImport.tsx:1175
+#: packages/admin/src/components/WordPressImport.tsx:1194
 msgid "Posts & Pages"
 msgstr "文章與頁面"
 
@@ -10151,7 +10159,7 @@ msgstr "每頁文章數"
 msgid "Pre-release"
 msgstr "發行前版本"
 
-#: packages/admin/src/components/WordPressImport.tsx:924
+#: packages/admin/src/components/WordPressImport.tsx:943
 msgid "Preparing categories and tags..."
 msgstr "正在準備分類及標籤..."
 
@@ -10163,7 +10171,7 @@ msgstr "正在準備註冊..."
 msgid "Preparing this site"
 msgstr "正在準備這個網站"
 
-#: packages/admin/src/components/WordPressImport.tsx:2208
+#: packages/admin/src/components/WordPressImport.tsx:2233
 msgid "Preparing to download files from WordPress..."
 msgstr "正在準備從 WordPress 下載檔案…"
 
@@ -10420,7 +10428,7 @@ msgstr "快速建立會以這個欄位及集合命名關聯，依上方開關決
 msgid "Quote"
 msgstr "引用"
 
-#: packages/admin/src/components/WordPressImport.tsx:1193
+#: packages/admin/src/components/WordPressImport.tsx:1212
 msgid "Raw meta"
 msgstr "原始中繼資料"
 
@@ -10511,7 +10519,7 @@ msgstr "正在讀取套件"
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:481
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:492
 #: packages/admin/src/components/settings/transfer/ExportSection.tsx:301
-#: packages/admin/src/components/WordPressImport.tsx:2015
+#: packages/admin/src/components/WordPressImport.tsx:2040
 msgid "Ready"
 msgstr "就緒"
 
@@ -10989,7 +10997,7 @@ msgstr "內容必須有代稱才能發佈"
 msgid "Required"
 msgstr "必填"
 
-#: packages/admin/src/components/WordPressImport.tsx:2028
+#: packages/admin/src/components/WordPressImport.tsx:2053
 msgid "Required fields:"
 msgstr "必填欄位:"
 
@@ -11196,7 +11204,7 @@ msgstr "可插入任何內容的可重複使用內容區塊"
 msgid "Reverted to published version"
 msgstr "已還原至已發佈版本"
 
-#: packages/admin/src/components/WordPressImport.tsx:750
+#: packages/admin/src/components/WordPressImport.tsx:769
 msgid "Review"
 msgstr "審閱"
 
@@ -11563,11 +11571,11 @@ msgstr "已排程發佈"
 msgid "Scheduled publishing needs attention"
 msgstr "排程發佈需要處理"
 
-#: packages/admin/src/components/WordPressImport.tsx:2351
+#: packages/admin/src/components/WordPressImport.tsx:2376
 msgid "Schema Changes"
 msgstr "結構描述變更"
 
-#: packages/admin/src/components/WordPressImport.tsx:1728
+#: packages/admin/src/components/WordPressImport.tsx:1753
 msgid "Schema preparation failed"
 msgstr "準備結構描述失敗"
 
@@ -12040,7 +12048,7 @@ msgstr "每次最多可選取 50 篇文章。"
 msgid "Select video"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1761
+#: packages/admin/src/components/WordPressImport.tsx:1786
 msgid "Select which content types to import."
 msgstr "選取要匯入的內容類型。"
 
@@ -12143,7 +12151,7 @@ msgstr "SEO 設定"
 msgid "SEO Settings"
 msgstr "SEO 設定"
 
-#: packages/admin/src/components/WordPressImport.tsx:1872
+#: packages/admin/src/components/WordPressImport.tsx:1897
 msgid "SEO settings (Yoast)"
 msgstr "SEO 設定 (Yoast)"
 
@@ -12223,7 +12231,7 @@ msgstr "正在設定…"
 #: packages/admin/src/components/PluginManager.tsx:536
 #: packages/admin/src/components/Settings.tsx:46
 #: packages/admin/src/components/Sidebar.tsx:510
-#: packages/admin/src/components/WordPressImport.tsx:1840
+#: packages/admin/src/components/WordPressImport.tsx:1865
 msgid "Settings"
 msgstr "設定"
 
@@ -12404,7 +12412,7 @@ msgstr "網站識別"
 msgid "Site Identity"
 msgstr "網站識別資訊"
 
-#: packages/admin/src/components/WordPressImport.tsx:2299
+#: packages/admin/src/components/WordPressImport.tsx:2324
 msgid "site identity applied (title, tagline, logo)"
 msgstr "已套用網站識別資訊 (標題、網站標語及標誌)"
 
@@ -12427,7 +12435,7 @@ msgstr "網站設定"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:298
 #: packages/admin/src/components/SetupWizard.tsx:405
-#: packages/admin/src/components/WordPressImport.tsx:1182
+#: packages/admin/src/components/WordPressImport.tsx:1201
 msgid "Site Settings"
 msgstr "網站設定"
 
@@ -12440,7 +12448,7 @@ msgstr "網站標題"
 msgid "Site Title"
 msgstr "網站標題"
 
-#: packages/admin/src/components/WordPressImport.tsx:1852
+#: packages/admin/src/components/WordPressImport.tsx:1877
 msgid "Site title & tagline"
 msgstr "網站標題及標語"
 
@@ -12481,11 +12489,11 @@ msgstr "資料夾不適用大小資訊"
 msgid "Size:"
 msgstr "大小:"
 
-#: packages/admin/src/components/WordPressImport.tsx:2133
+#: packages/admin/src/components/WordPressImport.tsx:2158
 msgid "Skip Media Import"
 msgstr "略過媒體匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:2158
+#: packages/admin/src/components/WordPressImport.tsx:2183
 msgid "Skipped"
 msgstr "已略過"
 
@@ -12559,7 +12567,7 @@ msgstr "部分內容連到來源網站中不存在的媒體檔案；這些連結
 msgid "Some content may not appear here yet."
 msgstr "部分內容可能尚未顯示在這裡。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1889
+#: packages/admin/src/components/WordPressImport.tsx:1914
 msgid "Some content types cannot be imported"
 msgstr "部分內容類型無法匯入"
 
@@ -12662,7 +12670,7 @@ msgstr "開始新的匯入作業"
 msgid "Start import"
 msgstr "開始匯入"
 
-#: packages/admin/src/components/WordPressImport.tsx:1951
+#: packages/admin/src/components/WordPressImport.tsx:1976
 msgid "Start Import"
 msgstr "開始匯入"
 
@@ -12749,11 +12757,11 @@ msgstr "依語言地區分別儲存 — 每個署名翻譯都有自己的值。"
 msgid "Strikethrough"
 msgstr "刪除線"
 
-#: packages/admin/src/components/WordPressImport.tsx:1781
+#: packages/admin/src/components/WordPressImport.tsx:1806
 msgid "Structure"
 msgstr "結構"
 
-#: packages/admin/src/components/WordPressImport.tsx:1195
+#: packages/admin/src/components/WordPressImport.tsx:1214
 msgid "Structured"
 msgstr "結構化"
 
@@ -12858,7 +12866,7 @@ msgid "Tags"
 msgstr "標籤"
 
 #. placeholder {0}: analysis.tags
-#: packages/admin/src/components/WordPressImport.tsx:1826
+#: packages/admin/src/components/WordPressImport.tsx:1851
 msgid "Tags ({0})"
 msgstr "標籤 ({0})"
 
@@ -13050,7 +13058,7 @@ msgstr "不會授予此裝置存取權。"
 msgid "The download stopped"
 msgstr "下載已停止"
 
-#: packages/admin/src/components/WordPressImport.tsx:1891
+#: packages/admin/src/components/WordPressImport.tsx:1916
 msgid "The existing collection has fields with incompatible types."
 msgstr "現有內容集合包含類型不相容的欄位。"
 
@@ -13456,7 +13464,7 @@ msgstr "這一天尚未載入。這個範圍的內容項目數量超過行事曆
 msgid "This device is requesting permission to use:"
 msgstr "這個裝置要求使用下列權限："
 
-#: packages/admin/src/components/WordPressImport.tsx:1088
+#: packages/admin/src/components/WordPressImport.tsx:1107
 msgid "This doesn't look like a valid migration key. Generate a new one in the plugin and paste the full string starting with \"em1.\"."
 msgstr "這似乎不是有效的移轉金鑰。請在外掛中產生新的金鑰，並貼上以「em1.」開頭的完整字串。"
 
@@ -13577,7 +13585,7 @@ msgstr "這次匯入已開始"
 msgid "This is a custom section."
 msgstr "這是自訂區段。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1337
+#: packages/admin/src/components/WordPressImport.tsx:1362
 msgid "This is a WordPress site."
 msgstr "這是 WordPress 網站。"
 
@@ -13601,7 +13609,7 @@ msgstr "此連結將於 7 天後到期，且只能使用一次。"
 msgid "This link expires in 7 days."
 msgstr "這個連結將在 7 天後過期。"
 
-#: packages/admin/src/components/WordPressImport.tsx:949
+#: packages/admin/src/components/WordPressImport.tsx:968
 msgid "This may take a while for large exports."
 msgstr "大型匯出可能需要一些時間。"
 
@@ -14038,7 +14046,7 @@ msgstr "嘗試調整搜尋條件或篩選器。"
 msgid "Try again"
 msgstr "再試一次"
 
-#: packages/admin/src/components/WordPressImport.tsx:1611
+#: packages/admin/src/components/WordPressImport.tsx:1636
 msgid "Try Again"
 msgstr "再試一次"
 
@@ -14063,8 +14071,8 @@ msgstr "請嘗試其他檔案名稱，或清除搜尋。"
 msgid "Try another filename, or clear your search and filters."
 msgstr "請嘗試其他檔案名稱，或清除搜尋及篩選條件。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1315
-#: packages/admin/src/components/WordPressImport.tsx:1437
+#: packages/admin/src/components/WordPressImport.tsx:1340
+#: packages/admin/src/components/WordPressImport.tsx:1462
 msgid "Try Another URL"
 msgstr "嘗試其他網址"
 
@@ -14125,7 +14133,7 @@ msgid "Type caption for video (optional)"
 msgstr ""
 
 #. placeholder {0}: status.existingType
-#: packages/admin/src/components/WordPressImport.tsx:2047
+#: packages/admin/src/components/WordPressImport.tsx:2072
 msgid "Type mismatch ({0})"
 msgstr "類型不符 ({0})"
 
@@ -14348,7 +14356,7 @@ msgstr "已更新"
 msgid "Updated At"
 msgstr "更新時間"
 
-#: packages/admin/src/components/WordPressImport.tsx:974
+#: packages/admin/src/components/WordPressImport.tsx:993
 msgid "Updating content URLs..."
 msgstr "正在更新內容網址..."
 
@@ -14386,7 +14394,7 @@ msgstr "上傳檔案即可開始使用"
 msgid "Upload a video to get started"
 msgstr ""
 
-#: packages/admin/src/components/WordPressImport.tsx:1420
+#: packages/admin/src/components/WordPressImport.tsx:1445
 msgid "Upload an export file"
 msgstr "上傳匯出檔案"
 
@@ -14403,8 +14411,8 @@ msgstr "上傳及刪除媒體"
 msgid "Upload and manage media"
 msgstr "上傳及管理媒體"
 
-#: packages/admin/src/components/WordPressImport.tsx:1313
-#: packages/admin/src/components/WordPressImport.tsx:1434
+#: packages/admin/src/components/WordPressImport.tsx:1338
+#: packages/admin/src/components/WordPressImport.tsx:1459
 msgid "Upload Export File"
 msgstr "上傳匯出檔案"
 
@@ -14456,7 +14464,7 @@ msgstr "上傳至 {0}"
 msgid "Upload to {providerName}"
 msgstr "上傳至 {providerName}"
 
-#: packages/admin/src/components/WordPressImport.tsx:1149
+#: packages/admin/src/components/WordPressImport.tsx:1168
 msgid "Upload WordPress export file"
 msgstr "上傳 WordPress 匯出檔案"
 
@@ -14470,7 +14478,7 @@ msgstr "上傳時間:"
 
 #: packages/admin/src/components/media/MediaBrowserItems.tsx:208
 #: packages/admin/src/components/MediaUploadDialog.tsx:60
-#: packages/admin/src/components/WordPressImport.tsx:2156
+#: packages/admin/src/components/WordPressImport.tsx:2181
 msgid "Uploading"
 msgstr "正在上傳"
 
@@ -14847,11 +14855,11 @@ msgid "We checked before opening the browser's passkey prompt so you can choose 
 msgstr "我們已在開啟瀏覽器的通行密鑰提示前完成檢查，讓你選擇接下來的操作。"
 
 #. placeholder {0}: result.url
-#: packages/admin/src/components/WordPressImport.tsx:1295
+#: packages/admin/src/components/WordPressImport.tsx:1320
 msgid "We couldn't connect to a WordPress site at {0}. This could mean the site isn't WordPress, the REST API is disabled, or the site isn't accessible."
 msgstr "我們無法連線至位於 {0} 的 WordPress 網站。這可能表示該網站不是 WordPress 網站、REST API 已停用，或無法存取該網站。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1113
+#: packages/admin/src/components/WordPressImport.tsx:1132
 msgid "We'll check what import options are available for your site."
 msgstr "我們會檢查您的網站有哪些可用的匯入選項。"
 
@@ -14898,7 +14906,7 @@ msgstr "兩端各自的名稱。這些名稱會用於綁定此關聯的欄位。
 msgid "What happens next?"
 msgstr "接下來會怎麼做？"
 
-#: packages/admin/src/components/WordPressImport.tsx:2120
+#: packages/admin/src/components/WordPressImport.tsx:2145
 msgid "What happens when you import:"
 msgstr "匯入時會進行下列作業:"
 
@@ -14922,7 +14930,7 @@ msgstr "套件包含的內容"
 msgid "What will be imported"
 msgstr "將匯入的內容"
 
-#: packages/admin/src/components/WordPressImport.tsx:1903
+#: packages/admin/src/components/WordPressImport.tsx:1928
 msgid "What will happen when you import"
 msgstr "匯入後將進行的作業"
 
@@ -15042,7 +15050,7 @@ msgstr "已更新小工具"
 #: packages/admin/src/components/settings/transfer/labels.ts:91
 #: packages/admin/src/components/Sidebar.tsx:452
 #: packages/admin/src/components/Widgets.tsx:389
-#: packages/admin/src/components/WordPressImport.tsx:1188
+#: packages/admin/src/components/WordPressImport.tsx:1207
 msgid "Widgets"
 msgstr "小工具"
 
@@ -15059,7 +15067,7 @@ msgstr "寬度"
 msgid "Will be cleared on save"
 msgstr "儲存時將會清除"
 
-#: packages/admin/src/components/WordPressImport.tsx:2043
+#: packages/admin/src/components/WordPressImport.tsx:2068
 msgid "Will create"
 msgstr "將會建立"
 
@@ -15079,11 +15087,11 @@ msgstr "使用通行密鑰，就不必記住複雜的密碼"
 msgid "Without an email provider, invite links must be shared manually."
 msgstr "若未設定電子郵件服務提供者，必須手動分享邀請連結。"
 
-#: packages/admin/src/components/WordPressImport.tsx:228
+#: packages/admin/src/components/WordPressImport.tsx:235
 msgid "WordPress authorization was rejected"
 msgstr "WordPress 授權遭拒"
 
-#: packages/admin/src/components/WordPressImport.tsx:1505
+#: packages/admin/src/components/WordPressImport.tsx:1530
 msgid "WordPress Username"
 msgstr "WordPress 使用者名稱"
 
@@ -15119,7 +15127,7 @@ msgstr "撰寫小工具內容..."
 msgid "Writing the file index"
 msgstr "正在寫入檔案索引"
 
-#: packages/admin/src/components/WordPressImport.tsx:1212
+#: packages/admin/src/components/WordPressImport.tsx:1231
 msgid "WXR File"
 msgstr "WXR 檔案"
 
@@ -15127,7 +15135,7 @@ msgstr "WXR 檔案"
 msgid "XML"
 msgstr "XML"
 
-#: packages/admin/src/components/WordPressImport.tsx:1526
+#: packages/admin/src/components/WordPressImport.tsx:1551
 msgid "xxxx xxxx xxxx xxxx xxxx xxxx"
 msgstr "xxxx xxxx xxxx xxxx xxxx xxxx"
 
@@ -15146,7 +15154,7 @@ msgstr "每年"
 msgid "Yes"
 msgstr "是"
 
-#: packages/admin/src/components/WordPressImport.tsx:1191
+#: packages/admin/src/components/WordPressImport.tsx:1210
 msgid "Yoast/RankMath"
 msgstr "Yoast/RankMath"
 
@@ -15233,7 +15241,7 @@ msgstr "您將以 <0>{0}</0> 身分加入"
 msgid "You'll be prompted to use your device's biometric authentication, security key, or PIN."
 msgstr "系統將提示您使用裝置的生物特徵驗證、安全金鑰或 PIN。"
 
-#: packages/admin/src/components/WordPressImport.tsx:1398
+#: packages/admin/src/components/WordPressImport.tsx:1423
 msgid "You'll be redirected to WordPress to authorize the connection."
 msgstr "系統會將您重新導向至 WordPress，以授權連線。"
 
@@ -15367,7 +15375,7 @@ msgid "Your unsaved media changes will be lost."
 msgstr "未儲存的媒體變更將會遺失。"
 
 #. placeholder {0}: attachments.count
-#: packages/admin/src/components/WordPressImport.tsx:2091
+#: packages/admin/src/components/WordPressImport.tsx:2116
 msgid "Your WordPress export contains {0} media files."
 msgstr "您的 WordPress 匯出檔包含 {0} 個媒體檔案。"
 
