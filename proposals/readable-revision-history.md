@@ -10,6 +10,8 @@ created: 2026-10-12
 
 # Readable revision history
 
+Amended by [Real-time co-editing](real-time-co-editing.md), for entries that people edit together in a co-editing room. See [Co-editing](#co-editing).
+
 ## Problem and user case
 
 Editors open the Revisions panel to answer one question: what changed? They ask it before publishing, after someone else edits a post, and before rolling back.
@@ -61,6 +63,23 @@ Clicking a version in the Revisions list shows that version in the editor, read-
 - If someone else saves while you restore, the restore fails with the existing conflict error and nothing changes.
 - Revisions whose author was deleted show "Unknown author".
 - Very large blocks are marked as changed as a whole instead of word by word, so the diff stays fast.
+
+## Co-editing
+
+In collections that use co-editing, these rules replace the matching ones above. The co-editing RFC also changes when revisions are created, which this plan lists as a non-goal: a version is kept each time everyone leaves the entry, for every **Save version**, and before every operation except preview, such as publishing or restoring.
+
+- **Several editors.**
+  - A version with several editors lists all of them, for example "Ana, Ben and 1 other person", and marks its changes in a neutral color.
+  - The revisions list returns `editedBy`, with the ID and name of each one.
+- **Recovery versions.**
+  - A version holding changes that couldn't be merged reads "Ana's changes that couldn't be merged".
+  - It is compared with the checkpoint it came from, not with its neighbor in the list.
+  - It doesn't count toward the 50-revision limit. Versions that browsers save are pruned after 30 days.
+  - When validation rejects the draft the room needs to keep before a restore, a discard, a move to the Trash or a close, the room saves it as a recovery version instead. These are kept, and read "The draft before Ana restored the version from {date}", or name the discard, the Trash, or a draft that couldn't be saved when everyone left.
+- **Viewing a version** is private to the person viewing it.
+  - Everyone else keeps editing, and the list doesn't reorder while you browse it.
+  - **Back to editing** returns to the shared document as it is now, which can differ from how you left it.
+- **Restore** applies the version for everyone, as a change that everyone receives, instead of failing when someone else saves. The room first keeps a version of the current draft, so the replaced content stays in the list.
 
 ## Verification
 
