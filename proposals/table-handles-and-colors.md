@@ -94,9 +94,62 @@ Colors are translucent tints, with a separate set for dark mode. Each color has 
 
 `backgroundColor` is one of `gray`, `brown`, `orange`, `yellow`, `green`, `blue`, `purple`, `pink`, or `red`. Leaving it out means no color. Named colors, rather than hex values, let EmDash pick tints that read well in light and dark themes. They also keep cell markup free of inline styles and stop editors from choosing combinations that hide text.
 
-EmDash's table component renders the field as a `data-background-color` attribute, with a tint from its own stylesheet. Sites get the dark tints when they declare `color-scheme: dark`, as EmDash's templates do. A dark theme that doesn't declare it still gets the light tints, which stay readable. Content API and MCP clients read and write the field like any other cell field.
+Content API and MCP clients read and write the field like any other cell field. [Generated HTML](#generated-html) describes how sites render it.
 
 The change is additive. Existing tables have no colors and render as before. An older admin keeps the colors when it saves a table, because it passes unknown cell fields through unchanged, but it doesn't show them. A cell `backgroundColor` outside the nine names, which no EmDash importer writes, is removed the next time the admin saves the table.
+
+### Generated HTML
+
+EmDash's table component writes the color name to a `data-background-color` attribute on the `th` or `td`. It adds no inline styles or classes, and a cell without a color has no attribute. For a table with a blue header row and one green cell, the site receives this markup (simplified, without Astro's scoping attributes):
+
+```html
+<div class="emdash-table-wrapper">
+	<table class="emdash-table">
+		<thead>
+			<tr>
+				<th scope="col" data-background-color="blue"><p>Plan</p></th>
+				<th scope="col" data-background-color="blue"><p>Price</p></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td data-background-color="green"><p>Team</p></td>
+				<td><p>$29 / month</p></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+```
+
+The component's stylesheet maps each name to a translucent tint and paints it as a background image, so header shading, row striping, and hover backgrounds still show underneath:
+
+```css
+.emdash-table [data-background-color] {
+	background-image: linear-gradient(
+		var(--emdash-table-cell-color),
+		var(--emdash-table-cell-color)
+	);
+}
+
+.emdash-table [data-background-color="blue"] {
+	--emdash-table-cell-color: var(
+		--emdash-table-color-blue,
+		light-dark(oklch(0.727 0.124 239 / 0.28), oklch(0.447 0.123 249 / 0.4))
+	);
+}
+```
+
+`light-dark()` picks the dark tint when the site declares `color-scheme: dark`, as EmDash's templates do. A dark theme that doesn't declare it gets the light tints, which stay readable.
+
+A theme sets its own shade for a color with a `--emdash-table-color-<name>` custom property, without needing to match the component's selectors:
+
+```css
+:root {
+	--emdash-table-color-blue: oklch(0.7 0.12 250 / 0.3);
+}
+```
+
+The nine attribute values and the nine `--emdash-table-color-*` properties become part of the table component's public styling interface. The admin editor and revision history use the same attribute and the default palette.
 
 ## Errors and edge cases
 
@@ -121,7 +174,7 @@ The change is additive. Existing tables have no colors and render as before. An 
 - Portable Text normalization keeps palette colors through a ProseMirror round trip and drops other values.
 - Coloring the cursor cell, a selection, and a whole table keeps the selection and records one undo step per change. The color menu reports no color, one color, or a mixed selection.
 - Merge, split, and tab-separated paste keep colors as described above, and clipboard HTML ignores values outside the palette.
-- The site table component renders palette colors and drops other values. In both admin modes, text on every color keeps at least 7:1 contrast, and every two colors stay perceptibly different.
+- The site table component renders palette colors as `data-background-color` and drops other values. A theme's `--emdash-table-color-*` value replaces the default tint. In both admin modes, text on every color keeps at least 7:1 contrast, and every two colors stay perceptibly different.
 - Manual checks in light and dark mode, in Arabic, at a phone width, and with a screen reader.
 
 ## Open questions
