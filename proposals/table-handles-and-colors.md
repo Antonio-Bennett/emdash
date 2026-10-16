@@ -34,12 +34,12 @@ Clicking a cell gives it a blue outline and shows small handles on the table's e
 
 Each menu lists only the commands for what was clicked:
 
-| Handle                  | Menu                                                                                                                              |
-| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| Row                     | Color, Add row above, Add row below, Duplicate row, Clear contents, Delete row. The first row also has a Header row switch.       |
+| Handle                  | Menu                                                                                                                                           |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| Row                     | Color, Add row above, Add row below, Duplicate row, Clear contents, Delete row. The first row also has a Header row switch.                    |
 | Column                  | Color, Add column before, Add column after, Duplicate column, Clear contents, Delete column. The first column also has a Header column switch. |
-| Cell                    | Color, Clear contents. With several cells selected, Merge cells. On a merged cell, Split cell.                                     |
-| Table (⋮⋮ block handle) | Header row, Header column, Distribute columns evenly, Reset column widths, Duplicate table, Move up, Move down, Delete table.       |
+| Cell                    | Color, Clear contents. With several cells selected, Merge cells. On a merged cell, Split cell.                                                 |
+| Table (⋮⋮ block handle) | Header row, Header column, Distribute columns evenly, Reset column widths, Duplicate table, Move up, Move down, Delete table.                  |
 
 A header row stays first. Its pill can't be dragged, no other row can be dropped above it, and Add row above is unavailable on it. A header column works the same way.
 
