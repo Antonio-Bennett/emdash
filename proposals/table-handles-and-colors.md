@@ -125,10 +125,7 @@ The component's stylesheet maps each name to a translucent tint and paints it as
 
 ```css
 .emdash-table [data-background-color] {
-	background-image: linear-gradient(
-		var(--emdash-table-cell-color),
-		var(--emdash-table-cell-color)
-	);
+	background-image: linear-gradient(var(--emdash-table-cell-color), var(--emdash-table-cell-color));
 }
 
 .emdash-table [data-background-color="blue"] {
