@@ -29,7 +29,7 @@ msgstr "-- Pilih --"
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:156
 msgctxt "Read aloud between a version's author and status"
 msgid ", "
-msgstr ""
+msgstr ", "
 
 #. placeholder {0}: item.filename
 #: packages/admin/src/components/MediaDetailPanel.tsx:1924
@@ -512,11 +512,11 @@ msgstr "{completedCount} dari {0} unggahan selesai"
 
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:419
 msgid "{count, plural, one {# block} other {# blocks}}"
-msgstr ""
+msgstr "{count, plural, other {# blok}}"
 
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:420
 msgid "{count, plural, one {# entry} other {# entries}}"
-msgstr ""
+msgstr "{count, plural, other {# entri}}"
 
 #: packages/admin/src/components/WordPressImport.tsx:2126
 msgid "{count, plural, one {# file} other {# files}}"
@@ -537,7 +537,7 @@ msgstr "{dayLabel}, {entries}"
 
 #: packages/admin/src/components/revisions/revision-format.ts:123
 msgid "{dayLabel}, {timeLabel}"
-msgstr ""
+msgstr "{dayLabel}, {timeLabel}"
 
 #: packages/admin/src/components/calendar/CalendarAgenda.tsx:120
 msgid "{earlierCount, plural, one {Show # earlier entry} other {Show # earlier entries}}"
@@ -571,7 +571,7 @@ msgstr "{hidden, plural, other {+# lainnya}}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:390
 msgid "{hiddenCount, plural, one {Show # more} other {Show # more}}"
-msgstr ""
+msgstr "{hiddenCount, plural, other {Tampilkan # lainnya}}"
 
 #: packages/admin/src/components/settings/ChangeDomainDialog.tsx:38
 msgid "{host} does not resolve to a public address"
@@ -610,7 +610,7 @@ msgstr "Opsi {label}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:246
 msgid "{label}, {restored}"
-msgstr ""
+msgstr "{label}, {restored}"
 
 #: packages/admin/src/components/calendar/CalendarEntry.tsx:366
 msgid "{lateness} late"
@@ -842,19 +842,19 @@ msgstr "{totalScheduled, plural, other {Terjadwal}}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:239
 msgid "{when}, {author}"
-msgstr ""
+msgstr "{when}, {author}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:236
 msgid "{when}, Current version, {author}"
-msgstr ""
+msgstr "{when}, Versi saat ini, {author}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:234
 msgid "{when}, Current version, Published, {author}"
-msgstr ""
+msgstr "{when}, Versi saat ini, Dipublikasikan, {author}"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:238
 msgid "{when}, Published, {author}"
-msgstr ""
+msgstr "{when}, Dipublikasikan, {author}"
 
 #: packages/admin/src/components/settings/transfer/labels.ts:268
 msgid "{widgetType} in {areaName}"
@@ -1394,8 +1394,7 @@ msgstr "Tambahkan tag meta noindex"
 msgid "Add Passkey"
 msgstr "Tambahkan Kunci Sandi"
 
-#: packages/admin/src/components/ContentEditor.tsx:3015
-#: packages/admin/src/components/ContentEditor.tsx:3015
+#: packages/admin/src/components/ContentEditor.tsx:2840
 msgid "Add reference"
 msgstr "Tambahkan referensi"
 
@@ -1456,60 +1455,60 @@ msgstr "Ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:133
 msgid "Added “{snippet}”"
-msgstr ""
+msgstr "“{snippet}” ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:121
 msgid "Added {label}"
-msgstr ""
+msgstr "{label} ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:51
 msgid "Added a code block"
-msgstr ""
+msgstr "Blok kode ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:87
 msgid "Added a divider"
-msgstr ""
+msgstr "Pembatas ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:63
 msgid "Added a gallery"
-msgstr ""
+msgstr "Galeri ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:24
 msgid "Added a heading"
-msgstr ""
+msgstr "Judul ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:38
 msgid "Added a list item"
-msgstr ""
+msgstr "Item daftar ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:17
 msgid "Added a paragraph"
-msgstr ""
+msgstr "Paragraf ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:31
 msgid "Added a quote"
-msgstr ""
+msgstr "Kutipan ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:57
 msgid "Added a table"
-msgstr ""
+msgstr "Tabel ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:69
 msgid "Added a video"
-msgstr ""
+msgstr "Video ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:75
 msgid "Added an embed"
-msgstr ""
+msgstr "Sematan ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:81
 msgid "Added an HTML block"
-msgstr ""
+msgstr "Blok HTML ditambahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:45
 #: packages/admin/src/components/revisions/change-labels.ts:95
 msgid "Added an image"
-msgstr ""
+msgstr "Gambar ditambahkan"
 
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:108
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:230
@@ -1518,7 +1517,7 @@ msgstr ""
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:270
 #: packages/admin/src/components/revisions/RevisionSegments.tsx:139
 msgid "Added:"
-msgstr ""
+msgstr "Ditambahkan:"
 
 #: packages/admin/src/components/MenuEditor.tsx:551
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:315
@@ -1539,7 +1538,7 @@ msgstr "Rincian tambahan"
 
 #: packages/admin/src/components/settings/SeoSettings.tsx:278
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
-msgstr ""
+msgstr "Menambahkan aturan ke robots.txt yang meminta crawler AI untuk tidak menggunakan situs ini untuk pelatihan. Mesin pencari masih dapat mengindeksnya."
 
 #: packages/admin/src/components/WordPressImport.tsx:1537
 msgid "admin"
@@ -1809,25 +1808,24 @@ msgstr "Kunci digital terenkripsi yang Anda buka menggunakan sidik jari, wajah, 
 #: packages/admin/src/components/TaxonomySidebar.tsx:687
 #: packages/admin/src/components/TaxonomySidebar.tsx:783
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:114
-#: packages/admin/src/router.tsx:646
-#: packages/admin/src/router.tsx:661
-#: packages/admin/src/router.tsx:675
-#: packages/admin/src/router.tsx:689
-#: packages/admin/src/router.tsx:912
-#: packages/admin/src/router.tsx:1317
-#: packages/admin/src/router.tsx:1436
-#: packages/admin/src/router.tsx:1470
-#: packages/admin/src/router.tsx:1494
-#: packages/admin/src/router.tsx:1519
-#: packages/admin/src/router.tsx:1575
-#: packages/admin/src/router.tsx:1594
-#: packages/admin/src/router.tsx:1627
-#: packages/admin/src/router.tsx:1648
-#: packages/admin/src/router.tsx:2398
-#: packages/admin/src/router.tsx:2414
-#: packages/admin/src/router.tsx:2439
-#: packages/admin/src/router.tsx:2865
-#: packages/admin/src/router.tsx:3050
+#: packages/admin/src/router.tsx:581
+#: packages/admin/src/router.tsx:596
+#: packages/admin/src/router.tsx:610
+#: packages/admin/src/router.tsx:624
+#: packages/admin/src/router.tsx:846
+#: packages/admin/src/router.tsx:1253
+#: packages/admin/src/router.tsx:1356
+#: packages/admin/src/router.tsx:1390
+#: packages/admin/src/router.tsx:1414
+#: packages/admin/src/router.tsx:1439
+#: packages/admin/src/router.tsx:1495
+#: packages/admin/src/router.tsx:1514
+#: packages/admin/src/router.tsx:1547
+#: packages/admin/src/router.tsx:1568
+#: packages/admin/src/router.tsx:2317
+#: packages/admin/src/router.tsx:2333
+#: packages/admin/src/router.tsx:2358
+#: packages/admin/src/router.tsx:2960
 #: packages/admin/src/routes/byline-schema.tsx:103
 #: packages/admin/src/routes/byline-schema.tsx:123
 #: packages/admin/src/routes/byline-schema.tsx:139
@@ -2185,15 +2183,15 @@ msgstr "Kembali ke Tipe Konten"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:206
 msgid "Back to editing"
-msgstr ""
+msgstr "Kembali menyunting"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:196
 msgid "Back to editing (Esc)"
-msgstr ""
+msgstr "Kembali menyunting (Esc)"
 
 #: packages/admin/src/components/revisions/useRevisionView.ts:392
 msgid "Back to editing."
-msgstr ""
+msgstr "Kembali menyunting."
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
@@ -2351,7 +2349,7 @@ msgstr "Boolean"
 
 #: packages/admin/src/components/WordPressImport.tsx:1314
 msgid "Bot protection blocked the connection"
-msgstr ""
+msgstr "Perlindungan bot memblokir sambungan"
 
 #: packages/admin/src/components/RelationForm.tsx:344
 msgid "Both reference fields bound to this relation share these limits, so the two sides cannot disagree about the same links."
@@ -2694,56 +2692,56 @@ msgstr "Ubah di mana pengunjung diarahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:110
 msgid "Changed {label}"
-msgstr ""
+msgstr "{label} diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:89
 msgid "Changed a divider"
-msgstr ""
+msgstr "Pembatas diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:65
 msgid "Changed a gallery"
-msgstr ""
+msgstr "Galeri diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:71
 msgid "Changed a video"
-msgstr ""
+msgstr "Video diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:77
 msgid "Changed an embed"
-msgstr ""
+msgstr "Sematan diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:47
 #: packages/admin/src/components/revisions/change-labels.ts:100
 msgid "Changed an image"
-msgstr ""
+msgstr "Gambar diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:177
 msgid "Changed the slug to “{slug}”"
-msgstr ""
+msgstr "Slug diubah menjadi “{slug}”"
 
 #: packages/admin/src/components/revisions/change-labels.ts:139
 msgid "Changed the style of “{snippet}”"
-msgstr ""
+msgstr "Gaya “{snippet}” diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:27
 msgid "Changed the style of a heading"
-msgstr ""
+msgstr "Gaya judul diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:41
 msgid "Changed the style of a list item"
-msgstr ""
+msgstr "Gaya item daftar diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:20
 msgid "Changed the style of a paragraph"
-msgstr ""
+msgstr "Gaya paragraf diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:34
 msgid "Changed the style of a quote"
-msgstr ""
+msgstr "Gaya kutipan diubah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:165
 msgid "Changed the title"
-msgstr ""
+msgstr "Judul diubah"
 
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:126
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:254
@@ -2752,7 +2750,7 @@ msgstr ""
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:59
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:110
 msgid "Changed:"
-msgstr ""
+msgstr "Diubah:"
 
 #: packages/admin/src/components/RegistryPluginDetail.tsx:901
 msgid "Changelog"
@@ -2768,7 +2766,7 @@ msgstr "Perubahan dibatalkan"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:347
 msgid "Changes in this version"
-msgstr ""
+msgstr "Perubahan di versi ini"
 
 #: packages/admin/src/components/BulkTagDialog.tsx:478
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
@@ -3007,7 +3005,7 @@ msgstr "Bersihkan nilai tersimpan untuk {fieldKey}"
 
 #: packages/admin/src/components/revisions/change-labels.ts:123
 msgid "Cleared {label}"
-msgstr ""
+msgstr "{label} dibersihkan"
 
 #: packages/admin/src/locales/emails.ts:56
 msgid "Click the button below to create your account:"
@@ -3123,7 +3121,7 @@ msgstr "Tutup pengaturan"
 
 #: packages/admin/src/components/WordPressImport.tsx:93
 msgid "Cloudflare's bot protection answered with a challenge page, so EmDash can't reach the EmDash Exporter API. Allow requests to /wp-json/emdash/v1/ (and ?rest_route=/emdash/v1/ on sites without pretty permalinks), for example with a WAF custom rule that skips bot protection, or pause bot protection during the migration, then try again."
-msgstr ""
+msgstr "Perlindungan bot Cloudflare menjawab dengan halaman tantangan, jadi EmDash tidak dapat mencapai EmDash Exporter API. Izinkan permintaan ke /wp-json/emdash/v1/ (dan ?rest_route=/emdash/v1/ di situs tanpa permalink bagus), misalnya dengan aturan khusus WAF yang melewati perlindungan bot, atau jeda perlindungan bot selama migrasi, lalu coba lagi."
 
 #: packages/admin/src/components/ContentTypeList.tsx:388
 #: packages/admin/src/components/editor/IframeBlockNode.tsx:40
@@ -3649,7 +3647,7 @@ msgstr "Tidak dapat memuat rencana impor"
 
 #: packages/admin/src/components/revisions/useRevisionView.ts:564
 msgid "Couldn't load this version. Back to editing."
-msgstr ""
+msgstr "Tidak dapat memuat versi ini. Kembali menyunting."
 
 #: packages/admin/src/components/MediaUsedIn.tsx:274
 msgid "Couldn’t load usage."
@@ -3657,7 +3655,7 @@ msgstr "Tidak dapat memuat penggunaan."
 
 #: packages/admin/src/components/RevisionHistory.tsx:91
 msgid "Couldn't load versions"
-msgstr ""
+msgstr "Tidak dapat memuat versi"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:91
 msgid "Couldn't map \"{draft}\" to a MIME type. Type the MIME directly."
@@ -4004,7 +4002,7 @@ msgstr "Sel saat ini"
 #: packages/admin/src/components/revisions/RevisionList.tsx:265
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:84
 msgid "Current version"
-msgstr ""
+msgstr "Versi saat ini"
 
 #: packages/admin/src/components/PluginSettings.tsx:340
 msgid "Currently set — enter a new value to replace"
@@ -4538,7 +4536,7 @@ msgstr "Menonaktifkan..."
 #: packages/admin/src/components/settings/SeoSettings.tsx:276
 #: packages/admin/src/components/settings/SeoSettings.tsx:286
 msgid "Disallow AI training"
-msgstr ""
+msgstr "Tolak pelatihan AI"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1904
 msgid "Discard"
@@ -4884,7 +4882,7 @@ msgstr "Setiap segmen jalur dapat berisi paling banyak satu pengganti, cth. {0}"
 
 #: packages/admin/src/components/revisions/change-labels.ts:155
 msgid "Earliest saved version"
-msgstr ""
+msgstr "Versi tersimpan paling awal"
 
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:352
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:353
@@ -5034,47 +5032,47 @@ msgstr "Sunting URL"
 
 #: packages/admin/src/components/revisions/change-labels.ts:137
 msgid "Edited “{snippet}”"
-msgstr ""
+msgstr "“{snippet}” disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:125
 msgid "Edited {label}"
-msgstr ""
+msgstr "{label} disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:53
 msgid "Edited a code block"
-msgstr ""
+msgstr "Blok kode disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:26
 msgid "Edited a heading"
-msgstr ""
+msgstr "Judul disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:40
 msgid "Edited a list item"
-msgstr ""
+msgstr "Item daftar disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:19
 msgid "Edited a paragraph"
-msgstr ""
+msgstr "Paragraf disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:33
 msgid "Edited a quote"
-msgstr ""
+msgstr "Kutipan disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:59
 msgid "Edited a table"
-msgstr ""
+msgstr "Tabel disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:83
 msgid "Edited an HTML block"
-msgstr ""
+msgstr "Blok HTML disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:98
 msgid "Edited an image caption"
-msgstr ""
+msgstr "Takarir gambar disunting"
 
 #: packages/admin/src/components/revisions/change-labels.ts:99
 msgid "Edited an image description"
-msgstr ""
+msgstr "Deskripsi gambar disunting"
 
 #: packages/admin/src/components/settings/transfer/ImportSection.tsx:301
 msgid "Editing is paused until the import finishes. Keep this page open; if you leave, the import continues when you come back."
@@ -5242,7 +5240,7 @@ msgstr "EmDash akan memindai konten yang ada untuk menunjukkan di mana media dig
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:442
 #: packages/admin/src/components/revisions/RevisionSegments.tsx:21
 msgid "Empty"
-msgstr ""
+msgstr "Kosong"
 
 #: packages/admin/src/components/editor/GalleryNode.tsx:191
 msgid "Empty gallery — open settings to add images"
@@ -5745,10 +5743,10 @@ msgstr "Gagal membuat widget"
 msgid "Failed to create widget area"
 msgstr "Gagal membuat area widget"
 
-#: packages/admin/src/router.tsx:645
-#: packages/admin/src/router.tsx:674
-#: packages/admin/src/router.tsx:757
-#: packages/admin/src/router.tsx:1647
+#: packages/admin/src/router.tsx:580
+#: packages/admin/src/router.tsx:609
+#: packages/admin/src/router.tsx:692
+#: packages/admin/src/router.tsx:1567
 msgid "Failed to delete"
 msgstr "Gagal menghapus"
 
@@ -6138,8 +6136,8 @@ msgstr "Gagal mengambil status pembaruan"
 #: packages/admin/src/lib/api/current-user.ts:22
 #: packages/admin/src/lib/api/users.ts:91
 #: packages/admin/src/lib/api/users.ts:96
-#: packages/admin/src/router.tsx:1195
-#: packages/admin/src/router.tsx:2344
+#: packages/admin/src/router.tsx:1127
+#: packages/admin/src/router.tsx:2263
 msgid "Failed to fetch user"
 msgstr "Gagal mengambil pengguna"
 
@@ -6345,8 +6343,8 @@ msgstr "Gagal menyiapkan impor"
 msgid "Failed to probe URL"
 msgstr "Gagal menyelidiki URL"
 
-#: packages/admin/src/router.tsx:713
-#: packages/admin/src/router.tsx:1469
+#: packages/admin/src/router.tsx:648
+#: packages/admin/src/router.tsx:1389
 msgid "Failed to publish"
 msgstr "Gagal memublikasikan"
 
@@ -6360,7 +6358,7 @@ msgstr "Gagal membaca penggunaan kolom byline"
 
 #: packages/admin/src/router.tsx:2864
 msgid "Failed to register {slug}"
-msgstr ""
+msgstr "Gagal mendaftarkan {slug}"
 
 #: packages/admin/src/lib/api/schema.ts:548
 msgid "Failed to register orphaned table"
@@ -6439,9 +6437,9 @@ msgstr "Gagal mencabut token API"
 msgid "Failed to rewrite URLs"
 msgstr "Gagal menulis ulang URL"
 
-#: packages/admin/src/router.tsx:907
-#: packages/admin/src/router.tsx:1314
-#: packages/admin/src/router.tsx:3049
+#: packages/admin/src/router.tsx:841
+#: packages/admin/src/router.tsx:1250
+#: packages/admin/src/router.tsx:2959
 msgid "Failed to save"
 msgstr "Gagal menyimpan"
 
@@ -6821,7 +6819,7 @@ msgstr "Publikasi pertama"
 
 #: packages/admin/src/components/revisions/change-labels.ts:153
 msgid "First version"
-msgstr ""
+msgstr "Versi pertama"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:84
 msgid "First-time commenters only"
@@ -6997,7 +6995,7 @@ msgstr "Go"
 
 #: packages/admin/src/components/ContentEditor.tsx:1323
 msgid "Go back to editing first."
-msgstr ""
+msgstr "Kembali menyunting lebih dahulu."
 
 #: packages/admin/src/components/calendar/CalendarEntryPanel.tsx:393
 msgid "Go live {countdown}"
@@ -7364,7 +7362,7 @@ msgstr "Gambar tidak ditemukan"
 
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:254
 msgid "Image replaced:"
-msgstr ""
+msgstr "Gambar diganti:"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:717
 msgid "Image replaced."
@@ -8211,8 +8209,8 @@ msgstr "Memuat koleksi..."
 msgid "Loading comments..."
 msgstr "Memuat komentar..."
 
-#: packages/admin/src/router.tsx:3302
-#: packages/admin/src/router.tsx:3314
+#: packages/admin/src/router.tsx:3212
+#: packages/admin/src/router.tsx:3224
 msgid "Loading configuration..."
 msgstr "Memuat konfigurasi..."
 
@@ -8981,7 +8979,7 @@ msgstr "Pindahkan {0} ke atas"
 
 #: packages/admin/src/components/revisions/change-labels.ts:141
 msgid "Moved “{snippet}”"
-msgstr ""
+msgstr "“{snippet}” dipindahkan"
 
 #. placeholder {0}: to + 1
 #: packages/admin/src/components/MediaPickerModal.tsx:701
@@ -8998,51 +8996,51 @@ msgstr "{total} item dipindahkan ke tempat sampah"
 
 #: packages/admin/src/components/revisions/change-labels.ts:54
 msgid "Moved a code block"
-msgstr ""
+msgstr "Blok kode dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:90
 msgid "Moved a divider"
-msgstr ""
+msgstr "Pembatas dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:66
 msgid "Moved a gallery"
-msgstr ""
+msgstr "Galeri dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:28
 msgid "Moved a heading"
-msgstr ""
+msgstr "Judul dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:42
 msgid "Moved a list item"
-msgstr ""
+msgstr "Item daftar dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:21
 msgid "Moved a paragraph"
-msgstr ""
+msgstr "Paragraf dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:35
 msgid "Moved a quote"
-msgstr ""
+msgstr "Kutipan dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:60
 msgid "Moved a table"
-msgstr ""
+msgstr "Tabel dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:72
 msgid "Moved a video"
-msgstr ""
+msgstr "Video dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:78
 msgid "Moved an embed"
-msgstr ""
+msgstr "Sematan dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:84
 msgid "Moved an HTML block"
-msgstr ""
+msgstr "Blok HTML dipindahkan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:48
 msgid "Moved an image"
-msgstr ""
+msgstr "Gambar dipindahkan"
 
 #. placeholder {0}: folder.name
 #: packages/admin/src/components/MediaLibrary.tsx:568
@@ -9235,7 +9233,7 @@ msgstr "Jendela baru"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:188
 msgid "Newer version"
-msgstr ""
+msgstr "Versi lebih baru"
 
 #: packages/admin/src/components/MarketplaceBrowse.tsx:44
 #: packages/admin/src/components/ThemeMarketplaceBrowse.tsx:36
@@ -9360,7 +9358,7 @@ msgstr "Belum ada byline"
 
 #: packages/admin/src/components/revisions/change-labels.ts:163
 msgid "No changes"
-msgstr ""
+msgstr "Tidak ada perubahan"
 
 #: packages/admin/src/components/Dashboard.tsx:485
 msgid "No collections configured"
@@ -9687,7 +9685,7 @@ msgstr "Belum ada pengguna."
 
 #: packages/admin/src/components/RevisionHistory.tsx:84
 msgid "No versions yet"
-msgstr ""
+msgstr "Belum ada versi"
 
 #: packages/admin/src/components/Widgets.tsx:506
 msgid "No widget areas yet. Create one to get started."
@@ -9725,7 +9723,7 @@ msgstr "Tidak cocok"
 
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:499
 msgid "Not recorded in this version"
-msgstr ""
+msgstr "Tidak direkam di versi ini"
 
 #: packages/admin/src/components/ContentList.tsx:1569
 #: packages/admin/src/components/PluginSettings.tsx:341
@@ -9793,11 +9791,11 @@ msgstr "Gambar OG"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:178
 msgid "Older version"
-msgstr ""
+msgstr "Versi lebih lama"
 
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:425
 msgid "On"
-msgstr ""
+msgstr "Nyala"
 
 #: packages/admin/src/components/editor/HtmlBlockNode.tsx:185
 msgid "On the site"
@@ -10397,8 +10395,8 @@ msgstr "Registri Pengaya"
 msgid "Plugin registry configuration error"
 msgstr "Galat konfigurasi registri pengaya"
 
-#: packages/admin/src/router.tsx:2636
-#: packages/admin/src/router.tsx:2667
+#: packages/admin/src/router.tsx:2550
+#: packages/admin/src/router.tsx:2581
 msgid "Plugin registry is not configured."
 msgstr "Registri pengaya tidak dikonfigurasikan."
 
@@ -11148,7 +11146,7 @@ msgstr "Hapus gambar ini dari dokumen?"
 
 #: packages/admin/src/components/revisions/change-labels.ts:135
 msgid "Removed “{snippet}”"
-msgstr ""
+msgstr "“{snippet}” dihapus"
 
 #. placeholder {0}: selected.item.filename
 #: packages/admin/src/components/MediaPickerModal.tsx:706
@@ -11157,56 +11155,56 @@ msgstr "{0} dihapus dari pilihan."
 
 #: packages/admin/src/components/revisions/change-labels.ts:52
 msgid "Removed a code block"
-msgstr ""
+msgstr "Blok kode dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:88
 msgid "Removed a divider"
-msgstr ""
+msgstr "Pembatas dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:64
 msgid "Removed a gallery"
-msgstr ""
+msgstr "Galeri dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:25
 msgid "Removed a heading"
-msgstr ""
+msgstr "Judul dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:39
 msgid "Removed a list item"
-msgstr ""
+msgstr "Item daftar dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:18
 msgid "Removed a paragraph"
-msgstr ""
+msgstr "Paragraf dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:32
 msgid "Removed a quote"
-msgstr ""
+msgstr "Kutipan dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:58
 msgid "Removed a table"
-msgstr ""
+msgstr "Tabel dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:70
 msgid "Removed a video"
-msgstr ""
+msgstr "Video dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:76
 msgid "Removed an embed"
-msgstr ""
+msgstr "Sematan dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:82
 msgid "Removed an HTML block"
-msgstr ""
+msgstr "Blok HTML dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:46
 #: packages/admin/src/components/revisions/change-labels.ts:96
 msgid "Removed an image"
-msgstr ""
+msgstr "Gambar dihapus"
 
 #: packages/admin/src/components/revisions/change-labels.ts:175
 msgid "Removed the slug"
-msgstr ""
+msgstr "Slug dihapus"
 
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:117
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:232
@@ -11215,7 +11213,7 @@ msgstr ""
 #: packages/admin/src/components/revisions/RevisionFieldValue.tsx:265
 #: packages/admin/src/components/revisions/RevisionSegments.tsx:140
 msgid "Removed:"
-msgstr ""
+msgstr "Dihapus:"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:590
 msgid "Removes the sidebar entry, command palette link, and dashboard quick action; entries stay reachable by URL, API, and plugins"
@@ -11351,7 +11349,7 @@ msgstr "Ganti dengan daftar kosong"
 
 #: packages/admin/src/components/revisions/change-labels.ts:97
 msgid "Replaced an image"
-msgstr ""
+msgstr "Gambar diganti"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:942
 #: packages/admin/src/components/MediaDetailPanel.tsx:1966
@@ -11503,23 +11501,23 @@ msgstr "Pemulihan gagal"
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:109
 msgid "Restore this version?"
-msgstr ""
+msgstr "Pulihkan versi ini?"
 
 #: packages/admin/src/components/revisions/change-labels.ts:158
 msgid "Restored an earlier version"
-msgstr ""
+msgstr "Versi sebelumnya dipulihkan"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:242
 msgid "Restored from {restoredDate}"
-msgstr ""
+msgstr "Dipulihkan dari {restoredDate}"
 
 #: packages/admin/src/components/revisions/change-labels.ts:160
 msgid "Restored the version from {date}"
-msgstr ""
+msgstr "Versi dari {date} dipulihkan"
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:130
 msgid "Restoring…"
-msgstr ""
+msgstr "Memulihkan…"
 
 #: packages/admin/src/components/BulkTagDialog.tsx:444
 msgid "Results"
@@ -11770,7 +11768,7 @@ msgstr "Rust"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:86
 msgid "Same as current version"
-msgstr ""
+msgstr "Sama seperti versi saat ini"
 
 #: packages/admin/src/components/MenuEditor.tsx:534
 #: packages/admin/src/components/MenuEditor.tsx:536
@@ -12028,7 +12026,6 @@ msgid "SCSS"
 msgstr "SCSS"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:106
-#: packages/admin/src/components/Settings.tsx:165
 #: packages/admin/src/components/Settings.tsx:165
 #: packages/admin/src/components/Widgets.tsx:152
 msgid "Search"
@@ -12675,7 +12672,7 @@ msgstr "Teks Pendek"
 
 #: packages/admin/src/components/revisions/RevisionViewBar.tsx:223
 msgid "Show changes"
-msgstr ""
+msgstr "Tampilkan perubahan"
 
 #: packages/admin/src/components/Widgets.tsx:147
 msgid "Show count"
@@ -12691,7 +12688,7 @@ msgstr "Tampilkan hirarki"
 
 #: packages/admin/src/components/revisions/RevisionList.tsx:192
 msgid "Show older versions"
-msgstr ""
+msgstr "Tampilkan versi lebih lama"
 
 #: packages/admin/src/components/Widgets.tsx:139
 msgid "Show post count"
@@ -13175,7 +13172,7 @@ msgstr "Terstruktur"
 #: packages/admin/src/components/revisions/RevisionDocument.tsx:135
 #: packages/admin/src/components/revisions/RevisionSegments.tsx:163
 msgid "Style changed:"
-msgstr ""
+msgstr "Gaya diubah:"
 
 #: packages/admin/src/components/FieldEditor.tsx:1305
 msgid "Sub-field slugs cannot be changed after creation."
@@ -13397,7 +13394,7 @@ msgstr "Pemformatan teks"
 
 #: packages/admin/src/components/revisions/useRevisionView.ts:546
 msgid "That version is no longer available. Back to editing."
-msgstr ""
+msgstr "Versi itu tidak lagi tersedia. Kembali menyunting."
 
 #. placeholder {0}: bound.fieldSlug
 #. placeholder {1}: bound.collectionSlug
@@ -13783,19 +13780,19 @@ msgstr "Paket yang diunggah dibuang. Tidak ada di situs ini yang berubah."
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:117
 msgid "The version from {when} becomes your draft and goes live at the scheduled time."
-msgstr ""
+msgstr "Versi dari {when} menjadi draf Anda dan tayang pada waktu yang dijadwalkan."
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:118
 msgid "The version from {when} becomes your draft. The live site won't change until you publish."
-msgstr ""
+msgstr "Versi dari {when} menjadi draf Anda. Situs live tidak akan berubah hingga Anda menerbitkan."
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:82
 msgid "The version from {when} is now your draft. It goes live at the scheduled time."
-msgstr ""
+msgstr "Versi dari {when} sekarang menjadi draf Anda. Tayang pada waktu yang dijadwalkan."
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:83
 msgid "The version from {when} is now your draft. Publish when you're ready."
-msgstr ""
+msgstr "Versi dari {when} sekarang menjadi draf Anda. Terbitkan saat Anda siap."
 
 #: packages/admin/src/components/editor/ImageUploadExtension.ts:211
 msgid "The video is in the Media Library, but this entry is now read-only."
@@ -14225,7 +14222,7 @@ msgstr "Pembaruan ini membuka rute berikut tanpa otentikasi:"
 
 #: packages/admin/src/components/revisions/RevisionViewErrorBoundary.tsx:7
 msgid "This version can't be shown."
-msgstr ""
+msgstr "Versi ini tidak dapat ditampilkan."
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:168
 msgid "This version is not visible on the site"
@@ -14542,11 +14539,11 @@ msgstr "Nyalakan pelacakan penggunaan media?"
 
 #: packages/admin/src/components/revisions/change-labels.ts:170
 msgid "Turned off {label}"
-msgstr ""
+msgstr "{label} dimatikan"
 
 #: packages/admin/src/components/revisions/change-labels.ts:170
 msgid "Turned on {label}"
-msgstr ""
+msgstr "{label} dinyalakan"
 
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:579
 msgid "Turning on…"
@@ -14658,7 +14655,7 @@ msgstr "Tidak diketahui"
 
 #: packages/admin/src/components/revisions/revision-format.ts:129
 msgid "Unknown author"
-msgstr ""
+msgstr "Penulis tidak diketahui"
 
 #: packages/admin/src/components/users/roleDefinitions.ts:62
 msgid "Unknown role"
@@ -14680,7 +14677,7 @@ msgstr "Kunci sandi tanpa nama"
 
 #: packages/admin/src/components/revisions/revision-format.ts:129
 msgid "Unnamed user"
-msgstr ""
+msgstr "Pengguna tanpa nama"
 
 #: packages/admin/src/components/ContentSettingsPanel.tsx:501
 msgid "Unpublish {itemLabel}"
@@ -14761,7 +14758,7 @@ msgstr "Perbarui"
 #: packages/admin/src/components/calendar/CalendarEntry.tsx:49
 msgctxt "A published entry's scheduled changes"
 msgid "Update"
-msgstr ""
+msgstr "Perbarui"
 
 #: packages/admin/src/components/FieldEditor.tsx:1396
 msgid "Update Field"
@@ -15212,11 +15209,11 @@ msgstr "Versi {0} (aktif)"
 
 #: packages/admin/src/components/revisions/useRevisionView.ts:652
 msgid "Version from {when}"
-msgstr ""
+msgstr "Versi dari {when}"
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:80
 msgid "Version restored"
-msgstr ""
+msgstr "Versi dipulihkan"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:70
 #: packages/admin/src/components/editor/BlockMenu.tsx:43
@@ -15271,7 +15268,7 @@ msgstr "Lihat lisensi {license} di spdx.org"
 
 #: packages/admin/src/components/revisions/useRevisionView.ts:517
 msgid "Viewing the version from {when} by {name}."
-msgstr ""
+msgstr "Melihat versi dari {when} oleh {name}."
 
 #: packages/admin/src/components/Redirects.tsx:469
 msgid "Visitors hitting these paths will see an error."
@@ -15626,7 +15623,7 @@ msgstr "Ya"
 
 #: packages/admin/src/components/revisions/revision-format.ts:109
 msgid "Yesterday"
-msgstr ""
+msgstr "Kemarin"
 
 #: packages/admin/src/components/WordPressImport.tsx:1210
 msgid "Yoast/RankMath"
@@ -15786,11 +15783,11 @@ msgstr "Permintaan kunci sandi perangkat Anda"
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:115
 msgid "Your draft will be replaced with the version from {when}. Your current draft stays in Revisions, and the live site won't change until you publish."
-msgstr ""
+msgstr "Draf Anda akan diganti dengan versi dari {when}. Draf Anda saat ini tetap di Revisions, dan situs live tidak akan berubah hingga Anda menerbitkan."
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:114
 msgid "Your draft will be replaced with the version from {when}. Your current draft stays in Revisions, and the restored version goes live at the scheduled time."
-msgstr ""
+msgstr "Draf Anda akan diganti dengan versi dari {when}. Draf Anda saat ini tetap di Revisions, dan versi yang dipulihkan tayang pada waktu yang dijadwalkan."
 
 #: packages/admin/src/components/SetupWizard.tsx:260
 msgid "Your Email"
@@ -15854,7 +15851,7 @@ msgstr "Handle Twitter/X Anda (cth., @username)"
 
 #: packages/admin/src/components/revisions/RevisionRestoreDialog.tsx:123
 msgid "Your unsaved changes will be lost."
-msgstr ""
+msgstr "Perubahan yang belum Anda simpan akan hilang."
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1903
 msgid "Your unsaved media changes will be lost."
