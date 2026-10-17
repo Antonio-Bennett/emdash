@@ -66,20 +66,22 @@ Clicking a version in the Revisions list shows that version in the editor, read-
 
 ## Co-editing
 
-In collections that use co-editing, these rules replace the matching ones above. The co-editing RFC also changes when revisions are created, which this plan lists as a non-goal: a version is kept each time everyone leaves the entry, for every **Save version**, and before every operation except preview, such as publishing or restoring.
+This plan doesn't change when revisions are created. The co-editing RFC does:
 
-- **Several editors.**
-  - A version with several editors lists all of them, for example "Ana, Ben and 1 other person", and marks its changes in a neutral color.
-  - The revisions list returns `editedBy`, with the ID and name of each one.
-- **Recovery versions.**
-  - A version holding changes that couldn't be merged reads "Ana's changes that couldn't be merged".
-  - It is compared with the checkpoint it came from, not with its neighbor in the list.
-  - It doesn't count toward the 50-revision limit. Versions that browsers save are pruned after 30 days.
-  - When validation rejects the draft the room needs to keep before a restore, a discard, a move to the Trash or a close, the room saves it as a recovery version instead. These are kept, and read "The draft before Ana restored the version from {date}", or name the discard, the Trash, or a draft that couldn't be saved when everyone left.
-- **Viewing a version** is private to the person viewing it.
-  - Everyone else keeps editing, and the list doesn't reorder while you browse it.
-  - **Back to editing** returns to the shared document as it is now, which can differ from how you left it.
-- **Restore** applies the version for everyone, as a change that everyone receives, instead of failing when someone else saves. The room first keeps a version of the current draft, so the replaced content stays in the list.
+- In every collection, an autosave replaces the previous revision only if that one was an autosave too, so a version saved with **Save** is kept.
+- In a co-editing room, clients autosave the shared document as [checkpoints](real-time-co-editing.md#terms). They also save a kept version before every publish, schedule, unpublish, unschedule, restore, discard and move to Trash.
+
+In collections that use co-editing:
+
+- **Several editors.** This replaces "in the color of the person who saved that version".
+  - A version lists everyone in its `editedBy`, for example "Ana, Ben and 1 other person", and marks its changes in a neutral color.
+  - The revisions list returns `editedBy`, with each person's ID and name, and shows it in place of the author when it is set.
+- **Recovery versions.** A client whose edits couldn't rejoin the shared document saves them as a version that is neither the draft nor the live one. It appears by its author, or by everyone in its `editedBy` when it holds a room's abandoned edits, and is compared with its neighbor like any other version.
+- **Viewing a version.** This replaces "Back to editing returns the editor as you left it".
+  - Opening a version changes only your own editor. Everyone else keeps editing, and the list doesn't reorder while you browse it.
+  - **Back to editing** returns to the shared document as it is now.
+  - If an autosave replaces the version you're viewing, Restore reports that the version is gone, and the list refreshes.
+- **Restore.** This replaces "Restore works like it does today" and the restore-conflict case. Restore applies the version for everyone. The restoring client first saves a kept version of the current draft, then restores, then copies the restored fields into the shared document.
 
 ## Verification
 
