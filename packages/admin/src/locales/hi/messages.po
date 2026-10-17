@@ -5309,8 +5309,12 @@ msgstr ""
 msgid "Enter a recognized timezone to save"
 msgstr ""
 
-#: packages/admin/src/components/MenuEditor.tsx:425
-#: packages/admin/src/components/MenuEditor.tsx:607
+#: packages/admin/src/components/BylineFormDialog.tsx:283
+msgid "Enter a slug."
+msgstr ""
+
+#: packages/admin/src/components/MenuEditor.tsx:527
+#: packages/admin/src/components/MenuEditor.tsx:724
 msgid "Enter a URL (https://…) or a relative path (/…)"
 msgstr "एक URL (https://…) या एक संबंधित पथ (/…) दर्ज करें"
 
