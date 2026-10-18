@@ -1549,11 +1549,11 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:640
 #: packages/admin/src/components/users/roleDefinitions.ts:42
 msgid "Admin"
-msgstr ""
+msgstr "Admin"
 
 #: packages/admin/src/components/Sidebar.tsx:582
 msgid "Admin navigation"
-msgstr ""
+msgstr "Navigazione"
 
 #: packages/admin/src/components/WelcomeModal.tsx:25
 msgid "Administrator"
@@ -2448,7 +2448,7 @@ msgstr ""
 
 #: packages/admin/src/components/Sidebar.tsx:484
 msgid "Byline Schema"
-msgstr ""
+msgstr "Schema dei crediti"
 
 #: packages/admin/src/routes/bylines.tsx:278
 msgid "Byline updated"
@@ -2463,7 +2463,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:454
 #: packages/admin/src/routes/bylines.tsx:285
 msgid "Bylines"
-msgstr ""
+msgstr "Crediti"
 
 #: packages/admin/src/components/editor/codeBlockLanguages.ts:29
 msgid "C"
@@ -2482,7 +2482,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:614
 #: packages/admin/src/routes/calendar.tsx:277
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #: packages/admin/src/components/users/roleDefinitions.ts:25
 msgid "Can create content"
@@ -2614,7 +2614,7 @@ msgstr ""
 #: packages/admin/src/components/AdminCommandPalette.tsx:205
 #: packages/admin/src/components/Widgets.tsx:136
 msgid "Categories"
-msgstr ""
+msgstr "Categorie"
 
 #. placeholder {0}: analysis.categories
 #: packages/admin/src/components/WordPressImport.tsx:1839
@@ -3245,7 +3245,7 @@ msgstr ""
 #: packages/admin/src/components/settings/transfer/labels.ts:88
 #: packages/admin/src/components/Sidebar.tsx:440
 msgid "Comments"
-msgstr ""
+msgstr "Commenti"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:713
 msgid "Comments from logged-in CMS users are approved automatically"
@@ -3336,7 +3336,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:624
 #: packages/admin/src/components/Widgets.tsx:902
 msgid "Content"
-msgstr ""
+msgstr "Contenuti"
 
 #: packages/admin/src/components/Widgets.tsx:98
 msgid "Content Block"
@@ -3412,7 +3412,7 @@ msgstr ""
 #: packages/admin/src/components/ContentTypeList.tsx:131
 #: packages/admin/src/components/Sidebar.tsx:480
 msgid "Content Types"
-msgstr ""
+msgstr "Tipi di contenuto"
 
 #: packages/admin/src/components/ContentTypeEditor.tsx:568
 msgid "Content types with the same group share a collapsible folder in the sidebar"
@@ -7406,7 +7406,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:506
 #: packages/admin/src/components/WordPressImport.tsx:783
 msgid "Import"
-msgstr ""
+msgstr "Importa"
 
 #. placeholder {0}: postType.name
 #: packages/admin/src/components/WordPressImport.tsx:2012
@@ -8402,7 +8402,7 @@ msgstr ""
 
 #: packages/admin/src/components/Header.tsx:110
 msgid "Log out"
-msgstr ""
+msgstr "Esci"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:44
 #: packages/admin/src/components/settings/GeneralSettings.tsx:362
@@ -8450,7 +8450,7 @@ msgstr ""
 
 #: packages/admin/src/components/Sidebar.tsx:632
 msgid "Manage"
-msgstr ""
+msgstr "Gestione"
 
 #. placeholder {0}: inlineLabel(taxonomyDef.label, lingui.locale)
 #. placeholder {1}: taxonomyDef.collections.join(", ")
@@ -8591,7 +8591,7 @@ msgstr ""
 #: packages/admin/src/components/WordPressImport.tsx:1195
 #: packages/admin/src/components/WordPressImport.tsx:1388
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: packages/admin/src/components/MediaDetailPanel.tsx:1120
 msgid "Media details"
@@ -8632,7 +8632,7 @@ msgstr ""
 #: packages/admin/src/components/MediaLibrary.tsx:755
 #: packages/admin/src/components/MediaLibrary.tsx:770
 msgid "Media Library"
-msgstr ""
+msgstr "Libreria multimediale"
 
 #: packages/admin/src/components/settings/transfer/labels.ts:158
 msgid "Media links were made relative"
@@ -8743,7 +8743,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:445
 #: packages/admin/src/components/WordPressImport.tsx:1199
 msgid "Menus"
-msgstr ""
+msgstr "Menu"
 
 #. placeholder {0}: navMenus.length
 #: packages/admin/src/components/WordPressImport.tsx:1821
@@ -9132,7 +9132,7 @@ msgstr ""
 #: packages/admin/src/components/AdminCommandPalette.tsx:362
 #: packages/admin/src/components/ContentTypeEditor.tsx:558
 msgid "Navigation"
-msgstr ""
+msgstr "Navigazione"
 
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:458
 #: packages/admin/src/components/settings/MediaUsageSettings.tsx:462
@@ -10444,7 +10444,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:488
 #: packages/admin/src/components/Sidebar.tsx:648
 msgid "Plugins"
-msgstr ""
+msgstr "Plugin"
 
 #: packages/admin/src/components/settings/ChangeDomainDialog.tsx:119
 msgid "Point the domain at this site. On Cloudflare, open your Worker in Workers & Pages, go to the Domains tab, and add the domain."
@@ -10924,7 +10924,7 @@ msgstr ""
 #: packages/admin/src/components/settings/transfer/labels.ts:90
 #: packages/admin/src/components/Sidebar.tsx:448
 msgid "Redirects"
-msgstr ""
+msgstr "Reindirizzamenti"
 
 #: packages/admin/src/components/settings/transfer/labels.ts:166
 msgid "Redirects that loop will be imported turned off"
@@ -12150,7 +12150,7 @@ msgstr ""
 
 #: packages/admin/src/components/AdminCommandPalette.tsx:460
 msgid "Search pages and content..."
-msgstr ""
+msgstr "Cerca pagine e contenuti..."
 
 #: packages/admin/src/components/MarketplaceBrowse.tsx:103
 #: packages/admin/src/components/RegistryBrowse.tsx:120
@@ -12256,7 +12256,7 @@ msgstr ""
 #: packages/admin/src/components/settings/transfer/labels.ts:93
 #: packages/admin/src/components/Sidebar.tsx:453
 msgid "Sections"
-msgstr ""
+msgstr "Sezioni"
 
 #: packages/admin/src/components/Sections.tsx:279
 msgid "Sections could not be loaded."
@@ -12310,7 +12310,7 @@ msgstr ""
 #: packages/admin/src/components/settings/SecuritySettings.tsx:93
 #: packages/admin/src/components/settings/SecuritySettings.tsx:115
 msgid "Security Settings"
-msgstr ""
+msgstr "Impostazioni di sicurezza"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:173
 msgid "See where this file is used."
@@ -12640,7 +12640,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:510
 #: packages/admin/src/components/WordPressImport.tsx:1865
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: packages/admin/src/components/settings/ApiTokenSettings.tsx:92
 msgid "Settings Manage"
@@ -12873,7 +12873,7 @@ msgstr ""
 
 #: packages/admin/src/components/AdminCommandPalette.tsx:255
 msgid "Site Transfer"
-msgstr ""
+msgstr "Trasferimento del sito"
 
 #: packages/admin/src/components/settings/GeneralSettings.tsx:295
 msgid "Site URL"
@@ -13224,11 +13224,11 @@ msgstr ""
 
 #: packages/admin/src/components/ThemeToggle.tsx:19
 msgid "Switch to dark"
-msgstr ""
+msgstr "Passa alla modalità scura"
 
 #: packages/admin/src/components/ThemeToggle.tsx:19
 msgid "Switch to light"
-msgstr ""
+msgstr "Passa alla modalità chiara"
 
 #: packages/admin/src/components/users/UserDetail.tsx:274
 msgid "Synced"
@@ -13288,7 +13288,7 @@ msgstr ""
 #: packages/admin/src/components/AdminCommandPalette.tsx:214
 #: packages/admin/src/components/Widgets.tsx:144
 msgid "Tags"
-msgstr ""
+msgstr "Tag"
 
 #. placeholder {0}: analysis.tags
 #: packages/admin/src/components/WordPressImport.tsx:1851
@@ -15139,7 +15139,7 @@ msgstr ""
 #: packages/admin/src/components/Sidebar.tsx:485
 #: packages/admin/src/components/users/UserList.tsx:55
 msgid "Users"
-msgstr ""
+msgstr "Utenti"
 
 #: packages/admin/src/components/settings/transfer/ImportReview.tsx:312
 msgid "Users are not transferred. Choose the user on this site who should own each author’s content. Content of authors you don’t map will have no author."
@@ -15271,7 +15271,7 @@ msgstr ""
 
 #: packages/admin/src/components/Header.tsx:60
 msgid "View Site"
-msgstr ""
+msgstr "Vai al sito"
 
 #: packages/admin/src/components/RegistryPluginDetail.tsx:760
 msgid "View source"
@@ -15534,7 +15534,7 @@ msgstr ""
 #: packages/admin/src/components/Widgets.tsx:389
 #: packages/admin/src/components/WordPressImport.tsx:1207
 msgid "Widgets"
-msgstr ""
+msgstr "Widget"
 
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:450
 #: packages/admin/src/components/editor/ImageDetailPanel.tsx:682
