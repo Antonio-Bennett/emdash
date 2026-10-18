@@ -2198,7 +2198,7 @@ msgstr ""
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3462,6 +3462,11 @@ msgstr "繼續以完成登入。這個連結只能使用一次。"
 msgid "Continue to import"
 msgstr "繼續匯入"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "使用另一個裝置繼續"
@@ -4665,7 +4670,7 @@ msgstr "網域已移除"
 msgid "Domain updated"
 msgstr "網域已更新"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "還沒有帳號嗎？<0>註冊</0>"
 
@@ -5355,7 +5360,7 @@ msgstr "請在下方輸入網域。EmDash 會先確認該網域提供的是這�
 msgid "Enter URL..."
 msgstr "輸入 URL…"
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "輸入您的代號以登入。"
 
@@ -7949,7 +7954,7 @@ msgid "Landscape"
 msgstr "橫向"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9964,7 +9969,7 @@ msgid "or connect by URL"
 msgstr "或透過網址連線"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "或繼續使用"
@@ -12748,28 +12753,28 @@ msgstr "改為登入"
 msgid "Sign in to {siteName}"
 msgstr "登入 {siteName}"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "登入您的網站"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "使用 {0} 登入"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "使用電子郵件登入"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "使用電子郵件連結登入"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "使用通行密鑰登入"
 
@@ -15060,7 +15065,7 @@ msgstr "使用網址"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "使用裝置的生物特徵辨識、安全金鑰或 PIN 登入。"
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "使用已註冊的通行密鑰安全登入。"
 
@@ -15333,7 +15338,7 @@ msgstr "我們無法連線至位於 {0} 的 WordPress 網站。這可能表示�
 msgid "We'll check what import options are available for your site."
 msgstr "我們會檢查您的網站有哪些可用的匯入選項。"
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "我們會傳送連結給您，讓您不必輸入密碼即可登入。"
 

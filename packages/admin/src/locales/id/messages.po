@@ -2198,7 +2198,7 @@ msgstr "Kembali menyunting."
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3462,6 +3462,11 @@ msgstr "Lanjutkan untuk menyelesaikan masuk. Tautan ini hanya berlaku sekali."
 msgid "Continue to import"
 msgstr "Lanjutkan impor"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "Lanjutkan dengan perangkat lain"
@@ -4665,7 +4670,7 @@ msgstr "Domain dihapus"
 msgid "Domain updated"
 msgstr "Domain diperbarui"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "Belum memiliki akun? <0>Daftar</0>"
 
@@ -5355,7 +5360,7 @@ msgstr "Masukkan domain di bawah. EmDash memeriksa bahwa itu menyajikan situs in
 msgid "Enter URL..."
 msgstr "Masukkan URL..."
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "Masukkan nama pengguna Anda untuk masuk."
 
@@ -7949,7 +7954,7 @@ msgid "Landscape"
 msgstr "Lanskap"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9964,7 +9969,7 @@ msgid "or connect by URL"
 msgstr "atau sambungkan dengan URL"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "Atau lanjutkan dengan"
@@ -12748,28 +12753,28 @@ msgstr "Masuk saja"
 msgid "Sign in to {siteName}"
 msgstr "Masuk ke {siteName}"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "Masuk ke situs Anda"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "Masuk dengan {0}"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "Masuk dengan email"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "Masuk dengan tautan email"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "Masuk dengan Passkey"
 
@@ -15060,7 +15065,7 @@ msgstr "Gunakan URL"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "Gunakan otentikasi biometrik, kunci keamanan, atau PIN perangkat Anda untuk masuk."
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "Gunakan kunci sandi terdaftar Anda untuk masuk dengan aman."
 
@@ -15333,7 +15338,7 @@ msgstr "Kami tidak dapat tersambung ke situs WordPress di {0}. Ini bisa berarti 
 msgid "We'll check what import options are available for your site."
 msgstr "Kami akan memeriksa opsi impor apa saja yang tersedia untuk situs Anda."
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "Kami akan mengirimkan tautan untuk masuk tanpa kata sandi."
 

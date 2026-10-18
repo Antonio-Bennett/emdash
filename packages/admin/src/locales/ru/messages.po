@@ -2198,7 +2198,7 @@ msgstr ""
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3462,6 +3462,11 @@ msgstr "Продолжите, чтобы завершить вход. Ссылк
 msgid "Continue to import"
 msgstr "Перейти к импорту"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "Продолжить на другом устройстве"
@@ -4665,7 +4670,7 @@ msgstr "Домен удалён"
 msgid "Domain updated"
 msgstr "Домен обновлён"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "Нет учётной записи? <0>Зарегистрируйтесь</0>"
 
@@ -5355,7 +5360,7 @@ msgstr "Введите домен ниже. Перед переключение�
 msgid "Enter URL..."
 msgstr "Введите URL..."
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "Введите имя пользователя, чтобы войти."
 
@@ -7949,7 +7954,7 @@ msgid "Landscape"
 msgstr "Альбомная"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9964,7 +9969,7 @@ msgid "or connect by URL"
 msgstr "или подключиться по URL"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "Или продолжить через"
@@ -12748,28 +12753,28 @@ msgstr "Войти вместо этого"
 msgid "Sign in to {siteName}"
 msgstr "Вход на сайт {siteName}"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "Войдите на сайт"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "Войти через {0}"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "Войти по почте"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "Войти по ссылке из письма"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "Войти с ключом доступа"
 
@@ -15060,7 +15065,7 @@ msgstr "Использовать URL"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "Для входа используйте биометрию устройства, ключ безопасности или PIN-код."
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "Войдите безопасно зарегистрированным ключом доступа."
 
@@ -15333,7 +15338,7 @@ msgstr "Не удалось подключиться к сайту WordPress п�
 msgid "We'll check what import options are available for your site."
 msgstr "Мы проверим, какие варианты импорта доступны для вашего сайта."
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "Мы отправим ссылку для входа без пароля."
 

@@ -2198,7 +2198,7 @@ msgstr ""
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3462,6 +3462,11 @@ msgstr "Nastavi da dovršiš prijavu. Link radi samo jednom."
 msgid "Continue to import"
 msgstr "Nastavi na uvoz"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "Nastavi sa drugim uređajem"
@@ -4665,7 +4670,7 @@ msgstr "Domen uklonjen"
 msgid "Domain updated"
 msgstr "Domen ažuriran"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "Nemaš nalog? <0>Registruj se</0>"
 
@@ -5355,7 +5360,7 @@ msgstr "Unesi domen ispod. EmDash proverava da li opslužuje ovaj sajt pre preba
 msgid "Enter URL..."
 msgstr "Unesi URL..."
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "Unesi korisničko ime za prijavu."
 
@@ -7949,7 +7954,7 @@ msgid "Landscape"
 msgstr "Položeno"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9964,7 +9969,7 @@ msgid "or connect by URL"
 msgstr "ili poveži putem URL-a"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "Ili nastavi sa"
@@ -12748,28 +12753,28 @@ msgstr "Prijavi se umesto toga"
 msgid "Sign in to {siteName}"
 msgstr "Prijavi se na {siteName}"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "Prijavi se na svoj sajt"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "Prijavi se sa {0}"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "Prijavi se putem e-pošte"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "Prijavi se putem linka u e-pošti"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "Prijavi se sa pristupnim ključem (passkey)"
 
@@ -15060,7 +15065,7 @@ msgstr "Koristi URL"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "Koristi biometrijsku autentifikaciju uređaja, bezbednosni ključ ili PIN za prijavu."
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "Koristi registrovani pristupni ključ (passkey) za bezbednu prijavu."
 
@@ -15333,7 +15338,7 @@ msgstr "Nismo mogli da se povežemo sa WordPress sajtom na {0}. To može značit
 msgid "We'll check what import options are available for your site."
 msgstr "Proverićemo koje opcije uvoza su dostupne za sajt."
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "Poslaćemo ti link za prijavu bez lozinke."
 

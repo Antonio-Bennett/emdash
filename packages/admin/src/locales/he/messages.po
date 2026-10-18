@@ -2199,7 +2199,7 @@ msgstr ""
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3463,6 +3463,11 @@ msgstr "המשיכו כדי לסיים את ההתחברות. הקישור פו�
 msgid "Continue to import"
 msgstr "המשך לייבוא"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "המשך עם מכשיר אחר"
@@ -4666,7 +4671,7 @@ msgstr "הדומיין הוסר"
 msgid "Domain updated"
 msgstr "הדומיין עודכן"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "אין לכם חשבון? <0>הירשמו</0>"
 
@@ -5356,7 +5361,7 @@ msgstr "הזינו את הדומיין למטה. EmDash בודק שהוא מגי
 msgid "Enter URL..."
 msgstr "הזינו URL..."
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "הזינו את הכינוי שלכם כדי להתחבר."
 
@@ -7950,7 +7955,7 @@ msgid "Landscape"
 msgstr "לרוחב"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9965,7 +9970,7 @@ msgid "or connect by URL"
 msgstr "או התחברו באמצעות URL"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "או המשיכו עם"
@@ -12749,28 +12754,28 @@ msgstr "התחברו במקום זאת"
 msgid "Sign in to {siteName}"
 msgstr "התחברות אל {siteName}"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "התחברות לאתר שלכם"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "התחברות באמצעות {0}"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "התחברות באמצעות אימייל"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "התחברות באמצעות קישור אימייל"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "התחברות באמצעות מפתח גישה"
 
@@ -15061,7 +15066,7 @@ msgstr "שימוש ב-URL"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "השתמשו באימות הביומטרי, מפתח האבטחה או ה-PIN של המכשיר שלכם כדי להתחבר."
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "השתמשו במפתח הגישה הרשום שלכם כדי להתחבר באופן מאובטח."
 
@@ -15334,7 +15339,7 @@ msgstr "לא הצלחנו להתחבר לאתר WordPress ב-{0}. משמעות �
 msgid "We'll check what import options are available for your site."
 msgstr "נבדוק אילו אפשרויות ייבוא זמינות לאתר שלכם."
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "נשלח לכם קישור להתחברות ללא סיסמה."
 

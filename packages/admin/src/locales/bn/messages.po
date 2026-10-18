@@ -2198,7 +2198,7 @@ msgstr ""
 #: packages/admin/src/components/InviteAcceptPage.tsx:171
 #: packages/admin/src/components/LoginPage.tsx:118
 #: packages/admin/src/components/LoginPage.tsx:154
-#: packages/admin/src/components/LoginPage.tsx:313
+#: packages/admin/src/components/LoginPage.tsx:329
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:92
 #: packages/admin/src/components/SignupPage.tsx:298
 msgid "Back to login"
@@ -3462,6 +3462,11 @@ msgstr "সাইন ইন সম্পন্ন করতে চালিয�
 msgid "Continue to import"
 msgstr "ইমপোর্টে চালিয়ে যান"
 
+#. placeholder {0}: activeProviderEntry.label
+#: packages/admin/src/components/LoginPage.tsx:222
+msgid "Continue with {0}."
+msgstr ""
+
 #: packages/admin/src/components/auth/PasskeyRegistration.tsx:673
 msgid "Continue with another device"
 msgstr "অন্য ডিভাইস দিয়ে চালিয়ে যান"
@@ -4665,7 +4670,7 @@ msgstr "ডোমেইন সরানো হয়েছে"
 msgid "Domain updated"
 msgstr "ডোমেইন আপডেট করা হয়েছে"
 
-#: packages/admin/src/components/LoginPage.tsx:334
+#: packages/admin/src/components/LoginPage.tsx:344
 msgid "Don't have an account? <0>Sign up</0>"
 msgstr "অ্যাকাউন্ট নেই? <0>সাইন আপ করুন</0>"
 
@@ -5355,7 +5360,7 @@ msgstr ""
 msgid "Enter URL..."
 msgstr "URL লিখুন..."
 
-#: packages/admin/src/components/LoginPage.tsx:327
+#: packages/auth-atproto/src/admin.tsx:44
 msgid "Enter your handle to sign in."
 msgstr "সাইন ইন করতে আপনার হ্যান্ডেল লিখুন।"
 
@@ -7949,7 +7954,7 @@ msgid "Landscape"
 msgstr "ল্যান্ডস্কেপ"
 
 #: packages/admin/src/components/editor/CodeBlockNode.tsx:286
-#: packages/admin/src/components/LoginPage.tsx:347
+#: packages/admin/src/components/LoginPage.tsx:357
 #: packages/admin/src/components/Settings.tsx:132
 #: packages/admin/src/components/Settings.tsx:142
 #: packages/admin/src/components/Settings.tsx:156
@@ -9964,7 +9969,7 @@ msgid "or connect by URL"
 msgstr "অথবা URL দিয়ে সংযুক্ত করুন"
 
 #: packages/admin/src/components/InviteAcceptPage.tsx:96
-#: packages/admin/src/components/LoginPage.tsx:263
+#: packages/admin/src/components/LoginPage.tsx:279
 #: packages/admin/src/components/SetupWizard.tsx:368
 msgid "Or continue with"
 msgstr "অথবা এগুলো দিয়ে চালিয়ে যান"
@@ -12748,28 +12753,28 @@ msgstr "বরং সাইন ইন করুন"
 msgid "Sign in to {siteName}"
 msgstr "{siteName}-এ সাইন ইন করুন"
 
-#: packages/admin/src/components/LoginPage.tsx:234
+#: packages/admin/src/components/LoginPage.tsx:250
 msgid "Sign in to your site"
 msgstr "আপনার সাইটে সাইন ইন করুন"
 
-#. placeholder {0}: authProviderList.find((p) => p.id === activeProvider)?.label ?? activeProvider
+#. placeholder {0}: activeProviderEntry.label ?? activeProvider
 #. placeholder {0}: provider.label
-#: packages/admin/src/components/LoginPage.tsx:233
+#: packages/admin/src/components/LoginPage.tsx:249
 #: packages/admin/src/components/SetupWizard.tsx:326
 msgid "Sign in with {0}"
 msgstr "{0} দিয়ে সাইন ইন করুন"
 
-#: packages/admin/src/components/LoginPage.tsx:231
+#: packages/admin/src/components/LoginPage.tsx:247
 #: packages/admin/src/components/MagicLinkConfirmPage.tsx:63
 msgid "Sign in with email"
 msgstr "ইমেইল দিয়ে সাইন ইন করুন"
 
-#: packages/admin/src/components/LoginPage.tsx:292
+#: packages/admin/src/components/LoginPage.tsx:308
 msgid "Sign in with email link"
 msgstr "ইমেইল লিঙ্ক দিয়ে সাইন ইন করুন"
 
 #: packages/admin/src/components/auth/PasskeyLogin.tsx:134
-#: packages/admin/src/components/LoginPage.tsx:254
+#: packages/admin/src/components/LoginPage.tsx:270
 msgid "Sign in with Passkey"
 msgstr "পাসকি দিয়ে সাইন ইন করুন"
 
@@ -15060,7 +15065,7 @@ msgstr "URL ব্যবহার করুন"
 msgid "Use your device's biometric authentication, security key, or PIN to sign in."
 msgstr "সাইন ইন করতে আপনার ডিভাইসের বায়োমেট্রিক প্রমাণীকরণ, সিকিউরিটি কী বা PIN ব্যবহার করুন।"
 
-#: packages/admin/src/components/LoginPage.tsx:328
+#: packages/admin/src/components/LoginPage.tsx:224
 msgid "Use your registered passkey to sign in securely."
 msgstr "নিরাপদে সাইন ইন করতে আপনার নিবন্ধিত পাসকি ব্যবহার করুন।"
 
@@ -15333,7 +15338,7 @@ msgstr "{0}-এ কোনো WordPress সাইটের সাথে সংয
 msgid "We'll check what import options are available for your site."
 msgstr "আপনার সাইটের জন্য কোন কোন ইমপোর্ট অপশন উপলব্ধ তা আমরা যাচাই করব।"
 
-#: packages/admin/src/components/LoginPage.tsx:325
+#: packages/admin/src/components/LoginPage.tsx:217
 msgid "We'll send you a link to sign in without a password."
 msgstr "পাসওয়ার্ড ছাড়াই সাইন ইন করার জন্য আমরা আপনাকে একটি লিঙ্ক পাঠাব।"
 
