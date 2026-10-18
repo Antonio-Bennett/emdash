@@ -13,6 +13,7 @@ import {
 } from "./review-merge.js";
 import type { ReviewPlan } from "./review-model.js";
 import type { ReviewResult } from "./review-schema.js";
+import { DEFAULT_MAX_SUGGESTIONS, scopeReview, type ChangedLines } from "./review-scope.js";
 
 const WORKERS_AI_REVIEW_TIMEOUT_MS = 30 * 60_000;
 const GATEWAY_REVIEW_TIMEOUT_MS = 15 * 60_000;
@@ -146,10 +147,40 @@ function footer(runs: readonly ReviewerRun[], mergeModel: string | undefined, me
 		: `${sentence} ${list(unavailable)} ${unavailable.length === 1 ? "was" : "were"} unavailable.`;
 }
 
+export interface ReviewPanelOptions {
+	readonly priorReview?: string;
+	readonly signal?: AbortSignal;
+	/** Lines changed since the last reviewed head, for a scoped follow-up review. */
+	readonly changed?: ChangedLines;
+	readonly maxSuggestions?: number;
+	/** Extra sentence for the review footer. */
+	readonly footerNote?: string;
+}
+
+function limitFindings(
+	result: ReviewResult,
+	options: ReviewPanelOptions,
+	deps: ReviewPanelDeps,
+): ReviewResult {
+	const scoped = scopeReview(result, {
+		maxSuggestions: options.maxSuggestions ?? DEFAULT_MAX_SUGGESTIONS,
+		...(options.changed ? { changed: options.changed } : {}),
+	});
+	deps.log("review scope filter", {
+		followUp: Boolean(options.changed),
+		droppedOutsideChange: scoped.droppedOutsideChange,
+		markedMissedEarlier: scoped.markedMissedEarlier,
+		droppedOverLimit: scoped.droppedOverLimit,
+		verdict: scoped.result.verdict,
+		findingCount: scoped.result.findings.length,
+	});
+	return scoped.result;
+}
+
 export async function runReviewPanel(
 	plan: ReviewPlan,
 	deps: ReviewPanelDeps,
-	options: { readonly priorReview?: string; readonly signal?: AbortSignal } = {},
+	options: ReviewPanelOptions = {},
 ): Promise<ReviewPanelOutcome> {
 	const runs = await Promise.all(
 		plan.reviewers.map((model) => runReviewer(model, deps, options.signal)),
@@ -162,7 +193,15 @@ export async function runReviewPanel(
 
 	if (runs.length === 1) {
 		deps.log("review merge path", { mergePath: "only_reviewer" });
-		return { result: first.result, runs, mergePath: "only_reviewer" };
+		const limited = limitFindings(first.result, options, deps);
+		const soloFooter = options.changed
+			? `Follow-up review by \`${first.reviewer}\`, scoped to the changes since the last review.`
+			: options.footerNote;
+		return {
+			result: soloFooter ? withReviewFooter(limited, soloFooter) : limited,
+			runs,
+			mergePath: "only_reviewer",
+		};
 	}
 
 	const startedAt = Date.now();
@@ -182,7 +221,10 @@ export async function runReviewPanel(
 			mergeUsage = response.usage;
 			return parseJsonObject(response.data);
 		},
-		options.priorReview ? { priorReview: options.priorReview } : {},
+		{
+			...(options.priorReview ? { priorReview: options.priorReview } : {}),
+			followUp: Boolean(options.changed),
+		},
 	);
 	const mergePath: MergePath = outcome.source === "single" ? "single_reviewer" : outcome.source;
 	deps.log("review merge path", {
@@ -198,7 +240,12 @@ export async function runReviewPanel(
 		...(outcome.error ? { error: outcome.error.slice(0, 500) } : {}),
 	});
 	return {
-		result: withReviewFooter(outcome.result, footer(runs, mergeModel, outcome.source === "merged")),
+		result: withReviewFooter(
+			limitFindings(outcome.result, options, deps),
+			[footer(runs, mergeModel, outcome.source === "merged"), options.footerNote]
+				.filter(Boolean)
+				.join(" "),
+		),
 		runs,
 		mergePath,
 	};

@@ -47,6 +47,7 @@ import {
 	type AcceptedDesign,
 	type GitHubToken,
 } from "../lib/github.js";
+import { followUpHead } from "../lib/rereview.js";
 import { REVIEW_COMPACTION } from "../lib/review-compaction.js";
 import { omitReviewArtifacts } from "../lib/review-context.js";
 import { formatReviewFailureSummary } from "../lib/review-failure.js";
@@ -55,6 +56,12 @@ import { linkedIssueSections, type LinkedIssue } from "../lib/review-linked-issu
 import { completeWithGateway, reviewPlan } from "../lib/review-model.js";
 import { MODEL_REVIEW_STAGE_LIMIT_MS, runReviewPanel } from "../lib/review-panel.js";
 import { reviewResultSchema, type ReviewResult } from "../lib/review-schema.js";
+import {
+	followUpMaxLines,
+	followUpScope,
+	maxSuggestions,
+	type ChangedLines,
+} from "../lib/review-scope.js";
 import {
 	getReviewWatchdog,
 	withStageHeartbeats,
@@ -81,10 +88,15 @@ const reviewPayloadSchema = v.object({
 	expectedRunId: v.optional(v.string()),
 	deliveryId: v.optional(v.string()),
 	checkRunId: v.optional(v.number()),
+	// Set by the re-review scheduler: review only what changed since priorHeadSha.
+	reviewMode: v.optional(v.picklist(["full", "scoped"])),
+	priorHeadSha: v.optional(v.string()),
 	// Set only by the local evaluation runner, which has no token to fetch them.
 	linkedIssues: v.optional(
 		v.array(v.object({ number: v.number(), title: v.string(), body: v.string() })),
 	),
+	priorReview: v.optional(v.string()),
+	interHeadDiff: v.optional(v.string()),
 });
 
 async function coordinatedToken(env: Env, consumer: string): Promise<GitHubToken> {
@@ -97,6 +109,7 @@ type ReviewPayload = v.InferOutput<typeof reviewPayloadSchema>;
 
 const REPO_DIR = "/repo";
 const DIFF_PATH = `${REPO_DIR}/.flue-pr.diff`;
+const FOLLOW_UP_DIFF_PATH = `${REPO_DIR}/.flue-follow-up.diff`;
 const HYDRATED = `${REPO_DIR}/.flue-hydrated`;
 
 const NAME = /^[A-Za-z0-9._-]+$/;
@@ -125,6 +138,7 @@ function assertSafe(payload: ReviewPayload): void {
 	for (const [key, value] of [
 		["baseSha", payload.baseSha],
 		["headSha", payload.headSha],
+		["priorHeadSha", payload.priorHeadSha],
 	] as const) {
 		if (value !== undefined && !SHA.test(value))
 			throw new Error(`payload.${key} is not a full SHA`);
@@ -169,11 +183,26 @@ const reviewAgent = defineAgent<Env>(({ env }) => {
 	};
 });
 
+function followUpSection(priorHeadSha: string): string[] {
+	return [
+		"",
+		"## Follow-up review",
+		"",
+		`This is an automatic follow-up review of the author's changes since your last review, at ${priorHeadSha}. The diff from that head to this one is at ${FOLLOW_UP_DIFF_PATH}; the full PR diff is still at ${DIFF_PATH}.`,
+		"",
+		"- Check whether each earlier finding is addressed or reasonably answered, and whether the new changes introduce a defect.",
+		"- Do not look for new issues in code that has not changed since the last review.",
+		"- An author's reply to a finding settles it: do not reopen it.",
+		"- When the earlier findings are addressed, a clean review with no findings is the expected result.",
+	];
+}
+
 function buildPrContext(
 	payload: ReviewPayload,
 	priorReview?: string,
 	acceptedDesign?: AcceptedDesign,
 	linkedIssues: readonly LinkedIssue[] = [],
+	followUpFrom?: string,
 ): string {
 	const lines = [
 		`PR #${payload.prNumber} in ${payload.owner}/${payload.repo}.`,
@@ -199,6 +228,7 @@ function buildPrContext(
 	if (priorReview) {
 		lines.push("", "## Prior review context (this is a re-review)", "", priorReview);
 	}
+	if (followUpFrom) lines.push(...followUpSection(followUpFrom));
 	return lines.join("\n");
 }
 
@@ -344,7 +374,7 @@ async function run(context: ActionContext<typeof reviewPayloadSchema>): Promise<
 	// workspace. Without app creds (local dev) we skip posting and return.
 	const creds = readAppCreds(env);
 	let token: GitHubToken | undefined;
-	let priorReview: string | undefined;
+	let priorReview = payload.priorReview;
 	let acceptedDesign: AcceptedDesign | undefined;
 	let linkedIssues: readonly LinkedIssue[] = payload.linkedIssues ?? [];
 	let reactionId: number | undefined;
@@ -421,6 +451,40 @@ async function run(context: ActionContext<typeof reviewPayloadSchema>): Promise<
 			);
 			await context.harness.fs.writeFile(DIFF_PATH, elideLargeDiffSections(diff));
 
+			let followUpFrom = followUpHead(activePayload, priorReview);
+			let changed: ChangedLines | undefined;
+			let largeFollowUp: { lines: number; maxLines: number } | undefined;
+			if (followUpFrom) {
+				const followUpDiff =
+					activePayload.interHeadDiff ??
+					(await fetchUnifiedDiff(
+						activePayload.owner,
+						activePayload.repo,
+						activePayload.prNumber,
+						token,
+						followUpFrom,
+						revision.headSha,
+					));
+				const maxLines = followUpMaxLines(env);
+				const scope = followUpScope(diff, followUpDiff, maxLines);
+				logReviewEvent("log", activePayload, runId, "follow-up scope chosen", {
+					priorHeadSha: followUpFrom,
+					changedLines: scope.lines,
+					maxLines,
+					reviewMode: scope.scoped ? "scoped" : "full",
+				});
+				if (scope.scoped) {
+					changed = scope.changed;
+					await context.harness.fs.writeFile(
+						FOLLOW_UP_DIFF_PATH,
+						elideLargeDiffSections(followUpDiff),
+					);
+				} else {
+					largeFollowUp = { lines: scope.lines, maxLines };
+					followUpFrom = undefined;
+				}
+			}
+
 			stage = "model_review";
 			if (
 				!(await reportStage(
@@ -434,8 +498,14 @@ async function run(context: ActionContext<typeof reviewPayloadSchema>): Promise<
 			) {
 				throw new Error("Review attempt is no longer active");
 			}
-			const plan = reviewPlan(env);
-			const prContext = buildPrContext(activePayload, priorReview, acceptedDesign, linkedIssues);
+			const plan = reviewPlan(env, { followUp: Boolean(followUpFrom) });
+			const prContext = buildPrContext(
+				activePayload,
+				priorReview,
+				acceptedDesign,
+				linkedIssues,
+				followUpFrom,
+			);
 			const watchdog =
 				activePayload.attemptId && activePayload.checkRunId !== undefined
 					? getReviewWatchdog(env, activePayload.attemptId)
@@ -479,7 +549,17 @@ async function run(context: ActionContext<typeof reviewPayloadSchema>): Promise<
 							log: (message, fields) =>
 								logReviewEvent("log", activePayload, runId, message, fields),
 						},
-						{ ...(priorReview ? { priorReview } : {}), signal },
+						{
+							...(priorReview ? { priorReview } : {}),
+							...(changed ? { changed } : {}),
+							...(largeFollowUp
+								? {
+										footerNote: `The change since the last review (${largeFollowUp.lines} lines) was too large for a scoped follow-up, so this is a full review.`,
+									}
+								: {}),
+							maxSuggestions: maxSuggestions(env),
+							signal,
+						},
 					),
 				{
 					maxMs: MODEL_REVIEW_STAGE_LIMIT_MS,
@@ -495,6 +575,8 @@ async function run(context: ActionContext<typeof reviewPayloadSchema>): Promise<
 			logReviewEvent("log", activePayload, runId, "review model result received", {
 				hasToken: Boolean(token),
 				mergePath,
+				reviewMode: followUpFrom ? "scoped" : "full",
+				priorHeadSha: followUpFrom,
 				reviewers: plan.reviewers,
 				linkedIssueCount: linkedIssues.length,
 				verdict: data.verdict,
