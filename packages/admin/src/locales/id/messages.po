@@ -18,7 +18,7 @@ msgstr ""
 msgid " (default)"
 msgstr " (bawaan)"
 
-#: packages/admin/src/components/MenuEditor.tsx:635
+#: packages/admin/src/components/MenuEditor.tsx:634
 msgid " (opens in new window)"
 msgstr " (buka di jendela baru)"
 
@@ -1231,7 +1231,7 @@ msgstr "Aktif v{0}"
 
 #: packages/admin/src/components/AllowedTypesEditor.tsx:174
 #: packages/admin/src/components/BylineCreditsEditor.tsx:402
-#: packages/admin/src/components/MenuEditor.tsx:551
+#: packages/admin/src/components/MenuEditor.tsx:550
 msgid "Add"
 msgstr "Tambahkan"
 
@@ -1300,14 +1300,14 @@ msgstr "Tambahkan kolom setelah"
 msgid "Add column before"
 msgstr "Tambahkan kolom sebelum"
 
-#: packages/admin/src/components/MenuEditor.tsx:482
-#: packages/admin/src/components/MenuEditor.tsx:607
+#: packages/admin/src/components/MenuEditor.tsx:481
+#: packages/admin/src/components/MenuEditor.tsx:606
 msgid "Add Content"
 msgstr "Tambahkan Konten"
 
-#: packages/admin/src/components/MenuEditor.tsx:494
-#: packages/admin/src/components/MenuEditor.tsx:501
-#: packages/admin/src/components/MenuEditor.tsx:610
+#: packages/admin/src/components/MenuEditor.tsx:493
+#: packages/admin/src/components/MenuEditor.tsx:500
+#: packages/admin/src/components/MenuEditor.tsx:609
 msgid "Add Custom Link"
 msgstr "Tambah Tautan Kustom"
 
@@ -1368,7 +1368,7 @@ msgstr "Tambahkan Item"
 msgid "Add link"
 msgstr "Tambahkan tautan"
 
-#: packages/admin/src/components/MenuEditor.tsx:600
+#: packages/admin/src/components/MenuEditor.tsx:599
 msgid "Add links to build your navigation menu"
 msgstr "Tambahkan tautan untuk membangun menu navigasi Anda"
 
@@ -1520,7 +1520,7 @@ msgstr "Gambar ditambahkan"
 msgid "Added:"
 msgstr "Ditambahkan:"
 
-#: packages/admin/src/components/MenuEditor.tsx:551
+#: packages/admin/src/components/MenuEditor.tsx:550
 #: packages/admin/src/components/settings/AllowedDomainsSettings.tsx:315
 msgid "Adding..."
 msgstr "Menambahkan..."
@@ -2168,7 +2168,7 @@ msgstr "Kembali"
 #: packages/admin/src/components/FieldEditor.tsx:673
 #: packages/admin/src/components/MediaDetailPanel.tsx:1816
 #: packages/admin/src/components/MediaLibrary.tsx:747
-#: packages/admin/src/components/MenuEditor.tsx:405
+#: packages/admin/src/components/MenuEditor.tsx:404
 #: packages/admin/src/components/WordPressImport.tsx:1564
 #: packages/admin/src/components/WordPressImport.tsx:2581
 msgid "Back"
@@ -2213,7 +2213,7 @@ msgstr "Kembali ke Pustaka utama"
 msgid "Back to marketplace"
 msgstr "Kembali ke pemasaran"
 
-#: packages/admin/src/components/MenuEditor.tsx:403
+#: packages/admin/src/components/MenuEditor.tsx:402
 msgid "Back to menus"
 msgstr "Kembali ke menu"
 
@@ -2521,9 +2521,9 @@ msgstr "Dapat melihat konten"
 #: packages/admin/src/components/MediaDetailPanel.tsx:1858
 #: packages/admin/src/components/MediaFolderDialog.tsx:152
 #: packages/admin/src/components/MediaPickerModal.tsx:1599
-#: packages/admin/src/components/MenuEditor.tsx:464
-#: packages/admin/src/components/MenuEditor.tsx:548
-#: packages/admin/src/components/MenuEditor.tsx:753
+#: packages/admin/src/components/MenuEditor.tsx:463
+#: packages/admin/src/components/MenuEditor.tsx:547
+#: packages/admin/src/components/MenuEditor.tsx:752
 #: packages/admin/src/components/MenuList.tsx:184
 #: packages/admin/src/components/PluginManager.tsx:808
 #: packages/admin/src/components/PortableTextEditor.tsx:5735
@@ -3056,15 +3056,15 @@ msgstr "Klik tautan ini untuk masuk ke {siteName}:"
 #: packages/admin/src/components/MediaPickerModal.tsx:1010
 #: packages/admin/src/components/MediaPickerModal.tsx:1017
 #: packages/admin/src/components/MediaUploadDialog.tsx:237
-#: packages/admin/src/components/MenuEditor.tsx:433
-#: packages/admin/src/components/MenuEditor.tsx:439
-#: packages/admin/src/components/MenuEditor.tsx:443
-#: packages/admin/src/components/MenuEditor.tsx:504
-#: packages/admin/src/components/MenuEditor.tsx:510
-#: packages/admin/src/components/MenuEditor.tsx:514
-#: packages/admin/src/components/MenuEditor.tsx:699
-#: packages/admin/src/components/MenuEditor.tsx:705
-#: packages/admin/src/components/MenuEditor.tsx:709
+#: packages/admin/src/components/MenuEditor.tsx:432
+#: packages/admin/src/components/MenuEditor.tsx:438
+#: packages/admin/src/components/MenuEditor.tsx:442
+#: packages/admin/src/components/MenuEditor.tsx:503
+#: packages/admin/src/components/MenuEditor.tsx:509
+#: packages/admin/src/components/MenuEditor.tsx:513
+#: packages/admin/src/components/MenuEditor.tsx:698
+#: packages/admin/src/components/MenuEditor.tsx:704
+#: packages/admin/src/components/MenuEditor.tsx:708
 #: packages/admin/src/components/MenuList.tsx:145
 #: packages/admin/src/components/PortableTextEditor.tsx:2676
 #: packages/admin/src/components/PortableTextEditor.tsx:2682
@@ -3980,12 +3980,12 @@ msgstr "Salinan terpangkas dibuat."
 msgid "CSS"
 msgstr "CSS"
 
-#: packages/admin/src/components/MenuEditor.tsx:540
-#: packages/admin/src/components/MenuEditor.tsx:738
+#: packages/admin/src/components/MenuEditor.tsx:539
+#: packages/admin/src/components/MenuEditor.tsx:737
 msgid "CSS classes"
 msgstr "Kelas CSS"
 
-#: packages/admin/src/components/MenuEditor.tsx:639
+#: packages/admin/src/components/MenuEditor.tsx:638
 msgid "CSS classes:"
 msgstr "Kelas CSS:"
 
@@ -4136,7 +4136,7 @@ msgstr "Didefinisikan dalam kode"
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:363
 #: packages/admin/src/components/MediaDetailPanel.tsx:1827
 #: packages/admin/src/components/MediaDetailPanel.tsx:1931
-#: packages/admin/src/components/MenuEditor.tsx:672
+#: packages/admin/src/components/MenuEditor.tsx:671
 #: packages/admin/src/components/MenuList.tsx:235
 #: packages/admin/src/components/Redirects.tsx:616
 #: packages/admin/src/components/RelationDeleteDialog.tsx:40
@@ -4889,7 +4889,7 @@ msgstr "Versi tersimpan paling awal"
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:352
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:353
 #: packages/admin/src/components/MenuCard.tsx:59
-#: packages/admin/src/components/MenuEditor.tsx:667
+#: packages/admin/src/components/MenuEditor.tsx:666
 #: packages/admin/src/components/Sections.tsx:439
 #: packages/admin/src/components/Shell.tsx:86
 #: packages/admin/src/components/TranslationsPanel.tsx:95
@@ -4997,11 +4997,11 @@ msgstr "Sunting penguncian"
 msgid "Edit media alt text, captions, and focal points"
 msgstr "Sunting teks alt, keterangan, dan titik fokus media"
 
-#: packages/admin/src/components/MenuEditor.tsx:696
+#: packages/admin/src/components/MenuEditor.tsx:695
 msgid "Edit Menu Item"
 msgstr "Sunting Item Menu"
 
-#: packages/admin/src/components/MenuEditor.tsx:474
+#: packages/admin/src/components/MenuEditor.tsx:473
 msgid "Edit menu items"
 msgstr "Sunting item menu"
 
@@ -5313,8 +5313,8 @@ msgstr "Masukkan zona waktu yang dikenali untuk disimpan"
 msgid "Enter a slug."
 msgstr "Masukkan slug."
 
-#: packages/admin/src/components/MenuEditor.tsx:527
-#: packages/admin/src/components/MenuEditor.tsx:724
+#: packages/admin/src/components/MenuEditor.tsx:526
+#: packages/admin/src/components/MenuEditor.tsx:723
 msgid "Enter a URL (https://…) or a relative path (/…)"
 msgstr "Masukkan URL (https://…) atau jalur relatif (/…)"
 
@@ -5390,9 +5390,9 @@ msgstr "entri di sisi yang ditautkan"
 msgid "entry on the linking side"
 msgstr "entri di sisi penautan"
 
-#: packages/admin/src/components/MenuEditor.tsx:159
-#: packages/admin/src/components/MenuEditor.tsx:227
-#: packages/admin/src/components/MenuEditor.tsx:267
+#: packages/admin/src/components/MenuEditor.tsx:158
+#: packages/admin/src/components/MenuEditor.tsx:226
+#: packages/admin/src/components/MenuEditor.tsx:266
 #: packages/admin/src/components/SetupWizard.tsx:606
 #: packages/admin/src/components/TaxonomyManager.tsx:1206
 #: packages/admin/src/components/Widgets.tsx:772
@@ -7184,7 +7184,7 @@ msgstr "Simpan entri saat seseorang sedang menyuntingnya, dan tolak penulis lain
 msgid "Holds an entry ID. Set a target collection under Content Types to pick entries instead."
 msgstr "Menyimpan ID entri. Atur koleksi target di bawah Tipe Konten untuk memilih entri sebagai pengganti."
 
-#: packages/admin/src/components/MenuEditor.tsx:520
+#: packages/admin/src/components/MenuEditor.tsx:519
 msgid "Home"
 msgstr "Beranda"
 
@@ -7250,7 +7250,7 @@ msgstr "Hanya HTML, dibersihkan, menggunakan gaya situs Anda."
 msgid "https://example.com"
 msgstr "https://example.com"
 
-#: packages/admin/src/components/MenuEditor.tsx:528
+#: packages/admin/src/components/MenuEditor.tsx:527
 msgid "https://example.com or /about"
 msgstr "https://example.com atau /about"
 
@@ -7813,15 +7813,15 @@ msgstr "Miring"
 msgid "Item {0}"
 msgstr "Item {0}"
 
-#: packages/admin/src/components/MenuEditor.tsx:209
+#: packages/admin/src/components/MenuEditor.tsx:208
 msgid "Item added"
 msgstr "Item ditambahkan"
 
-#: packages/admin/src/components/MenuEditor.tsx:221
+#: packages/admin/src/components/MenuEditor.tsx:220
 msgid "Item deleted"
 msgstr "Item dihapus"
 
-#: packages/admin/src/components/MenuEditor.tsx:246
+#: packages/admin/src/components/MenuEditor.tsx:245
 msgid "Item updated"
 msgstr "Item diperbarui"
 
@@ -7926,9 +7926,9 @@ msgstr "Kotlin"
 #: packages/admin/src/components/BylineFieldEditor.tsx:226
 #: packages/admin/src/components/FieldEditor.tsx:837
 #: packages/admin/src/components/FieldEditor.tsx:1249
-#: packages/admin/src/components/MenuEditor.tsx:450
-#: packages/admin/src/components/MenuEditor.tsx:520
-#: packages/admin/src/components/MenuEditor.tsx:716
+#: packages/admin/src/components/MenuEditor.tsx:449
+#: packages/admin/src/components/MenuEditor.tsx:519
+#: packages/admin/src/components/MenuEditor.tsx:715
 #: packages/admin/src/components/MenuList.tsx:153
 #: packages/admin/src/components/TaxonomyManager.tsx:1034
 #: packages/admin/src/components/Widgets.tsx:437
@@ -8250,7 +8250,7 @@ msgstr "Memuat media"
 msgid "Loading media usage tracking settings…"
 msgstr "Memuat pengaturan pelacakan penggunaan media…"
 
-#: packages/admin/src/components/MenuEditor.tsx:381
+#: packages/admin/src/components/MenuEditor.tsx:380
 msgid "Loading menu..."
 msgstr "Memuat menu..."
 
@@ -8681,7 +8681,7 @@ msgstr "Menu"
 
 #. placeholder {0}: translated.label
 #. placeholder {1}: translated.locale.toUpperCase()
-#: packages/admin/src/components/MenuEditor.tsx:148
+#: packages/admin/src/components/MenuEditor.tsx:147
 msgid "Menu \"{0}\" ({1}) created."
 msgstr "Menu \"{0}\" ({1}) dibuat."
 
@@ -8698,15 +8698,15 @@ msgstr "Menu dibuat"
 msgid "Menu deleted"
 msgstr "Menu dihapus"
 
-#: packages/admin/src/components/MenuEditor.tsx:209
+#: packages/admin/src/components/MenuEditor.tsx:208
 msgid "Menu item has been added."
 msgstr "Item menu telah ditambahkan."
 
-#: packages/admin/src/components/MenuEditor.tsx:222
+#: packages/admin/src/components/MenuEditor.tsx:221
 msgid "Menu item has been deleted."
 msgstr "Item menu telah dihapus."
 
-#: packages/admin/src/components/MenuEditor.tsx:247
+#: packages/admin/src/components/MenuEditor.tsx:246
 msgid "Menu item has been updated."
 msgstr "Item menu telah diperbarui."
 
@@ -8715,15 +8715,15 @@ msgstr "Item menu telah diperbarui."
 msgid "Menu items"
 msgstr "Item menu"
 
-#: packages/admin/src/components/MenuEditor.tsx:389
+#: packages/admin/src/components/MenuEditor.tsx:388
 msgid "Menu not found"
 msgstr "Menu tidak ditemukan"
 
-#: packages/admin/src/components/MenuEditor.tsx:262
+#: packages/admin/src/components/MenuEditor.tsx:261
 msgid "Menu order has been updated."
 msgstr "Urutan menu telah diperbarui."
 
-#: packages/admin/src/components/MenuEditor.tsx:174
+#: packages/admin/src/components/MenuEditor.tsx:173
 msgid "Menu renamed"
 msgstr "Menu diganti nama"
 
@@ -8925,7 +8925,7 @@ msgid "Move {title} to trash"
 msgstr "Pindahkan {title} ke tempat sampah"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:212
-#: packages/admin/src/components/MenuEditor.tsx:660
+#: packages/admin/src/components/MenuEditor.tsx:659
 #: packages/admin/src/components/TaxonomyManager.tsx:345
 msgid "Move down"
 msgstr "Pindahkan ke bawah"
@@ -8969,7 +8969,7 @@ msgid "Move to Trash?"
 msgstr "Pindahkan ke Tempat Sampah?"
 
 #: packages/admin/src/components/editor/BlockMenu.tsx:206
-#: packages/admin/src/components/MenuEditor.tsx:651
+#: packages/admin/src/components/MenuEditor.tsx:650
 #: packages/admin/src/components/TaxonomyManager.tsx:337
 msgid "Move up"
 msgstr "Pindahkan ke atas"
@@ -9226,10 +9226,10 @@ msgstr "Taksonomi baru"
 msgid "New Taxonomy"
 msgstr "Taksonomi Baru"
 
-#: packages/admin/src/components/MenuEditor.tsx:534
-#: packages/admin/src/components/MenuEditor.tsx:537
-#: packages/admin/src/components/MenuEditor.tsx:732
-#: packages/admin/src/components/MenuEditor.tsx:735
+#: packages/admin/src/components/MenuEditor.tsx:533
+#: packages/admin/src/components/MenuEditor.tsx:536
+#: packages/admin/src/components/MenuEditor.tsx:731
+#: packages/admin/src/components/MenuEditor.tsx:734
 msgid "New window"
 msgstr "Jendela baru"
 
@@ -9555,7 +9555,7 @@ msgstr "Tidak ada media tersedia dari penyedia ini."
 msgid "No media found"
 msgstr "Tidak ada media ditemukan"
 
-#: packages/admin/src/components/MenuEditor.tsx:599
+#: packages/admin/src/components/MenuEditor.tsx:598
 msgid "No menu items yet"
 msgstr "Belum ada item menu"
 
@@ -9572,7 +9572,7 @@ msgstr "Tidak ada minimum"
 msgid "No moderation (auto-approve all)"
 msgstr "Tidak ada moderasi (setujui otomatis semua)"
 
-#: packages/admin/src/components/MenuEditor.tsx:368
+#: packages/admin/src/components/MenuEditor.tsx:367
 msgid "No parent (top level)"
 msgstr "Tidak ada induk (tingkat teratas)"
 
@@ -9977,7 +9977,7 @@ msgstr "Atau unggah berkas ekspor"
 msgid "or upload directly"
 msgstr "atau unggah langsung"
 
-#: packages/admin/src/components/MenuEditor.tsx:261
+#: packages/admin/src/components/MenuEditor.tsx:260
 msgid "Order saved"
 msgstr "Urutan disimpan"
 
@@ -10075,7 +10075,7 @@ msgstr "Paragraf disisipkan setelah tabel"
 msgid "Paragraph inserted before table"
 msgstr "Paragraf disisipkan sebelum tabel"
 
-#: packages/admin/src/components/MenuEditor.tsx:745
+#: packages/admin/src/components/MenuEditor.tsx:744
 #: packages/admin/src/components/TaxonomyManager.tsx:815
 msgid "Parent"
 msgstr "Induk"
@@ -11240,8 +11240,8 @@ msgstr "Ganti nama"
 msgid "Rename {0}"
 msgstr "Ganti nama {0}"
 
-#: packages/admin/src/components/MenuEditor.tsx:423
-#: packages/admin/src/components/MenuEditor.tsx:430
+#: packages/admin/src/components/MenuEditor.tsx:422
+#: packages/admin/src/components/MenuEditor.tsx:429
 msgid "Rename menu"
 msgstr "Ganti nama menu"
 
@@ -11772,10 +11772,10 @@ msgstr "Rust"
 msgid "Same as current version"
 msgstr "Sama seperti versi saat ini"
 
-#: packages/admin/src/components/MenuEditor.tsx:534
-#: packages/admin/src/components/MenuEditor.tsx:536
-#: packages/admin/src/components/MenuEditor.tsx:732
-#: packages/admin/src/components/MenuEditor.tsx:734
+#: packages/admin/src/components/MenuEditor.tsx:533
+#: packages/admin/src/components/MenuEditor.tsx:535
+#: packages/admin/src/components/MenuEditor.tsx:731
+#: packages/admin/src/components/MenuEditor.tsx:733
 msgid "Same window"
 msgstr "Jendela sama"
 
@@ -11789,8 +11789,8 @@ msgstr "Konten sampel"
 #: packages/admin/src/components/editor/PluginBlockNode.tsx:402
 #: packages/admin/src/components/MediaDetailPanel.tsx:1889
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
-#: packages/admin/src/components/MenuEditor.tsx:467
-#: packages/admin/src/components/MenuEditor.tsx:756
+#: packages/admin/src/components/MenuEditor.tsx:466
+#: packages/admin/src/components/MenuEditor.tsx:755
 #: packages/admin/src/components/Redirects.tsx:193
 #: packages/admin/src/components/SaveButton.tsx:35
 #: packages/admin/src/components/Widgets.tsx:986
@@ -11882,8 +11882,8 @@ msgstr "Menyimpan koleksi di sini mengubah kolom ini menjadi pemilih entri. ID e
 #: packages/admin/src/components/FieldEditor.tsx:1396
 #: packages/admin/src/components/MediaDetailPanel.tsx:1889
 #: packages/admin/src/components/MediaFolderDialog.tsx:171
-#: packages/admin/src/components/MenuEditor.tsx:467
-#: packages/admin/src/components/MenuEditor.tsx:756
+#: packages/admin/src/components/MenuEditor.tsx:466
+#: packages/admin/src/components/MenuEditor.tsx:755
 #: packages/admin/src/components/PluginSettings.tsx:166
 #: packages/admin/src/components/PluginSettings.tsx:209
 #: packages/admin/src/components/Redirects.tsx:190
@@ -12563,8 +12563,8 @@ msgstr "Pengaturan SEO disimpan"
 msgid "SEO Title"
 msgstr "Judul SEO"
 
-#: packages/admin/src/components/MenuEditor.tsx:543
-#: packages/admin/src/components/MenuEditor.tsx:742
+#: packages/admin/src/components/MenuEditor.tsx:542
+#: packages/admin/src/components/MenuEditor.tsx:741
 msgid "Separate class names with spaces. Themes can use them to style the link."
 msgstr "Pisahkan nama kelas dengan spasi. Tema dapat menggunakannya untuk menata gaya tautan."
 
@@ -12713,7 +12713,7 @@ msgstr "Tampilkan token"
 msgid "Showing {pageShowingRange} of {0}"
 msgstr "Menampilkan {pageShowingRange} dari {0}"
 
-#: packages/admin/src/components/MenuEditor.tsx:455
+#: packages/admin/src/components/MenuEditor.tsx:454
 #: packages/admin/src/components/MenuList.tsx:159
 msgid "Shown in the admin. Some themes also show it on the site."
 msgstr "Ditampilkan di admin. Beberapa tema juga menampilkannya pada situs."
@@ -13293,8 +13293,8 @@ msgstr "Ambil alih"
 msgid "Taking over..."
 msgstr "Mengambil alih..."
 
-#: packages/admin/src/components/MenuEditor.tsx:531
-#: packages/admin/src/components/MenuEditor.tsx:729
+#: packages/admin/src/components/MenuEditor.tsx:530
+#: packages/admin/src/components/MenuEditor.tsx:728
 msgid "Target"
 msgstr "Target"
 
@@ -13590,7 +13590,7 @@ msgid "The menu has been deleted."
 msgstr "Menu telah dihapus."
 
 #. placeholder {0}: renamed.label
-#: packages/admin/src/components/MenuEditor.tsx:175
+#: packages/admin/src/components/MenuEditor.tsx:174
 msgid "The menu is now called \"{0}\"."
 msgstr "Menu sekarang dinamai \"{0}\"."
 
@@ -14408,7 +14408,7 @@ msgstr "Terjemahkan {0}"
 msgid "Translating..."
 msgstr "Menerjemahkan..."
 
-#: packages/admin/src/components/MenuEditor.tsx:147
+#: packages/admin/src/components/MenuEditor.tsx:146
 #: packages/admin/src/components/TaxonomyManager.tsx:1252
 #: packages/admin/src/components/TaxonomySidebar.tsx:778
 #: packages/admin/src/router.tsx:1618
@@ -14961,8 +14961,8 @@ msgstr "Mengunggah video…"
 #: packages/admin/src/components/BylineFieldEditor.tsx:49
 #: packages/admin/src/components/FieldEditor.tsx:474
 #: packages/admin/src/components/FieldEditor.tsx:1298
-#: packages/admin/src/components/MenuEditor.tsx:522
-#: packages/admin/src/components/MenuEditor.tsx:719
+#: packages/admin/src/components/MenuEditor.tsx:521
+#: packages/admin/src/components/MenuEditor.tsx:718
 msgid "URL"
 msgstr "URL"
 
