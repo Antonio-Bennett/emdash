@@ -1,6 +1,12 @@
+// One Durable Object per GitHub App installation, shared by every caller that
+// uses the installation's token: it paces requests from GitHub's rate-limit
+// headers, holds every caller back after a 403 or 429 until the reset, and
+// caches the installation token. Its storage is only this bookkeeping, so a
+// fresh instance starts with no backoff and mints a new token on first use.
+
 import { DurableObject } from "cloudflare:workers";
 
-import { mintInstallationToken, readAppCreds } from "./github.js";
+import { mintInstallationToken, readAppCreds, type GitHubRateLimitGate } from "./github.js";
 
 const STATE_KEY = "installation-rate-limit";
 const TOKEN_KEY = "installation-token";
@@ -30,46 +36,9 @@ export interface GitHubResponseMetadata {
 	readonly retryAfterAt: number | null;
 }
 
-export interface GitHubRateLimitGate {
-	permit(category: string, consumer: string): Promise<GitHubPermit>;
-	record(category: string, consumer: string, metadata: GitHubResponseMetadata): Promise<void>;
-	inspect(): Promise<RateLimitState | null>;
-	getInstallationToken(): Promise<string>;
-}
-
 interface CachedToken {
 	readonly token: string;
 	readonly expiresAt: number;
-}
-
-function finiteHeader(value: string | null): number | null {
-	if (value === null) return null;
-	const parsed = Number(value);
-	return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
-}
-
-export function parseGitHubResponseMetadata(
-	response: Response,
-	now = Date.now(),
-): GitHubResponseMetadata {
-	const resetSeconds = finiteHeader(response.headers.get("x-ratelimit-reset"));
-	const retryAfter = response.headers.get("retry-after")?.trim() ?? "";
-	let retryAfterAt: number | null = null;
-	if (retryAfter) {
-		const seconds = Number(retryAfter);
-		if (Number.isFinite(seconds) && seconds >= 0) retryAfterAt = now + seconds * 1_000;
-		else {
-			const parsed = Date.parse(retryAfter);
-			if (Number.isFinite(parsed)) retryAfterAt = parsed;
-		}
-	}
-	return {
-		status: response.status,
-		limit: finiteHeader(response.headers.get("x-ratelimit-limit")),
-		remaining: finiteHeader(response.headers.get("x-ratelimit-remaining")),
-		resetAt: resetSeconds === null ? null : resetSeconds * 1_000,
-		retryAfterAt,
-	};
 }
 
 function randomJitter(): number {
@@ -227,12 +196,4 @@ export class GitHubRateLimitDO extends DurableObject<Env> implements GitHubRateL
 		});
 		return token;
 	}
-
-	async debugSetInstallationToken(token: string, expiresAt: number): Promise<void> {
-		await this.ctx.storage.put<CachedToken>(TOKEN_KEY, { token, expiresAt });
-	}
-}
-
-export function githubRateLimitGate(env: Env): GitHubRateLimitGate {
-	return env.GITHUB_RATE_LIMIT.getByName(`installation:${env.GITHUB_APP_INSTALLATION_ID}`);
 }
