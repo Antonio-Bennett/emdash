@@ -1537,7 +1537,7 @@ msgstr "დამატებითი მონაცემები იმპ�
 msgid "Additional details"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "სანამ გააგრძელებთ:"
 msgid "Between {min} and {max}"
 msgstr "{min}-სა და {max}-ს შორის"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Bing-ის ვერიფიკაცია"
 
@@ -2666,7 +2666,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "ფავიკონის შეცვლა"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "სურათის შეცვლა"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "სიმბოლო გვერდის სათაურსა და საიტის სახელს შორის (მაგ., „ჩემი პოსტი | ჩემი საიტი“)"
 
@@ -4018,7 +4018,7 @@ msgstr "მორგებული"
 msgid "Custom Fields"
 msgstr "მორგებული ველები"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "robots.txt-ის მორგებული შიგთავსი. ნაგულისხმევის გამოსაყენებლად დატოვეთ ცარიელი."
 
@@ -4098,12 +4098,12 @@ msgstr "ნაგულისხმევი როლი"
 msgid "Default role:"
 msgstr "ნაგულისხმევი როლი:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "ნაგულისხმევი სოციალური სურათი"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "ნაგულისხმევი სოციალური სურათი"
 
@@ -4535,8 +4535,8 @@ msgstr "<0>{0}</0>-ის გამორთვა ხელს შეუშლ�
 msgid "Disabling..."
 msgstr "ითიშება..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Google-ის დადასტურება"
 
@@ -8753,11 +8753,11 @@ msgstr "არჩეული უჯრების გაერთიანე�
 msgid "Meta Description"
 msgstr "მეტა აღწერა"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "მეტა თეგის შიგთავსი Bing Webmaster Tools-ის დადასტურებისთვის"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "მეტა თეგის შიგთავსი Google Search Console-ის დადასტურებისთვის"
 
@@ -11049,7 +11049,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "მოცილება"
 
@@ -11698,8 +11698,8 @@ msgstr "მარჯვნივ"
 msgid "Risk score: {0}/100"
 msgstr "რისკის ქულა: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr ""
 msgid "Select dark mode variant for {label}"
 msgstr "{label}-ის მუქი რეჟიმის ვარიანტის არჩევა"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "ნაგულისხმევი სოციალური სურათის არჩევა"
 
@@ -12413,7 +12413,7 @@ msgstr "გალერეის სურათების არჩევა"
 msgid "Select image"
 msgstr "სურათის არჩევა"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "სურათის არჩევა"
 
@@ -13716,7 +13716,7 @@ msgstr "გამომცემლის იდენტობის დად�
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "მითითებული სურათი აღარ არის ხელმისაწვდომი. აირჩიეთ ახალი ან მოაცილეთ მითითება."
 
@@ -15064,7 +15064,7 @@ msgstr "შესასვლელად გამოიყენეთ მო�
 msgid "Use your registered passkey to sign in securely."
 msgstr "უსაფრთხოდ შესასვლელად გამოიყენეთ რეგისტრირებული პასკი."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "გამოიყენება Open Graph-ის სარეზერვო სურათად, როცა გვერდს საკუთარი არ აქვს. რეკომენდებული ზომა: 1200×630."
 

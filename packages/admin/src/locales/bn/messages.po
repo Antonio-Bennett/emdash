@@ -1537,7 +1537,7 @@ msgstr "ইমপোর্ট করার জন্য অতিরিক্ত
 msgid "Additional details"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "চালিয়ে যাওয়ার আগে:"
 msgid "Between {min} and {max}"
 msgstr "{min} থেকে {max}-এর মধ্যে"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Bing যাচাইকরণ"
 
@@ -2666,7 +2666,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "ফেভিকন পরিবর্তন করুন"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "ছবি পরিবর্তন করুন"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "পেজের শিরোনাম ও সাইটের নামের মাঝের অক্ষর (যেমন, \"My Post | My Site\")"
 
@@ -4018,7 +4018,7 @@ msgstr "কাস্টম"
 msgid "Custom Fields"
 msgstr "কাস্টম ফিল্ড"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "কাস্টম robots.txt কনটেন্ট। ডিফল্ট ব্যবহার করতে খালি রাখুন।"
 
@@ -4098,12 +4098,12 @@ msgstr "ডিফল্ট ভূমিকা"
 msgid "Default role:"
 msgstr "ডিফল্ট ভূমিকা:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "ডিফল্ট সোশ্যাল ছবি"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "ডিফল্ট সোশ্যাল ছবি"
 
@@ -4535,8 +4535,8 @@ msgstr "<0>{0}</0>-কে নিষ্ক্রিয় করলে পুন�
 msgid "Disabling..."
 msgstr "নিষ্ক্রিয় করা হচ্ছে..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Google যাচাইকরণ"
 
@@ -8753,11 +8753,11 @@ msgstr "নির্বাচিত সেলগুলো একত্র কর
 msgid "Meta Description"
 msgstr "মেটা বিবরণ"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Bing Webmaster Tools যাচাইয়ের জন্য মেটা ট্যাগের কনটেন্ট"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Google Search Console যাচাইয়ের জন্য মেটা ট্যাগের কনটেন্ট"
 
@@ -11049,7 +11049,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "সরান"
 
@@ -11698,8 +11698,8 @@ msgstr "ডান"
 msgid "Risk score: {0}/100"
 msgstr "ঝুঁকি স্কোর: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr ""
 msgid "Select dark mode variant for {label}"
 msgstr "{label}-এর জন্য ডার্ক মোড ভ্যারিয়েন্ট নির্বাচন করুন"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "ডিফল্ট সোশ্যাল ছবি নির্বাচন করুন"
 
@@ -12413,7 +12413,7 @@ msgstr "গ্যালারির ছবি নির্বাচন করু
 msgid "Select image"
 msgstr "ছবি নির্বাচন করুন"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "ছবি নির্বাচন করুন"
 
@@ -13716,7 +13716,7 @@ msgstr "প্রকাশকের পরিচয় যাচাই করা
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "রেফারেন্স করা ছবিটি আর পাওয়া যাচ্ছে না। নতুন একটি বেছে নিন অথবা রেফারেন্সটি সরান।"
 
@@ -15064,7 +15064,7 @@ msgstr "সাইন ইন করতে আপনার ডিভাইসে�
 msgid "Use your registered passkey to sign in securely."
 msgstr "নিরাপদে সাইন ইন করতে আপনার নিবন্ধিত পাসকি ব্যবহার করুন।"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "কোনো পেজে ছবি না থাকলে এটি ফলব্যাক Open Graph ছবি হিসেবে ব্যবহৃত হয়। প্রস্তাবিত আকার: 1200×630।"
 

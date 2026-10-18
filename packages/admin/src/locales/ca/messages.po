@@ -1537,7 +1537,7 @@ msgstr "Dades addicionals per importar."
 msgid "Additional details"
 msgstr "Detalls addicionals"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "Abans de continuar:"
 msgid "Between {min} and {max}"
 msgstr "Entre {min} i {max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Verificació de Bing"
 
@@ -2666,7 +2666,7 @@ msgstr "Canvia el domini"
 msgid "Change Favicon"
 msgstr "Canvia la icona del lloc"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "Canvia la imatge"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "S'han desat els canvis, però les pàgines en memòria cau encara poden mostrar {pluralLower} antics. Torna a provar d'actualitzar la memòria cau."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Caràcter entre el títol de la pàgina i el nom del lloc (p. ex. \"La meva entrada | El meu lloc\")"
 
@@ -4018,7 +4018,7 @@ msgstr "Personalitzat"
 msgid "Custom Fields"
 msgstr "Camps personalitzats"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Contingut personalitzat del robots.txt. Deixa-ho buit per utilitzar el valor per defecte."
 
@@ -4098,12 +4098,12 @@ msgstr "Rol per defecte"
 msgid "Default role:"
 msgstr "Rol per defecte:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "Imatge social per defecte"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "Imatge social per defecte"
 
@@ -4535,8 +4535,8 @@ msgstr "Si desactives <0>{0}</0>, no podrà iniciar la sessió fins que es torni
 msgid "Disabling..."
 msgstr "S'està desactivant..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr "Es publica"
 msgid "Goes live {countdown}"
 msgstr "Es publica {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Verificació de Google"
 
@@ -8753,11 +8753,11 @@ msgstr "Combina les cel·les seleccionades"
 msgid "Meta Description"
 msgstr "Meta descripció"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Contingut de l'etiqueta meta per a la verificació de Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Contingut de l'etiqueta meta per a la verificació de Google Search Console"
 
@@ -11049,7 +11049,7 @@ msgstr "visualEditing.removeImage"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "Treu"
 
@@ -11698,8 +11698,8 @@ msgstr "Dreta"
 msgid "Risk score: {0}/100"
 msgstr "Puntuació de risc: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr "Selecciona contingut"
 msgid "Select dark mode variant for {label}"
 msgstr "Selecciona la variant de mode fosc de {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "Selecciona la imatge social per defecte"
 
@@ -12413,7 +12413,7 @@ msgstr "Selecciona imatges de la galeria"
 msgid "Select image"
 msgstr "Selecciona una imatge"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "Selecciona una imatge"
 
@@ -13716,7 +13716,7 @@ msgstr "No es pot verificar la identitat de l'editor."
 msgid "The range has more entries than the calendar can show."
 msgstr "L'interval té més entrades de les que pot mostrar el calendari."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "La imatge referenciada ja no està disponible. Tria'n una de nova o treu la referència."
 
@@ -15064,7 +15064,7 @@ msgstr "Utilitza l'autenticació biomètrica, la clau de seguretat o el PIN del 
 msgid "Use your registered passkey to sign in securely."
 msgstr "Utilitza la teva clau d'accés registrada per iniciar la sessió de manera segura."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "S'utilitza com a imatge Open Graph alternativa quan una pàgina no en té. Mida recomanada: 1200×630."
 

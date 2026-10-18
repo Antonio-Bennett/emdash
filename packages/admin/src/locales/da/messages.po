@@ -1537,7 +1537,7 @@ msgstr "Yderligere data, der skal importeres."
 msgid "Additional details"
 msgstr "Yderligere oplysninger"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "Før du fortsætter:"
 msgid "Between {min} and {max}"
 msgstr "Mellem {min} og {max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Bing verifikation"
 
@@ -2666,7 +2666,7 @@ msgstr ""
 msgid "Change Favicon"
 msgstr "Skift favicon"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "Skift billede"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "Ændringerne blev gemt, men sider i cachen kan stadig vise de gamle {pluralLower}. Prøv at opdatere cachen igen."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Tegn mellem sidetitel og webstedsnavn (f.eks. \"Mit indlæg | Mit websted\")"
 
@@ -4018,7 +4018,7 @@ msgstr "Brugerdefineret"
 msgid "Custom Fields"
 msgstr "Brugerdefinerede felter"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Brugerdefineret indhold til robots.txt. Lad feltet være tomt for at bruge standarden."
 
@@ -4098,12 +4098,12 @@ msgstr "Standardrolle"
 msgid "Default role:"
 msgstr "Standardrolle:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "Standardbillede til sociale medier"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "Standardbillede til sociale medier"
 
@@ -4535,8 +4535,8 @@ msgstr "Hvis du deaktiverer <0>{0}</0>, kan personen ikke logge ind, før kontoe
 msgid "Disabling..."
 msgstr "Deaktiverer..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr ""
 msgid "Goes live {countdown}"
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Google verificering"
 
@@ -8753,11 +8753,11 @@ msgstr "Flet valgte celler"
 msgid "Meta Description"
 msgstr "Metabeskrivelse"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Meta tag indhold til verificering i Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Meta tag indhold til verificering i Google Search Console"
 
@@ -11049,7 +11049,7 @@ msgstr ""
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "Fjern"
 
@@ -11698,8 +11698,8 @@ msgstr "Højre"
 msgid "Risk score: {0}/100"
 msgstr "Risikoscore: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr "Vælg indhold"
 msgid "Select dark mode variant for {label}"
 msgstr "Vælg variant til mørk tilstand for {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "Vælg standardbillede til sociale medier"
 
@@ -12413,7 +12413,7 @@ msgstr "Vælg galleribilleder"
 msgid "Select image"
 msgstr "Vælg billede"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "Vælg billede"
 
@@ -13716,7 +13716,7 @@ msgstr "Udgiverens identitet kan ikke verificeres."
 msgid "The range has more entries than the calendar can show."
 msgstr ""
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "Det refererede billede er ikke længere tilgængeligt. Vælg et nyt, eller fjern referencen."
 
@@ -15064,7 +15064,7 @@ msgstr "Brug din enheds biometri, sikkerhedsnøgle eller pinkode til at logge in
 msgid "Use your registered passkey to sign in securely."
 msgstr "Brug din registrerede Passkey til at logge sikkert ind."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Bruges som fallback billede til Open Graph, når en side ikke har et. Anbefalet størrelse: 1200×630."
 

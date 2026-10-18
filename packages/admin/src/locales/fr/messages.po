@@ -1537,7 +1537,7 @@ msgstr "Données supplémentaires à importer."
 msgid "Additional details"
 msgstr "Détails supplémentaires"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "Avant de continuer :"
 msgid "Between {min} and {max}"
 msgstr "Entre {min} et {max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Vérification Bing"
 
@@ -2666,7 +2666,7 @@ msgstr "Changer de domaine"
 msgid "Change Favicon"
 msgstr "Modifier la favicon"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "Modifier l'image"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "Les modifications ont été enregistrées, mais les pages en cache peuvent encore afficher une version obsolète des {pluralLower}. Réessayez l’actualisation du cache."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Caractère entre le titre de la page et le nom du site (p. ex. « Mon article | Mon site »)"
 
@@ -4018,7 +4018,7 @@ msgstr "Personnalisé"
 msgid "Custom Fields"
 msgstr "Champs personnalisés"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Contenu robots.txt personnalisé. Laissez vide pour utiliser la valeur par défaut."
 
@@ -4098,12 +4098,12 @@ msgstr "Rôle par défaut"
 msgid "Default role:"
 msgstr "Rôle par défaut :"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "Image sociale par défaut"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "Image sociale par défaut"
 
@@ -4535,8 +4535,8 @@ msgstr "La désactivation de <0>{0}</0> les empêchera de se connecter jusqu'à 
 msgid "Disabling..."
 msgstr "Désactivation en cours..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr "Publication"
 msgid "Goes live {countdown}"
 msgstr "Publication {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Vérification Google"
 
@@ -8753,11 +8753,11 @@ msgstr "Fusionner les cellules sélectionnées"
 msgid "Meta Description"
 msgstr "Méta description"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Contenu des balises méta pour la vérification avec les outils pour les webmasters de Bing"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Contenu des balises méta pour la vérification avec la console de recherche de Google"
 
@@ -11049,7 +11049,7 @@ msgstr "Retirer"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "Supprimer"
 
@@ -11698,8 +11698,8 @@ msgstr "Droite"
 msgid "Risk score: {0}/100"
 msgstr "Score de risque : {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr "Sélectionner le contenu"
 msgid "Select dark mode variant for {label}"
 msgstr "Sélectionner la variante du mode sombre pour {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "Sélectionner l’image par défaut pour les réseaux sociaux"
 
@@ -12413,7 +12413,7 @@ msgstr "Sélectionner les images de la galerie"
 msgid "Select image"
 msgstr "Sélectionner une image"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "Sélectionner une image"
 
@@ -13716,7 +13716,7 @@ msgstr "L’identité de l’éditeur ne peut pas être vérifiée."
 msgid "The range has more entries than the calendar can show."
 msgstr "La plage contient plus d’entrées que le calendrier ne peut afficher."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "L'image référencée n'est plus disponible. Choisissez-en une nouvelle ou supprimez la référence."
 
@@ -15064,7 +15064,7 @@ msgstr "Utilisez l'authentification biométrique, la clé de sécurité ou le co
 msgid "Use your registered passkey to sign in securely."
 msgstr "Utilisez votre clé d'accès enregistrée pour vous connecter en toute sécurité."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Utilisé comme image Open Graph de repli lorsqu'une page n'en a pas. Taille recommandée : 1200×630."
 

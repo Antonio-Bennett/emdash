@@ -1537,7 +1537,7 @@ msgstr "Data tambahan untuk diimpor."
 msgid "Additional details"
 msgstr "Rincian tambahan"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr "Menambahkan aturan ke robots.txt yang meminta crawler AI untuk tidak menggunakan situs ini untuk pelatihan. Mesin pencari masih dapat mengindeksnya."
 
@@ -2286,8 +2286,8 @@ msgstr "Sebelum Anda melanjutkan:"
 msgid "Between {min} and {max}"
 msgstr "Antara {min} dan {max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Verifikasi Bing"
 
@@ -2666,7 +2666,7 @@ msgstr "Ubah domain"
 msgid "Change Favicon"
 msgstr "Ubah Favicon"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "Ubah Gambar"
 
@@ -2774,7 +2774,7 @@ msgstr "Perubahan di versi ini"
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "Perubahan telah disimpan, tetapi halaman yang disimpan mungkin masih menampilkan {pluralLower} yang lama. Coba lagi pemuatan ulang simpanan."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Karakter antara judul halaman dan nama situs (cth., \"Pos Saya | Situs Saya\")"
 
@@ -4018,7 +4018,7 @@ msgstr "Kustom"
 msgid "Custom Fields"
 msgstr "Kolom Kustom"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Konten robots.txt kustom. Biarkan kosong untuk menggunakan bawaan."
 
@@ -4098,12 +4098,12 @@ msgstr "Peran Bawaan"
 msgid "Default role:"
 msgstr "Peran bawaan:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "Gambar sosial bawaan"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "Gambar Sosial Bawaan"
 
@@ -4535,8 +4535,8 @@ msgstr "Menonaktifkan <0>{0}</0> akan mencegah mereka masuk hingga diaktifkan ke
 msgid "Disabling..."
 msgstr "Menonaktifkan..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr "Tolak pelatihan AI"
 
@@ -7020,8 +7020,8 @@ msgstr "Sudah tayang"
 msgid "Goes live {countdown}"
 msgstr "Sudah tayang {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Verifikasi Google"
 
@@ -8753,11 +8753,11 @@ msgstr "Gabungkan sel yang dipilih"
 msgid "Meta Description"
 msgstr "Deskripsi Meta"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Konten tag meta untuk verifikasi Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Konten tag meta untuk verifikasi Google Search Console"
 
@@ -11049,7 +11049,7 @@ msgstr "Hapus"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "Hapus"
 
@@ -11698,8 +11698,8 @@ msgstr "Kanan"
 msgid "Risk score: {0}/100"
 msgstr "Skor risiko: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr "Pilih konten"
 msgid "Select dark mode variant for {label}"
 msgstr "Pilih varian mode gelap untuk {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "Pilih gambar sosial bawaan"
 
@@ -12413,7 +12413,7 @@ msgstr "Pilih gambar galeri"
 msgid "Select image"
 msgstr "Pilih gambar"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "Pilih Gambar"
 
@@ -13716,7 +13716,7 @@ msgstr "Identitas penerbit tidak dapat diverifikasi."
 msgid "The range has more entries than the calendar can show."
 msgstr "Rentang memiliki lebih banyak entri dari yang dapat ditampilkan kalender."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "Gambar yang dirujuk tidak lagi tersedia. Pilih yang baru atau hapus referensi."
 
@@ -15064,7 +15064,7 @@ msgstr "Gunakan otentikasi biometrik, kunci keamanan, atau PIN perangkat Anda un
 msgid "Use your registered passkey to sign in securely."
 msgstr "Gunakan kunci sandi terdaftar Anda untuk masuk dengan aman."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Digunakan sebagai gambar Open Graph cadangan saat halaman tidak memilikinya. Ukuran yang direkomendasikan: 1200×630."
 

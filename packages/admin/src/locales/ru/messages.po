@@ -1537,7 +1537,7 @@ msgstr "Дополнительные данные для импорта."
 msgid "Additional details"
 msgstr "Дополнительные сведения"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2286,8 +2286,8 @@ msgstr "Прежде чем продолжить:"
 msgid "Between {min} and {max}"
 msgstr "От {min} до {max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "Подтверждение Bing"
 
@@ -2666,7 +2666,7 @@ msgstr "Сменить домен"
 msgid "Change Favicon"
 msgstr "Сменить значок сайта"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "Сменить изображение"
 
@@ -2774,7 +2774,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "Изменения сохранены, но кешированные страницы могут ещё показывать старые значения ({pluralLower}). Повторите обновление кеша."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "Символ между заголовком страницы и названием сайта (например, «Моя запись | Мой сайт»)"
 
@@ -4018,7 +4018,7 @@ msgstr "Своё"
 msgid "Custom Fields"
 msgstr "Дополнительные поля"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "Своё содержимое robots.txt. Оставьте пустым, чтобы использовать значение по умолчанию."
 
@@ -4098,12 +4098,12 @@ msgstr "Роль по умолчанию"
 msgid "Default role:"
 msgstr "Роль по умолчанию:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "Изображение для соцсетей по умолчанию"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "Изображение для соцсетей по умолчанию"
 
@@ -4535,8 +4535,8 @@ msgstr "Отключение <0>{0}</0> не даст войти, пока по�
 msgid "Disabling..."
 msgstr "Отключение..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7020,8 +7020,8 @@ msgstr "Выходит"
 msgid "Goes live {countdown}"
 msgstr "Выйдет {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "Подтверждение Google"
 
@@ -8753,11 +8753,11 @@ msgstr "Объединить выбранные ячейки"
 msgid "Meta Description"
 msgstr "Метаописание"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "Содержимое метатега для подтверждения Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "Содержимое метатега для подтверждения Google Search Console"
 
@@ -11049,7 +11049,7 @@ msgstr "Убрать"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "Убрать"
 
@@ -11698,8 +11698,8 @@ msgstr "Справа"
 msgid "Risk score: {0}/100"
 msgstr "Оценка риска: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "robots.txt"
 
@@ -12386,7 +12386,7 @@ msgstr "Выбрать материал"
 msgid "Select dark mode variant for {label}"
 msgstr "Выбрать вариант тёмной темы для {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "Выбрать изображение для соцсетей по умолчанию"
 
@@ -12413,7 +12413,7 @@ msgstr "Выбрать изображения галереи"
 msgid "Select image"
 msgstr "Выбрать изображение"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "Выбрать изображение"
 
@@ -13716,7 +13716,7 @@ msgstr "Личность издателя нельзя проверить."
 msgid "The range has more entries than the calendar can show."
 msgstr "В диапазоне больше записей, чем может показать календарь."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "Указанное изображение больше недоступно. Выберите другое или уберите ссылку."
 
@@ -15064,7 +15064,7 @@ msgstr "Для входа используйте биометрию устрой
 msgid "Use your registered passkey to sign in securely."
 msgstr "Войдите безопасно зарегистрированным ключом доступа."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "Запасное изображение Open Graph, если у страницы своего нет. Рекомендуемый размер: 1200×630."
 

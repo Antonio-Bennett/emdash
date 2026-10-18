@@ -1538,7 +1538,7 @@ msgstr "נתונים נוספים לייבוא."
 msgid "Additional details"
 msgstr "פרטים נוספים"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:278
+#: packages/admin/src/components/settings/SeoSettings.tsx:279
 msgid "Adds rules to robots.txt that ask AI crawlers not to use this site for training. Search engines can still index it."
 msgstr ""
 
@@ -2287,8 +2287,8 @@ msgstr "לפני שתמשיכו:"
 msgid "Between {min} and {max}"
 msgstr "בין {min} ל-{max}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:256
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:257
 msgid "Bing Verification"
 msgstr "אימות Bing"
 
@@ -2667,7 +2667,7 @@ msgstr "שינוי דומיין"
 msgid "Change Favicon"
 msgstr "שינוי favicon"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:212
+#: packages/admin/src/components/settings/SeoSettings.tsx:213
 msgid "Change Image"
 msgstr "שינוי תמונה"
 
@@ -2775,7 +2775,7 @@ msgstr ""
 msgid "Changes were saved, but cached pages may still show old {pluralLower}. Retry the cache refresh."
 msgstr "השינויים נשמרו, אבל ייתכן שדפים שמורים במטמון עדיין מציגים {pluralLower} ישנים. נסו שוב לרענן את המטמון."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:176
+#: packages/admin/src/components/settings/SeoSettings.tsx:177
 msgid "Character between page title and site name (e.g., \"My Post | My Site\")"
 msgstr "תו בין כותרת העמוד לשם האתר (למשל, \"הפוסט שלי | האתר שלי\")"
 
@@ -4019,7 +4019,7 @@ msgstr "מותאם אישית"
 msgid "Custom Fields"
 msgstr "שדות מותאמים אישית"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:271
+#: packages/admin/src/components/settings/SeoSettings.tsx:272
 msgid "Custom robots.txt content. Leave empty to use the default."
 msgstr "תוכן robots.txt מותאם אישית. השאירו ריק כדי להשתמש בברירת המחדל."
 
@@ -4099,12 +4099,12 @@ msgstr "תפקיד ברירת מחדל"
 msgid "Default role:"
 msgstr "תפקיד ברירת מחדל:"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:190
+#: packages/admin/src/components/settings/SeoSettings.tsx:191
 msgid "Default social image"
 msgstr "תמונה חברתית כברירת מחדל"
 
 #: packages/admin/src/components/MediaUsedIn.tsx:46
-#: packages/admin/src/components/settings/SeoSettings.tsx:181
+#: packages/admin/src/components/settings/SeoSettings.tsx:182
 msgid "Default Social Image"
 msgstr "תמונה חברתית כברירת מחדל"
 
@@ -4536,8 +4536,8 @@ msgstr "השבתת <0>{0}</0> תמנע מהם להתחבר עד להפעלה מ�
 msgid "Disabling..."
 msgstr "בהשבתה..."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:276
-#: packages/admin/src/components/settings/SeoSettings.tsx:286
+#: packages/admin/src/components/settings/SeoSettings.tsx:277
+#: packages/admin/src/components/settings/SeoSettings.tsx:287
 msgid "Disallow AI training"
 msgstr ""
 
@@ -7021,8 +7021,8 @@ msgstr "יתפרסם"
 msgid "Goes live {countdown}"
 msgstr "יתפרסם {countdown}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:242
-#: packages/admin/src/components/settings/SeoSettings.tsx:248
+#: packages/admin/src/components/settings/SeoSettings.tsx:243
+#: packages/admin/src/components/settings/SeoSettings.tsx:249
 msgid "Google Verification"
 msgstr "אימות Google"
 
@@ -8754,11 +8754,11 @@ msgstr "מיזוג תאים נבחרים"
 msgid "Meta Description"
 msgstr "תיאור meta"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:259
+#: packages/admin/src/components/settings/SeoSettings.tsx:260
 msgid "Meta tag content for Bing Webmaster Tools verification"
 msgstr "תוכן תגית meta לאימות Bing Webmaster Tools"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:251
+#: packages/admin/src/components/settings/SeoSettings.tsx:252
 msgid "Meta tag content for Google Search Console verification"
 msgstr "תוכן תגית meta לאימות Google Search Console"
 
@@ -11050,7 +11050,7 @@ msgstr "הסרה"
 #: packages/admin/src/components/settings/GeneralSettings.tsx:460
 #: packages/admin/src/components/settings/PasskeyItem.tsx:160
 #: packages/admin/src/components/settings/PasskeyItem.tsx:182
-#: packages/admin/src/components/settings/SeoSettings.tsx:221
+#: packages/admin/src/components/settings/SeoSettings.tsx:222
 msgid "Remove"
 msgstr "הסרה"
 
@@ -11699,8 +11699,8 @@ msgstr "ימין"
 msgid "Risk score: {0}/100"
 msgstr "ציון סיכון: {0}/100"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:264
-#: packages/admin/src/components/settings/SeoSettings.tsx:267
+#: packages/admin/src/components/settings/SeoSettings.tsx:265
+#: packages/admin/src/components/settings/SeoSettings.tsx:268
 msgid "robots.txt"
 msgstr "קובץ robots.txt"
 
@@ -12387,7 +12387,7 @@ msgstr "בחירת תוכן"
 msgid "Select dark mode variant for {label}"
 msgstr "בחירת גרסה למצב כהה עבור {label}"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:309
+#: packages/admin/src/components/settings/SeoSettings.tsx:310
 msgid "Select default social image"
 msgstr "בחירת תמונה חברתית כברירת מחדל"
 
@@ -12414,7 +12414,7 @@ msgstr "בחירת תמונות גלריה"
 msgid "Select image"
 msgstr "בחירת תמונה"
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:232
+#: packages/admin/src/components/settings/SeoSettings.tsx:233
 msgid "Select Image"
 msgstr "בחירת תמונה"
 
@@ -13717,7 +13717,7 @@ msgstr "לא ניתן לאמת את זהות המפרסם."
 msgid "The range has more entries than the calendar can show."
 msgstr "בטווח יש יותר פריטים ממה שלוח השנה יכול להציג."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:201
+#: packages/admin/src/components/settings/SeoSettings.tsx:202
 msgid "The referenced image is no longer available. Pick a new one or remove the reference."
 msgstr "התמונה המקושרת אינה זמינה עוד. בחרו תמונה חדשה או הסירו את הקישור."
 
@@ -15065,7 +15065,7 @@ msgstr "השתמשו באימות הביומטרי, מפתח האבטחה או �
 msgid "Use your registered passkey to sign in securely."
 msgstr "השתמשו במפתח הגישה הרשום שלכם כדי להתחבר באופן מאובטח."
 
-#: packages/admin/src/components/settings/SeoSettings.tsx:182
+#: packages/admin/src/components/settings/SeoSettings.tsx:183
 msgid "Used as the fallback Open Graph image when a page has none. Recommended size: 1200×630."
 msgstr "משמש כתמונת Open Graph חלופית כשלעמוד אין תמונה. גודל מומלץ: 1200×630."
 
