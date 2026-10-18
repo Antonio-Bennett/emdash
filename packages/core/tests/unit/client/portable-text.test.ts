@@ -75,6 +75,22 @@ describe("portableTextToMarkdown", () => {
 		);
 	});
 
+	it("writes an italic span with a long run of inner spaces in linear time", () => {
+		const text = `a${" ".repeat(200_000)}b`;
+		const blocks: PortableTextBlock[] = [
+			{
+				_type: "block",
+				style: "normal",
+				markDefs: [],
+				children: [{ _type: "span", text, marks: ["em"] }],
+			},
+		];
+		const start = performance.now();
+		const markdown = portableTextToMarkdown(blocks);
+		expect(performance.now() - start).toBeLessThan(1000);
+		expect(markdown).toBe(`_${text}_\n`);
+	});
+
 	it("converts links via markDefs", () => {
 		const blocks: PortableTextBlock[] = [
 			{
@@ -408,6 +424,57 @@ describe("markdownToPortableText", () => {
 			]);
 		});
 
+		it("joins a line with a long run of inner spaces in linear time", () => {
+			const line = `a${" ".repeat(200_000)}\tb`;
+			const start = performance.now();
+			const blocks = markdownToPortableText(`${line}\nnext\n`);
+			expect(performance.now() - start).toBeLessThan(1000);
+			expect(blocks.map(spansOf)).toEqual([[[`${line} next`, []]]]);
+		});
+
+		it("reads many underscores that open no emphasis in linear time", () => {
+			const markdown = " _x".repeat(70_000);
+			const start = performance.now();
+			const blocks = markdownToPortableText(markdown);
+			expect(performance.now() - start).toBeLessThan(1000);
+			expect(blocks.map(spansOf)).toEqual([[[markdown, []]]]);
+		});
+
+		it.each([
+			["a heading", `#${"\t".repeat(200_000)}\r`],
+			["a bullet item", `*${"\t".repeat(200_000)}\r`],
+			["a numbered item", `0.${"\t".repeat(200_000)}\r`],
+			["a thematic break of stars", `***${" ".repeat(200_000)}x`],
+			["a thematic break of underscores", `___${"\t".repeat(200_000)}x`],
+		])(
+			"converts a line that starts like %s and holds a long run of whitespace in linear time",
+			(_label, line) => {
+				for (const markdown of [line, `Paragraph\n${line}`]) {
+					const start = performance.now();
+					portableTextToMarkdown(markdownToPortableText(markdown));
+					expect(performance.now() - start).toBeLessThan(1000);
+				}
+			},
+		);
+
+		it("reads Markdown with Windows line endings like Markdown with Unix ones", () => {
+			const markdown = "# Title\n- item\n\nFirst line  \nsecond line\\\nthird line\n";
+			const fromWindows = markdownToPortableText(markdown.replaceAll("\n", "\r\n"));
+			resetKeyCounter();
+			expect(fromWindows).toEqual(markdownToPortableText(markdown));
+		});
+
+		it.each(["#  ", "-  ", "1.  "])(
+			"reads %j, a marker followed only by spaces, as a paragraph",
+			(line) => {
+				const blocks = markdownToPortableText(`${line}\n`);
+				expect(blocks.map((block) => [block.style, block.listItem])).toEqual([
+					["normal", undefined],
+				]);
+				expect(blocks.map(spansOf)).toEqual([[[line, []]]]);
+			},
+		);
+
 		it.each([
 			["a heading", "## Next"],
 			["a blockquote", "> Next"],
@@ -709,6 +776,10 @@ describe("PT <-> Markdown round-trip", () => {
 			["an empty line", [block(["a\n\nb"])]],
 			["a backslash at the end of a line", [block(["C:\\\nnext"])]],
 			["emphasis across a line break", [block(["a ", ["b\nc", "em"], " d"])]],
+			[
+				"emphasis that holds underscores",
+				[block([["my_var _ x", "em"], " and _a, ", ["b", "em"]])],
+			],
 			["list markers in a paragraph", [block(["- item\nmore\n\nthird\n2. z"])]],
 			[
 				"a paragraph after a list",
@@ -716,6 +787,11 @@ describe("PT <-> Markdown round-trip", () => {
 			],
 		])("keeps %s through a round trip", (_label, blocks) => {
 			expect(shapeOf(roundTrip(blocks))).toEqual(shapeOf(blocks));
+		});
+
+		it("keeps emphasis and a backslash at its end when whitespace follows inside the span", () => {
+			const blocks = roundTrip([block(["a ", ["C:\\ ", "em"], "b"])]);
+			expect(shapeOf(blocks)).toEqual(shapeOf([block(["a ", ["C:\\", "em"], " b"])]));
 		});
 
 		it.each<Child[][]>([

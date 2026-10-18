@@ -16,7 +16,7 @@ The CLI detects which fields need conversion by fetching the collection's field 
 
 ### Supported Markdown Syntax
 
-Standard blocks (lossless round-trip):
+Standard blocks:
 
 | Markdown                     | PT block                                   |
 | ---------------------------- | ------------------------------------------ |

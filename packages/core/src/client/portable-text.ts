@@ -221,15 +221,18 @@ function renderSpans(spans: PortableTextSpan[], markDefs: MarkDef[]): string {
 	for (const [index, span] of textSpans.entries()) {
 		const marks = span.marks ?? [];
 		let text = span.text ?? "";
-		if (!marks.includes("code")) text = escapeInlineMarkdown(text);
 
 		// `*x*` and `_x_` are not emphasis when whitespace follows the opening or
-		// precedes the closing delimiter, so that whitespace goes outside.
+		// precedes the closing delimiter, so that whitespace goes outside. Split it
+		// off before escaping, so a character next to a delimiter counts as an edge.
 		let leading = "";
 		let trailing = "";
 		if (marks.includes("em")) {
-			[, leading = "", text = "", trailing = ""] = EDGE_WHITESPACE_PATTERN.exec(text) ?? [];
+			const start = text.length - text.trimStart().length;
+			const end = Math.max(start, text.trimEnd().length);
+			[leading, text, trailing] = [text.slice(0, start), text.slice(start, end), text.slice(end)];
 		}
+		if (!marks.includes("code")) text = escapeInlineMarkdown(text);
 
 		for (const mark of marks) {
 			if (text === "") break;
@@ -274,29 +277,31 @@ function renderSpans(spans: PortableTextSpan[], markDefs: MarkDef[]): string {
 
 // Regex patterns for markdown parsing
 const OPAQUE_FENCE_PATTERN = /^<!--ec:block (.+) -->$/;
-const HEADING_PATTERN = /^(#{1,6})\s+(.+)$/;
-const UNORDERED_LIST_PATTERN = /^(\s*)[-*+]\s+(.+)$/;
-const ORDERED_LIST_PATTERN = /^(\s*)\d+\.\s+(.+)$/;
+// The text starts at a non-space: `\s+(.+)` backtracks quadratically on long runs of whitespace.
+const HEADING_PATTERN = /^(#{1,6})\s+(\S.*)$/;
+const UNORDERED_LIST_PATTERN = /^(\s*)[-*+]\s+(\S.*)$/;
+const ORDERED_LIST_PATTERN = /^(\s*)\d+\.\s+(\S.*)$/;
 const IMAGE_PATTERN = /^!\[([^\]]*)\]\(([^)]+)\)$/;
 const CODE_FENCE_PATTERN = /^(```|~~~)/;
 // In CommonMark only an ordered list that starts at 1 can interrupt a paragraph.
 const PARAGRAPH_INTERRUPTING_ORDERED_LIST_PATTERN = /^\s*1\.\s+\S/;
 // Table rows, thematic breaks and setext underlines stay one block per line.
-const UNJOINABLE_LINE_PATTERN = /^\s*\||^ {0,3}(?:-+|=+|(?:\*[ \t]*){3,}|(?:_[ \t]*){3,})[ \t]*$/;
+const UNJOINABLE_LINE_PATTERN =
+	/^\s*\||^ {0,3}(?:-+|=+|\*(?:[ \t]*\*){2,}|_(?:[ \t]*_){2,})[ \t]*$/;
 // An odd number of trailing backslashes ends in a backslash that is not escaped.
 const BACKSLASH_HARD_BREAK_PATTERN = /(?:^|[^\\])(?:\\\\)*\\$/;
-const SPACES_HARD_BREAK_PATTERN = / {2,}$/;
-const TRAILING_SPACES_PATTERN = /[ \t]+$/;
 // CommonMark emphasis: `_` does not open or close inside a word, a single `*` next
 // to another `*` does neither, and a `*` with whitespace on both sides is text.
+// Inside `_x_` an underscore is text only between two word characters or two
+// whitespace characters; any other `_` ends the scan, which keeps it linear.
 const INLINE_MARKDOWN_PATTERN =
-	/(\*\*(.+?)\*\*)|((?<![\p{L}\p{N}])_(?!\s)(.+?)(?<!\s)_(?![\p{L}\p{N}]))|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|((?<!\*)\*([^\s*](?:(?:[^*]|(?<=\s)\*(?=\s))*?[^\s*])?)\*(?!\*))/dgsu;
+	/(\*\*(.+?)\*\*)|((?<![\p{L}\p{N}])_(?!\s)((?:[^_]|(?<=[\p{L}\p{N}])_(?=[\p{L}\p{N}])|(?<=\s)_(?=\s))+?)(?<!\s)_(?![\p{L}\p{N}]))|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|((?<!\*)\*([^\s*](?:(?:[^*]|(?<=\s)\*(?=\s))*?[^\s*])?)\*(?!\*))/dgsu;
 const WORD_CHARACTER_PATTERN = /[\p{L}\p{N}]/u;
 const WHITESPACE_PATTERN = /\s/;
 const ASCII_PUNCTUATION_PATTERN = /[!-/:-@[-`{-~]/;
 const ORDERED_LIST_NUMBER_PATTERN = /^(\s*\d+)\./;
 const LEADING_WHITESPACE_PATTERN = /^(\s*)/;
-const EDGE_WHITESPACE_PATTERN = /^(\s*)(.*?)(\s*)$/s;
+const LINE_BREAK_PATTERN = /\r?\n/;
 // Stands in for an escaped character while INLINE_MARKDOWN_PATTERN runs.
 const ESCAPED_CHARACTER = "\uE000";
 
@@ -306,7 +311,7 @@ const ESCAPED_CHARACTER = "\uE000";
  */
 export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 	const blocks: PortableTextBlock[] = [];
-	const lines = markdown.split("\n");
+	const lines = markdown.split(LINE_BREAK_PATTERN);
 	let i = 0;
 
 	while (i < lines.length) {
@@ -401,13 +406,11 @@ export function markdownToPortableText(markdown: string): PortableTextBlock[] {
 		const afterListItem = blocks.at(-1)?.listItem != null && lines[i - 1]?.trim() !== "";
 		const paragraph = [line];
 		i++;
-		while (
-			i < lines.length &&
-			!UNJOINABLE_LINE_PATTERN.test(line) &&
-			continuesParagraph(lines[i], afterListItem)
-		) {
-			joinParagraphLine(paragraph, lines[i]);
-			i++;
+		if (!UNJOINABLE_LINE_PATTERN.test(line)) {
+			while (i < lines.length && continuesParagraph(lines[i], afterListItem)) {
+				joinParagraphLine(paragraph, lines[i]);
+				i++;
+			}
 		}
 		blocks.push(makeBlock(paragraph.join("")));
 	}
@@ -435,6 +438,13 @@ function continuesParagraph(line: string, afterListItem: boolean): boolean {
 	);
 }
 
+// A loop instead of /[ \t]+$/, which is quadratic on long runs of spaces or tabs.
+function trimTrailingSpaces(line: string): string {
+	let end = line.length;
+	while (end > 0 && (line[end - 1] === " " || line[end - 1] === "\t")) end--;
+	return line.slice(0, end);
+}
+
 /**
  * Appends the next line to a paragraph whose last entry is the line before it.
  * In CommonMark a line ending in two spaces or a backslash is a hard break; any
@@ -443,10 +453,10 @@ function continuesParagraph(line: string, afterListItem: boolean): boolean {
 function joinParagraphLine(paragraph: string[], next: string): void {
 	const line = paragraph.pop() ?? "";
 	const backslashBreak = BACKSLASH_HARD_BREAK_PATTERN.test(line);
-	const hardBreak = backslashBreak || SPACES_HARD_BREAK_PATTERN.test(line);
-	const head = (backslashBreak ? line.slice(0, -1) : line).replace(TRAILING_SPACES_PATTERN, "");
+	const hardBreak = backslashBreak || line.endsWith("  ");
+	const head = trimTrailingSpaces(backslashBreak ? line.slice(0, -1) : line);
 	// A line holding only the hard break also drops the space before it.
-	if (head === "") paragraph.push((paragraph.pop() ?? "").replace(TRAILING_SPACES_PATTERN, ""));
+	if (head === "") paragraph.push(trimTrailingSpaces(paragraph.pop() ?? ""));
 	paragraph.push(head + (hardBreak ? "\n" : " "), next.trimStart());
 }
 
