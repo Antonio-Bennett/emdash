@@ -16,10 +16,17 @@ import { Kysely, type RawBuilder, sql, type Dialect } from "kysely";
 
 import { buildStatusCondition, isPostgres } from "./database/dialect-helpers.js";
 import { kyselyLogOption } from "./database/instrumentation.js";
+import { jsonTextValues } from "./database/json-recordset.js";
 import { selectTaxonomyDefs } from "./database/repositories/taxonomy-def.js";
 import { decodeCursor, encodeCursor, InvalidCursorError } from "./database/repositories/types.js";
 import { validateIdentifier } from "./database/validate.js";
-import { getI18nConfig } from "./i18n/config.js";
+import { getI18nConfig, getLocaleCandidates, type I18nConfig } from "./i18n/config.js";
+import {
+	canonicalLocaleColumn,
+	storedLocaleOrder,
+	localeMatches,
+	localeOrder,
+} from "./i18n/query.js";
 import type { Database } from "./index.js";
 import { primeSeoPanel } from "./page/seo-panel.js";
 import { getRequestContext } from "./request-context.js";
@@ -150,7 +157,23 @@ function foldedHydrationSelects(db: Kysely<any>, type: string, outer: string) {
 	const termAgg = pg
 		? sql`coalesce(json_agg(${termObj}) FILTER (WHERE ${selectedTermId} IS NOT NULL), '[]'::json)`
 		: sql`json_group_array(${termObj}) FILTER (WHERE ${selectedTermId} IS NOT NULL)`;
-	const terms = sql`(SELECT ${termAgg} FROM ${sql.ref("content_taxonomies")} AS ct LEFT JOIN ${sql.ref("taxonomies")} AS exact_term ON exact_term.translation_group = ct.taxonomy_id AND exact_term.locale = ${o}.locale LEFT JOIN ${sql.ref("taxonomies")} AS default_term ON default_term.translation_group = ct.taxonomy_id AND default_term.locale = ${defaultLocale} WHERE ct.collection = ${type} AND ct.entry_id = ${o}.translation_group) AS ${sql.ref("_emdash_terms")}`;
+	const hasLocaleAliases = Object.keys(getI18nConfig()?.localeAliases ?? {}).length > 0;
+	const terms = hasLocaleAliases
+		? sql`(SELECT ${termAgg} FROM ${sql.ref("content_taxonomies")} AS ct
+		LEFT JOIN ${sql.ref("taxonomies")} AS exact_term ON exact_term.id = (
+			SELECT candidate.id FROM taxonomies AS candidate
+			WHERE candidate.translation_group = ct.taxonomy_id
+				AND ${canonicalLocaleColumn("candidate.locale")} = ${canonicalLocaleColumn(`${outer}.locale`)}
+			ORDER BY ${storedLocaleOrder("candidate.locale")}, candidate.id LIMIT 1
+		)
+		LEFT JOIN ${sql.ref("taxonomies")} AS default_term ON default_term.id = (
+			SELECT candidate.id FROM taxonomies AS candidate
+			WHERE candidate.translation_group = ct.taxonomy_id
+				AND ${localeMatches("candidate.locale", defaultLocale)}
+			ORDER BY ${localeOrder("candidate.locale", defaultLocale)}, candidate.id LIMIT 1
+		)
+		WHERE ct.collection = ${type} AND ct.entry_id = ${o}.translation_group) AS ${sql.ref("_emdash_terms")}`
+		: sql`(SELECT ${termAgg} FROM ${sql.ref("content_taxonomies")} AS ct LEFT JOIN ${sql.ref("taxonomies")} AS exact_term ON exact_term.translation_group = ct.taxonomy_id AND exact_term.locale = ${o}.locale LEFT JOIN ${sql.ref("taxonomies")} AS default_term ON default_term.translation_group = ct.taxonomy_id AND default_term.locale = ${defaultLocale} WHERE ct.collection = ${type} AND ct.entry_id = ${o}.translation_group) AS ${sql.ref("_emdash_terms")}`;
 
 	const bylineInner = obj(
 		"'id', b.id, 'slug', b.slug, 'displayName', b.display_name, 'bio', b.bio, 'avatarMediaId', b.avatar_media_id, 'avatarStorageKey', m.storage_key, 'avatarAlt', m.alt, 'avatarBlurhash', m.blurhash, 'avatarDominantColor', m.dominant_color, 'websiteUrl', b.website_url, 'userId', b.user_id, 'isGuest', b.is_guest, 'createdAt', b.created_at, 'updatedAt', b.updated_at, 'locale', b.locale, 'translationGroup', b.translation_group",
@@ -161,7 +184,17 @@ function foldedHydrationSelects(db: Kysely<any>, type: string, outer: string) {
 			)
 		: sql.raw("json_object('roleLabel', cb.role_label, 'sortOrder', cb.sort_order, 'byline', ");
 	const credit = sql`${creditObj}${bylineInner})`;
-	const bylines = sql`(SELECT ${agg(credit)} FROM ${sql.ref("_emdash_content_bylines")} AS cb ${foldJoin} ${sql.ref("_emdash_bylines")} AS b ON b.translation_group = cb.byline_id LEFT JOIN ${sql.ref("media")} AS m ON m.id = b.avatar_media_id WHERE cb.collection_slug = ${type} AND cb.content_id = ${o}.id AND b.locale = ${o}.locale) AS ${sql.ref("_emdash_bylines")}`;
+	const bylines = hasLocaleAliases
+		? sql`(SELECT ${agg(credit)} FROM ${sql.ref("_emdash_content_bylines")} AS cb
+		${foldJoin} ${sql.ref("_emdash_bylines")} AS b ON b.id = (
+			SELECT candidate.id FROM _emdash_bylines AS candidate
+			WHERE candidate.translation_group = cb.byline_id
+				AND ${canonicalLocaleColumn("candidate.locale")} = ${canonicalLocaleColumn(`${outer}.locale`)}
+			ORDER BY ${storedLocaleOrder("candidate.locale")}, candidate.id LIMIT 1
+		)
+		LEFT JOIN ${sql.ref("media")} AS m ON m.id = b.avatar_media_id
+		WHERE cb.collection_slug = ${type} AND cb.content_id = ${o}.id) AS ${sql.ref("_emdash_bylines")}`
+		: sql`(SELECT ${agg(credit)} FROM ${sql.ref("_emdash_content_bylines")} AS cb ${foldJoin} ${sql.ref("_emdash_bylines")} AS b ON b.translation_group = cb.byline_id LEFT JOIN ${sql.ref("media")} AS m ON m.id = b.avatar_media_id WHERE cb.collection_slug = ${type} AND cb.content_id = ${o}.id AND b.locale = ${o}.locale) AS ${sql.ref("_emdash_bylines")}`;
 	// Uncorrelated existence probe (evaluated once per statement, not per row):
 	// 1 when `_emdash_bylines` has any row, NULL when empty. An empty table
 	// means an empty fold is authoritative — no credit in any locale, no
@@ -729,12 +762,15 @@ export async function loadEntriesByGroups(
 	const statusFilter = options.publishedOnly ? sql`AND status = ${"published"}` : sql``;
 	const booleanFieldsSelect = foldedBooleanFieldsSelect(db, type);
 	const localeChain = options.localeChain ?? [];
+	const localeCandidates = [
+		...new Set(localeChain.flatMap((locale) => getLocaleCandidates(locale))),
+	];
 	const chainPosition =
-		localeChain.length > 0
+		localeCandidates.length > 0
 			? sql`CASE locale ${sql.join(
-					localeChain.map((locale, index) => sql`WHEN ${locale} THEN ${sql.lit(index)}`),
+					localeCandidates.map((locale, index) => sql`WHEN ${locale} THEN ${sql.lit(index)}`),
 					sql` `,
-				)} ELSE ${sql.lit(localeChain.length)} END,`
+				)} ELSE ${sql.lit(localeCandidates.length)} END,`
 			: sql``;
 
 	const entries: LoadedEntry[] = [];
@@ -817,7 +853,7 @@ function mapRevisionData(
 let virtualConfig:
 	| {
 			database?: { config: unknown };
-			i18n?: { defaultLocale: string; locales: string[]; prefixDefaultLocale?: boolean } | null;
+			i18n?: I18nConfig | null;
 	  }
 	| undefined;
 let virtualCreateDialect: ((config: unknown) => Dialect) | undefined;
@@ -1094,12 +1130,33 @@ function bindableFilterValue(value: unknown): unknown {
  * Build AND conditions for non-taxonomy field filters.
  * Returns an array of sql fragments; empty if no field filters apply.
  * Field names are validated against FIELD_NAME_PATTERN to prevent injection.
+ *
+ * D1 allows 100 bound parameters per statement, and an array filter binds one
+ * per value. So when the arrays in `fields` hold more than `SQL_BATCH_SIZE`
+ * values between them, the longest arrays are bound as a single JSON parameter
+ * each (`IN (SELECT value FROM json_each(?))`, or `jsonb_array_elements_text`
+ * on PostgreSQL) until the rest fit. The statement stays one query, so
+ * ordering, cursors, limit and offset stay in the database. Values bound that
+ * way compare as text.
  */
 function buildFieldConditions(
+	db: Kysely<Database>,
 	fields: Record<string, WhereValue>,
 	tablePrefix?: string,
 ): ReturnType<typeof sql>[] {
 	const conditions: ReturnType<typeof sql>[] = [];
+
+	const arrayLengths = Object.entries(fields)
+		.filter((entry): entry is [string, string[]] => Array.isArray(entry[1]))
+		.map(([key, value]) => [key, value.length] as const)
+		.toSorted((a, b) => b[1] - a[1]);
+	let inlineValues = arrayLengths.reduce((sum, [, length]) => sum + length, 0);
+	const asJson = new Set<string>();
+	for (const [key, length] of arrayLengths) {
+		if (inlineValues <= SQL_BATCH_SIZE) break;
+		asJson.add(key);
+		inlineValues -= length;
+	}
 
 	for (const [key, value] of Object.entries(fields)) {
 		if (!FIELD_NAME_PATTERN.test(key)) {
@@ -1111,12 +1168,24 @@ function buildFieldConditions(
 
 		if (isWhereRange(value)) {
 			const { gt, gte, lt, lte } = value;
+			if (gt === undefined && gte === undefined && lt === undefined && lte === undefined) {
+				// An object with no bound (for example `{ in: [...] }`) would add no
+				// condition, and the query would return unfiltered rows.
+				console.warn(
+					`[emdash] where filter: "${key}" is an object with none of gt/gte/lt/lte and was ignored (use an array for IN)`,
+				);
+				continue;
+			}
 			if (gt !== undefined) conditions.push(sql`${ref} > ${bindableFilterValue(gt)}`);
 			if (gte !== undefined) conditions.push(sql`${ref} >= ${bindableFilterValue(gte)}`);
 			if (lt !== undefined) conditions.push(sql`${ref} < ${bindableFilterValue(lt)}`);
 			if (lte !== undefined) conditions.push(sql`${ref} <= ${bindableFilterValue(lte)}`);
 		} else if (Array.isArray(value)) {
-			if (value.length > 0) {
+			if (value.length === 0) continue;
+			if (asJson.has(key)) {
+				const values = value.map((v) => String(bindableFilterValue(v)));
+				conditions.push(sql`${ref} IN (${jsonTextValues(db, values)})`);
+			} else {
 				conditions.push(
 					sql`${ref} IN (${sql.join(value.map((v) => sql`${bindableFilterValue(v)}`))})`,
 				);
@@ -1195,7 +1264,7 @@ async function resolveTermGroups(
 					.as("large"),
 			),
 		);
-	if (locale) query = query.where("locale", "=", locale);
+	if (locale) query = query.where(localeMatches("locale", locale));
 	const rows = await query.execute();
 	const groups = new Set<string>();
 	let large = false;
@@ -1368,7 +1437,7 @@ export function buildTaxonomyPivotQuery(
 	// Authoritative re-check on the joined `ec_*` row.
 	const deletedR = deletedIsNull ? sql`r.deleted_at IS NULL` : sql`r.deleted_at IS NOT NULL`;
 	const statusR = status !== undefined ? sql`AND ${buildStatusCondition(db, status, "r")}` : sql``;
-	const localeR = locale ? sql`AND r.locale = ${locale}` : sql``;
+	const localeR = locale ? sql`AND ${localeMatches("r.locale", locale)}` : sql``;
 
 	if (isIndexedSort) {
 		const sortRef = sql.ref(`r.${primary.field}`);
@@ -1553,6 +1622,8 @@ export interface EntryFilter {
 	 * Used by preview mode to serve draft revision data.
 	 */
 	revisionId?: string;
+	/** Restrict slug resolution to published rows; explicit IDs remain addressable. */
+	publishedOnly?: boolean;
 	/**
 	 * Locale to scope slug lookup. Only affects slug resolution;
 	 * IDs are globally unique and always resolve regardless of locale.
@@ -1604,7 +1675,7 @@ export async function loadPublishedDates(type: string, locale?: string) {
 		SELECT published_at, updated_at FROM ${sql.ref(tableName)}
 		WHERE deleted_at IS NULL
 		AND ${buildStatusCondition(db, "published")}
-		${locale ? sql`AND locale = ${locale}` : sql``}
+		${locale ? sql`AND ${localeMatches("locale", locale)}` : sql``}
 		ORDER BY published_at DESC, id DESC
 	`.execute(db);
 	return result.rows;
@@ -1819,9 +1890,9 @@ export function emdashLoader(): LiveLoader<EntryData, EntryFilter, LoaderCollect
 					// conditions reference unprefixed columns as before.
 					const orderByClause = buildOrderByClause(orderBy);
 					const statusCondition = buildStatusCondition(db, status);
-					const localeFilter = locale ? sql`AND locale = ${locale}` : sql``;
+					const localeFilter = locale ? sql`AND ${localeMatches("locale", locale)}` : sql``;
 					const cursorCond = cursorCondition ? sql`AND ${cursorCondition}` : sql``;
-					const fieldConds = buildFieldConditions(fieldFilters);
+					const fieldConds = buildFieldConditions(db, fieldFilters);
 					const fieldCondsSQL =
 						fieldConds.length > 0 ? sql`${sql.join(fieldConds, sql` AND `)}` : null;
 
@@ -1840,7 +1911,7 @@ export function emdashLoader(): LiveLoader<EntryData, EntryFilter, LoaderCollect
 								AND ct.entry_id = ${sql.ref(tableName)}.translation_group
 								AND t.name = ${f.name}
 								AND t.slug IN (${sql.join(f.slugs.map((s) => sql`${s}`))})
-							${locale ? sql`AND t.locale = ${locale}` : sql``}
+							${locale ? sql`AND ${localeMatches("t.locale", locale)}` : sql``}
 						)`,
 									),
 									sql` `,
@@ -2029,19 +2100,21 @@ export function emdashLoader(): LiveLoader<EntryData, EntryFilter, LoaderCollect
 					)
 					FROM (SELECT ${bylinesExistSelect}, ${booleanFieldsSelect}) AS metadata
 				) AS _emdash_entry_metadata`;
+				const slugVisibility = filter?.publishedOnly ? sql`AND c.status = ${"published"}` : sql``;
 				const result = locale
 					? await sql<Record<string, unknown>>`
 							SELECT c.*, ${seoSelect}, ${termsSelect}, ${bylinesSelect}, ${metadataSelect}
 							FROM ${sql.ref(tableName)} AS c
 							WHERE c.deleted_at IS NULL
-							AND ((c.slug = ${id} AND c.locale = ${locale}) OR c.id = ${id})
+							AND ((c.slug = ${id} AND ${localeMatches("c.locale", locale)} ${slugVisibility}) OR c.id = ${id})
+							ORDER BY CASE WHEN c.id = ${id} THEN 0 ELSE 1 END, ${localeOrder("c.locale", locale)}, c.id
 							LIMIT 1
 						`.execute(db)
 					: await sql<Record<string, unknown>>`
 							SELECT c.*, ${seoSelect}, ${termsSelect}, ${bylinesSelect}, ${metadataSelect}
 							FROM ${sql.ref(tableName)} AS c
 							WHERE c.deleted_at IS NULL
-							AND (c.slug = ${id} OR c.id = ${id})
+							AND ((c.slug = ${id} ${slugVisibility}) OR c.id = ${id})
 							LIMIT 1
 						`.execute(db);
 
