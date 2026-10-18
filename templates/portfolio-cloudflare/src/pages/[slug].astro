@@ -1,5 +1,10 @@
 ---
-import { decodeSlug, getEmDashEntry, getMenu, getSeoMeta } from "emdash";
+import {
+	decodeSlug,
+	getEmDashEntry,
+	getMenuWithCacheHint,
+	getSeoMeta,
+} from "emdash";
 import Base from "../layouts/Base.astro";
 import EditorNote from "../components/EditorNote.astro";
 import PageView from "../components/PageView.astro";
@@ -24,7 +29,7 @@ const { entry: page, error, cacheHint } = await getEmDashEntry("pages", slug);
 if (error) return new Response("Could not load the page", { status: 500 });
 
 async function menuLinksTo(path: string): Promise<boolean> {
-	const menu = await getMenu("primary");
+	const { data: menu } = await getMenuWithCacheHint("primary");
 	return (menu?.items ?? []).some((item) => {
 		try {
 			return (
