@@ -29,7 +29,7 @@ export async function getOAuthEnv(): Promise<Record<string, unknown>> {
 	return resolveOAuthEnv(
 		platformEnv,
 		typeof process !== "undefined" ? process.env : undefined,
-		import.meta.env,
+		import.meta.env.DEV ? import.meta.env : {},
 		import.meta.env.DEV,
 	);
 }
