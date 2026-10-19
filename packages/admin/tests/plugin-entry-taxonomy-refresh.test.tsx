@@ -95,7 +95,8 @@ it("refreshes plugin-added categories before a later sidebar edit replaces the a
 		if (url === "/_emdash/api/taxonomies/category/terms") return json({ terms });
 		if (url === "/_emdash/api/content/posts/post_1/terms/category") {
 			if (method === "POST") {
-				assignedIds = JSON.parse(String(init?.body)).termIds;
+				if (typeof init?.body !== "string") throw new Error("Expected a JSON request body");
+				assignedIds = JSON.parse(init.body).termIds;
 				savedSelections.push(assignedIds);
 			}
 			return json({
@@ -106,7 +107,8 @@ it("refreshes plugin-added categories before a later sidebar edit replaces the a
 		if (
 			url === "/_emdash/api/content/posts/post_1/plugin-extensions/categorizer/panel/categories"
 		) {
-			const interaction = JSON.parse(String(init?.body));
+			if (typeof init?.body !== "string") throw new Error("Expected a JSON request body");
+			const interaction = JSON.parse(init.body);
 			if (interaction.type === "form_submit") {
 				assignedIds = ["notes", "design"];
 				return json({ blocks: [], refresh: true });
