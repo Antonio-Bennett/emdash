@@ -32,7 +32,7 @@ const cleanupDirs = new Set<string>();
 async function setupTest() {
 	const root = await mkdtemp(join(tmpdir(), "plugin-test-config-"));
 	cleanupDirs.add(root);
-	emdashPluginTest({ dir: root });
+	void emdashPluginTest({ dir: root });
 	return mocks.getSetup();
 }
 
