@@ -207,14 +207,15 @@ function isWordCharacter(character: string | undefined): boolean {
 const WRAPPING_MARKS = new Set(["strong", "em", "code", "strike-through", "strikethrough"]);
 
 function renderSpans(spans: PortableTextSpan[], markDefs: MarkDef[]): string {
-	const textSpans = spans.filter((span) => span._type === "span");
+	// An empty span renders nothing, so it must not stand between a span and its neighbour.
+	const textSpans = spans.filter((span) => span._type === "span" && (span.text ?? "") !== "");
 	const isLink = (mark: string) => markDefs.some((d) => d._key === mark && d._type === "link");
 	// The character next to the span in the output is a letter or digit only when
 	// the neighbour renders without delimiters.
-	const touchesWord = (neighbour: PortableTextSpan | undefined, edge: number) =>
+	const touchesWord = (neighbour: PortableTextSpan | undefined, edge: RegExp) =>
 		neighbour !== undefined &&
 		!(neighbour.marks ?? []).some((mark) => WRAPPING_MARKS.has(mark) || isLink(mark)) &&
-		isWordCharacter(neighbour.text?.at(edge));
+		edge.test(neighbour.text ?? "");
 
 	let result = "";
 
@@ -249,13 +250,20 @@ function renderSpans(spans: PortableTextSpan[], markDefs: MarkDef[]): string {
 					case "em": {
 						// An underscore inside a word does not open or close emphasis.
 						const insideWord =
-							(leading === "" && touchesWord(textSpans[index - 1], -1)) ||
-							(trailing === "" && touchesWord(textSpans[index + 1], 0));
+							(leading === "" &&
+								touchesWord(textSpans[index - 1], WORD_CHARACTER_AT_END_PATTERN)) ||
+							(trailing === "" &&
+								touchesWord(textSpans[index + 1], WORD_CHARACTER_AT_START_PATTERN));
 						text = insideWord ? `*${text}*` : `_${text}_`;
 						break;
 					}
 					case "code":
-						text = `\`${text}\``;
+						// One span per line: a line inside a code span that starts with `# ` or
+						// `- ` would start a new block.
+						text = text
+							.split("\n")
+							.map((line) => (line === "" ? "" : `\`${line}\``))
+							.join("\n");
 						break;
 					case "strike-through":
 					case "strikethrough":
@@ -297,11 +305,14 @@ const BACKSLASH_HARD_BREAK_PATTERN = /(?:^|[^\\])(?:\\\\)*\\$/;
 const INLINE_MARKDOWN_PATTERN =
 	/(\*\*(.+?)\*\*)|((?<![\p{L}\p{N}])_(?!\s)((?:[^_]|(?<=[\p{L}\p{N}])_(?=[\p{L}\p{N}])|(?<=\s)_(?=\s))+?)(?<!\s)_(?![\p{L}\p{N}]))|(`(.+?)`)|(\[(.+?)\]\((.+?)\))|(~~(.+?)~~)|((?<!\*)\*([^\s*](?:(?:[^*]|(?<=\s)\*(?=\s))*?[^\s*])?)\*(?!\*))/dgsu;
 const WORD_CHARACTER_PATTERN = /[\p{L}\p{N}]/u;
+const WORD_CHARACTER_AT_START_PATTERN = /^[\p{L}\p{N}]/u;
+const WORD_CHARACTER_AT_END_PATTERN = /[\p{L}\p{N}]$/u;
 const WHITESPACE_PATTERN = /\s/;
 const ASCII_PUNCTUATION_PATTERN = /[!-/:-@[-`{-~]/;
 const ORDERED_LIST_NUMBER_PATTERN = /^(\s*\d+)\./;
 const LEADING_WHITESPACE_PATTERN = /^(\s*)/;
 const LINE_BREAK_PATTERN = /\r?\n/;
+const LEADING_SPACES_PATTERN = /^[ \t]+/;
 // Stands in for an escaped character while INLINE_MARKDOWN_PATTERN runs.
 const ESCAPED_CHARACTER = "\uE000";
 
@@ -454,10 +465,11 @@ function joinParagraphLine(paragraph: string[], next: string): void {
 	const line = paragraph.pop() ?? "";
 	const backslashBreak = BACKSLASH_HARD_BREAK_PATTERN.test(line);
 	const hardBreak = backslashBreak || line.endsWith("  ");
-	const head = trimTrailingSpaces(backslashBreak ? line.slice(0, -1) : line);
+	// Whitespace before a backslash break is text; before a two-space break it is the break.
+	const head = backslashBreak ? line.slice(0, -1) : trimTrailingSpaces(line);
 	// A line holding only the hard break also drops the space before it.
 	if (head === "") paragraph.push(trimTrailingSpaces(paragraph.pop() ?? ""));
-	paragraph.push(head + (hardBreak ? "\n" : " "), next.trimStart());
+	paragraph.push(head + (hardBreak ? "\n" : " "), next.replace(LEADING_SPACES_PATTERN, ""));
 }
 
 // ---------------------------------------------------------------------------

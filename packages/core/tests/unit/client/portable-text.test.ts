@@ -769,6 +769,8 @@ describe("PT <-> Markdown round-trip", () => {
 			["other block markers", [block(["a\n> b\n- c\n+ d\n* e\n| f |\n---\n===\n* * *"])]],
 			["image and opaque block lines", [block(['![x](y)\n<!--ec:block {"_type":"x"} -->'])]],
 			["a line break", [block(["Line one\nline two"])]],
+			["spaces and tabs before a line break", [block(["a  \nb\t\nc"])]],
+			["no-break and ideographic spaces at the start of a line", [block(["a\n\u00a0b\n\u3000c"])]],
 			[
 				"a wrapped line that starts with a number",
 				[block(["It was finished in\n2024. Then it shipped."])],
@@ -789,6 +791,13 @@ describe("PT <-> Markdown round-trip", () => {
 			expect(shapeOf(roundTrip(blocks))).toEqual(shapeOf(blocks));
 		});
 
+		it("keeps the text of inline code that spans a line break", () => {
+			const blocks = roundTrip([block(["x ", ["a\n# b\n\n- c", "code"]])]);
+			expect(shapeOf(blocks)).toEqual(
+				shapeOf([block(["x ", ["a", "code"], "\n", ["# b", "code"], "\n\n", ["- c", "code"]])]),
+			);
+		});
+
 		it("keeps emphasis and a backslash at its end when whitespace follows inside the span", () => {
 			const blocks = roundTrip([block(["a ", ["C:\\ ", "em"], "b"])]);
 			expect(shapeOf(blocks)).toEqual(shapeOf([block(["a ", ["C:\\", "em"], " b"])]));
@@ -800,6 +809,8 @@ describe("PT <-> Markdown round-trip", () => {
 			[["Re", ["read this", "em"], " now"]],
 			[["Go ", ["read this", "em"], "now"]],
 			[["x", ["y * z", "em"], "w"]],
+			[["𠮷", ["x", "em"]]],
+			[[["x", "em"], "𠮷"]],
 			[
 				[
 					["a", "em"],
@@ -809,6 +820,11 @@ describe("PT <-> Markdown round-trip", () => {
 		])("preserves emphasis in %j", (children) => {
 			const blocks = [block(children)];
 			expect(shapeOf(roundTrip(blocks))).toEqual(shapeOf(blocks));
+		});
+
+		it("keeps emphasis next to a word across an empty span", () => {
+			const blocks = roundTrip([block(["un", "", ["believ", "em"], "", "able"])]);
+			expect(shapeOf(blocks)).toEqual(shapeOf([block(["un", ["believ", "em"], "able"])]));
 		});
 
 		it("moves whitespace at the edges of emphasis outside it", () => {
@@ -839,7 +855,7 @@ describe("PT <-> Markdown round-trip", () => {
 				["Item", "more", "Line one\n2. x"],
 			],
 			["a paragraph that ends in line breaks", [block(["a\n\n"])], ["a"]],
-			["lines that hold only a block marker", [block(["# \n- \n1. \nx"])], ["#\n-\n1.\nx"]],
+			["lines that hold only a block marker", [block(["# \n- \n1. \nx"])], ["# \n- \n1. \nx"]],
 		])("reads back the line breaks in %s", (_label, blocks, texts) => {
 			expect(roundTrip(blocks).map((b) => b.children[0]!.text)).toEqual(texts);
 		});
