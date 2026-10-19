@@ -1,19 +1,35 @@
 /**
- * Environment OAuth provider credentials are read from.
+ * Choose the env object OAuth provider credentials are read from.
  *
- * On Cloudflare, `virtual:emdash/env` re-exports the `cloudflare:workers`
- * env and that object is returned unchanged. Other adapters export
- * `undefined`. Vite replaces `import.meta.env` with the environment from
- * build time, so a Node server overlays `process.env` and those values win.
- * Keys present only on `import.meta.env` are kept, which is how `astro dev`
- * sees credentials loaded from `.env`.
+ * A non-null `platformEnv` is the Cloudflare Workers env and is returned
+ * unchanged. Otherwise the runtime env is used. `buildEnv` fills gaps only
+ * in dev: Vite inlines `import.meta.env`, so spreading it in a production
+ * server bundle bakes build-machine secrets in and shadows credentials
+ * configured on the host. See `readDefaultEnv` in `config/secrets.ts`.
+ */
+export function resolveOAuthEnv(
+	platformEnv: Record<string, unknown> | null | undefined,
+	runtimeEnv: Record<string, unknown> | undefined,
+	buildEnv: Record<string, unknown>,
+	dev: boolean,
+): Record<string, unknown> {
+	if (platformEnv != null) return platformEnv;
+	return dev ? { ...buildEnv, ...runtimeEnv } : { ...runtimeEnv };
+}
+
+/**
+ * Read OAuth credentials for the current adapter.
+ *
+ * `virtual:emdash/env` is the Worker env on Cloudflare and `undefined` on
+ * Node. Production reads `process.env` only. Build-time `import.meta.env`
+ * is a dev fallback for values `astro dev` loaded from `.env`.
  */
 export async function getOAuthEnv(): Promise<Record<string, unknown>> {
 	const { env: platformEnv } = await import("virtual:emdash/env");
-	if (platformEnv != null) return platformEnv;
-
-	if (typeof process !== "undefined") {
-		return { ...import.meta.env, ...process.env };
-	}
-	return { ...import.meta.env };
+	return resolveOAuthEnv(
+		platformEnv,
+		typeof process !== "undefined" ? process.env : undefined,
+		import.meta.env,
+		import.meta.env.DEV,
+	);
 }

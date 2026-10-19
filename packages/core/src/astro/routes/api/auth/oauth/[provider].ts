@@ -128,8 +128,8 @@ export const GET: APIRoute = async ({ params, request, locals, redirect }) => {
 
 		// Astro 6 removed `Astro.locals.runtime.env` (reading it throws).
 		// Cloudflare bindings come from `virtual:emdash/env`. On Node that
-		// export is undefined, and runtime `process.env` overrides the
-		// build-time `import.meta.env` snapshot.
+		// export is undefined; production reads `process.env`, and
+		// build-time `import.meta.env` is only a dev fallback.
 		const env = await getOAuthEnv();
 		const providers = getOAuthConfig(env);
 
