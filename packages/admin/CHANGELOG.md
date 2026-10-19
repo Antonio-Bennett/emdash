@@ -1,5 +1,21 @@
 # @emdash-cms/admin
 
+## 1.3.2
+
+### Patch Changes
+
+- [#4037](https://github.com/emdash-cms/emdash/pull/4037) [`b82016d`](https://github.com/emdash-cms/emdash/commit/b82016d5b9f051b77689585ed0504b77e1929db4) Thanks [@marks-zyz](https://github.com/marks-zyz)! - Translates 1,170 admin strings that fell back to English for Brazilian Portuguese (`pt-BR`) admins, including the publishing calendar, site transfer, relations between content types, editor tables and HTML blocks, passkey setup, the Change domain dialog, the plugin registry, and the invite, sign-in, and domain-change emails. Plugin release strings now consistently use “versão” for release.
+
+- [#4160](https://github.com/emdash-cms/emdash/pull/4160) [`936a4cb`](https://github.com/emdash-cms/emdash/commit/936a4cb79ab24866cee3f669b9abe0daa5e70359) Thanks [@khoinguyenpham04](https://github.com/khoinguyenpham04)! - Fixes uneven spacing between blocks in the rich text editor. Quotes keep the same space from the text around them as code blocks, images and tables, a heading sits close to the image, code block, table or embed it introduces, and a divider sits midway between a paragraph and the heading after it. In sections, widgets, and every rich text field other than an entry's main content, a heading also gets clearly more space above it than paragraphs have between them, and quotes, code blocks, images, tables and embeds all keep the same space around them.
+
+- [#4160](https://github.com/emdash-cms/emdash/pull/4160) [`936a4cb`](https://github.com/emdash-cms/emdash/commit/936a4cb79ab24866cee3f669b9abe0daa5e70359) Thanks [@khoinguyenpham04](https://github.com/khoinguyenpham04)! - Fixes images and videos in the rich text editor showing an empty caption line, which left more space below them than above. A caption field shows only while the block has a caption or you are writing one. To add one, select **Add caption** in the image toolbar or among a video's corner buttons, or move to the caption with Tab from the selected block.
+
+- [#4160](https://github.com/emdash-cms/emdash/pull/4160) [`936a4cb`](https://github.com/emdash-cms/emdash/commit/936a4cb79ab24866cee3f669b9abe0daa5e70359) Thanks [@khoinguyenpham04](https://github.com/khoinguyenpham04)! - Fixes a quote of several paragraphs reopening as one quote per paragraph. After an entry is saved and reopened, the quote is one block again, so its drag handle, block menu and selection cover the whole quote. The saved content is unchanged.
+
+- [#4210](https://github.com/emdash-cms/emdash/pull/4210) [`2ed2755`](https://github.com/emdash-cms/emdash/commit/2ed27550881c89603a45f6e2212e62209c5a7ac9) Thanks [@danielmlr](https://github.com/danielmlr)! - Completes the German admin translations so German-speaking editors see localized text in the version history, including the change list, version view, and restore dialog, as well as menu renaming and CSS classes on menu links, the AI-training setting in SEO, byline form errors, the WordPress import's bot-protection error, and scheduling labels. Themes are now called "Theme" throughout instead of "Design".
+- Updated dependencies []:
+  - @emdash-cms/blocks@1.3.2
+
 ## 1.3.1
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @emdash-cms/sandbox-workerd
 
+## 0.9.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - emdash@1.3.2
+
 ## 0.9.5
 
 ### Patch Changes
