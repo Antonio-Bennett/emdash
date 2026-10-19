@@ -69,7 +69,7 @@ Clicking a version in the Revisions list shows that version in the editor, read-
 This plan doesn't change when revisions are created. The co-editing RFC does:
 
 - In every collection with revisions, an autosave replaces the previous revision only if that one was an autosave too, so a version saved with **Save** is kept.
-- In a co-editing room, the room autosaves the shared document as [checkpoints](real-time-co-editing.md#terms). It also saves a kept version before every publish, schedule, unpublish, unschedule, restore, discard and move to Trash.
+- In a co-editing room, the room autosaves the shared document as [checkpoints](real-time-co-editing.md#terms). Before a person publishes, schedules, unpublishes or unschedules the entry, restores a version, discards the draft or moves the entry to Trash, the room also keeps the current draft as a version.
 
 In collections that use co-editing:
 
@@ -81,7 +81,7 @@ In collections that use co-editing:
   - Opening a version changes only your own editor. Everyone else keeps editing, and the list doesn't reorder while you browse it.
   - **Back to editing** returns to the shared document as it is now.
   - If an autosave replaces the version you're viewing, Restore reports that the version is gone, and the list refreshes.
-- **Restore.** This replaces "Restore works like it does today" and the restore-conflict case. Restore applies the version for everyone. The room first saves a kept version of the current draft, the version is restored, and then the room copies the restored fields into the shared document.
+- **Restore.** This replaces "Restore works like it does today" and the restore-conflict case. Restore applies the version for everyone. The room first keeps the current draft as a version, the version is restored, and then the room copies the restored fields into the shared document.
 
 ## Verification
 
