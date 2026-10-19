@@ -1,6 +1,7 @@
-import { describe, it, expect } from "vitest";
+import { afterEach, describe, expect, it, vi } from "vitest";
 
 import { GET as oauthCallback } from "../../../src/astro/routes/api/auth/oauth/[provider]/callback.js";
+import { setupTestDatabase, teardownTestDatabase } from "../../utils/test-db.js";
 
 /**
  * Regression for #1736: the callback route used to read
@@ -28,6 +29,10 @@ function makeThrowingRuntimeLocals() {
 }
 
 describe("OAuth callback route (#1736)", () => {
+	afterEach(() => {
+		vi.unstubAllEnvs();
+	});
+
 	it("does not throw when locals.runtime.env is a throwing getter (Astro 6+ Cloudflare)", async () => {
 		const request = new Request(
 			"http://localhost:4321/_emdash/api/auth/oauth/google/callback?code=abc&state=xyz",
@@ -46,5 +51,29 @@ describe("OAuth callback route (#1736)", () => {
 		const location = response.headers.get("Location") ?? "";
 		expect(location).toContain("error=provider_not_configured");
 		expect(location).not.toContain("error=oauth_error");
+	});
+
+	it("reads provider credentials from the runtime env on Node", async () => {
+		const db = await setupTestDatabase();
+		try {
+			vi.stubEnv("EMDASH_OAUTH_GOOGLE_CLIENT_ID", "runtime-client-id");
+			vi.stubEnv("EMDASH_OAUTH_GOOGLE_CLIENT_SECRET", "runtime-client-secret");
+
+			const response = await oauthCallback({
+				params: { provider: "google" },
+				request: new Request(
+					"http://localhost:4321/_emdash/api/auth/oauth/google/callback?code=abc&state=xyz",
+				),
+				locals: { emdash: { db, config: {} } },
+				session: { set: () => undefined },
+				redirect: (url: string) => new Response(null, { status: 302, headers: { Location: url } }),
+			} as unknown as Parameters<typeof oauthCallback>[0]);
+
+			const location = response.headers.get("Location") ?? "";
+			expect(location).not.toContain("error=provider_not_configured");
+			expect(location).toContain("error=invalid_state");
+		} finally {
+			await teardownTestDatabase(db);
+		}
 	});
 });
