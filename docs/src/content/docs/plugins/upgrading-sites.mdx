@@ -20,6 +20,14 @@ After upgrading, your site may build and run without further changes. If the bui
 
 For the full list of changes in each package, see its entry on the [releases page](https://github.com/emdash-cms/emdash/releases).
 
+## Plugin KV storage when changing execution mode
+
+`ctx.kv` data is shared between in-process (`plugins: []`) and sandboxed (`sandboxed: []`) execution for the same plugin ID.
+
+Earlier releases stored non-`settings:` KV keys separately in each mode. Upgrading copies existing sandbox KV values into the shared store through a database migration. If a key already has an in-process value, that value takes precedence. The original sandbox rows remain in `_plugin_storage` under the `__kv` collection for manual recovery; they are not read by the upgraded runtime. `settings:` keys keep their existing behavior.
+
+Back up your database, stop older application instances and plugin jobs, and upgrade `emdash` together with `@emdash-cms/cloudflare` or `@emdash-cms/sandbox-workerd`, whichever your site uses. Run the site's [database migrations](/deployment/core-migrations/) before resuming plugin writes. Do not run old and upgraded sandbox runners against the same database during this upgrade: old runners still write to the separate store.
+
 ## Breaking changes
 
 ### Changed: three first-party plugins use a default export
