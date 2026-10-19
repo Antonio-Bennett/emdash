@@ -1,5 +1,5 @@
 import { type Kysely, type KyselyPlugin, sql } from "kysely";
-import { expect, it } from "vitest";
+import { expect, it, vi } from "vitest";
 
 import { up } from "../../src/database/migrations/092_plugin_kv_options.js";
 
@@ -22,9 +22,9 @@ async function insertKv(db: Kysely<unknown>, rows: readonly KvRow[]): Promise<vo
 async function readOptions(db: Kysely<unknown>) {
 	return (
 		await sql<{ name: string; value: string; revision: string }>`
-			SELECT name, value, revision FROM options ORDER BY name
+			SELECT name, value, revision FROM options
 		`.execute(db)
-	).rows;
+	).rows.toSorted((a, b) => a.name.localeCompare(b.name));
 }
 
 function failAfter(count: number): KyselyPlugin {
@@ -70,18 +70,89 @@ export function pluginKvMigrationCases(getDb: () => Kysely<unknown>): void {
 
 		await up(db);
 
-		expect((await readOptions(db)).filter((row) => row.name.startsWith("plugin:"))).toEqual([
-			{ name: "plugin:alpha:Settings:case", value: "false", revision: "rev-case" },
-			{ name: "plugin:alpha:config", value: '{"native":true}', revision: "native-revision" },
-			{ name: "plugin:alpha:empty", value: "null", revision: "rev-null" },
-			{ name: "plugin:alpha:other", value: '{"ignored":true}', revision: "rev-other" },
-			{ name: "plugin:alpha:settings_backup", value: '{"name":"backup"}', revision: "rev-backup" },
-			{ name: "plugin:beta:config", value: '{"name":"Beta"}', revision: "rev-beta" },
-		]);
+		expect((await readOptions(db)).filter((row) => row.name.startsWith("plugin:"))).toEqual(
+			[
+				{ name: "plugin:alpha:Settings:case", value: "false", revision: "rev-case" },
+				{ name: "plugin:alpha:config", value: '{"native":true}', revision: "native-revision" },
+				{ name: "plugin:alpha:empty", value: "null", revision: "rev-null" },
+				{ name: "plugin:alpha:other", value: '{"ignored":true}', revision: "rev-other" },
+				{
+					name: "plugin:alpha:settings_backup",
+					value: '{"name":"backup"}',
+					revision: "rev-backup",
+				},
+				{ name: "plugin:beta:config", value: '{"name":"Beta"}', revision: "rev-beta" },
+			].toSorted((a, b) => a.name.localeCompare(b.name)),
+		);
 		const legacy = await sql<{
 			count: number;
 		}>`SELECT COUNT(*) AS count FROM _plugin_storage`.execute(db);
 		expect(Number(legacy.rows[0]?.count)).toBe(9);
+	});
+
+	it("reports differing keys privately and retains the sandbox copy for recovery", async () => {
+		const db = getDb();
+		await insertKv(db, [
+			{
+				pluginId: "seo",
+				id: "config",
+				data: '{"name":"sandbox-private"}',
+				revision: "sandbox-revision",
+			},
+			{ pluginId: "seo", id: "same", data: "null", revision: "same-revision" },
+		]);
+		await sql`INSERT INTO options (name, value, revision) VALUES
+			('plugin:seo:config', '{"name":"native-private"}', 'native-revision'),
+			('plugin:seo:same', 'null', 'native-same-revision')`.execute(db);
+		const warning = vi.spyOn(console, "warn").mockImplementation(() => {});
+		try {
+			await up(db);
+			expect(warning).toHaveBeenCalledExactlyOnceWith(
+				expect.stringContaining("resolve-conflicting-kv-values"),
+				{ pluginId: "seo", key: "config" },
+			);
+			expect(JSON.stringify(warning.mock.calls)).not.toContain("private");
+		} finally {
+			warning.mockRestore();
+		}
+		const conflicts = await sql<{
+			plugin_id: string;
+			key: string;
+			shared_value: string;
+			sandbox_value: string;
+		}>`
+			SELECT s.plugin_id, s.id AS key, o.value AS shared_value, s.data AS sandbox_value
+			FROM _plugin_storage AS s
+			JOIN options AS o ON o.name = 'plugin:' || s.plugin_id || ':' || s.id
+			WHERE s.collection = '__kv'
+			  AND substr(s.id, 1, 9) <> 'settings:'
+			  AND o.value <> s.data
+		`.execute(db);
+		expect(conflicts.rows).toEqual([
+			{
+				plugin_id: "seo",
+				key: "config",
+				shared_value: '{"name":"native-private"}',
+				sandbox_value: '{"name":"sandbox-private"}',
+			},
+		]);
+		expect((await readOptions(db)).find((row) => row.name === "plugin:seo:config")).toMatchObject({
+			value: '{"name":"native-private"}',
+			revision: "native-revision",
+		});
+		await sql`
+			UPDATE options
+			SET value = s.data, revision = s.revision
+			FROM _plugin_storage AS s
+			WHERE s.collection = '__kv'
+			  AND s.plugin_id = 'seo'
+			  AND s.id = 'config'
+			  AND options.name = 'plugin:' || s.plugin_id || ':' || s.id
+		`.execute(db);
+		expect((await readOptions(db)).find((row) => row.name === "plugin:seo:config")).toMatchObject({
+			value: '{"name":"sandbox-private"}',
+			revision: "sandbox-revision",
+		});
 	});
 
 	it("resumes after a partially completed batch and is safe to retry", async () => {
